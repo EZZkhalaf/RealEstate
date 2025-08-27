@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { ButtonCustomize } from "../../Molecule/AgentCard";
 import InputGray from "../../Atoms/InputGray";
-import HeroButtonsListing from "../../Molecule/HeroButtonsListing";
-import PriceRangeHero from "../../Molecule/PriceRangeHero";
+import HeroButtonsListing from "../../Molecule/PriceHero/HeroButtonsListing";
+import PriceRangeHero from "../../Molecule/PriceHero/PriceRangeHero";
 
 const PriceHero = () => {
   const [selected, setSelected] = useState(null);

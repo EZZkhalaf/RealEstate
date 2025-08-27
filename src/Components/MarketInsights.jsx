@@ -38,7 +38,7 @@ const MarketInsights = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full mt-20 px-25">
+    <div className="flex flex-col items-center w-full mt-20 lg:px-25">
       <TitleAtom title={"Market Insights"} />
       <ParagraphDescription
         description={

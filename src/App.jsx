@@ -8,9 +8,9 @@ import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 min-w-full">
       <Navigation />
-      <div className="pt-19">
+      <div className="pt-19 ">
         <Home />
       </div>
       <Footer />

@@ -6,7 +6,7 @@ const Navigation = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 flex justify-around items-center w-full bg-gray-200 p-4 shadow-md z-50"
+      className="fixed top-0 left-0 right-0 flex justify-around items-center sm:h-10 md:h-15 lg:h-20 w-full bg-gray-200 p-4 shadow-md z-50 "
       style={{ fontFamily: "Newsreader" }}
     >
       <div>{"                "}</div>

@@ -30,7 +30,7 @@ export const ButtonCustomize = ({
     <button
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-row w-fit items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-2 w-full justify-center rounded-lg border border-gray-300 text-sm duration-300`}
+      className={`flex flex-row w-fit items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-1 w-full justify-center rounded-lg border border-gray-300 text-sm duration-300`}
       style={{
         backgroundColor: isHovered ? hoverColor : color,
         color: isHovered ? hoverTextColor : textColor,

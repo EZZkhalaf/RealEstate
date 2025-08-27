@@ -93,7 +93,7 @@ const FeaturedProp = () => {
 
   const filterOptions = ["Low to High", "High to Low", "Square Footage"];
   return (
-    <div className="w-full  flex flex-col  mt-14 pr-25 pl-25">
+    <div className="w-full  flex flex-col  mt-20 pr-25 pl-25">
       <div className="flex flex-col items-center w-full">
         <TitleAtom title={"Featured Properties"} />
 
@@ -103,8 +103,8 @@ const FeaturedProp = () => {
           }
         />
       </div>
-      <div className="flex flex-row justify-between mb-7 mt-7">
-        <div className="flex flex-wrap gap-3 justify-between ">
+      <div className="flex flex-row justify-between mb-7 mt-7 sm:gap-7">
+        <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1 justify-between ">
           {generes.map((b, index) => (
             <FilterButton text={b} key={index} />
           ))}

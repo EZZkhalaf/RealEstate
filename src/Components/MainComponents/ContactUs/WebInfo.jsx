@@ -1,5 +1,5 @@
 import React from "react";
-import WebInfoElement from "../../Molecule/WebInfoElement";
+import WebInfoElement from "../../Molecule/WebInfo/WebInfoElement";
 
 const WebInfo = () => {
   const contactInfo = [
@@ -21,7 +21,7 @@ const WebInfo = () => {
   ];
 
   return (
-    <div className="flex flex-col  py-20 px-20">
+    <div className="flex flex-col  py-20 lg:px-20 md:text-sm sm:text-sm">
       <h1 className="text-white text-3xl font-bold mb-6">
         Ready to Get Started?
       </h1>

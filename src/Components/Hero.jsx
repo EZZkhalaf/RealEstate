@@ -23,9 +23,9 @@ const Hero = () => {
   return (
     <div
       style={{ backgroundImage: `url(${HeroImage})` }}
-      className=" bg-center bg-no-repeat w-full min-h-screen flex flex-col items-center justify-center bg-black/40"
+      className=" bg-center bg-no-repeat min-w-full bg-fit min-h-screen flex flex-col items-center justify-center bg-black/40"
     >
-      <div className="absolute bg-center bg-no-repeat w-full min-h-screen flex flex-col items-center justify-center bg-black/40">
+      <div className="relative bg-center bg-no-repeat w-full min-h-screen flex flex-col items-center justify-center bg-black/40">
         <div className="flex flex-col items-center justify-center h-full gap-10">
           <HeroTitle
             title1={"Your Gateway to"}

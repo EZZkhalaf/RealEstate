@@ -51,7 +51,7 @@ const AgentsCards = () => {
   ];
   return (
     <div className="flex flex-col items-center">
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 w-full mt-10 gap-6">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full mt-10 gap-6">
         {agents.map((a) => (
           <AgentCard agent={a} />
         ))}

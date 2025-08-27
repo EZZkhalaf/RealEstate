@@ -26,8 +26,8 @@ const EstateCards = ({ estates }) => {
   return (
     <div className="min-w-full">
       {estates ? (
-        <div className=" flex flex-col items-center">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-8">
+        <div className=" flex flex-col items-center w-full">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1   gap-8">
             {estates.map((e) => (
               <div key={e.id} className="rounded-2xl">
                 <SingleCard estate={e} key={e.id} />

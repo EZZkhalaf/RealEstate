@@ -12,10 +12,10 @@ const InsightCard = ({ insight }) => {
         <p className="text-green-600 font-semibold">{insight.growth}</p>
       </div>
       <div>
-        <h1 className="text-xl font-semibold ">{insight.title}</h1>
+        <h1 className="text-xl font-semibold px-2 ">{insight.title}</h1>
       </div>
 
-      <div className="text-xs">
+      <div className="text-xs px-4">
         <ParagraphDescription description={insight.description} />
       </div>
 
