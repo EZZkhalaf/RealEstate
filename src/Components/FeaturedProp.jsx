@@ -5,6 +5,15 @@ import estate1 from "../assets/estate1.avif";
 import estate2 from "../assets/estate2.avif";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
+
+const FilterButton = ({ text }) => {
+  return (
+    <button className="bg-white text-sm hover:bg-gray-300 p-1 rounded-lg border-1 border-gray-300 px-3">
+      {text}
+    </button>
+  );
+};
+
 const FeaturedProp = () => {
   const [selected, setSelected] = useState();
   const generes = [
@@ -93,10 +102,8 @@ const FeaturedProp = () => {
       </div>
       <div className="flex flex-row justify-between mb-7 mt-7">
         <div className="flex flex-wrap gap-3 justify-between ">
-          {generes.map((b) => (
-            <button className="bg-white text-sm hover:bg-gray-300 p-1 rounded-lg border-1 border-gray-300 px-3">
-              {b}
-            </button>
+          {generes.map((b, index) => (
+            <FilterButton text={b} key={index} />
           ))}
         </div>
 

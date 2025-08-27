@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ButtonCustomize } from "./Molecule/AgentCard";
 
 const Navigation = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -20,12 +21,23 @@ const Navigation = () => {
       </div>
 
       <div className="flex justify-around items-center gap-6">
-        <button className="text-black hover:bg-gray-300 p-2 rounded">
-          Sign In
-        </button>
-        <button className="text-white bg-[#0b3557e6] p-2 hover:bg-[#144b7d] rounded">
-          Get Started
-        </button>
+        <ButtonCustomize
+          text="Sign In"
+          // icon="email"
+          color="#FFFFFF"
+          hoverColor="#0B355780"
+          textColor="#0B3557"
+          hoverTextColor="#FFFFFF"
+        />
+
+        <ButtonCustomize
+          text="Get Started"
+          // icon="email"
+          color="#0b3557e6"
+          hoverColor="#144b7d"
+          textColor="#FFFFFF"
+          hoverTextColor="#FFFFFF"
+        />
       </div>
     </div>
   );

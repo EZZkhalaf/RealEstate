@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 
 const ImageAndNameProfile = ({ image, name, locations }) => {
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 ">
       <img
         src={image}
         alt="Profile image"
@@ -30,14 +30,14 @@ export const ButtonCustomize = ({
     <button
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-row items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-1 w-full justify-center rounded-lg border border-gray-300 text-sm duration-300`}
+      className={`flex flex-row w-fit items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-2 w-full justify-center rounded-lg border border-gray-300 text-sm duration-300`}
       style={{
         backgroundColor: isHovered ? hoverColor : color,
         color: isHovered ? hoverTextColor : textColor,
       }}
     >
-      <Icon icon={`mdi-light:${icon}`} height="20" width="20" />
-      <p className="font-semibold">{text}</p>
+      {icon && <Icon icon={`mdi-light:${icon}`} height="20" width="20" />}
+      <p className="font-semibold ">{text}</p>
     </button>
   );
 };
@@ -69,22 +69,24 @@ const AgentCard = ({ agent }) => {
         ))}
       </div>
 
-      <ButtonCustomize
-        text="Contact"
-        icon="email"
-        color="#0B3557"
-        hoverColor="#0B3557E6"
-        textColor="#FFFFFF"
-        hoverTextColor="#FFFFFF"
-      />
-      <ButtonCustomize
-        text="Call"
-        icon="phone"
-        color="#FFFFFF"
-        hoverColor="#9CA3AF"
-        textColor="#000000"
-        hoverTextColor="#FFFFFF"
-      />
+      <div className="flex justify-around items-center gap-6">
+        <ButtonCustomize
+          text="Contact"
+          icon="email"
+          color="#0B3557"
+          hoverColor="#0B3557E6"
+          textColor="#FFFFFF"
+          hoverTextColor="#FFFFFF"
+        />
+        <ButtonCustomize
+          text="Call"
+          icon="phone"
+          color="#FFFFFF"
+          hoverColor="#9CA3AF"
+          textColor="#000000"
+          hoverTextColor="#FFFFFF"
+        />
+      </div>
     </div>
   );
 };

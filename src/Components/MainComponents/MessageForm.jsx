@@ -1,5 +1,6 @@
 import React from "react";
 import ViewButtonAtom from "../Atoms/ViewButtonAtom";
+import InputGray from "../Atoms/InputGray";
 
 const MessageForm = () => {
   const properties = [
@@ -13,23 +14,13 @@ const MessageForm = () => {
       <form className=" bg-white p-8 mt-20 rounded-lg shadow-2xl  ">
         <h1 className="text-xl font-semibold py-4">Send us a message</h1>
         <div className="flex flex-col gap-3">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="bg-gray-300 rounded-lg p-2"
-          />
+          <InputGray type={"text"} placeholder={"full Name"} />
           <div className="flex justify-between gap-2 w-full">
-            <input
-              type="email"
-              placeholder="Email"
-              className="bg-gray-300 p-2 rounded-lg w-full"
-            />
-            <input
-              type="number"
-              placeholder="Phone"
-              className="bg-gray-300 p-2 rounded-lg w-full"
-            />
+            <InputGray type={"email"} placeholder={"Email"} />
+
+            <InputGray type={"Number"} placeholder={"Phone"} />
           </div>
+
           <select className="bg-gray-300 p-2 rounded-lg w-full">
             {properties.map((p) => (
               <option>{p}</option>
