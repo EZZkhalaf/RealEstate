@@ -1,7 +1,8 @@
 import React from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
-import AgentsCards from "./MainComponents/AgentsCards";
+import AgentsCards from "./MainComponents/OurAgents/AgentsCards";
+// import AgentsCards from "./MainComponents/AgentsCards";
 
 const OurAgents = () => {
   return (

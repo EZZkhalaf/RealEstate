@@ -1,5 +1,5 @@
 import React from "react";
-import ServiceCard from "../Molecule/ServiceCard";
+import ServiceCard from "../../Molecule/ServiceCard";
 
 const ServicesCards = ({ services }) => {
   return (

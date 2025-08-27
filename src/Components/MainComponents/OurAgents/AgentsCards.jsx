@@ -1,10 +1,10 @@
 import React from "react";
-import AgentCard from "../Molecule/AgentCard";
-import person1 from "../../assets/person1.jpg";
-import person2 from "../../assets/person2.jpeg";
-import person3 from "../../assets/person3.webp";
-import person4 from "../../assets/person4.jpg";
-import ViewButtonAtom from "../Atoms/ViewButtonAtom";
+import AgentCard from "../../Molecule/AgentCard";
+import person1 from "../../../assets/person1.jpg";
+import person2 from "../../../assets/person2.jpeg";
+import person3 from "../../../assets/person3.webp";
+import person4 from "../../../assets/person4.jpg";
+import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 
 const AgentsCards = () => {
   const agents = [

@@ -1,6 +1,6 @@
 import React from "react";
-import InsightCard from "../Molecule/InsightCard";
-import SummaryElementsInsight from "../Molecule/SummaryElementsInsight";
+import InsightCard from "../../Molecule/InsightCard";
+import SummaryElementsInsight from "../../Molecule/SummaryElementsInsight";
 
 const MarketInsightsSummaryListing = () => {
   const propertyStats = [

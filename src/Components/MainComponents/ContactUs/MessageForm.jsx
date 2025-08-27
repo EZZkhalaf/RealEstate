@@ -1,6 +1,6 @@
 import React from "react";
-import ViewButtonAtom from "../Atoms/ViewButtonAtom";
-import InputGray from "../Atoms/InputGray";
+import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
+import InputGray from "../../Atoms/InputGray";
 
 const MessageForm = () => {
   const properties = [

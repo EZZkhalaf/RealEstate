@@ -1,5 +1,5 @@
 import React from "react";
-import TitleAtom from "../Atoms/TitleAtom";
+import TitleAtom from "../../Atoms/TitleAtom";
 
 const InvestmentSummary = () => {
   const summary = [

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import ListSelect from "./Atoms/ListSelect";
-import EstateCards from "./MainComponents/EstateCards";
+// import EstateCards from "./MainComponents/Fea/EstateCards";
 import estate1 from "../assets/estate1.avif";
 import estate2 from "../assets/estate2.avif";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
+import EstateCards from "./MainComponents/FeaturedProps/EstateCards";
 
 const FilterButton = ({ text }) => {
   return (
-    <button className="bg-white text-sm hover:bg-gray-300 p-1 rounded-lg border-1 border-gray-300 px-3">
+    <button
+      className={`bg-white text-sm hover:bg-gray-300 p-1 rounded-lg border-1 border-gray-300 px-3 `}
+    >
       {text}
     </button>
   );

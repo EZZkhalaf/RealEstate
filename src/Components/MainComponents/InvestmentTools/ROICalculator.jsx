@@ -1,7 +1,7 @@
 import React from "react";
-import InputNumberAtom from "../Atoms/InputNumberAtom";
-import TitleAtom from "../Atoms/TitleAtom";
-import IconAtom from "../Atoms/IconAtom";
+import InputNumberAtom from "../../Atoms/InputNumberAtom";
+import TitleAtom from "../../Atoms/TitleAtom";
+import IconAtom from "../../Atoms/IconAtom";
 
 const ROICalculator = () => {
   return (

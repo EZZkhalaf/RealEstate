@@ -1,6 +1,6 @@
 import React from "react";
-import TitleAtom from "../Atoms/TitleAtom";
-import InsightWithIconAtom from "../Atoms/InsightWithIconAtom";
+import TitleAtom from "../../Atoms/TitleAtom";
+import InsightWithIconAtom from "../../Atoms/InsightWithIconAtom";
 import { Icon } from "@iconify/react";
 
 const MarketInsightsSummary = () => {

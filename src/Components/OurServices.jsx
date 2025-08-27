@@ -1,7 +1,7 @@
 import React from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
-import ServicesCards from "./MainComponents/ServicesCards";
+import ServicesCards from "./MainComponents/OurServices/ServicesCards";
 
 const OurServices = () => {
   const services = [

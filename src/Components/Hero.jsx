@@ -1,8 +1,8 @@
 import React from "react";
 import HeroImage from "../assets/HeroImage.jpg";
-import PriceHero from "./MainComponents/PriceHero";
-import HeroTitle from "./MainComponents/HeroTitle";
-import HeroSummary from "./MainComponents/HeroSummary";
+import HeroTitle from "./MainComponents/Hero/HeroTitle";
+import PriceHero from "./MainComponents/Hero/PriceHero";
+import HeroSummary from "./MainComponents/Hero/HeroSummary";
 
 const Hero = () => {
   const summary = [

@@ -1,6 +1,5 @@
 import React from "react";
-import TitleAtom from "../Atoms/TitleAtom";
-import WebInfoElement from "../Molecule/WebInfoElement";
+import WebInfoElement from "../../Molecule/WebInfoElement";
 
 const WebInfo = () => {
   const contactInfo = [

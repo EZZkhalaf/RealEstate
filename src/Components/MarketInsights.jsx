@@ -1,8 +1,10 @@
 import React from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
-import InsightsListing from "./MainComponents/InsightsListing";
-import MarketInsightsSummaryListing from "./MainComponents/MarketInsightsSummaryListing";
+import InsightsListing from "./MainComponents/MarketInsights.jsx/InsightsListing";
+import MarketInsightsSummaryListing from "./MainComponents/MarketInsights.jsx/MarketInsightsSummaryListing";
+// import InsightsListing from "./MainComponents/InsightsListing";
+// import MarketInsightsSummaryListing from "./MainComponents/MarketInsightsSummaryListing";
 
 const MarketInsights = () => {
   const marketReports = [

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import CardImageArea from "../Molecule/CardImageArea";
-import CardBodyArea from "../Molecule/CardBodyArea";
+import CardImageArea from "../../Molecule/CardImageArea";
+import CardBodyArea from "../../Molecule/CardBodyArea";
 import { MdArrowOutward } from "react-icons/md";
-import ViewButtonAtom from "../Atoms/ViewButtonAtom";
+import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 
 const SingleCard = ({ estate }) => {
   const [imageHover, setImageHover] = useState(false);

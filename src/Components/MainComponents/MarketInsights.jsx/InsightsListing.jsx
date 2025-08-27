@@ -1,5 +1,5 @@
 import React from "react";
-import InsightCard from "../Molecule/InsightCard";
+import InsightCard from "../../Molecule/InsightCard";
 
 const InsightsListing = ({ insights }) => {
   return (

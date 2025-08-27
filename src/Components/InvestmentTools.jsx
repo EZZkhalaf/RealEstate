@@ -1,10 +1,10 @@
 import React from "react";
-import ROICalculator from "./MainComponents/ROICalculator";
-import InvestmentSummary from "./MainComponents/InvestmentSummary";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import ViewButtonAtom from "./Atoms/ViewButtonAtom";
-import MarketInsightsSummary from "./MainComponents/MarketInsightsSummary";
+import MarketInsightsSummary from "./MainComponents/InvestmentTools/MarketInsightsSummary";
+import ROICalculator from "./MainComponents/InvestmentTools/ROICalculator";
+import InvestmentSummary from "./MainComponents/InvestmentTools/InvestmentSummary";
 
 const InvestmentTools = () => {
   return (

@@ -1,6 +1,8 @@
 import React from "react";
-import WebInfo from "./MainComponents/WebInfo";
-import MessageForm from "./MainComponents/MessageForm";
+import WebInfo from "./MainComponents/ContactUs/WebInfo";
+import MessageForm from "./MainComponents/ContactUs/MessageForm";
+// import WebInfo from "./MainComponents/WebInfo";
+// import MessageForm from "./MainComponents/MessageForm";
 
 const ContactUs = () => {
   return (
