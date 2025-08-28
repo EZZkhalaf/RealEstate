@@ -30,8 +30,8 @@ const WebInfo = () => {
         estate goals.
       </p>
       <div className="flex flex-col">
-        {contactInfo.map((c) => (
-          <WebInfoElement info={c} />
+        {contactInfo.map((c, index) => (
+          <WebInfoElement key={index} info={c} />
         ))}
       </div>
     </div>

@@ -13,7 +13,7 @@ const EstateCards = ({ estates }) => {
         <div className=" flex flex-col items-center w-full">
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1   gap-8">
             {estates.map((e, index) => (
-              <div key={e.id} className="rounded-2xl">
+              <div key={index} className="rounded-2xl">
                 <ScrollAnimation key={index}>
                   <SingleCard estate={e} key={index} />
                 </ScrollAnimation>

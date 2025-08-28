@@ -34,8 +34,8 @@ const Footer = () => {
       <div className="flex flex-col justify-center">
         <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1   gap-4 px-4">
           <FooterIconsAndLocation />
-          {menuData.map((col) => (
-            <FooterColumns title={col.title} elements={col.items} />
+          {menuData.map((col, index) => (
+            <FooterColumns key={index} title={col.title} elements={col.items} />
           ))}
         </div>
 

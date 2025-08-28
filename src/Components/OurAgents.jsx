@@ -7,17 +7,19 @@ import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const OurAgents = () => {
   return (
-    <div className="flex flex-col items-center mt-20">
-      <ScrollAnimation>
-        <TitleAtom title={"Meet Our Agents"} />
-      </ScrollAnimation>
-      <ScrollAnimation>
-        <ParagraphDescription
-          description={
-            "Work with Saudi Arabia's top-rated real estate professionals"
-          }
-        />
-      </ScrollAnimation>
+    <div className="grid grid-cols-1 mt-20">
+      <div className="flex flex-col items-center">
+        <ScrollAnimation>
+          <TitleAtom title={"Meet Our Agents"} />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <ParagraphDescription
+            description={
+              "Work with Saudi Arabia's top-rated real estate professionals"
+            }
+          />
+        </ScrollAnimation>
+      </div>
       <ScrollAnimation>
         <AgentsCards />
       </ScrollAnimation>

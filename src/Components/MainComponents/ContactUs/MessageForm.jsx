@@ -22,8 +22,8 @@ const MessageForm = () => {
           </div>
 
           <select className="bg-gray-300 p-2 rounded-lg w-full">
-            {properties.map((p) => (
-              <option>{p}</option>
+            {properties.map((p, index) => (
+              <option key={index}>{p}</option>
             ))}
           </select>
 

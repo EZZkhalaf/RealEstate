@@ -103,16 +103,15 @@ const FeaturedProp = () => {
           }
         />
       </div>
-      <div className="flex flex-row justify-between mb-7 mt-7 sm:gap-7">
-        <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1 justify-between ">
+
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-4 px-3">
+        <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
           {generes.map((b, index) => (
             <FilterButton text={b} key={index} />
           ))}
         </div>
 
-        <div>
-          <ListSelect list={filterOptions} />
-        </div>
+        <ListSelect list={filterOptions} />
       </div>
       <div className="w-full px-0">
         <EstateCards estates={estates} />

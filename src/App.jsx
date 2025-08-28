@@ -8,7 +8,7 @@ import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <div className="bg-gray-100 min-w-full">
+    <div className="bg-gray-100 p-0">
       <Navigation />
       <div className="pt-19 ">
         <Home />

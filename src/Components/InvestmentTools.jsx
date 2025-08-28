@@ -9,14 +9,14 @@ import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const InvestmentTools = () => {
   return (
-    <div className="flex flex-col items-center mt-20">
+    <div className="flex flex-col items-center mt-20 p-3">
       <TitleAtom title={"Investment Tools"} />
       <ParagraphDescription
         description={
           "Calculate your returns and make informed investment decisions"
         }
       />
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-full p-8 px-20 gap-10">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-full p-8 px-3 lg:px-20 gap-10">
         <ScrollAnimation>
           <ROICalculator />
         </ScrollAnimation>

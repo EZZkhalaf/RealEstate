@@ -30,13 +30,20 @@ export const ButtonCustomize = ({
     <button
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-row w-fit items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-1 w-full justify-center rounded-lg border border-gray-300 text-sm duration-300`}
+      className={`flex flex-row w-fit items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-1 w-full justify-center rounded-lg border border-gray-300 font-bold text-sm duration-300`}
       style={{
         backgroundColor: isHovered ? hoverColor : color,
         color: isHovered ? hoverTextColor : textColor,
       }}
     >
-      {icon && <Icon icon={`mdi-light:${icon}`} height="20" width="20" />}
+      {icon && (
+        <Icon
+          icon={`mdi-light:${icon}`}
+          height="20"
+          width="20"
+          className="font-bold"
+        />
+      )}
       <p className="font-semibold ">{text}</p>
     </button>
   );
@@ -64,12 +71,12 @@ const AgentCard = ({ agent }) => {
 
       <p className="text-xs text-gray-500 mt-2">Specialties</p>
       <div className="flex gap-1">
-        {agent.specialties.map((s) => (
-          <FeatureElement text={s} />
+        {agent.specialties.map((s, index) => (
+          <FeatureElement key={index} text={s} />
         ))}
       </div>
 
-      <div className="flex justify-around items-center gap-6">
+      <div className="flex text-xl flex-col justify-around items-center w-full gap-2 lg:gap-6 lg:flex-row">
         <ButtonCustomize
           text="Contact"
           icon="email"

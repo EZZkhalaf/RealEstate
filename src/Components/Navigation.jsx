@@ -6,10 +6,11 @@ const Navigation = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 flex justify-around items-center sm:h-10 md:h-15 lg:h-20 w-full bg-gray-200 p-4 shadow-md z-50 "
+      className="fixed top-0 left-0 right-0 flex justify-around items-center sm:h-10 md:h-15 lg:h-20   bg-gray-200 p-4 shadow-lg z-50 w-screen  overflow-auto "
       style={{ fontFamily: "Newsreader" }}
     >
-      <div>{"                "}</div>
+      <div className="hidden lg:flex">{"                        "}</div>
+      <div className="hidden lg:flex"></div>
       <div className="md:flex lg:flex hidden justify-around items-center gap-6">
         <button className="text-gray-600 hover:text-[#0B3557]">Buy</button>
         <button className="text-gray-600 hover:text-[#0B3557]">Sell</button>

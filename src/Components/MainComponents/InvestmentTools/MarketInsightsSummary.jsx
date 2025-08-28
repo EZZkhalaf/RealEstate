@@ -20,9 +20,14 @@ const MarketInsightsSummary = () => {
   return (
     <div className="flex flex-col px-3 py-9 shadow-2xl rounded-lg mt-4">
       <TitleAtom title={"Market Insights"} />
-      {marketData.map((m) => (
-        <div className="mt-3">
-          <InsightWithIconAtom name={m.name} icon={m.icon} value={m.value} />
+      {marketData.map((m, index) => (
+        <div key={index} className="mt-3">
+          <InsightWithIconAtom
+            key={index}
+            name={m.name}
+            icon={m.icon}
+            value={m.value}
+          />
         </div>
       ))}
       {}

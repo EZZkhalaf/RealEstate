@@ -50,13 +50,13 @@ const AgentsCards = () => {
     },
   ];
   return (
-    <div className="flex flex-col items-center">
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full mt-10 gap-6">
-        {agents.map((a) => (
-          <AgentCard agent={a} />
+    <div className="flex flex-col items-center sm:p-2 ">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full  mt-10 gap-6">
+        {agents.map((a, index) => (
+          <AgentCard key={index} agent={a} />
         ))}
       </div>
-      <div className="mt-8">
+      <div className="mt-8 ">
         <ViewButtonAtom
           title={"View All Agents"}
           navigateTo={"any url"}

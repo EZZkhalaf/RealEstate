@@ -39,7 +39,7 @@ const MarketInsights = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center w-full mt-20 lg:px-25">
+    <div className="flex flex-col items-center w-full mt-20 px-2 lg:px-25">
       <ScrollAnimation>
         <TitleAtom title={"Market Insights"} />
       </ScrollAnimation>
