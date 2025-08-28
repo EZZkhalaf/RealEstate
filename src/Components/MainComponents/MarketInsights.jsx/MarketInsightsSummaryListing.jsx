@@ -1,5 +1,3 @@
-import React from "react";
-import InsightCard from "../../Molecule/InsightCard";
 import SummaryElementsInsight from "../../Molecule/SummaryElementsInsight";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 

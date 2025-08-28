@@ -1,7 +1,7 @@
-import React from "react";
 import TitleAtom from "../../Atoms/TitleAtom";
-import InsightWithIconAtom from "../../Atoms/InsightWithIconAtom";
-import { Icon } from "@iconify/react";
+
+import MarketInsightsListing from "../../Molecule/MarketInsightsSummary/MarketInsightsListing";
+import BestPerformingAreasListing from "../../Molecule/MarketInsightsSummary/BestPerformingAreasListing";
 
 const MarketInsightsSummary = () => {
   const marketData = [
@@ -20,23 +20,10 @@ const MarketInsightsSummary = () => {
   return (
     <div className="flex flex-col px-1 lg:px-3 py-9 shadow-2xl rounded-lg mt-4">
       <TitleAtom title={"Market Insights"} />
-      {marketData.map((m, index) => (
-        <div key={index} className="mt-3">
-          <InsightWithIconAtom
-            key={index}
-            name={m.name}
-            icon={m.icon}
-            value={m.value}
-          />
-        </div>
-      ))}
-      {}
-      <div className="flex flex-row items-center px-2 mt-3 gap-1 text-sm">
-        <Icon icon={`mdi:chart-pie`} height="25" width="25" />
-        <p className="flex flex-row items-center">
-          Best performing areas : {bestAreas.join(", ")}
-        </p>
-      </div>
+
+      <MarketInsightsListing marketData={marketData} />
+
+      <BestPerformingAreasListing bestAreas={bestAreas} />
     </div>
   );
 };

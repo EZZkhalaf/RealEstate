@@ -17,7 +17,7 @@ const ROICalculator = () => {
       <InputNumberAtom title={"Loan Amount"} value={100000} />
       <InputNumberAtom title={"Interest Rate (%)"} value={3.5} />
 
-      <ListSelect title="Loan Term (years)" list={list} />
+      <ListSelect title="Loan Term (years)" list={list} width="w-full" />
     </div>
   );
 };
