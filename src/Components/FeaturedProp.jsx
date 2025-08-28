@@ -6,6 +6,7 @@ import estate2 from "../assets/estate2.avif";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import EstateCards from "./MainComponents/FeaturedProps/EstateCards";
+import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const FilterButton = ({ text }) => {
   return (
@@ -14,6 +15,24 @@ const FilterButton = ({ text }) => {
     >
       {text}
     </button>
+  );
+};
+
+const FilteringOptions = ({ generes, filterOptions }) => {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-4 mb-4 mt-8 px-3">
+      <ScrollAnimation type="fade-left" delay={0.6} animationTime={0.4}>
+        <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
+          {generes.map((b, index) => (
+            <FilterButton text={b} key={index} />
+          ))}
+        </div>
+      </ScrollAnimation>
+
+      <ScrollAnimation type="fade-right" delay={0.6} animationTime={0.4}>
+        <ListSelect list={filterOptions} />
+      </ScrollAnimation>
+    </div>
   );
 };
 
@@ -104,15 +123,7 @@ const FeaturedProp = () => {
         />
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-4 px-3">
-        <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
-          {generes.map((b, index) => (
-            <FilterButton text={b} key={index} />
-          ))}
-        </div>
-
-        <ListSelect list={filterOptions} />
-      </div>
+      <FilteringOptions generes={generes} filterOptions={filterOptions} />
       <div className="w-full px-0">
         <EstateCards estates={estates} />
       </div>

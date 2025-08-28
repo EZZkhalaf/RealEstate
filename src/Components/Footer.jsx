@@ -30,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-gray-900 text-white py-16 min-w-full flex justify-center px-12">
+    <div className="bg-gray-900 text-white py-16 min-w-full flex justify-center px-5 lg:px-12">
       <div className="flex flex-col justify-center">
         <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1   gap-4 px-4">
           <FooterIconsAndLocation />

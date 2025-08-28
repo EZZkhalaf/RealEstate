@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ButtonCustomize } from "./Molecule/AgentCard";
+import ButtonCustomize from "./Atoms/ButtonCustomize";
 
 const Navigation = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -21,7 +21,7 @@ const Navigation = () => {
         </button>
       </div>
 
-      <div className="flex justify-around items-center gap-6">
+      <div className="grid grid-cols-2 gap-6">
         <ButtonCustomize
           text="Sign In"
           // icon="email"

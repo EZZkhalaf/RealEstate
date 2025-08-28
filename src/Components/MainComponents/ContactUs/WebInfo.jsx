@@ -22,14 +22,14 @@ const WebInfo = () => {
 
   return (
     <div className="flex flex-col  py-20 lg:px-20 md:text-sm sm:text-sm">
-      <h1 className="text-white text-3xl font-bold mb-6">
+      <h1 className="text-white text-xl lg:text-3xl font-bold mb-6">
         Ready to Get Started?
       </h1>
-      <p className="text-white text-lg font-semibold">
+      <p className="text-white text-sm lg:text-lg font-semibold">
         Connect with our experts today and take the first step towards your real
         estate goals.
       </p>
-      <div className="flex flex-col">
+      <div className="grid grid-cols-1">
         {contactInfo.map((c, index) => (
           <WebInfoElement key={index} info={c} />
         ))}

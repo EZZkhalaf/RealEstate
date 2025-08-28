@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 const WebInfoElement = ({ info }) => {
   return (
-    <div className="flex flex-col gap-6 text-white mt-2">
+    <div className="flex flex-col gap-3 text-white mt-2">
       <div className="flex  items-center gap-5">
         <Icon icon={`${info.icon}`} color="white" height="30" width="30" />
         <div className="flex flex-col ">

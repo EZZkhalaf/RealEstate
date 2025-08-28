@@ -5,7 +5,7 @@ const InputGray = ({ type, placeholder }) => {
     <input
       type={`${type}`}
       placeholder={`${placeholder}`}
-      className="bg-gray-300 rounded-lg p-2 w-full"
+      className="bg-gray-300 rounded-lg p-2 w-full "
     />
   );
 };

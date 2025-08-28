@@ -9,12 +9,12 @@ const ContactUs = () => {
       className="grid sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2 mt-20 bg-[#0B3557] w-full "
       style={{ boxSizing: "border-box" }}
     >
-      <div className="p-8 ">
+      <div className="lg:p-8 p-2">
         <ScrollAnimation type="fade-left">
           <WebInfo />
         </ScrollAnimation>
       </div>
-      <div className="p-8  w-full">
+      <div className="lg:p-8 p-2  w-full">
         <ScrollAnimation type="fade-right">
           <MessageForm />
         </ScrollAnimation>

@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="bg-gray-100 p-0">
       <Navigation />
-      <div className="pt-19 ">
-        <Home />
-      </div>
+
+      <Home />
+
       <Footer />
     </div>
   );

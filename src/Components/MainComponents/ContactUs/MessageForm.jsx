@@ -11,7 +11,7 @@ const MessageForm = () => {
   ];
   return (
     <div>
-      <form className=" bg-white p-8 mt-20 rounded-lg shadow-2xl max-w-full ">
+      <form className=" bg-white p-3 lg:p-8 mt-20 rounded-lg shadow-2xl max-w-full ">
         <h1 className="text-xl font-semibold py-4">Send us a message</h1>
         <div className="flex flex-col gap-3">
           <InputGray type={"text"} placeholder={"full Name"} />

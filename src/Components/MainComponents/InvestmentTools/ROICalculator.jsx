@@ -5,7 +5,7 @@ import IconAtom from "../../Atoms/IconAtom";
 
 const ROICalculator = () => {
   return (
-    <div className="shadow-2xl w-full p-10">
+    <div className="shadow-2xl w-full p-2 lg:p-10">
       <div className="flex gap-1 flex-row">
         <IconAtom icon={"calculator"} />
         <TitleAtom title={"ROI Calculator"} />

@@ -3,7 +3,7 @@ import ScrollAnimation from "../../../Animation/ScrollAnimation";
 
 const HeroTitle = ({ title1, title2, paragraph }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-10">
+    <div className="flex flex-col items-center justify-center h-full mt-25 gap-2">
       <ScrollAnimation type="fade-right">
         <h1 className="text-white text-3xl lg:text-6xl font-bold">{title1}</h1>
       </ScrollAnimation>

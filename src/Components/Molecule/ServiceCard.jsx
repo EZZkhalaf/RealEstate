@@ -9,16 +9,6 @@ import IconAtom from "../Atoms/IconAtom";
 const ServiceCard = ({ service }) => {
   return (
     <div className="flex flex-col bg-gray-200 p-8 hover:shadow-lg duration-300">
-      {/* <div>
-        <div className="bg-[#0B3557] p-2 rounded-lg w-16 h-16 flex items-center justify-center">
-          <Icon
-            icon={`mdi:${service.icon}`}
-            color="white"
-            height="30"
-            width="30"
-          />
-        </div>
-      </div> */}
       <IconAtom icon={service.icon} />
 
       <TitleAtom title={service.title} />

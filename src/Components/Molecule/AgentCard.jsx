@@ -1,6 +1,7 @@
 import React from "react";
 import FeatureElement from "../Atoms/FeatureElement";
 import { Icon } from "@iconify/react";
+import ButtonCustomize from "../Atoms/ButtonCustomize";
 
 const ImageAndNameProfile = ({ image, name, locations }) => {
   return (
@@ -13,39 +14,6 @@ const ImageAndNameProfile = ({ image, name, locations }) => {
       <h1 className="text-xl font-semibold text-black">{name}</h1>
       <p className="text-gray-400 text-sm">{locations}</p>
     </div>
-  );
-};
-
-export const ButtonCustomize = ({
-  icon,
-  text,
-  color,
-  hoverColor,
-  textColor,
-  hoverTextColor,
-  navigateTo,
-}) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-  return (
-    <button
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-row w-fit items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-1 w-full justify-center rounded-lg border border-gray-300 font-bold text-sm duration-300`}
-      style={{
-        backgroundColor: isHovered ? hoverColor : color,
-        color: isHovered ? hoverTextColor : textColor,
-      }}
-    >
-      {icon && (
-        <Icon
-          icon={`mdi-light:${icon}`}
-          height="20"
-          width="20"
-          className="font-bold"
-        />
-      )}
-      <p className="font-semibold ">{text}</p>
-    </button>
   );
 };
 

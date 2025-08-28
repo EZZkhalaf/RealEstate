@@ -1,9 +1,9 @@
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import FeatureElement from "../Atoms/FeatureElement";
-import { ButtonCustomize } from "./AgentCard";
 import CardTitle from "../Atoms/CardTitle";
 import CardLocation from "../Atoms/CardLocation";
+import ButtonCustomize from "../Atoms/ButtonCustomize";
 
 const FeatureElementListing = ({ estate }) => {
   return (

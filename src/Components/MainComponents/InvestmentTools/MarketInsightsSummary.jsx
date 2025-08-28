@@ -18,7 +18,7 @@ const MarketInsightsSummary = () => {
   ];
   const bestAreas = ["KAFD ", " Olaya "];
   return (
-    <div className="flex flex-col px-3 py-9 shadow-2xl rounded-lg mt-4">
+    <div className="flex flex-col px-1 lg:px-3 py-9 shadow-2xl rounded-lg mt-4">
       <TitleAtom title={"Market Insights"} />
       {marketData.map((m, index) => (
         <div key={index} className="mt-3">

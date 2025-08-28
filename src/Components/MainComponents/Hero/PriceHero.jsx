@@ -3,6 +3,16 @@ import { FaSearch } from "react-icons/fa";
 import InputGray from "../../Atoms/InputGray";
 import HeroButtonsListing from "../../Molecule/PriceHero/HeroButtonsListing";
 import PriceRangeHero from "../../Molecule/PriceHero/PriceRangeHero";
+import ButtonCustomize from "../../Atoms/ButtonCustomize";
+
+const PriceHeroCustomInput = ({ type, placeholder }) => {
+  return (
+    <div className="flex flex-row items-center bg-gray-300 p-3 gap-3 rounded-xl flex-grow ">
+      <FaSearch />
+      <InputGray type={type} placeholder={placeholder} />
+    </div>
+  );
+};
 
 const PriceHero = () => {
   const [selected, setSelected] = useState(null);
@@ -26,21 +36,21 @@ const PriceHero = () => {
         selected={selected}
       />
 
-      <div className="flex gap-4 w-full px-4">
-        <div className="flex flex-row items-center bg-gray-300 p-3 gap-3 rounded-xl flex-grow ">
-          <FaSearch />
-          <InputGray
-            type={"text"}
-            placeholder={" Enter location, property type, or keyword..."}
+      <div className="lg:flex md:flex grid grid-cols-1 gap-4 w-full px-4">
+        <PriceHeroCustomInput
+          type={"text"}
+          placeholder={"Enter location, property type, or keyword..."}
+        />
+        <div className="flex items-center" style={{ flexGrow: 0.3 }}>
+          <ButtonCustomize
+            text="Search"
+            color="#0B3557"
+            hoverColor="#0B3557E6"
+            textColor="#FFFFFF"
+            hoverTextColor="#FFFFFF"
+            rounded="xl"
+            padding="1"
           />
-        </div>
-        <div className="flex items-center">
-          <button
-            className="px-6 py-3 text-white bg-[#0B3557] hover:bg-[#0B3557]/90 rounded-2xl"
-            style={{ flexGrow: "1" }}
-          >
-            Search
-          </button>
         </div>
       </div>
 
