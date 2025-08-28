@@ -6,7 +6,7 @@ import SingleCard from "./SingleCard";
 const EstateCardsListing = ({ estates }) => {
   return (
     <div className=" flex flex-col items-center w-full">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1   gap-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-4  gap-8">
         {estates.map((e, index) => (
           <div key={index} className="rounded-2xl">
             <ScrollAnimation key={index}>
