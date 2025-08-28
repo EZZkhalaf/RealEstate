@@ -8,7 +8,7 @@ import IconAtom from "../Atoms/IconAtom";
 
 const ServiceCard = ({ service }) => {
   return (
-    <div className="flex flex-col bg-gray-200 p-8 hover:shadow-lg duration-300">
+    <div className="flex flex-col bg-gray-200 p-8 gap-4 hover:shadow-lg duration-300">
       <IconAtom icon={service.icon} />
 
       <TitleAtom title={service.title} />
