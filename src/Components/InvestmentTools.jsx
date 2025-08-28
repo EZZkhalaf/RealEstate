@@ -5,6 +5,7 @@ import ViewButtonAtom from "./Atoms/ViewButtonAtom";
 import MarketInsightsSummary from "./MainComponents/InvestmentTools/MarketInsightsSummary";
 import ROICalculator from "./MainComponents/InvestmentTools/ROICalculator";
 import InvestmentSummary from "./MainComponents/InvestmentTools/InvestmentSummary";
+import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const InvestmentTools = () => {
   return (
@@ -16,17 +17,25 @@ const InvestmentTools = () => {
         }
       />
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-full p-8 px-20 gap-10">
-        <ROICalculator />
+        <ScrollAnimation>
+          <ROICalculator />
+        </ScrollAnimation>
         <div className="flex flex-col">
-          <InvestmentSummary />
-          <MarketInsightsSummary />
-          <ViewButtonAtom
-            title={"Get Investment Consultation "}
-            navigateTo={"idk"}
-            color={"#0B3557"}
-            hoverColor={"#5A7792"}
-            textColor={"#FFFFFF"}
-          />
+          <ScrollAnimation>
+            <InvestmentSummary />
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <MarketInsightsSummary />
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <ViewButtonAtom
+              title={"Get Investment Consultation "}
+              navigateTo={"idk"}
+              color={"#0B3557"}
+              hoverColor={"#5A7792"}
+              textColor={"#FFFFFF"}
+            />
+          </ScrollAnimation>
         </div>
       </div>
     </div>

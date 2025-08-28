@@ -1,6 +1,7 @@
 import React from "react";
 import InsightCard from "../../Molecule/InsightCard";
 import SummaryElementsInsight from "../../Molecule/SummaryElementsInsight";
+import ScrollAnimation from "../../../Animation/ScrollAnimation";
 
 const MarketInsightsSummaryListing = () => {
   const propertyStats = [
@@ -30,7 +31,9 @@ const MarketInsightsSummaryListing = () => {
     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 w-full gap-6 ">
       {propertyStats.map((m) => (
         <div className="shadow-xl rounded-lg bg-white">
-          <SummaryElementsInsight insight={m} />
+          <ScrollAnimation>
+            <SummaryElementsInsight insight={m} />
+          </ScrollAnimation>
         </div>
       ))}
     </div>

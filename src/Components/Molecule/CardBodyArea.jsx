@@ -6,7 +6,7 @@ import { ButtonCustomize } from "./AgentCard";
 const CardBodyArea = ({ estate }) => {
   return (
     <div>
-      <div className="flex flex-col px-4 py-6 rounded-lg transform transition-transform duration-300 ">
+      <div className="flex flex-col  px-4 py-6 rounded-lg transform transition-transform duration-300 ">
         <h1 className="text-gray-900 font-semibold mb-2  text-xl ">
           {estate.title}
         </h1>

@@ -1,26 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CardImageArea from "../../Molecule/CardImageArea";
 import CardBodyArea from "../../Molecule/CardBodyArea";
 import { MdArrowOutward } from "react-icons/md";
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
-
-const SingleCard = ({ estate }) => {
-  const [imageHover, setImageHover] = useState(false);
-  return (
-    <div className="flex flex-col w-full rounded-lg shadow-2xl group transform transition-transform duration-300 hover:scale-102">
-      <CardImageArea
-        estate={estate}
-        imageHover={imageHover}
-        setImageHover={setImageHover}
-      />
-      <CardBodyArea
-        estate={estate}
-        imageHover={imageHover}
-        setImageHover={setImageHover}
-      />
-    </div>
-  );
-};
+import SingleCard from "../../Molecule/EstateCards/SingleCard";
+import ScrollAnimation from "../../../Animation/ScrollAnimation";
 
 const EstateCards = ({ estates }) => {
   return (
@@ -28,22 +12,26 @@ const EstateCards = ({ estates }) => {
       {estates ? (
         <div className=" flex flex-col items-center w-full">
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1   gap-8">
-            {estates.map((e) => (
+            {estates.map((e, index) => (
               <div key={e.id} className="rounded-2xl">
-                <SingleCard estate={e} key={e.id} />
+                <ScrollAnimation key={index}>
+                  <SingleCard estate={e} key={index} />
+                </ScrollAnimation>
               </div>
             ))}
           </div>
 
           <div className="mt-8">
-            <ViewButtonAtom
-              title={"View All Properties"}
-              navigateTo={"any url"}
-              color={"#FFFFFF"}
-              hoverColor={"#0B3557"}
-              textColor={"#0B3557"}
-              hoverTextColor={"#FFFFFF"}
-            />
+            <ScrollAnimation>
+              <ViewButtonAtom
+                title={"View All Properties"}
+                navigateTo={"any url"}
+                color={"#FFFFFF"}
+                hoverColor={"#0B3557"}
+                textColor={"#0B3557"}
+                hoverTextColor={"#FFFFFF"}
+              />
+            </ScrollAnimation>
           </div>
         </div>
       ) : (

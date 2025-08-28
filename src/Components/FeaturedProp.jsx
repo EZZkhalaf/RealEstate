@@ -93,7 +93,7 @@ const FeaturedProp = () => {
 
   const filterOptions = ["Low to High", "High to Low", "Square Footage"];
   return (
-    <div className="w-full  flex flex-col  mt-20 pr-25 pl-25">
+    <div className="w-full  flex flex-col  mt-20  lg:pr-25 lg:pl-25">
       <div className="flex flex-col items-center w-full">
         <TitleAtom title={"Featured Properties"} />
 

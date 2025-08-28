@@ -1,6 +1,7 @@
 import React from "react";
 import WebInfo from "./MainComponents/ContactUs/WebInfo";
 import MessageForm from "./MainComponents/ContactUs/MessageForm";
+import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const ContactUs = () => {
   return (
@@ -9,10 +10,14 @@ const ContactUs = () => {
       style={{ boxSizing: "border-box" }}
     >
       <div className="p-8 ">
-        <WebInfo />
+        <ScrollAnimation type="fade-left">
+          <WebInfo />
+        </ScrollAnimation>
       </div>
       <div className="p-8  w-full">
-        <MessageForm />
+        <ScrollAnimation type="fade-right">
+          <MessageForm />
+        </ScrollAnimation>
       </div>
     </div>
   );

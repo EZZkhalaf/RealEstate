@@ -3,6 +3,7 @@ import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import InsightsListing from "./MainComponents/MarketInsights.jsx/InsightsListing";
 import MarketInsightsSummaryListing from "./MainComponents/MarketInsights.jsx/MarketInsightsSummaryListing";
+import ScrollAnimation from "../Animation/ScrollAnimation";
 // import InsightsListing from "./MainComponents/InsightsListing";
 // import MarketInsightsSummaryListing from "./MainComponents/MarketInsightsSummaryListing";
 
@@ -39,14 +40,20 @@ const MarketInsights = () => {
 
   return (
     <div className="flex flex-col items-center w-full mt-20 lg:px-25">
-      <TitleAtom title={"Market Insights"} />
-      <ParagraphDescription
-        description={
-          "Stay informed with the latest real estate trends and market analysis"
-        }
-      />
+      <ScrollAnimation>
+        <TitleAtom title={"Market Insights"} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <ParagraphDescription
+          description={
+            "Stay informed with the latest real estate trends and market analysis"
+          }
+        />
+      </ScrollAnimation>
 
-      <InsightsListing insights={marketReports} />
+      <ScrollAnimation>
+        <InsightsListing insights={marketReports} />
+      </ScrollAnimation>
       <MarketInsightsSummaryListing />
     </div>
   );

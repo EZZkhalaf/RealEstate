@@ -2,6 +2,7 @@ import React from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import ServicesCards from "./MainComponents/OurServices/ServicesCards";
+import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const OurServices = () => {
   const services = [
@@ -47,13 +48,17 @@ const OurServices = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center mt-20 pr-25 pl-25">
-      <TitleAtom title={"Our Services"} />
-      <ParagraphDescription
-        description={
-          "Comprehensive real estate solutions tailored to your needs"
-        }
-      />
+    <div className="flex flex-col items-center mt-20 lg:pr-25 lg:pl-25">
+      <ScrollAnimation>
+        <TitleAtom title={"Our Services"} />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <ParagraphDescription
+          description={
+            "Comprehensive real estate solutions tailored to your needs"
+          }
+        />
+      </ScrollAnimation>
       <div className="flex items-center p-5">
         <ServicesCards services={services} />
       </div>

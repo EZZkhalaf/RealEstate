@@ -3,6 +3,7 @@ import HeroImage from "../assets/HeroImage.jpg";
 import HeroTitle from "./MainComponents/Hero/HeroTitle";
 import PriceHero from "./MainComponents/Hero/PriceHero";
 import HeroSummary from "./MainComponents/Hero/HeroSummary";
+import ScrollAnimation from "../Animation/ScrollAnimation";
 
 const Hero = () => {
   const summary = [
@@ -34,11 +35,14 @@ const Hero = () => {
               " Buy, sell, or invest in premium properties with expert guidance from Saudi Arabia's top real estate professionals"
             }
           />
-          <div className="w-full">
-            <PriceHero />
+          <div className="w-full px-2">
+            <ScrollAnimation type="zoom-in" delay={1.5}>
+              <PriceHero />
+            </ScrollAnimation>
           </div>
-
-          <HeroSummary summary={summary} />
+          <ScrollAnimation type="fade-up" delay={2}>
+            <HeroSummary summary={summary} />
+          </ScrollAnimation>
         </div>
       </div>
     </div>
