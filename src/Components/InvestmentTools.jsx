@@ -22,13 +22,16 @@ const InvestmentTools = () => {
         <ScrollAnimation>
           <ROICalculator />
         </ScrollAnimation>
+
         <div className="grid grid-cols-1">
           <ScrollAnimation>
             <InvestmentSummary />
           </ScrollAnimation>
+
           <ScrollAnimation>
             <MarketInsightsSummary />
           </ScrollAnimation>
+
           <ScrollAnimation>
             <ViewButtonAtom
               title={"Get Investment Consultation "}

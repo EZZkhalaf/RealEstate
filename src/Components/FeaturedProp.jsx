@@ -20,7 +20,7 @@ const FilterButton = ({ text }) => {
 
 const FilteringOptions = ({ generes, filterOptions }) => {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 mb-4 mt-8 px-3">
+    <div className="flex flex-wrap items-center justify-between gap-4 mb-10 mt-8 px-3">
       <ScrollAnimation type="fade-left" delay={0.6} animationTime={0.4}>
         <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
           {generes.map((b, index) => (

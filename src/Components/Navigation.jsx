@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ButtonCustomize from "./Atoms/ButtonCustomize";
+import NavigationButtons from "./MainComponents/Navigation/NavigationButtons";
 
 const Navigation = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -11,15 +12,8 @@ const Navigation = () => {
     >
       <div className="hidden lg:flex">{"                        "}</div>
       <div className="hidden lg:flex"></div>
-      <div className="md:flex lg:flex hidden justify-around items-center gap-6">
-        <button className="text-gray-600 hover:text-[#0B3557]">Buy</button>
-        <button className="text-gray-600 hover:text-[#0B3557]">Sell</button>
-        <button className="text-gray-600 hover:text-[#0B3557]">Invest</button>
-        <button className="text-gray-600 hover:text-[#0B3557]">Agents</button>
-        <button className="text-gray-600 hover:text-[#0B3557]">
-          Market Insights
-        </button>
-      </div>
+
+      <NavigationButtons />
 
       <div className="grid grid-cols-2 gap-6">
         <ButtonCustomize

@@ -2,8 +2,10 @@ import React from "react";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 import SingleCard from "./SingleCard";
+import { useNavigate } from "react-router-dom";
 
 const EstateCardsListing = ({ estates }) => {
+  const navigate = useNavigate();
   return (
     <div className=" flex flex-col items-center w-full">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 px-4  gap-8">
@@ -16,7 +18,7 @@ const EstateCardsListing = ({ estates }) => {
         ))}
       </div>
 
-      <div className="mt-8">
+      <div onClick={() => navigate("/properties")} className="mt-8">
         <ScrollAnimation>
           <ViewButtonAtom
             title={"View All Properties"}

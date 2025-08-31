@@ -1,7 +1,17 @@
 import React from "react";
 
-const TitleAtom = ({ title }) => {
-  return <h1 className="lg:text-3xl text-2xl font-bold text-black">{title}</h1>;
+const TitleAtom = ({
+  title,
+  textSizeLarge = "3xl",
+  textSizeDefault = "2xl",
+}) => {
+  return (
+    <h1
+      className={`lg:text-${textSizeLarge} text-${textSizeDefault} font-bold text-black`}
+    >
+      {title}
+    </h1>
+  );
 };
 
 export default TitleAtom;
