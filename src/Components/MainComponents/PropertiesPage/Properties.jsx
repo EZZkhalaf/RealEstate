@@ -1,13 +1,13 @@
-import React from "react";
-import TitleAtom from "../Atoms/TitleAtom";
-import ParagraphDescription from "../Atoms/ParagraphDescription";
-import ListSelect from "../Atoms/ListSelect";
-import estate1 from "../../assets/estate1.avif";
-import estate2 from "../../assets/estate2.avif";
-import ScrollAnimation from "../../Animation/ScrollAnimation";
-import SingleCard from "../Molecule/EstateCards/SingleCard";
-import SingleEstateEelement from "../Molecule/Properties/SingleEstateEelement";
-
+import TitleAtom from "../../Atoms/TitleAtom";
+import ParagraphDescription from "../../Atoms/ParagraphDescription";
+import estate1 from "../../../assets/estate1.avif";
+import ScrollAnimation from "../../../Animation/ScrollAnimation";
+import SingleEstateEelement from "../../Molecule/Properties/SingleEstateEelement";
+import { useNavigate } from "react-router-dom";
+import inside1 from "../../../assets/inside1.jpg";
+import inside2 from "../../../assets/inside2.jpg";
+import inside3 from "../../../assets/inside3.jpg";
+import inside4 from "../../../assets/inside4.webp";
 const Properties = () => {
   const totalCount = 9002;
   const anyList = ["first", "second", "third"];
@@ -19,7 +19,7 @@ const Properties = () => {
       beds: 6,
       baths: 5,
       area: "6000 sqft",
-      image: estate1,
+      image: [estate1, inside1, inside2, inside3, inside4],
       features: ["Multiple Villas", "Garden", "Pool"],
       actions: ["View Details", "Contact Agent"],
       type: "compound",
@@ -30,7 +30,7 @@ const Properties = () => {
       location: "Riyadh, Saudi Arabia",
       beds: 5,
       baths: 4,
-      image: estate2,
+      image: [estate1, inside1, inside2, inside3, inside4],
       area: "4500 sqft",
       features: ["Garden", "Private Pool", "Garage"],
       actions: ["View Details", "Contact Agent"],
@@ -42,7 +42,7 @@ const Properties = () => {
       location: "Riyadh, Saudi Arabia",
       beds: 7,
       baths: 6,
-      image: estate1,
+      image: [estate1, inside1, inside2, inside3, inside4],
       area: "7000 sqft",
       features: ["Multiple Villas", "Gym", "Pool", "Garden"],
       actions: ["View Details", "Contact Agent"],
@@ -54,7 +54,7 @@ const Properties = () => {
       location: "Riyadh, Saudi Arabia",
       beds: 4,
       baths: 3,
-      image: estate2,
+      image: [estate1, inside1, inside2, inside3, inside4],
       area: "3800 sqft",
       features: ["Garden", "Pool"],
       actions: ["View Details", "Contact Agent"],
@@ -66,26 +66,29 @@ const Properties = () => {
       location: "Riyadh, Saudi Arabia",
       beds: 8,
       baths: 7,
-      image: estate1,
+      image: [estate1, inside1, inside2, inside3, inside4],
       area: "8500 sqft",
       features: ["Multiple Villas", "Garden", "Pool", "Tennis Court"],
       actions: ["View Details", "Contact Agent"],
       type: "penthouse",
     },
   ];
+  const navigate = useNavigate();
   return (
-    <div className="grid grid-cols-1 gap-4 w-full mb-10 px-30">
-      <TitleAtom title={"Search For Properties"} />
-      <div className=" flex flex-wrap justify-between items-center w-full ">
+    <div className="flex flex-col px-10 py-5">
+      <div className="flex flex-col gap-1 items-start ">
+        <TitleAtom title={"Real Estates & Homes For Sale"} />
         <ParagraphDescription
-          description={`${totalCount} Properties for Sale in Saudi`}
+          description={`${totalCount} Properties for Sale in Saudi , explore hundreds of available and good structure estates.`}
         />
-        <ListSelect list={anyList} />
       </div>
-
-      <div className="grid grid-cols-1 px-4  gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
         {estates.map((e, index) => (
-          <div key={index} className="rounded-2xl">
+          <div
+            key={index}
+            onClick={() => navigate(`/properties/${index}`)}
+            className="rounded-2xl"
+          >
             <ScrollAnimation key={index}>
               <SingleEstateEelement estate={e} key={index} />
             </ScrollAnimation>

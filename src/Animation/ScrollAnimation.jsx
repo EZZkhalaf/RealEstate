@@ -9,6 +9,7 @@ const ScrollAnimation = ({
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
 
+  //checking if the div is on the screen
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

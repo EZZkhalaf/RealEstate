@@ -5,7 +5,7 @@ import CardBodyArea from "../CardBodyArea";
 const SingleEstateEelement = ({ estate }) => {
   const [imageHover, setImageHover] = useState(false);
   return (
-    <div className="grid grid-cols-[1fr_2fr] w-full rounded-lg shadow-2xl group transform transition-transform duration-300 hover:scale-102">
+    <div className="flex flex-col w-full rounded-lg shadow-2xl group transform transition-transform duration-300 hover:scale-102">
       <CardImageArea
         estate={estate}
         imageHover={imageHover}

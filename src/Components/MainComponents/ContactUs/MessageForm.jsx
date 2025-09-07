@@ -1,6 +1,7 @@
 import React from "react";
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 import InputGray from "../../Atoms/InputGray";
+import ListSelect from "../../Atoms/ListSelect";
 
 const MessageForm = () => {
   const properties = [
@@ -9,6 +10,7 @@ const MessageForm = () => {
     "Investment Consultation",
     "Property Valluation",
   ];
+
   return (
     <div>
       <form className=" bg-white p-3 lg:p-8 mt-20 rounded-lg shadow-2xl max-w-full ">
@@ -21,11 +23,7 @@ const MessageForm = () => {
             <InputGray type={"Number"} placeholder={"Phone"} />
           </div>
 
-          <select className="bg-gray-300 p-2 rounded-lg w-full">
-            {properties.map((p, index) => (
-              <option key={index}>{p}</option>
-            ))}
-          </select>
+          <ListSelect list={properties} width={"w-full"} />
 
           <textarea
             type="text"

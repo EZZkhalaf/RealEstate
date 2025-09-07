@@ -11,7 +11,6 @@ const PriceRangeHero = ({ minValue, maxValue, min, max, handleMaxChange }) => {
         <div className="relative w-full h-6">
           <div className="absolute top-1/2 w-full h-2 bg-gray-300 rounded -translate-y-1/2"></div>
 
-          {/* Highlighted range */}
           <div
             className="absolute top-1/2 h-2 bg-black rounded -translate-y-1/2"
             style={{
@@ -20,7 +19,6 @@ const PriceRangeHero = ({ minValue, maxValue, min, max, handleMaxChange }) => {
             }}
           ></div>
 
-          {/* Max slider */}
           <input
             type="range"
             min={min}

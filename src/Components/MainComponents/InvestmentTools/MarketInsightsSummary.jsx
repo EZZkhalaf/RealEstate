@@ -1,5 +1,4 @@
 import TitleAtom from "../../Atoms/TitleAtom";
-
 import MarketInsightsListing from "../../Molecule/MarketInsightsSummary/MarketInsightsListing";
 import BestPerformingAreasListing from "../../Molecule/MarketInsightsSummary/BestPerformingAreasListing";
 
@@ -17,6 +16,7 @@ const MarketInsightsSummary = () => {
     },
   ];
   const bestAreas = ["KAFD ", " Olaya "];
+
   return (
     <div className="flex flex-col px-1 lg:px-3 py-9 shadow-2xl rounded-lg mt-4">
       <TitleAtom title={"Market Insights"} />

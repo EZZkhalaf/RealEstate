@@ -2,11 +2,16 @@ import React from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 
-const CardImageArea = ({ estate, imageHover, setImageHover }) => {
+const CardImageArea = ({
+  estate,
+  imageHover,
+  setImageHover,
+  slides = false,
+}) => {
   return (
     <div
       style={{
-        backgroundImage: `url(${estate.image}) `,
+        backgroundImage: `url(${estate.image[2]}) `,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

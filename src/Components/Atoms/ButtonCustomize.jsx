@@ -10,10 +10,12 @@ const ButtonCustomize = ({
   navigateTo,
   rounded = "lg",
   padding = "2",
+  onClick,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   return (
     <button
+      onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`flex flex-row w-fit h-full items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-${padding} w-full justify-center rounded-${rounded} border border-gray-300 font-bold text-sm duration-300`}
