@@ -1,11 +1,19 @@
-const SubmitButton = ({ text, type, submitButtonCss, onClick }) => {
+const SubmitButton = ({
+  text,
+  type,
+  submitButtonCss,
+  onClick,
+  noPadding = false,
+}) => {
   return (
     <button
       type={type}
       onClick={onClick}
       className={`${
         submitButtonCss
-          ? "bg-blue-600 text-white px-3 py-2 rounded hover:bg-green-700"
+          ? `bg-blue-600 text-white ${
+              !noPadding ? "px" : ""
+            } py-2 rounded hover:bg-green-700`
           : "w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 "
       }`}
     >

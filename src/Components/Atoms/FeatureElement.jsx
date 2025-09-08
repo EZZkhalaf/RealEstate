@@ -9,7 +9,7 @@ const FeatureElement = ({
 }) => {
   return (
     <span
-      className={`bg-${bg} text-${textColor} font-semibold text-xs py-${paddingY} px-${paddingX} rounded-lg `}
+      className={`bg-${bg} text-${textColor} font-bold text-xs py-${paddingY} px-${paddingX} rounded-lg  w-fit`}
     >
       {text}
     </span>
