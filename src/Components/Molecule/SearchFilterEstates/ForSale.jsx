@@ -9,7 +9,7 @@ const ForSale = ({ options, selectedOption, setSelectedOption }) => {
   };
 
   return (
-    <div className="flex flex-col gap-2 py-3 items-start fixed bg-white border border-gray-300 rounded-lg px-4 w-[20vw] shadow-2xl">
+    <div className="flex flex-col gap-2 py-3 items-start fixed bg-white border border-gray-300 rounded-lg px-4 w-[300px] shadow-2xl">
       {options?.map((option) => (
         <label
           key={option}

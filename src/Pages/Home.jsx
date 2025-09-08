@@ -1,5 +1,6 @@
 import ContactUs from "../Components/ContactUs";
 import FeaturedProp from "../Components/FeaturedProp";
+import Footer from "../Components/Footer";
 import Hero from "../Components/Hero";
 import InvestmentTools from "../Components/InvestmentTools";
 import MarketInsights from "../Components/MarketInsights";
@@ -16,6 +17,7 @@ const Home = () => {
       <OurAgents />
       <MarketInsights />
       <ContactUs />
+      <Footer />
     </div>
   );
 };

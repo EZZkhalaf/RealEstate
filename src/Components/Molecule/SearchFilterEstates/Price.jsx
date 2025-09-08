@@ -58,8 +58,14 @@ const Price = () => {
 
   // Dummy Credit Score options
   const creditScoreOptions = [300, 400, 500, 600, 700, 800, 850];
+
+  const [minSalary, setMinSalary] = useState("");
+  const [maxSalary, setMaxSalary] = useState("");
+  // Generate options (0 → 16M in 500k steps)
+  const maxValue = 16000000;
+
   return (
-    <div className="flex flex-col gap-2 items-center mt-3 fixed bg-white border border-gray-300 rounded-lg w-[20vw] shadow-2xl scroll-auto">
+    <div className="flex flex-col gap-2 items-center mt-3 fixed bg-white border border-gray-300 rounded-lg w-[500px]  shadow-2xl max-h-[60vh] overflow-y-auto">
       <GrayHeader header={"Price Range"} />
 
       <PaymentButtons
@@ -71,7 +77,19 @@ const Price = () => {
         Calculate your BuyAbility
       </div>
 
-      <SalaryRangeSelector />
+      {/* value1 = value2, serValue1, setValue2, list1, list2, title1, title2, default1, default2, */}
+      <SalaryRangeSelector
+        value1={minSalary}
+        value2={maxSalary}
+        serValue1={setMinSalary}
+        setValue2={setMaxSalary}
+        list1={options}
+        list2={options}
+        title1={"Minimum"}
+        title2={"Maximum"}
+        default1={"Any"}
+        default2={"Any"}
+      />
 
       {paymentType === "monthlyPayment" && (
         <div className="flex flex-col gap-4 px-4 w-full">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GrayHeader from "../../Atoms/GrayHeader";
 import SixButtonsInputs from "../../Atoms/SixButtonsInputs";
 import SubmitButton from "../../Atoms/SubmitButton";
+import SingleCheckBox from "../../Atoms/SingleCheckBox";
 
 const BedsAndBaths = () => {
   const [selectedBedroom, setSelectedBedroom] = useState(null);
@@ -11,7 +12,7 @@ const BedsAndBaths = () => {
   const bathrooms = ["Any", 1, 1.5, 2, 3, 4];
 
   return (
-    <div className="flex flex-col gap-3  mt-3 fixed bg-white border border-gray-300 rounded-lg  shadow-2xl scroll-auto w-[25vw]">
+    <div className="flex flex-col gap-3  mt-3 fixed bg-white border border-gray-300 rounded-lg  shadow-2xl scroll-auto w-[400px] max-h-[70vh] overflow-y-auto">
       <GrayHeader header={"Number of Bedrooms"} />
       <SixButtonsInputs
         title={"Bedrooms"}
@@ -19,13 +20,14 @@ const BedsAndBaths = () => {
         selected={selectedBedroom}
         setSelected={setSelectedBedroom}
       />
-      <div className="flex flex-row gap-1 items-center px-4 ">
+      {/* <div className="flex flex-row gap-1 items-center px-4 ">
         <div className="flex items-center border-2 border-gray-200">
           <input type="checkbox" className=" rounded-lg w-5 h-5" />
         </div>
         <p className="text-lg text-gray-400 ">Use exact match</p>
-      </div>
+      </div> */}
 
+      <SingleCheckBox text={"Use exact match"} />
       <GrayHeader header={"Number of Bathrooms"} />
       <SixButtonsInputs
         title={"Bathrooms"}

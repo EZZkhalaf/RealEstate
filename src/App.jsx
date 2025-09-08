@@ -15,8 +15,6 @@ const App = () => {
         <Route path="/properties" element={<PropertiesPage />} />
         <Route path="/properties/:id" element={<PropertyInfo />} />
       </Routes>
-
-      <Footer />
     </div>
   );
 };

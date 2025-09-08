@@ -8,6 +8,8 @@ import inside1 from "../../../assets/inside1.jpg";
 import inside2 from "../../../assets/inside2.jpg";
 import inside3 from "../../../assets/inside3.jpg";
 import inside4 from "../../../assets/inside4.webp";
+import Footer from "../../Footer";
+import SmallTitle from "../../Atoms/SmallTitle";
 const Properties = () => {
   const totalCount = 9002;
   const anyList = ["first", "second", "third"];
@@ -75,14 +77,16 @@ const Properties = () => {
   ];
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col px-10 py-5">
+    <div className="flex flex-col lg:mt-15 md:mt-15 mt-40 px-5 py-5 max-h-[100vh] overflow-auto">
       <div className="flex flex-col gap-1 items-start ">
         <TitleAtom title={"Real Estates & Homes For Sale"} />
         <ParagraphDescription
           description={`${totalCount} Properties for Sale in Saudi , explore hundreds of available and good structure estates.`}
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
+
+      {/* found results */}
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
         {estates.map((e, index) => (
           <div
             key={index}
@@ -95,6 +99,24 @@ const Properties = () => {
           </div>
         ))}
       </div>
+
+      {/* simlar results nearby */}
+      <SmallTitle title={"Similar Results Nearby"} />
+      <p className="text-xs px-4 mt-2">Results Within 4 miles</p>
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
+        {estates.map((e, index) => (
+          <div
+            key={index}
+            onClick={() => navigate(`/properties/${index}`)}
+            className="rounded-2xl"
+          >
+            <ScrollAnimation key={index}>
+              <SingleEstateEelement estate={e} key={index} />
+            </ScrollAnimation>
+          </div>
+        ))}
+      </div>
+      <Footer />
     </div>
   );
 };

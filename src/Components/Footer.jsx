@@ -34,7 +34,7 @@ const Footer = () => {
       title: "Contact",
       items: [
         "+966 11 123 4567",
-        "info@premiumrealestate.sa",
+        "info@state.sa",
         "King Fahd Road, Riyadh, Saudi Arabia",
       ],
     },

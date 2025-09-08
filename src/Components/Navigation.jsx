@@ -5,7 +5,7 @@ import NavigationButtons from "./MainComponents/Navigation/NavigationButtons";
 const Navigation = () => {
   return (
     <div
-      className="fixed top-0 left-0 right-0 flex justify-around items-center sm:h-10 md:h-15 lg:h-20   bg-gray-200 p-4 shadow-lg z-50 w-screen  overflow-auto "
+      className="fixed top-0 left-0 right-0 flex justify-around items-center sm:h-10 md:h-15 lg:h-20   bg-gray-200 p-4 shadow-lg z-999 w-screen  overflow-auto "
       style={{ fontFamily: "Newsreader" }}
     >
       <div className="hidden lg:flex">{"                        "}</div>
