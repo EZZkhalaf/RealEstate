@@ -17,7 +17,7 @@ const Properties = () => {
   const [estates, setEstates] = useState(MockEstates);
   const [selectedEstate, setSelectedEstate] = useState(null);
   return (
-    <div className="flex flex-col lg:mt-15 md:mt-15 mt-40 px-5 py-5 max-h-[100vh] overflow-auto">
+    <div className="flex flex-col lg:mt-15 md:mt-15 mt-50 px-5 py-5 max-h-[100vh] overflow-auto">
       <div className="flex flex-col gap-1 items-start ">
         <TitleAtom title={"Real Estates & Homes For Sale"} />
         <ParagraphDescription

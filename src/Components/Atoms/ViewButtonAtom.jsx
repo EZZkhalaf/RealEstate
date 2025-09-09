@@ -8,6 +8,7 @@ const ViewButtonAtom = ({
   hoverColor,
   textColor,
   hoverTextColor,
+  onClick,
 }) => {
   return (
     <div>
@@ -27,7 +28,10 @@ const ViewButtonAtom = ({
           e.currentTarget.style.color = textColor;
         }}
       >
-        <button className=" w-full flex justify-center items-center gap-2">
+        <button
+          onClick={onClick}
+          className=" w-full flex justify-center items-center gap-2"
+        >
           {title}
           <MdArrowOutward />
         </button>

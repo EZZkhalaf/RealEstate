@@ -5,6 +5,8 @@ import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
 import PropertiesPage from "./Pages/PropertiesPage";
 import PropertyInfo from "./Pages/PropertyInfo";
+import Agents from "./Pages/Agents";
+import TestingPage from "./Pages/TestingPage";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/properties" element={<PropertiesPage />} />
         <Route path="/properties/:id" element={<PropertyInfo />} />
+        <Route path="/agents/" element={<Agents />} />
+        <Route path="/testing/" element={<TestingPage />} />
       </Routes>
     </div>
   );

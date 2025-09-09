@@ -11,10 +11,10 @@ const InputGray = ({
   additionalInputCss,
 }) => {
   return (
-    <div className="flex flex-col gap-3 ">
+    <div className="flex flex-col gap-3 w-full">
       {header && <h1 className="font-bold">{header}</h1>}
       <div
-        className={`flex justify-around items-center bg-gray-200 rounded-lg p-2 w-full ${additionalCss} font-semibold`}
+        className={`flex justify-around items-center bg-gray-200 rounded-lg p-2  ${additionalCss} font-semibold`}
       >
         <input
           type={`${type}`}

@@ -19,14 +19,14 @@ const ImageAndNameProfile = ({ image, name, locations }) => {
 
 const AgentCard = ({ agent }) => {
   return (
-    <div className="flex flex-col items-center gap-4 p-8 shadow-2xl rounded-2xl">
+    <div className="flex flex-col items-center gap-4 lg:p-4 p-2 shadow-2xl rounded-2xl">
       <ImageAndNameProfile
         image={agent.image}
         name={agent.name}
         locations={agent.locations}
       />
 
-      <div className="flex flex-col gap-2 w-full px-3 text-sm">
+      <div className="flex flex-col gap-2 w-fit  px-3 text-sm">
         <div className="flex justify-between ">
           <p className="text-gray-600">Sales:</p>
           <p className="font-semibold">{agent.sales}</p>
@@ -44,7 +44,7 @@ const AgentCard = ({ agent }) => {
         ))}
       </div>
 
-      <div className="flex text-xl flex-col justify-around items-center w-full gap-2 lg:gap-6 lg:flex-row">
+      <div className="flex text-xl flex-col justify-around items-center w-full gap-1 lg:gap-6 lg:flex-row">
         <ButtonCustomize
           text="Contact"
           icon="email"
