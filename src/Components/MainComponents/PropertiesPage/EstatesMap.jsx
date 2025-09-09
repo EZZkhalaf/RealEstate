@@ -40,7 +40,7 @@ const EstatesMap = ({ mapSearch }) => {
       center={center}
       zoom={13}
       style={{ width: "100%" }}
-      className="h-[100vh] max-h-[100vh] lg:flex md:flex hidden relative z-10"
+      className="h-[100%] max-h-[100%] lg:flex md:flex hidden relative z-10"
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

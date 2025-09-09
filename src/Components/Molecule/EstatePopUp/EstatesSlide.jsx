@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import MockEstates from "../../../MockData/MockEstates.json";
 import SingleCard from "../EstateCards/SingleCard";
+import CardImageArea from "../CardImageArea";
+const SuggestionCard = ({ estate }) => {
+  return (
+    <div className="flex flex-col">
+      <CardImageArea estate={estate} />
+      {/* body */}
+    </div>
+  );
+};
 
 const EstatesSlide = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

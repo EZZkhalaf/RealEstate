@@ -121,7 +121,7 @@ const EstateProps = ({ estate }) => {
       <AgentContactForm />
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
       <TitleAtom title={"Similar Estates Near This Area"} />
-      <EstatesSlide />
+      {/* <EstatesSlide /> */}
     </div>
   );
 };

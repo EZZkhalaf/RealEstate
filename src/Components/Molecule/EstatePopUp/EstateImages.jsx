@@ -7,9 +7,9 @@ const EstateImages = ({ id, images = [] }) => {
   if (!images.length) return null;
 
   return (
-    <div className="flex gap-1">
+    <div className="flex w-full lg:gap-1">
       {images[0] && (
-        <div className="relative flex-[2]">
+        <div className="relative w-full h-[60vh] lg:flex-[2]">
           <img
             src={images[0]}
             alt="estate"
@@ -21,7 +21,7 @@ const EstateImages = ({ id, images = [] }) => {
         </div>
       )}
 
-      <div className="flex flex-1 gap-1 flex-col">
+      <div className=" lg:flex hidden lg:flex-1 lg:gap-1 lg:flex-col">
         {images.slice(1, 3).map((img, idx) => (
           <img
             key={idx}
@@ -32,7 +32,7 @@ const EstateImages = ({ id, images = [] }) => {
         ))}
       </div>
 
-      <div className="flex flex-1 gap-1 flex-col">
+      <div className=" lg:flex hidden lg:flex-1 lg:gap-1 lg:flex-col">
         {images?.slice(3, 5)?.map((img, idx, arr) => (
           <div key={idx} className="relative flex-1">
             <img
