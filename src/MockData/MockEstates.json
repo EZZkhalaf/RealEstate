@@ -67,7 +67,8 @@
       ]
     },
     "type": "compound",
-    "special_paragraph": "Nestled in the prestigious neighborhood of Al Malqa, this family compound redefines modern luxury living in Riyadh. Spanning an expansive 6000 square feet, the property includes six spacious bedrooms and five elegantly designed bathrooms, each crafted with contemporary finishes and thoughtful layouts. The compound is composed of multiple villas, providing both privacy and a sense of community within the family. The landscaped garden offers a serene escape, while the private pool is perfect for relaxation and weekend gatherings. Smart home features, dedicated parking, and a maid’s room add unmatched convenience. Its strategic location ensures quick access to top-tier schools, high-end shopping centers, and cultural attractions. Whether for daily family life or entertaining guests, this estate offers a seamless blend of elegance, comfort, and exclusivity."
+    "special_paragraph": "Nestled in the prestigious neighborhood of Al Malqa, this family compound redefines modern luxury living in Riyadh. Spanning an expansive 6000 square feet, the property includes six spacious bedrooms and five elegantly designed bathrooms, each crafted with contemporary finishes and thoughtful layouts. The compound is composed of multiple villas, providing both privacy and a sense of community within the family. The landscaped garden offers a serene escape, while the private pool is perfect for relaxation and weekend gatherings. Smart home features, dedicated parking, and a maid’s room add unmatched convenience. Its strategic location ensures quick access to top-tier schools, high-end shopping centers, and cultural attractions. Whether for daily family life or entertaining guests, this estate offers a seamless blend of elegance, comfort, and exclusivity.",
+    "market_status": "off"
   },
   {
     "id": 2,
@@ -104,6 +105,7 @@
       "Balcony view",
       "Modern kitchen"
     ],
+
     "actions": ["View Details", "Contact Agent"],
     "stats": {
       "days_on_market": 218,
@@ -137,7 +139,8 @@
       ]
     },
     "type": "compound",
-    "special_paragraph": "Located in the sought-after district of Al Nakheel, this villa offers a refined lifestyle with unmatched attention to detail. With a generous 4500 square feet of living space, it features five bedrooms and four bathrooms, blending comfort with sophistication. The villa is complemented by a private pool surrounded by lush greenery, ideal for outdoor leisure. The spacious garden, rooftop terrace, and designated BBQ area enhance the experience of outdoor living. Inside, the modern kitchen, expansive dining area, and home office provide the perfect balance between functionality and luxury. Situated on a corner lot, the property also boasts two-car garage parking and impressive balcony views. Its location offers proximity to Riyadh’s major business hubs, shopping districts, and schools, making it an ideal family home or investment property."
+    "special_paragraph": "Located in the sought-after district of Al Nakheel, this villa offers a refined lifestyle with unmatched attention to detail. With a generous 4500 square feet of living space, it features five bedrooms and four bathrooms, blending comfort with sophistication. The villa is complemented by a private pool surrounded by lush greenery, ideal for outdoor leisure. The spacious garden, rooftop terrace, and designated BBQ area enhance the experience of outdoor living. Inside, the modern kitchen, expansive dining area, and home office provide the perfect balance between functionality and luxury. Situated on a corner lot, the property also boasts two-car garage parking and impressive balcony views. Its location offers proximity to Riyadh’s major business hubs, shopping districts, and schools, making it an ideal family home or investment property.",
+    "market_status": "on"
   },
   {
     "id": 3,
@@ -208,7 +211,8 @@
         }
       ]
     },
-    "special_paragraph": "This modern compound in Al Yasmin is designed for families who value space, security, and modern amenities. With a vast 7000 square feet of living area, the property boasts seven large bedrooms and six bathrooms, making it perfect for extended families or those who enjoy hosting. The multiple villas within the compound allow for privacy and flexibility in usage, while shared facilities such as a fully equipped gym, private sauna, and game room enhance the lifestyle experience. The property also includes a cinema room for private screenings, solar panels for sustainability, and walk-in closets in each master suite. Located in a quiet yet connected neighborhood, residents enjoy both tranquility and quick access to Riyadh’s thriving city life. This estate combines comfort, entertainment, and green living for the ultimate modern family compound."
+    "special_paragraph": "This modern compound in Al Yasmin is designed for families who value space, security, and modern amenities. With a vast 7000 square feet of living area, the property boasts seven large bedrooms and six bathrooms, making it perfect for extended families or those who enjoy hosting. The multiple villas within the compound allow for privacy and flexibility in usage, while shared facilities such as a fully equipped gym, private sauna, and game room enhance the lifestyle experience. The property also includes a cinema room for private screenings, solar panels for sustainability, and walk-in closets in each master suite. Located in a quiet yet connected neighborhood, residents enjoy both tranquility and quick access to Riyadh’s thriving city life. This estate combines comfort, entertainment, and green living for the ultimate modern family compound.",
+    "market_status": "off"
   },
   {
     "id": 4,
@@ -349,6 +353,7 @@
     },
     "actions": ["View Details", "Contact Agent"],
     "type": "penthouse",
-    "special_paragraph": "A rare opportunity to own a premium compound in Al Malqa, this estate represents the pinnacle of luxury in Riyadh. Spanning an impressive 8500 square feet, the property accommodates eight bedrooms and seven bathrooms, offering unmatched space for large families or investors. The compound includes multiple villas, each thoughtfully designed with luxury finishes, and communal areas such as a tennis court, spa, and library. A private wine cellar, large balcony with city views, and heated floors elevate the living experience. The master suite is a sanctuary of comfort with its own lounge area and deluxe bathroom. Designed for both entertainment and relaxation, the estate also features lush gardens and a resort-style pool. Its central location ensures that residents remain close to Riyadh’s finest schools, shopping districts, and cultural landmarks while enjoying complete privacy and exclusivity."
+    "special_paragraph": "A rare opportunity to own a premium compound in Al Malqa, this estate represents the pinnacle of luxury in Riyadh. Spanning an impressive 8500 square feet, the property accommodates eight bedrooms and seven bathrooms, offering unmatched space for large families or investors. The compound includes multiple villas, each thoughtfully designed with luxury finishes, and communal areas such as a tennis court, spa, and library. A private wine cellar, large balcony with city views, and heated floors elevate the living experience. The master suite is a sanctuary of comfort with its own lounge area and deluxe bathroom. Designed for both entertainment and relaxation, the estate also features lush gardens and a resort-style pool. Its central location ensures that residents remain close to Riyadh’s finest schools, shopping districts, and cultural landmarks while enjoying complete privacy and exclusivity.",
+    "market_status": "off"
   }
 ]

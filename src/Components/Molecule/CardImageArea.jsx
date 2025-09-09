@@ -7,6 +7,7 @@ const CardImageArea = ({
   imageHover,
   setImageHover,
   slides = false,
+  hidePrice = false,
 }) => {
   return (
     <div
@@ -40,12 +41,14 @@ const CardImageArea = ({
         </div>
       </div>
       <div className="p-2">
-        <div
-          className="mb-3 bg-white p-2 rounded-lg"
-          style={{ justifySelf: "flex-start" }}
-        >
-          <p className="  text-blue-900 font-bold">{estate.price}</p>
-        </div>
+        {!hidePrice && (
+          <div
+            className="mb-3 bg-white p-2 rounded-lg"
+            style={{ justifySelf: "flex-start" }}
+          >
+            <p className="  text-blue-900 font-bold">{estate.price}</p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -46,10 +46,16 @@ const EstateStats = ({ days_on_market, saves, views }) => {
 const AgentsActions = ({ last_checked, listing_updated, list }) => {
   return (
     <div>
-      <p>Last Checked : {last_checked}</p>
-      <p>Listing Updated : {listing_updated}</p>
+      <div className="text-sm flex gap-1">
+        <p className="font-bold ">Last Checked : </p>
+        {last_checked}
+      </div>
+      <div className="text-sm flex gap-1">
+        <p className="font-bold">Listing Updated : </p>
+        {listing_updated}
+      </div>
       <br></br>
-      <p className="text-gray-800">Listing By:</p>
+      <p className="text-gray-800 font-bold text-sm">Listing By:</p>
       <div className="grid lg:grid-cols-2 grid-cols-1">
         {list?.map((l, indx) => (
           <div className="flex gap-1 text-sm">
@@ -71,10 +77,13 @@ const EstateProps = ({ estate }) => {
   ];
   return (
     <div className="flex flex-col gap-1">
-      <p className="-underline-offset-2">Foreclosure</p>
+      <button className="flex underline text-blue-700 hover:text-blue-800 hover:font-semibold transform duration-300">
+        Foreclosure
+      </button>
+
       <div className="flex justify-between">
         <div>
-          <p className="text-2xl font-bold ">{estate.price}</p>
+          <p className="lg:text-2xl text-xl font-bold ">{estate.price}</p>
           <p className="text-lg ">{estate.location}</p>
         </div>
         <EstateRoomsAndBeds
@@ -88,7 +97,7 @@ const EstateProps = ({ estate }) => {
           <IconWithText
             icon={icons[idx]}
             text={f}
-            textColor="text-black text-lg"
+            textColor="text-black  lg:text-lg text-md"
             bgColor="bg-gray-100 p-1 rounded-lg"
           />
         ))}
@@ -121,7 +130,7 @@ const EstateProps = ({ estate }) => {
       <AgentContactForm />
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
       <TitleAtom title={"Similar Estates Near This Area"} />
-      {/* <EstatesSlide /> */}
+      <EstatesSlide />
     </div>
   );
 };
