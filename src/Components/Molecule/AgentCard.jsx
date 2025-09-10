@@ -26,7 +26,7 @@ const AgentCard = ({ agent }) => {
         locations={agent.locations}
       />
 
-      <div className="flex flex-col gap-2 w-fit  px-3 text-sm">
+      <div className="flex flex-col gap-2 w-full  px-4 text-sm">
         <div className="flex justify-between ">
           <p className="text-gray-600">Sales:</p>
           <p className="font-semibold">{agent.sales}</p>

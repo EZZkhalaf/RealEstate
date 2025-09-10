@@ -3,6 +3,7 @@ import ParagraphDescription from "./Atoms/ParagraphDescription";
 import InsightsListing from "./MainComponents/MarketInsights.jsx/InsightsListing";
 import MarketInsightsSummaryListing from "./MainComponents/MarketInsights.jsx/MarketInsightsSummaryListing";
 import ScrollAnimation from "../Animation/ScrollAnimation";
+import GrayLine from "./Atoms/GrayLine";
 
 const MarketInsights = () => {
   const marketReports = [
@@ -47,6 +48,7 @@ const MarketInsights = () => {
             "Stay informed with the latest real estate trends and market analysis"
           }
         />
+        <GrayLine />
       </ScrollAnimation>
 
       <ScrollAnimation>

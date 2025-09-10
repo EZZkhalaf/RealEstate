@@ -6,6 +6,7 @@ import MarketInsightsSummary from "./MainComponents/InvestmentTools/MarketInsigh
 import ROICalculator from "./MainComponents/InvestmentTools/ROICalculator";
 import InvestmentSummary from "./MainComponents/InvestmentTools/InvestmentSummary";
 import ScrollAnimation from "../Animation/ScrollAnimation";
+import GrayLine from "./Atoms/GrayLine";
 
 const InvestmentTools = () => {
   return (
@@ -17,6 +18,7 @@ const InvestmentTools = () => {
             "Calculate your returns and make informed investment decisions"
           }
         />
+        <GrayLine />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 w-full p-8 px-3 lg:px-20 gap-10">
         <ScrollAnimation>

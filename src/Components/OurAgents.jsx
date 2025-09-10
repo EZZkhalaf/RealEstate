@@ -4,6 +4,7 @@ import ParagraphDescription from "./Atoms/ParagraphDescription";
 import AgentsCards from "./MainComponents/OurAgents/AgentsCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 import MockAgents from "../MockData/MockAgents.json";
+import GrayLine from "./Atoms/GrayLine";
 const OurAgents = () => {
   const [agentsMock, setAgentsMock] = useState(MockAgents);
   const agents = agentsMock.slice(0, 4);
@@ -19,6 +20,7 @@ const OurAgents = () => {
               "Work with Saudi Arabia's top-rated real estate professionals"
             }
           />
+          <GrayLine />
         </ScrollAnimation>
       </div>
       <ScrollAnimation>

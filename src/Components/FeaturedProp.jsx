@@ -8,6 +8,7 @@ import ParagraphDescription from "./Atoms/ParagraphDescription";
 import EstateCards from "./MainComponents/FeaturedProps/EstateCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 import MockEstates from "../MockData/MockEstates.json";
+import GrayLine from "./Atoms/GrayLine";
 const FilterButton = ({ text }) => {
   return (
     <button
@@ -52,12 +53,12 @@ const FeaturedProp = () => {
     <div className="w-full  flex flex-col  mt-20  lg:pr-25 lg:pl-25">
       <div className="flex flex-col items-center w-full">
         <TitleAtom title={"Featured Properties"} />
-
         <ParagraphDescription
           description={
             "Discover exceptional properties in Saudi Arabia's most prestigious locations"
           }
         />
+        <GrayLine />
       </div>
 
       <FilteringOptions generes={generes} filterOptions={filterOptions} />
