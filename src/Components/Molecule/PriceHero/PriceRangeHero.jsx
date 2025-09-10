@@ -12,7 +12,7 @@ const PriceRangeHero = ({ minValue, maxValue, min, max, handleMaxChange }) => {
           <div className="absolute top-1/2 w-full h-2 bg-gray-300 rounded -translate-y-1/2"></div>
 
           <div
-            className="absolute top-1/2 h-2 bg-black rounded -translate-y-1/2"
+            className="absolute top-1/2 h-2 bg-black  -translate-y-1/2 rounded-full"
             style={{
               left: `${((minValue - min) / (max - min)) * 100}%`,
               right: `${100 - ((maxValue - min) / (max - min)) * 100}%`,
@@ -25,7 +25,7 @@ const PriceRangeHero = ({ minValue, maxValue, min, max, handleMaxChange }) => {
             max={max}
             value={maxValue}
             onChange={handleMaxChange}
-            className="absolute w-full h-6 appearance-none z-40 bg-transparent pointer-events-auto"
+            className="relative w-full h-6 appearance-none z-40 bg-transparent pointer-events-auto rounded-full"
           />
         </div>
 
