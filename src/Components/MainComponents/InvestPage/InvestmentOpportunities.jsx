@@ -142,7 +142,7 @@ const InvestmentOpportunities = () => {
 
   const [estates, setEstates] = useState(MockEstates);
   return (
-    <div className="flex flex-col w-full px-20">
+    <div className="flex flex-col w-full  lg:px-50 md:px-20 px-10">
       <div className="flex flex-col items-center w-full mt-5 ">
         <TitleAtom title={"Investment Opportunities"} />
         <ParagraphDescription

@@ -7,7 +7,6 @@ const ButtonCustomize = ({
   hoverColor,
   textColor,
   hoverTextColor,
-  navigateTo,
   rounded = "lg",
   padding = "2",
   onClick,

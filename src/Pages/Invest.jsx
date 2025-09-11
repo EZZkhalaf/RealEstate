@@ -17,6 +17,12 @@ import ScrollAnimation from "../Animation/ScrollAnimation";
 import GrayLine from "../Components/Atoms/GrayLine";
 import EstateCards from "../Components/MainComponents/FeaturedProps/EstateCards";
 import MockEstates from "../MockData/MockEstates.json";
+import InvestmentTools from "../Components/InvestmentTools";
+import InvestmentAnalysis from "../Components/MainComponents/InvestPage/InvestmentAnalysis";
+import FinancialBreakDown from "../Components/MainComponents/InvestPage/FinancialBreakDown";
+import InvestmentStrategies from "../Components/MainComponents/InvestPage/InvestmentStrategies";
+import MarketAnalysis from "../Components/MainComponents/InvestPage/MarketAnalysis";
+import StartInvestment from "../Components/MainComponents/InvestPage/StartInvestment";
 const Invest = () => {
   const navigate = useNavigate();
 
@@ -125,8 +131,39 @@ const Invest = () => {
         <GrayLine />
       </div>
 
-      <EstateCards estates={estates} />
+      <EstateCards
+        estates={estates}
+        buttonTitle="View All Investment Properties"
+      />
 
+      <InvestmentTools
+        title="Investment Calculator"
+        description="Calculate detailed returns, cash flow, and investment metrics for any property"
+      >
+        <div className="grid grid-cols-1 gap-2 ">
+          <InvestmentAnalysis />
+          <FinancialBreakDown />
+          <ButtonCustomize
+            text="Contact"
+            icon="email"
+            color="#0B3557"
+            hoverColor="#0B3557E6"
+            textColor="#FFFFFF"
+            hoverTextColor="#FFFFFF"
+          />
+          <ButtonCustomize
+            text="Call"
+            icon="phone"
+            color="#FFFFFF"
+            hoverColor="#9CA3AF"
+            textColor="#000000"
+            hoverTextColor="#FFFFFF"
+          />
+        </div>
+      </InvestmentTools>
+      <InvestmentStrategies />
+      <MarketAnalysis />
+      <StartInvestment />
       <Footer />
     </div>
   );

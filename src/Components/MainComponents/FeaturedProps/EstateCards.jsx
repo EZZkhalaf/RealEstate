@@ -7,11 +7,11 @@ import SingleCard from "../../Molecule/EstateCards/SingleCard";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import EstateCardsListing from "../../Molecule/EstateCards/EstateCardsListing";
 
-const EstateCards = ({ estates }) => {
+const EstateCards = ({ estates, buttonTitle = "View All Properties" }) => {
   return (
-    <div className="min-w-full">
+    <div className="min-w-full  lg:px-50 md:px-20 px-10">
       {estates ? (
-        <EstateCardsListing estates={estates} />
+        <EstateCardsListing estates={estates} buttonTitle={buttonTitle} />
       ) : (
         <p className="text-gray-600 font-bold">
           not estates available at the moment

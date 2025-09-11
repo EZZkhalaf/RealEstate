@@ -11,6 +11,10 @@ import GrayLine from "../Components/Atoms/GrayLine";
 import HeroImage from "../assets/HeroImage.jpg";
 import HeroSummary from "../Components/MainComponents/Hero/HeroSummary";
 import PriceHero from "../Components/MainComponents/Hero/PriceHero";
+import MarketInsightsSummary from "../Components/MainComponents/InvestmentTools/MarketInsightsSummary";
+import ScrollAnimation from "../Animation/ScrollAnimation";
+import InvestmentSummary from "../Components/MainComponents/InvestmentTools/InvestmentSummary";
+import ViewButtonAtom from "../Components/Atoms/ViewButtonAtom";
 const Home = () => {
   const summary = [
     {
@@ -55,7 +59,27 @@ const Home = () => {
 
       <OurServices />
 
-      <InvestmentTools />
+      <InvestmentTools>
+        <div className="grid grid-cols-1">
+          <ScrollAnimation>
+            <InvestmentSummary />
+          </ScrollAnimation>
+
+          <ScrollAnimation>
+            <MarketInsightsSummary />
+          </ScrollAnimation>
+
+          <ScrollAnimation>
+            <ViewButtonAtom
+              title={"Get Investment Consultation "}
+              navigateTo={"idk"}
+              color={"#0B3557"}
+              hoverColor={"#5A7792"}
+              textColor={"#FFFFFF"}
+            />
+          </ScrollAnimation>
+        </div>
+      </InvestmentTools>
       <OurAgents />
       <MarketInsights />
       <ContactUs />

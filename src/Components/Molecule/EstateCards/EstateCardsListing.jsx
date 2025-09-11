@@ -4,7 +4,10 @@ import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 import SingleCard from "./SingleCard";
 import { useNavigate } from "react-router-dom";
 
-const EstateCardsListing = ({ estates }) => {
+const EstateCardsListing = ({
+  estates,
+  buttonTitle = "View All Properties",
+}) => {
   const navigate = useNavigate();
   return (
     <div className=" flex flex-col items-center w-full">
@@ -21,7 +24,7 @@ const EstateCardsListing = ({ estates }) => {
       <div onClick={() => navigate("/properties")} className="mt-8">
         <ScrollAnimation>
           <ViewButtonAtom
-            title={"View All Properties"}
+            title={buttonTitle}
             navigateTo={"any url"}
             color={"#FFFFFF"}
             hoverColor={"#0B3557"}
