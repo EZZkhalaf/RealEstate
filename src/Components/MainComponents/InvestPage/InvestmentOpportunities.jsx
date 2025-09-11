@@ -18,21 +18,21 @@ const OpCard = ({ op }) => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between gap-4 mt-5">
+      <div className="flex flex-col sm:flex-row justify-between px-2 gap-4 mt-5">
         {/* Avg ROI */}
-        <div className="flex flex-row sm:flex-col items-center sm:items-start gap-1">
+        <div className="flex flex-row sm:flex-col items-center  t gap-1">
           <p className="font-semibold">{op.avgROI}</p>
           <p>Avg. ROI</p>
         </div>
 
         {/* Min Investment */}
-        <div className="flex flex-row sm:flex-col items-center sm:items-start gap-1">
+        <div className="flex flex-row sm:flex-col items-center   gap-1">
           <p className="font-semibold">{op.minInvestment}</p>
           <p>Min. Investment</p>
         </div>
 
         {/* Risk Level */}
-        <div className="flex flex-row sm:flex-col items-center sm:items-start gap-1">
+        <div className="flex flex-row sm:flex-col items-center  gap-1">
           <p
             className={`font-semibold text-white px-2 flex items-center text-xs rounded-xl w-fit
         ${op.riskLevel === "Low" ? "bg-green-500" : ""}
