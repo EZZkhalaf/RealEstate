@@ -72,22 +72,16 @@ const Hero = ({
         image ? "bg-black/40" : "bg-black/70"
       }`}
     >
-      <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black/40">
-        <div className="flex flex-col items-center justify-center h-full gap-10 text-center">
+      <div
+        className={`relative w-full ${minHeight} flex flex-col items-center justify-center bg-black/40`}
+      >
+        <div className="flex flex-col items-center justify-center h-full gap-10 text-center w-full">
           <HeroTitle
             title1={heroTitle1}
             title2={heroTitle2}
             paragraph={heroParagraph}
           />
-          {/* <div className="w-full px-2">
-            <ScrollAnimation type="zoom-in" delay={1.5}>
-              {component1}
-            </ScrollAnimation>
-          </div>
 
-          <ScrollAnimation type="fade-up" delay={2}>
-            {component2}
-          </ScrollAnimation> */}
           {children}
         </div>
       </div>

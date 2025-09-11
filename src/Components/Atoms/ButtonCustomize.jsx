@@ -31,7 +31,7 @@ const ButtonCustomize = ({
           className="font-bold"
         />
       )}
-      <p className="font-medium  text-sm">{text}</p>
+      <p className="font-medium  text-xs">{text}</p>
     </button>
   );
 };

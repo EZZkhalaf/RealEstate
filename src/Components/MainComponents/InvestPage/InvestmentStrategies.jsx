@@ -37,6 +37,7 @@ const InvestmentStrategies = () => {
       avgROI: "12-18%",
       minInvestment: "₹10M",
       riskLevel: "Medium-High",
+      timeframe: "5+ years",
       pros: [
         "Diversified income",
         "Higher returns",
@@ -54,6 +55,7 @@ const InvestmentStrategies = () => {
         "Real Estate Investment Trusts for portfolio diversification",
       avgROI: "6-10%",
       minInvestment: "₹100K",
+      timeframe: "5+ years",
       riskLevel: "Low-Medium",
       pros: [
         "High liquidity",
@@ -74,7 +76,7 @@ const InvestmentStrategies = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1  w-full mt-20  lg:px-50 md:px-20 px-10">
+    <div className="grid grid-cols-1  w-full mt-20  lg:px-50 md:px-10 px-2">
       <div className="flex flex-col items-center">
         <TitleAtom title={"Investment Strategies"} />
         <ParagraphDescription

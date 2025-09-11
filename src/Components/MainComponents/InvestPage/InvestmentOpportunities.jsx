@@ -14,7 +14,11 @@ const OpCard = ({ op }) => {
         <IconAtom icon={op.icon} />
         <div className="flex flex-col ">
           <TitleAtom title={op.title} textSizeDefault="xl" textSizeLarge="xl" />
-          <ParagraphDescription description={op.desc} margin={false} />
+          <ParagraphDescription
+            textAlignment="text-start"
+            description={op.desc}
+            margin={false}
+          />
         </div>
       </div>
 
@@ -22,28 +26,28 @@ const OpCard = ({ op }) => {
         {/* Avg ROI */}
         <div className="flex flex-row sm:flex-col items-center  t gap-1">
           <p className="font-semibold">{op.avgROI}</p>
-          <p>Avg. ROI</p>
+          <p className="text-xs">Avg. ROI</p>
         </div>
 
         {/* Min Investment */}
         <div className="flex flex-row sm:flex-col items-center   gap-1">
           <p className="font-semibold">{op.minInvestment}</p>
-          <p>Min. Investment</p>
+          <p className="text-xs">Min. Investment</p>
         </div>
 
         {/* Risk Level */}
         <div className="flex flex-row sm:flex-col items-center  gap-1">
           <p
-            className={`font-semibold text-white px-2 flex items-center text-xs rounded-xl w-fit
-        ${op.riskLevel === "Low" ? "bg-green-500" : ""}
-        ${op.riskLevel === "Medium" ? "bg-yellow-500" : ""}
-        ${op.riskLevel === "Medium-High" ? "bg-orange-500" : ""}
-        ${op.riskLevel === "High" ? "bg-red-500" : ""}
+            className={`font-semibold  px-2 flex items-center text-xs rounded-xl w-fit
+        ${op.riskLevel === "Low" ? "bg-green-200 text-green-600" : ""}
+        ${op.riskLevel === "Medium" ? "bg-yellow-200 text-yellow-600" : ""}
+        ${op.riskLevel === "Medium-High" ? "bg-orange-200 text-orange-600" : ""}
+        ${op.riskLevel === "High" ? "bg-red-200 text-red-600" : ""}
       `}
           >
             {op.riskLevel}
           </p>
-          <p>Risk Level</p>
+          <p className="text-xs">Risk Level</p>
         </div>
       </div>
 
@@ -148,7 +152,7 @@ const InvestmentOpportunities = () => {
 
   const [estates, setEstates] = useState(MockEstates);
   return (
-    <div className="flex flex-col w-full  lg:px-50 md:px-20 px-10">
+    <div className="flex flex-col w-full  lg:px-50 md:px-13 px-5">
       <div className="flex flex-col items-center w-full mt-5 ">
         <TitleAtom title={"Investment Opportunities"} />
         <ParagraphDescription

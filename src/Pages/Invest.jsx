@@ -49,42 +49,6 @@ const Invest = () => {
 
   return (
     <div className="w-full">
-      {/* 
-                  <div className="mt-20 px-10 bg-gray-100">
-                  <div className="py-3 px-6">
-                  <TitleAtom
-                        title={"Investment in Estates"}
-                        textSizeDefault="text-3xl"
-                  />
-                  <ParagraphDescription
-                        description={
-                        "Investing in estates allows you to generate passive income and build wealth through rental returns and property appreciation."
-                        }
-                        textAlignment=" "
-                  />
-                  </div>
-                  <Introduction />
-
-                  <TypesOfEstates />
-
-                  <HowItWork />
-
-                  <InvestRisks />
-
-                  <div className="mt-8 flex w-full justify-center mb-8">
-                  <ViewButtonAtom
-                        // onClick={() => navigate("/agents")}
-                        title={"Invest Now"}
-                        navigateTo={"any url"}
-                        color={"#FFFFFF"}
-                        hoverColor={"#0B3557"}
-                        textColor={"#0B3557"}
-                        hoverTextColor={"#FFFFFF"}
-                  />
-                  </div>
-                  </div> 
-      */}
-
       <Hero
         heroTitle1={"Build Wealth Through"}
         heroTitle2={"Real Estate Investment"}
@@ -92,13 +56,14 @@ const Invest = () => {
           "Discover premium investment opportunities in Saudi Arabia's fastest-growing real estate markets"
         }
         priceHeroExist={false}
+        minHeight="max-h-fit"
       >
         <ScrollAnimation>
           <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
             <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">
               <ButtonCustomize
                 text="Find Investment Property"
-                icon="home"
+                // icon="home"
                 color="#22C55E" // green-500
                 hoverColor="#16A34A" // green-600
                 textColor="#FFFFFF"
@@ -107,7 +72,7 @@ const Invest = () => {
 
               <ButtonCustomize
                 text="Calculate Returns"
-                icon="calculator-variant"
+                // icon="calculator-variant"
                 color="#FFFFFF"
                 hoverColor="#9CA3AF"
                 textColor="#000000"
@@ -119,9 +84,31 @@ const Invest = () => {
         </ScrollAnimation>
       </Hero>
 
+      {/* <div className="mt-20 px-10 bg-gray-100">
+        <div className="py-3 px-6">
+          <TitleAtom
+            title={"Investment in Estates"}
+            textSizeDefault="text-3xl"
+          />
+          <ParagraphDescription
+            description={
+              "Investing in estates allows you to generate passive income and build wealth through rental returns and property appreciation."
+            }
+            textAlignment=" "
+          />
+        </div>
+        <Introduction />
+
+        <TypesOfEstates />
+
+        <HowItWork />
+
+        <InvestRisks />
+      </div> */}
+
       <InvestmentOpportunities />
 
-      <div className="flex flex-col items-center w-full mt-5 ">
+      <div className="flex flex-col items-center w-full mt-8 ">
         <TitleAtom title={"Investment Properties"} />
         <ParagraphDescription
           description={

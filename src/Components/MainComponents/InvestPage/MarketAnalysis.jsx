@@ -38,7 +38,7 @@ const MarketAnalysis = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1  w-full mt-20  lg:px-50 md:px-20 px-10 mb-10">
+    <div className="grid grid-cols-1  w-full mt-20  lg:px-30 md:px-10 px-5 mb-10">
       <div className="flex flex-col items-center">
         <TitleAtom title={"Market Analysis"} />
         <ParagraphDescription
@@ -48,7 +48,7 @@ const MarketAnalysis = () => {
         />
         <GrayLine />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2  gap-4">
         {markets.map((market, index) => (
           <MarketCard market={market} key={index} />
         ))}
