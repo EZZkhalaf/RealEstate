@@ -10,7 +10,7 @@ import EstateCards from "../FeaturedProps/EstateCards";
 const OpCard = ({ op }) => {
   return (
     <div className="flex flex-col gap-3 w-full justify-center shadow-2xl p-3 rounded-lg">
-      <div className="flex gap-2 items-center ">
+      <div className="flex gap-2 lg:flex-row md:flex-row flex-col items-center ">
         <IconAtom icon={op.icon} />
         <div className="flex flex-col ">
           <TitleAtom title={op.title} textSizeDefault="xl" textSizeLarge="xl" />
@@ -18,22 +18,28 @@ const OpCard = ({ op }) => {
         </div>
       </div>
 
-      <div className="flex justify-around mt-5">
-        <div className="flex flex-col gap-1">
+      <div className="flex flex-col sm:flex-row justify-between gap-4 mt-5">
+        {/* Avg ROI */}
+        <div className="flex flex-row sm:flex-col items-center sm:items-start gap-1">
           <p className="font-semibold">{op.avgROI}</p>
           <p>Avg. ROI</p>
         </div>
-        <div className="flex flex-col gap-1">
+
+        {/* Min Investment */}
+        <div className="flex flex-row sm:flex-col items-center sm:items-start gap-1">
           <p className="font-semibold">{op.minInvestment}</p>
           <p>Min. Investment</p>
         </div>
-        <div className="flex flex-col gap-1">
+
+        {/* Risk Level */}
+        <div className="flex flex-row sm:flex-col items-center sm:items-start gap-1">
           <p
-            className={`font-semibold text-white px-2 text-xs rounded-xl w-fit
-      ${op.riskLevel === "Low" ? "bg-green-500" : ""}
-      ${op.riskLevel === "Medium" ? "bg-yellow-500" : ""}
-      ${op.riskLevel === "Medium-High" ? "bg-orange-500" : ""}
-      ${op.riskLevel === "High" ? "bg-red-500" : ""}`}
+            className={`font-semibold text-white px-2 flex items-center text-xs rounded-xl w-fit
+        ${op.riskLevel === "Low" ? "bg-green-500" : ""}
+        ${op.riskLevel === "Medium" ? "bg-yellow-500" : ""}
+        ${op.riskLevel === "Medium-High" ? "bg-orange-500" : ""}
+        ${op.riskLevel === "High" ? "bg-red-500" : ""}
+      `}
           >
             {op.riskLevel}
           </p>

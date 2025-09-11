@@ -94,8 +94,8 @@ const Invest = () => {
         priceHeroExist={false}
       >
         <ScrollAnimation>
-          <div className="flex flex-col items-center justify-center h-full gap-10 text-center">
-            <div className="flex flex-row gap-3 w-full px-4">
+          <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
+            <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">
               <ButtonCustomize
                 text="Find Investment Property"
                 icon="home"

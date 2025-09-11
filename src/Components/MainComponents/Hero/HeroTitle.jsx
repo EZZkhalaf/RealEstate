@@ -13,7 +13,7 @@ const HeroTitle = ({ title1, title2, paragraph }) => {
         </h1>
       </ScrollAnimation>
       <ScrollAnimation type="fade-up" delay={1}>
-        <p className="  text-xl md:text-xl text-white/90 max-w-2xl mx-auto text-center">
+        <p className="  text-md md:text-xl lg:text-xl text-white/90 max-w-2xl mx-auto text-center">
           {paragraph}
         </p>
       </ScrollAnimation>
