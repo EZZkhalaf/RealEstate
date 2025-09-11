@@ -75,7 +75,7 @@ const Hero = ({
       <div
         className={`relative w-full ${minHeight} flex flex-col items-center justify-center bg-black/40`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-10 text-center w-full">
+        <div className="flex flex-col items-center justify-center h-full gap-10 text-center ">
           <HeroTitle
             title1={heroTitle1}
             title2={heroTitle2}
