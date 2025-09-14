@@ -9,7 +9,7 @@ const Navigation = () => {
       style={{ fontFamily: "Newsreader" }}
     >
       <div className="hidden lg:flex">{"                        "}</div>
-      <div className="hidden lg:flex"></div>
+      {/* <div className="hidden lg:flex"></div> */}
 
       <NavigationButtons />
 

@@ -6,7 +6,7 @@ import IconAtom from "../../Atoms/IconAtom";
 import { Icon } from "@iconify/react";
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 import MockEstates from "../../../MockData/MockEstates.json";
-import EstateCards from "../FeaturedProps/EstateCards";
+import MockInvestmentOptions from "../../../MockData/MockInvestmentOptions.json";
 const OpCard = ({ op }) => {
   return (
     <div className="flex flex-col gap-3 w-full justify-center shadow-2xl p-3 rounded-lg">
@@ -87,69 +87,9 @@ const OppurtunitiesListing = ({ opportunities }) => {
 };
 
 const InvestmentOpportunities = () => {
-  const investmentOptions = [
-    {
-      title: "Commercial Real Estate",
-      desc: "Office buildings, retail spaces, and mixed-use developments",
-      avgROI: "10-15%",
-      minInvestment: "₹5M",
-      riskLevel: "Medium",
-      highlights: [
-        "Stable cash flow",
-        "Long-term leases",
-        "Professional tenants",
-        "Tax advantages",
-      ],
-      buttonText: "Explore Properties",
-      icon: "office-building", // mdi-light:office-building
-    },
-    {
-      title: "Residential Properties",
-      desc: "Apartments, villas, and townhouses in prime locations",
-      avgROI: "7-12%",
-      minInvestment: "₹1M",
-      riskLevel: "Low",
-      highlights: [
-        "Easy to manage",
-        "High demand",
-        "Steady appreciation",
-        "Rental income",
-      ],
-      buttonText: "Explore Properties",
-      icon: "home", // mdi-light:home
-    },
-    {
-      title: "Mixed-Use Developments",
-      desc: "Properties combining residential, commercial, and retail spaces",
-      avgROI: "12-18%",
-      minInvestment: "₹10M",
-      riskLevel: "Medium-High",
-      highlights: [
-        "Diversified income",
-        "Higher returns",
-        "Modern amenities",
-        "Strategic locations",
-      ],
-      buttonText: "Explore Properties",
-      icon: "city-variant", // mdi-light:city-variant
-    },
-    {
-      title: "REIT Investments",
-      desc: "Real Estate Investment Trusts for portfolio diversification",
-      avgROI: "6-10%",
-      minInvestment: "₹100K",
-      riskLevel: "High",
-      highlights: [
-        "High liquidity",
-        "Professional management",
-        "Diversified portfolio",
-        "Low entry barrier",
-      ],
-      buttonText: "Explore Properties",
-      icon: "chart-line", // mdi-light:chart-line
-    },
-  ];
-
+  const [investmentOptions, setInvestmentOptions] = useState(
+    MockInvestmentOptions
+  );
   const [estates, setEstates] = useState(MockEstates);
   return (
     <div className="flex flex-col w-full  lg:px-50 md:px-13 px-5">

@@ -1,41 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import GrayLine from "../../Atoms/GrayLine";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import TitleAtom from "../../Atoms/TitleAtom";
 import MarketCard from "../../Molecule/MarketAnalysis/MarketCard";
 import KeyMarketInsight from "../../Molecule/MarketAnalysis/KeyMarketInsight";
-
+import MockMarkets from "../../../MockData/MockMarkets.json";
 const MarketAnalysis = () => {
-  const markets = [
-    {
-      name: "Riyadh - KAFD",
-      description: "Strong growth expected",
-      appreciation: "+12.8%",
-      rentalYield: "7.2%",
-      avgPrice: "₹3.2M",
-    },
-    {
-      name: "Jeddah - Corniche",
-      description: "Steady appreciation",
-      appreciation: "+8.5%",
-      rentalYield: "6.8%",
-      avgPrice: "₹2.8M",
-    },
-    {
-      name: "Riyadh - Al Olaya",
-      description: "High demand area",
-      appreciation: "+10.2%",
-      rentalYield: "6.5%",
-      avgPrice: "₹2.5M",
-    },
-    {
-      name: "Dammam - Business District",
-      description: "Emerging market",
-      appreciation: "+6.3%",
-      rentalYield: "8.1%",
-      avgPrice: "₹2.1M",
-    },
-  ];
+  const [markets, setMarkets] = useState(MockMarkets);
 
   return (
     <div className="grid grid-cols-1  w-full mt-20  lg:px-30 md:px-10 px-5 mb-10">
