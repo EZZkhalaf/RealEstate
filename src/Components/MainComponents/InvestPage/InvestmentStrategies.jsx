@@ -76,7 +76,7 @@ const InvestmentStrategies = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1  w-full mt-20  lg:px-50 md:px-10 px-2">
+    <div className="grid grid-cols-1  w-full mt-20  lg:px-20 md:px-10 px-2">
       <div className="flex flex-col items-center">
         <TitleAtom title={"Investment Strategies"} />
         <ParagraphDescription

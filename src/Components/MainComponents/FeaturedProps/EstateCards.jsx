@@ -9,7 +9,7 @@ import EstateCardsListing from "../../Molecule/EstateCards/EstateCardsListing";
 
 const EstateCards = ({ estates, buttonTitle = "View All Properties" }) => {
   return (
-    <div className="min-w-full  lg:px-50 md:px-20 px-5">
+    <div className="min-w-full  lg:px-20 md:px-20 px-5">
       {estates ? (
         <EstateCardsListing estates={estates} buttonTitle={buttonTitle} />
       ) : (
