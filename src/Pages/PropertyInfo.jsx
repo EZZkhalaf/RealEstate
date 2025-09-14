@@ -11,7 +11,7 @@ const PropertyInfo = () => {
   const images = [inside1, inside2, inside3, inside4];
   return (
     <div className="flex flex-row gap-2 w-full mt-25">
-      {/* <div className="flex flex-col p-10">
+      <div className="flex flex-col p-10">
         <div className="flex justify-between">
           <ButtonCustomize
             icon="arrow-left"
@@ -29,7 +29,7 @@ const PropertyInfo = () => {
 
       <div className="p-10">
         <div className="bg-gray-400">contact info</div>
-      </div> */}
+      </div>
     </div>
   );
 };
