@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "price": "$4,500,000",
+    "title": "Family Compound in Al Malqa",
+    "location": "Riyadh, Saudi Arabia",
+    "beds": 6,
+    "baths": 5,
+    "area": "6000",
+    "image": [
+      "/assets/estate1.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp",
+      "/assets/estate2.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp"
+    ],
+    "features": [
+      "Multiple Villas",
+      "Garden",
+      "Pool",
+      "Maid’s Room",
+      "Parking",
+      "Smart Home System"
+    ],
+    "special_props": [
+      "One car attached garage",
+      "First floor laundry room",
+      "Quiet road",
+      "Metal roof",
+      "Pleasant front porch"
+    ],
+    "actions": ["View Details", "Contact Agent"],
+    "stats": {
+      "days_on_market": 222,
+      "views": 333,
+      "saves": 22
+    },
+    "listing_info": {
+      "last_checked": "11 hours ago",
+      "listing_updated": "September 02, 2025 at 03:58pm",
+      "listing_by": [
+        {
+          "id": 1,
+          "name": "Howard Hanna Real Estate",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 2,
+          "name": "Thomas K Elleman Jr",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 3,
+          "name": "Thomas K. Elleman",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 4,
+          "name": "Howard Hanna Real Estate",
+          "contact": null
+        }
+      ]
+    },
+    "type": "compound",
+    "special_paragraph": "Nestled in the prestigious neighborhood of Al Malqa, this family compound redefines modern luxury living in Riyadh. Spanning an expansive 6000 square feet, the property includes six spacious bedrooms and five elegantly designed bathrooms, each crafted with contemporary finishes and thoughtful layouts. The compound is composed of multiple villas, providing both privacy and a sense of community within the family. The landscaped garden offers a serene escape, while the private pool is perfect for relaxation and weekend gatherings. Smart home features, dedicated parking, and a maid’s room add unmatched convenience. Its strategic location ensures quick access to top-tier schools, high-end shopping centers, and cultural attractions. Whether for daily family life or entertaining guests, this estate offers a seamless blend of elegance, comfort, and exclusivity.",
+    "market_status": "off"
+  },
+  {
+    "id": 2,
+    "price": "$3,200,000",
+    "title": "Luxury Villa in Al Nakheel",
+    "location": "Riyadh, Saudi Arabia",
+    "beds": 5,
+    "baths": 4,
+    "area": "4500",
+    "image": [
+      "/assets/estate2.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp",
+      "/assets/estate2.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp"
+    ],
+    "features": [
+      "Garden",
+      "Private Pool",
+      "Garage",
+      "Home Office",
+      "BBQ Area",
+      "Rooftop Terrace"
+    ],
+    "special_props": [
+      "Two car garage",
+      "Spacious dining room",
+      "Corner lot",
+      "Balcony view",
+      "Modern kitchen"
+    ],
+
+    "actions": ["View Details", "Contact Agent"],
+    "stats": {
+      "days_on_market": 218,
+      "views": 1195,
+      "saves": 57
+    },
+    "listing_info": {
+      "last_checked": "11 hours ago",
+      "listing_updated": "September 02, 2025 at 03:58pm",
+      "listing_by": [
+        {
+          "id": 1,
+          "name": "Howard Hanna Real Estate",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 2,
+          "name": "Thomas K Elleman Jr",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 3,
+          "name": "Thomas K. Elleman",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 4,
+          "name": "Howard Hanna Real Estate",
+          "contact": null
+        }
+      ]
+    },
+    "type": "compound",
+    "special_paragraph": "Located in the sought-after district of Al Nakheel, this villa offers a refined lifestyle with unmatched attention to detail. With a generous 4500 square feet of living space, it features five bedrooms and four bathrooms, blending comfort with sophistication. The villa is complemented by a private pool surrounded by lush greenery, ideal for outdoor leisure. The spacious garden, rooftop terrace, and designated BBQ area enhance the experience of outdoor living. Inside, the modern kitchen, expansive dining area, and home office provide the perfect balance between functionality and luxury. Situated on a corner lot, the property also boasts two-car garage parking and impressive balcony views. Its location offers proximity to Riyadh’s major business hubs, shopping districts, and schools, making it an ideal family home or investment property.",
+    "market_status": "on"
+  },
+  {
+    "id": 3,
+    "price": "$5,100,000",
+    "title": "Modern Compound in Al Yasmin",
+    "location": "Riyadh, Saudi Arabia",
+    "beds": 7,
+    "baths": 6,
+    "area": "7000",
+    "image": [
+      "/assets/estate1.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp",
+      "/assets/estate2.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp"
+    ],
+    "features": [
+      "Multiple Villas",
+      "Gym",
+      "Pool",
+      "Garden",
+      "Sauna",
+      "Game Room",
+      "Cinema Room"
+    ],
+    "special_props": [
+      "Private driveway",
+      "Walk-in closets",
+      "Quiet neighborhood",
+      "Solar panels",
+      "Second floor terrace"
+    ],
+    "actions": ["View Details", "Contact Agent"],
+    "type": "townhouse",
+    "stats": {
+      "days_on_market": 110,
+      "views": 242,
+      "saves": 24
+    },
+    "listing_info": {
+      "last_checked": "11 hours ago",
+      "listing_updated": "September 02, 2025 at 03:58pm",
+      "listing_by": [
+        {
+          "id": 1,
+          "name": "Howard Hanna Real Estate",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 2,
+          "name": "Thomas K Elleman Jr",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 3,
+          "name": "Thomas K. Elleman",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 4,
+          "name": "Howard Hanna Real Estate",
+          "contact": null
+        }
+      ]
+    },
+    "special_paragraph": "This modern compound in Al Yasmin is designed for families who value space, security, and modern amenities. With a vast 7000 square feet of living area, the property boasts seven large bedrooms and six bathrooms, making it perfect for extended families or those who enjoy hosting. The multiple villas within the compound allow for privacy and flexibility in usage, while shared facilities such as a fully equipped gym, private sauna, and game room enhance the lifestyle experience. The property also includes a cinema room for private screenings, solar panels for sustainability, and walk-in closets in each master suite. Located in a quiet yet connected neighborhood, residents enjoy both tranquility and quick access to Riyadh’s thriving city life. This estate combines comfort, entertainment, and green living for the ultimate modern family compound.",
+    "market_status": "off"
+  },
+  {
+    "id": 4,
+    "price": "$2,800,000",
+    "title": "Elegant Villa in Al Rawdah",
+    "location": "Riyadh, Saudi Arabia",
+    "beds": 4,
+    "baths": 3,
+    "area": "3800",
+    "image": [
+      "/assets/estates.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp",
+      "/assets/estate2.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp"
+    ],
+    "features": [
+      "Garden",
+      "Pool",
+      "Theater Room",
+      "Rooftop Lounge",
+      "Smart Lighting"
+    ],
+    "special_props": [
+      "Attached carport",
+      "Basement storage",
+      "Fireplace",
+      "Open floor plan",
+      "Front garden seating"
+    ],
+    "stats": {
+      "days_on_market": 113,
+      "views": 909,
+      "saves": 10
+    },
+    "listing_info": {
+      "last_checked": "11 hours ago",
+      "listing_updated": "September 02, 2025 at 03:58pm",
+      "listing_by": [
+        {
+          "id": 1,
+          "name": "Howard Hanna Real Estate",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 2,
+          "name": "Thomas K Elleman Jr",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 3,
+          "name": "Thomas K. Elleman",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 4,
+          "name": "Howard Hanna Real Estate",
+          "contact": null
+        }
+      ]
+    },
+
+    "actions": ["View Details", "Contact Agent"],
+    "type": "Villa",
+    "special_paragraph": "Tucked away in the charming district of Al Rawdah, this elegant villa offers an inviting balance between classic comfort and modern design. Covering 3800 square feet, it is designed to maximize every inch of space. With four bedrooms and three bathrooms, the villa is ideal for medium-sized families or individuals seeking a stylish retreat. The interior features an open floor plan, smart lighting systems, and a cozy fireplace, while the basement offers additional storage space. Outdoors, a private pool, front garden seating, and a rooftop lounge create a resort-like atmosphere. The property also comes with an attached carport for convenience and security. Perfectly located, the villa provides easy access to dining, retail, and essential services in Riyadh, while still offering a peaceful residential environment."
+  },
+  {
+    "id": 5,
+    "price": "$6,000,000",
+    "title": "Premium Family Compound in Al Malqa",
+    "location": "Riyadh, Saudi Arabia",
+    "beds": 8,
+    "baths": 7,
+    "area": "8500",
+    "image": [
+      "/assets/estate1.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp",
+      "/assets/estate2.avif",
+      "/assets/inside1.jpg",
+      "/assets/inside2.jpg",
+      "/assets/inside3.jpg",
+      "/assets/inside4.webp"
+    ],
+    "features": [
+      "Multiple Villas",
+      "Garden",
+      "Pool",
+      "Tennis Court",
+      "Spa",
+      "Wine Cellar",
+      "Library"
+    ],
+    "special_props": [
+      "Four car garage",
+      "Private study",
+      "Large balcony",
+      "Heated floors",
+      "Luxury master suite"
+    ],
+    "stats": {
+      "days_on_market": 218,
+      "views": 1195,
+      "saves": 57
+    },
+    "listing_info": {
+      "last_checked": "11 hours ago",
+      "listing_updated": "September 02, 2025 at 03:58pm",
+      "listing_by": [
+        {
+          "id": 1,
+          "name": "Howard Hanna Real Estate",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 2,
+          "name": "Thomas K Elleman Jr",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 3,
+          "name": "Thomas K. Elleman",
+          "contact": "315-682-9500"
+        },
+        {
+          "id": 4,
+          "name": "Howard Hanna Real Estate",
+          "contact": null
+        }
+      ]
+    },
+    "actions": ["View Details", "Contact Agent"],
+    "type": "penthouse",
+    "special_paragraph": "A rare opportunity to own a premium compound in Al Malqa, this estate represents the pinnacle of luxury in Riyadh. Spanning an impressive 8500 square feet, the property accommodates eight bedrooms and seven bathrooms, offering unmatched space for large families or investors. The compound includes multiple villas, each thoughtfully designed with luxury finishes, and communal areas such as a tennis court, spa, and library. A private wine cellar, large balcony with city views, and heated floors elevate the living experience. The master suite is a sanctuary of comfort with its own lounge area and deluxe bathroom. Designed for both entertainment and relaxation, the estate also features lush gardens and a resort-style pool. Its central location ensures that residents remain close to Riyadh’s finest schools, shopping districts, and cultural landmarks while enjoying complete privacy and exclusivity.",
+    "market_status": "off"
+  }
+]

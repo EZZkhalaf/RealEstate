@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Riyadh - KAFD",
+    "description": "Strong growth expected",
+    "appreciation": "+12.8%",
+    "rentalYield": "7.2%",
+    "avgPrice": "₹3.2M"
+  },
+  {
+    "name": "Jeddah - Corniche",
+    "description": "Steady appreciation",
+    "appreciation": "+8.5%",
+    "rentalYield": "6.8%",
+    "avgPrice": "₹2.8M"
+  },
+  {
+    "name": "Riyadh - Al Olaya",
+    "description": "High demand area",
+    "appreciation": "+10.2%",
+    "rentalYield": "6.5%",
+    "avgPrice": "₹2.5M"
+  },
+  {
+    "name": "Dammam - Business District",
+    "description": "Emerging market",
+    "appreciation": "+6.3%",
+    "rentalYield": "8.1%",
+    "avgPrice": "₹2.1M"
+  }
+]
