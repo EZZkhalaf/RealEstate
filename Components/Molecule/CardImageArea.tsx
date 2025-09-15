@@ -18,7 +18,6 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
   slides = false,
   hidePrice = false,
 }) => {
-  console.log(estate);
   return (
     <div
       style={{

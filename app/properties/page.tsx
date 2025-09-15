@@ -1,5 +1,6 @@
 "use client";
 
+import Properties from "@/Components/MainComponents/PropertiesPage/Properties";
 // import EstatesMap from "@/Components/MainComponents/PropertiesPage/EstatesMap";
 import SearchFilterEstates from "@/Components/MainComponents/PropertiesPage/SearchFilterEstates";
 import dynamic from "next/dynamic";
@@ -10,7 +11,7 @@ const EstatesMap = dynamic(
   { ssr: false }
 );
 
-export default function Properties() {
+export default function PropertiesPage() {
   const [mapSearch, setMapSearch] = useState<string>("");
   const scrollToTop = () => {
     window.scrollTo({

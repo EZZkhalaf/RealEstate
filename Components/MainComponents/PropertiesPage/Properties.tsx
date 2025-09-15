@@ -2,7 +2,6 @@ import TitleAtom from "../../Atoms/TitleAtom";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import SingleEstateEelement from "../../Molecule/Properties/SingleEstateEelement";
-import { useNavigate } from "react-router-dom";
 
 import Footer from "../../Footer";
 import SmallTitle from "../../Atoms/SmallTitle";
@@ -10,10 +9,11 @@ import MockEstates from "../../../MockData/MockEstates.json";
 import { useState } from "react";
 import EstatePopUpInfo from "../../Molecule/Properties/EstatePopUpInfo";
 import { EstateInterface } from "../../FeaturedProp";
+import { useRouter } from "next/navigation";
 const Properties = () => {
   const totalCount: number = 9002;
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const [estates, setEstates] = useState<EstateInterface[]>(MockEstates);
   const [selectedEstate, setSelectedEstate] = useState<any>(null);
@@ -50,7 +50,7 @@ const Properties = () => {
         {estates.map((e, index: number) => (
           <div
             key={index}
-            onClick={() => navigate(`/properties/${index}`)}
+            onClick={() => router.push(`/properties/${index}`)}
             className="rounded-2xl"
           >
             <ScrollAnimation key={index}>

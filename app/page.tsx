@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div className="w-full bg-gray-100">
       <Hero
-        image={HeroImage as string}
+        image={HeroImage}
         heroTitle1={"Your Gateway to"}
         heroTitle2={"Real Estate Success"}
         heroParagraph={
