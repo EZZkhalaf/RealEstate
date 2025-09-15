@@ -2,7 +2,18 @@ import React from "react";
 import TitleAtom from "../Atoms/TitleAtom";
 import ParagraphDescription from "../Atoms/ParagraphDescription";
 
-const ImageWithParagraph = ({ image, paragraph, title, imageLeft = false }) => {
+interface ImageWithParagraphInterafce {
+  image?: string;
+  paragraph: string;
+  title: string;
+  imageLeft?: boolean;
+}
+const ImageWithParagraph: React.FC<ImageWithParagraphInterafce> = ({
+  image,
+  paragraph,
+  title,
+  imageLeft = false,
+}) => {
   return (
     <div
       className={`flex flex-col md:flex-row items-center justify-center  md:items-center  gap-30 mb-12 ${
