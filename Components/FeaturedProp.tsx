@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListSelect from "./Atoms/ListSelect";
 
 import TitleAtom from "./Atoms/TitleAtom";
@@ -8,6 +8,7 @@ import ScrollAnimation from "../Animation/ScrollAnimation";
 import MockEstates from "../MockData/MockEstates.json";
 import GrayLine from "./Atoms/GrayLine";
 import { StaticImageData } from "next/image";
+import { getStaticEstates } from "@/API/EstatesApi";
 
 interface FilterButtonInterface {
   text: string;
@@ -96,7 +97,35 @@ const FeaturedProp = () => {
     "Compound",
   ];
 
-  const [estates, setEstates] = useState<EstateInterface[]>(MockEstates);
+  const [estates, setEstates] = useState<any[]>([]);
+  const fetchEstates = async () => {
+    const data: any = await getStaticEstates();
+
+    console.log("the data  : ", data); // already contains arrays/objects
+
+    const parsed = data?.map((estate: any) => ({
+      ...estate,
+      // only parse strings if they are stored as raw JSON strings
+      features: Array.isArray(estate.features) ? estate.features : [],
+      special_props: Array.isArray(estate.special_props)
+        ? estate.special_props
+        : [],
+      actions: Array.isArray(estate.actions) ? estate.actions : [],
+      stats: estate.stats || {},
+      listing_info: estate.listing_info || {},
+      image: Array.isArray(estate.image)
+        ? estate.image
+        : estate.image
+        ? [estate.image]
+        : [],
+    }));
+
+    setEstates(parsed);
+  };
+
+  useEffect(() => {
+    fetchEstates();
+  }, []);
   const filterOptions: string[] = [
     "Low to High",
     "High to Low",

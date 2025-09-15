@@ -107,6 +107,7 @@ interface EstatePropsInterface {
   estate: EstateInterface;
 }
 const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
+  console.log(estate);
   const icons: string[] = [
     "home-outline",
     "calendar-outline",
@@ -122,13 +123,15 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
 
       <div className="flex justify-between">
         <div>
-          <p className="lg:text-2xl text-xl font-bold ">{estate.price}</p>
-          <p className="text-lg ">{estate.location}</p>
+          <p className="lg:text-2xl text-xl font-bold ">
+            {estate?.price ?? "no price"}
+          </p>
+          <p className="text-lg ">{estate?.location}</p>
         </div>
         <EstateRoomsAndBeds
-          beds={estate.beds}
-          baths={estate.baths}
-          area={estate.area}
+          beds={estate?.beds}
+          baths={estate?.baths}
+          area={estate?.area}
         />
       </div>
       <div className="grid grid-cols-3 gap-2 mt-5">
@@ -151,18 +154,18 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
         ))}
       </div>
 
-      <ExpandableParagraph text={estate.special_paragraph} />
+      <ExpandableParagraph text={estate?.special_paragraph} />
 
       <EstateStats
-        days_on_market={estate.stats.days_on_market}
-        views={estate.stats.views}
-        saves={estate.stats.saves}
+        days_on_market={estate?.stats?.days_on_market}
+        views={estate?.stats?.views}
+        saves={estate?.stats?.saves}
       />
 
       <AgentsActions
-        last_checked={estate.listing_info?.last_checked}
-        listing_updated={estate.listing_info?.listing_updated}
-        list={estate.listing_info.listing_by}
+        last_checked={estate?.listing_info?.last_checked}
+        listing_updated={estate?.listing_info?.listing_updated}
+        list={estate?.listing_info?.listing_by}
       />
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
 

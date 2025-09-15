@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 interface ExpandableParagraphInterface {
-  text: string;
+  text: any;
 }
 
 const ExpandableParagraph: React.FC<ExpandableParagraphInterface> = ({
@@ -10,10 +10,10 @@ const ExpandableParagraph: React.FC<ExpandableParagraphInterface> = ({
   const [expanded, setExpanded] = useState<boolean>(false);
   const limit: number = 180;
 
-  const isLong: boolean = text.length > limit;
+  const isLong: boolean = text?.length > limit;
   const displayText = expanded
     ? text
-    : text.slice(0, limit) + (isLong ? "..." : "");
+    : text?.slice(0, limit) + (isLong ? "..." : "");
   return (
     <div className="mt-5">
       <p className="text-md text-gray-700">{displayText}</p>

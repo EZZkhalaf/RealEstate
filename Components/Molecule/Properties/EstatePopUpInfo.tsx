@@ -1,16 +1,19 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import EstateHeader from "../EstatePopUp/EstateHeader";
 import EstateImages from "../EstatePopUp/EstateImages";
 import EstateProps from "../EstatePopUp/EstateProps";
 import EstateAllImages from "../EstatePopUp/EstateAllImages";
 import { EstateInterface } from "../../FeaturedProp";
+import { getStaticSingleEstate } from "@/API/EstatesApi";
 
 interface ContactAgentButtonsInterface {
   onlyContact?: boolean;
 }
 
 interface EstatePopUpInfoInterface {
-  estate: EstateInterface;
+  estate_id: any;
   onClose: any;
 }
 export const ContactAgentButtons: React.FC<ContactAgentButtonsInterface> = ({
@@ -39,12 +42,34 @@ export const ContactAgentButtons: React.FC<ContactAgentButtonsInterface> = ({
   );
 };
 const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
-  estate,
+  estate_id,
   onClose,
 }) => {
-  if (!estate) return null;
+  if (!estate_id) return null;
   const [imagesOpen, setImagesOpen] = useState<boolean>(false);
+  const [estate, setEstate] = useState<any>(null);
+  const fetchEstate = async () => {
+    const response = await getStaticSingleEstate(estate_id);
+    const estateData = Array.isArray(response) ? response[0] : response;
+    // setEstate({
+    //   ...estateData,
+    //   features: estateData.features ? JSON.parse(estateData.features) : [],
+    //   image: estateData.image ? JSON.parse(estateData.image) : [],
+    //   special_props: estateData.special_props
+    //     ? JSON.parse(estateData.special_props)
+    //     : [],
+    //   stats: estateData.stats ? JSON.parse(estateData.stats) : {},
+    //   listing_info: estateData.listing_info
+    //     ? JSON.parse(estateData.listing_info)
+    //     : {},
+    // });
+    setEstate(estateData);
+  };
+  useEffect(() => {
+    if (estate_id) fetchEstate();
+  }, [estate_id]);
 
+  console.log(estate);
   return (
     <div className="fixed inset-0 bg-none bg-opacity-50 flex justify-center items-center z-1000 ">
       <div className="bg-white  px-0 rounded-lg shadow-lg relative lg:w-[60vw] lg:max-w-[60vw] w-[100vw] max-w-[100vw] h-[100vh] max-h-[100vh]  overflow-auto">
@@ -58,8 +83,7 @@ const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
         ) : (
           <div className="flex flex-col px-4">
             <EstateImages
-              id={estate.id}
-              images={estate.image}
+              images={estate?.image || []}
               setImagesOpen={setImagesOpen}
             />
 

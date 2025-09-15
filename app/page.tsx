@@ -15,13 +15,14 @@ import OurAgents from "@/Components/OurAgents";
 import MarketInsights from "@/Components/MarketInsights";
 import ContactUs from "@/Components/ContactUs";
 import Footer from "@/Components/Footer";
+import { readItems } from "@directus/sdk";
 
 export interface SummaryInterface {
   total: string;
   name: string;
 }
 
-export default function Home() {
+export default async function Home() {
   const summary: SummaryInterface[] = [
     {
       total: "2500+",

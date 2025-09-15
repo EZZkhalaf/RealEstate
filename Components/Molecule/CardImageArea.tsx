@@ -21,7 +21,9 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
   return (
     <div
       style={{
-        backgroundImage: `url(${estate.image[0] as any}) `,
+        backgroundImage: `url(${
+          (estate.image[0] as any) || (estate.image as any)
+        }) `,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

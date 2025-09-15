@@ -4,12 +4,10 @@ import { Icon } from "@iconify/react";
 import Status from "../../Atoms/Status";
 
 interface EstateImagesInterface {
-  id: number;
   images?: string[];
   setImagesOpen?: any;
 }
 const EstateImages: React.FC<EstateImagesInterface> = ({
-  id,
   images = [],
   setImagesOpen,
 }) => {
@@ -34,7 +32,7 @@ const EstateImages: React.FC<EstateImagesInterface> = ({
       )}
       {/* Second column */}
       <div className="hidden lg:flex flex-1 flex-col gap-1 h-full">
-        {images.slice(1, 3).map((img, idx) => (
+        {images?.slice(1, 3).map((img, idx) => (
           <img
             key={idx}
             src={img}
@@ -45,7 +43,7 @@ const EstateImages: React.FC<EstateImagesInterface> = ({
       </div>
       {/* Third column */}
       <div className="hidden lg:flex flex-1 flex-col gap-1 h-full">
-        {images.slice(3, 5).map((img, idx, arr) => (
+        {images?.slice(3, 5).map((img, idx, arr) => (
           <div key={idx} className="relative flex-1">
             <img
               src={img}
@@ -59,7 +57,7 @@ const EstateImages: React.FC<EstateImagesInterface> = ({
               >
                 <IconWithText
                   icon={"view-grid"}
-                  text={`View All ${images.length || ""} Images`}
+                  text={`View All ${images?.length || ""} Images`}
                   textColor={"text-black"}
                 />
               </button>
