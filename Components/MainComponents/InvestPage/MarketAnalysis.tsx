@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import GrayLine from "../../Atoms/GrayLine";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import TitleAtom from "../../Atoms/TitleAtom";
 import MarketCard from "../../Molecule/MarketAnalysis/MarketCard";
 import KeyMarketInsight from "../../Molecule/MarketAnalysis/KeyMarketInsight";
-import MockMarkets from "../../../MockData/MockMarkets.json";
-import { MarketDataInterface } from "../InvestmentTools/MarketInsightsSummary";
+import { getStaticMarketAnalysis } from "@/API/InvestmentApi";
 export interface MarketInterface {
   name: string;
   description: string;
@@ -13,8 +12,8 @@ export interface MarketInterface {
   rentalYield: string;
   avgPrice: string;
 }
-const MarketAnalysis = () => {
-  const [markets, setMarkets] = useState<MarketInterface[]>(MockMarkets);
+const MarketAnalysis = async () => {
+  const markets: MarketInterface[] = await getStaticMarketAnalysis();
 
   return (
     <div className="grid grid-cols-1  w-full mt-20  lg:px-30 md:px-10 px-5 mb-10">
@@ -28,7 +27,7 @@ const MarketAnalysis = () => {
         <GrayLine />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2  gap-4">
-        {markets.map((market, index: number) => (
+        {markets?.map((market, index: number) => (
           <MarketCard market={market} key={index} />
         ))}
       </div>

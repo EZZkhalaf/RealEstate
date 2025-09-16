@@ -1,18 +1,9 @@
-"use client";
-
-import { EstateInterface } from "@/Components/FeaturedProp";
-import { useState } from "react";
-import MockEstates from "../../MockData/MockEstates.json";
-import { SummaryInterface } from "../page";
 import Hero from "@/Components/Hero";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import ButtonCustomize from "@/Components/Atoms/ButtonCustomize";
 import HeroSummary from "@/Components/MainComponents/Hero/HeroSummary";
 import InvestmentOpportunities from "@/Components/MainComponents/InvestPage/InvestmentOpportunities";
-import TitleAtom from "@/Components/Atoms/TitleAtom";
-import ParagraphDescription from "@/Components/Atoms/ParagraphDescription";
-import GrayLine from "@/Components/Atoms/GrayLine";
-import EstateCards from "@/Components/MainComponents/FeaturedProps/EstateCards";
+
 import InvestmentTools from "@/Components/InvestmentTools";
 import InvestmentAnalysis from "@/Components/MainComponents/InvestPage/InvestmentAnalysis";
 import FinancialBreakDown from "@/Components/MainComponents/InvestPage/FinancialBreakDown";
@@ -20,6 +11,8 @@ import InvestmentStrategies from "@/Components/MainComponents/InvestPage/Investm
 import MarketAnalysis from "@/Components/MainComponents/InvestPage/MarketAnalysis";
 import StartInvestment from "@/Components/MainComponents/InvestPage/StartInvestment";
 import Footer from "@/Components/Footer";
+import { SummaryInterface } from "@/Interface/InvestInterface";
+import EstatesSection from "@/Components/MainComponents/InvestPage/EstatesSection";
 
 export default function Invest() {
   const summary: SummaryInterface[] = [
@@ -40,9 +33,32 @@ export default function Invest() {
       name: "SummaryInterface Investors",
     },
   ];
+  // const [estates, setEstates] = useState<any[]>([]);
+  // const fetchEstates = async () => {
+  //   const data: any = await getStaticEstates();
 
-  const [estates, setEstates] = useState<EstateInterface[]>(MockEstates);
+  //   const parsed = data?.map((estate: any) => ({
+  //     ...estate,
+  //     // only parse strings if they are stored as raw JSON strings
+  //     features: Array.isArray(estate.features) ? estate.features : [],
+  //     special_props: Array.isArray(estate.special_props)
+  //       ? estate.special_props
+  //       : [],
+  //     actions: Array.isArray(estate.actions) ? estate.actions : [],
+  //     stats: estate.stats || {},
+  //     listing_info: estate.listing_info || {},
+  //     image: Array.isArray(estate.image)
+  //       ? estate.image
+  //       : estate.image
+  //       ? [estate.image]
+  //       : [],
+  //   }));
 
+  //   setEstates(parsed);
+  // };
+  // useEffect(() => {
+  //   fetchEstates();
+  // }, []);
   return (
     <div className="w-full">
       <Hero
@@ -80,31 +96,9 @@ export default function Invest() {
         </ScrollAnimation>
       </Hero>
 
-      {/* <div className="mt-20 px-10 bg-gray-100">
-        <div className="py-3 px-6">
-          <TitleAtom
-            title={"Investment in Estates"}
-            textSizeDefault="text-3xl"
-          />
-          <ParagraphDescription
-            description={
-              "Investing in estates allows you to generate passive income and build wealth through rental returns and property appreciation."
-            }
-            textAlignment=" "
-          />
-        </div>
-        <Introduction />
-
-        <TypesOfEstates />
-
-        <HowItWork />
-
-        <InvestRisks />
-      </div> */}
-
       <InvestmentOpportunities />
 
-      <div className="flex flex-col items-center w-full mt-8 ">
+      {/* <div className="flex flex-col items-center w-full mt-8 ">
         <TitleAtom title={"Investment Properties"} />
         <ParagraphDescription
           description={
@@ -117,7 +111,8 @@ export default function Invest() {
       <EstateCards
         estates={estates}
         buttonTitle="View All Investment Properties"
-      />
+      /> */}
+      <EstatesSection />
 
       <InvestmentTools
         title="Investment Calculator"

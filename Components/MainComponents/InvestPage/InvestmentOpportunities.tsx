@@ -1,47 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import TitleAtom from "../../Atoms/TitleAtom";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import GrayLine from "../../Atoms/GrayLine";
 import IconAtom from "../../Atoms/IconAtom";
 import { Icon } from "@iconify/react";
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
-import MockEstates from "../../../MockData/MockEstates.json";
-import MockInvestmentOptions from "../../../MockData/MockInvestmentOptions.json";
-import { EstateCardsInterface } from "../FeaturedProps/EstateCards";
-import { EstateInterface } from "../../FeaturedProp";
 
-// {
-//     "title": "Commercial Real Estate",
-//     "desc": "Office buildings, retail spaces, and mixed-use developments",
-//     "avgROI": "10-15%",
-//     "minInvestment": "₹5M",
-//     "riskLevel": "Medium",
-//     "highlights": [
-//       "Stable cash flow",
-//       "Long-term leases",
-//       "Professional tenants",
-//       "Tax advantages"
-//     ],
-//     "buttonText": "Explore Properties",
-//     "icon": "office-building"
-//   },
-interface InvestmentOptionInterface {
-  title: string;
-  desc: string;
-  avgROI: string;
-  minInvestment: string;
-  riskLevel: string;
-  highlights: string[];
-  buttonText: string;
-  icon: string;
-}
-interface OppurtunitiesListingInterface {
-  opportunities: InvestmentOptionInterface[];
-}
-
-interface OpCardInterface {
-  op: InvestmentOptionInterface;
-}
+import { getStaticEstates } from "@/API/EstatesApi";
+import { getStaticInvestmentOption } from "@/API/InvestmentOptionsApi";
+import {
+  OpCardInterface,
+  OppurtunitiesListingInterface,
+} from "@/Interface/InvestInterface";
 
 const OpCard: React.FC<OpCardInterface> = ({ op }) => {
   return (
@@ -88,7 +58,7 @@ const OpCard: React.FC<OpCardInterface> = ({ op }) => {
       </div>
 
       <div className="flex flex-col gap-2 mt-2 text-xs text-gray-700">
-        {op.highlights.map((point, idx) => (
+        {op?.highlights?.map((point, idx) => (
           <div key={idx} className="flex items-center gap-2">
             <Icon
               icon="mdi-light:check"
@@ -117,18 +87,25 @@ const OppurtunitiesListing: React.FC<OppurtunitiesListingInterface> = ({
 }) => {
   return (
     <div className="grid grid-col-1 lg:grid-cols-2 md:grid-cols-2 gap-5">
-      {opportunities.map((op, indx) => (
+      {opportunities?.map((op, indx) => (
         <OpCard key={indx} op={op} />
       ))}
     </div>
   );
 };
 
-const InvestmentOpportunities = () => {
-  const [investmentOptions, setInvestmentOptions] = useState(
-    MockInvestmentOptions
-  );
-  // const [estates, setEstates] = useState<EstateInterface>(MockEstates);
+const InvestmentOpportunities = async () => {
+  // const [investmentOptions, setInvestmentOptions] = useState([]);
+
+  // const fetchOptions = async () => {
+  //   const options = await getStaticInvestmentOption();
+  //   setInvestmentOptions(options);
+  // };
+  // useEffect(() => {
+  //   fetchOptions();
+  // }, []);
+
+  const investmentOptions: any[] = await getStaticInvestmentOption();
   return (
     <div className="flex flex-col w-full  lg:px-50 md:px-13 px-5">
       <div className="flex flex-col items-center w-full mt-5 ">

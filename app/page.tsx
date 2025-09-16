@@ -16,11 +16,7 @@ import MarketInsights from "@/Components/MarketInsights";
 import ContactUs from "@/Components/ContactUs";
 import Footer from "@/Components/Footer";
 import { readItems } from "@directus/sdk";
-
-export interface SummaryInterface {
-  total: string;
-  name: string;
-}
+import { SummaryInterface } from "@/Interface/InvestInterface";
 
 export default async function Home() {
   const summary: SummaryInterface[] = [

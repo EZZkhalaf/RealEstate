@@ -4,18 +4,8 @@ import ParagraphDescription from "./Atoms/ParagraphDescription";
 import ServicesCards from "./MainComponents/OurServices/ServicesCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 import GrayLine from "./Atoms/GrayLine";
+import { ServiceInterface } from "@/Interface/ServicesInterface";
 
-export interface ServiceInterface {
-  icon: string;
-  title: string;
-  description: string;
-  features: string[];
-  cta?: string;
-}
-
-export interface ServicesInterface {
-  services: ServiceInterface[];
-}
 const OurServices = () => {
   const services: ServiceInterface[] = [
     {

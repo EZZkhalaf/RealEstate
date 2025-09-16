@@ -15,7 +15,7 @@ export async function getStaticEstates() {
 }
 
 export async function getStaticSingleEstate(id: string) {
-  console.log("The ID passed is:", id);
+  // console.log("The ID passed is:", id);
 
   try {
     const response = await fetch(

@@ -6,7 +6,7 @@ import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 import SingleCard from "../../Molecule/EstateCards/SingleCard";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import EstateCardsListing from "../../Molecule/EstateCards/EstateCardsListing";
-import { EstateInterface } from "../../FeaturedProp";
+import { EstateInterface } from "@/Interface/EstateInterface";
 
 export interface EstateCardsInterface {
   estates: EstateInterface[];
