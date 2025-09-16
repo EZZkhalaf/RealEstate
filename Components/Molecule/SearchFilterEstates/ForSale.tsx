@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface ForSaleInterface {
   options: string[];
   selectedOption: string;
-  setSelectedOption: any;
+  onChange: (value: string) => void;
 }
 
 const ForSale: React.FC<ForSaleInterface> = ({
   options,
   selectedOption,
-  setSelectedOption,
+  onChange,
 }) => {
-  const handleChange = (value: any) => {
-    setSelectedOption(value);
-    // if (onSelect) {
-    //   onSelect(value);
-    // }
+  const handleChange = (option: string) => {
+    onChange(option); // Call the parent onChange
   };
 
   return (

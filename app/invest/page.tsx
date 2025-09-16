@@ -1,3 +1,4 @@
+"use client";
 import Hero from "@/Components/Hero";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import ButtonCustomize from "@/Components/Atoms/ButtonCustomize";

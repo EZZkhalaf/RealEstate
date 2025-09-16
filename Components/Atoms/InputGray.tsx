@@ -9,6 +9,7 @@ interface InputGrayInterface {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   header?: string;
   additionalInputCss?: string;
+  value?: any;
 }
 const InputGray: React.FC<InputGrayInterface> = ({
   type,
@@ -18,6 +19,7 @@ const InputGray: React.FC<InputGrayInterface> = ({
   onChange,
   header,
   additionalInputCss,
+  value,
 }) => {
   return (
     <div className="flex flex-col gap-3 w-full">
@@ -27,6 +29,7 @@ const InputGray: React.FC<InputGrayInterface> = ({
       >
         <input
           type={`${type}`}
+          value={value}
           placeholder={`${placeholder}`}
           className={`bg-gray-200 rounded-lg py-1 w-full border-none ${additionalInputCss}`}
           onChange={onChange}

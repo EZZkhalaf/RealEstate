@@ -4,9 +4,20 @@ import SixButtonsInputs from "../../Atoms/SixButtonsInputs";
 import SubmitButton from "../../Atoms/SubmitButton";
 import SingleCheckBox from "../../Atoms/SingleCheckBox";
 
-const BedsAndBaths = () => {
-  const [selectedBedroom, setSelectedBedroom] = useState(null);
-  const [selectedBathroom, setSelectedBathroom] = useState(null);
+interface BedsAndBathsInterface {
+  value: {
+    beds?: number;
+    baths?: number;
+    exactMatch?: boolean;
+  };
+  onChange: (value: {
+    beds?: number;
+    baths?: number;
+    exactMatch?: boolean;
+  }) => void;
+}
+
+const BedsAndBaths: React.FC<BedsAndBathsInterface> = ({ value, onChange }) => {
   const bedrooms: number[] = [1, 2, 3, 4, 5];
 
   const bathrooms: number[] = [1, 1.5, 2, 3, 4];
@@ -17,8 +28,8 @@ const BedsAndBaths = () => {
       <SixButtonsInputs
         title={"Bedrooms"}
         options={bedrooms}
-        selected={selectedBedroom}
-        setSelected={setSelectedBedroom}
+        selected={value?.beds || null}
+        setSelected={(beds: any) => onChange({ ...value, beds })}
       />
       {/* <div className="flex flex-row gap-1 items-center px-4 ">
         <div className="flex items-center border-2 border-gray-200">
@@ -27,13 +38,17 @@ const BedsAndBaths = () => {
         <p className="text-lg text-gray-400 ">Use exact match</p>
       </div> */}
 
-      <SingleCheckBox text={"Use exact match"} />
+      <SingleCheckBox
+        text={"Use exact match"}
+        checked={value?.exactMatch || false}
+        onChange={(checked) => onChange({ ...value, exactMatch: checked })}
+      />
       <GrayHeader header={"Number of Bathrooms"} />
       <SixButtonsInputs
         title={"Bathrooms"}
         options={bathrooms}
-        selected={selectedBathroom}
-        setSelected={setSelectedBathroom}
+        selected={value?.baths || null}
+        setSelected={(baths: any) => onChange({ ...value, baths })}
       />
       <div className="w-full px-4 mb-2 mt-5">
         <SubmitButton text={"Apply"} />

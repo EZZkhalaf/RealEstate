@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GrayLine from "../../Atoms/GrayLine";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import TitleAtom from "../../Atoms/TitleAtom";
@@ -12,9 +12,16 @@ export interface MarketInterface {
   rentalYield: string;
   avgPrice: string;
 }
-const MarketAnalysis = async () => {
-  const markets: MarketInterface[] = await getStaticMarketAnalysis();
-
+const MarketAnalysis = () => {
+  // const markets: MarketInterface[] = await getStaticMarketAnalysis();
+  const [markets, setMarkets] = useState<MarketInterface[]>([]);
+  const fetchMarkets = async () => {
+    const response = await getStaticMarketAnalysis();
+    setMarkets(response);
+  };
+  useEffect(() => {
+    fetchMarkets();
+  }, []);
   return (
     <div className="grid grid-cols-1  w-full mt-20  lg:px-30 md:px-10 px-5 mb-10">
       <div className="flex flex-col items-center">

@@ -18,7 +18,7 @@ const EstateCards: React.FC<EstateCardsInterface> = ({
   buttonTitle = "View All Properties",
 }) => {
   return (
-    <div className="min-w-full  lg:px-20 md:px-20 px-5">
+    <div className="min-w-full  lg:px-20  px-5">
       {estates ? (
         <EstateCardsListing estates={estates} buttonTitle={buttonTitle} />
       ) : (

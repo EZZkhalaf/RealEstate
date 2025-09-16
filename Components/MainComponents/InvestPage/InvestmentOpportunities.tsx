@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TitleAtom from "../../Atoms/TitleAtom";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import GrayLine from "../../Atoms/GrayLine";
@@ -94,18 +94,17 @@ const OppurtunitiesListing: React.FC<OppurtunitiesListingInterface> = ({
   );
 };
 
-const InvestmentOpportunities = async () => {
-  // const [investmentOptions, setInvestmentOptions] = useState([]);
+const InvestmentOpportunities = () => {
+  const [investmentOptions, setInvestmentOptions] = useState([]);
 
-  // const fetchOptions = async () => {
-  //   const options = await getStaticInvestmentOption();
-  //   setInvestmentOptions(options);
-  // };
-  // useEffect(() => {
-  //   fetchOptions();
-  // }, []);
+  const fetchOptions = async () => {
+    const options = await getStaticInvestmentOption();
+    setInvestmentOptions(options);
+  };
+  useEffect(() => {
+    fetchOptions();
+  }, []);
 
-  const investmentOptions: any[] = await getStaticInvestmentOption();
   return (
     <div className="flex flex-col w-full  lg:px-50 md:px-13 px-5">
       <div className="flex flex-col items-center w-full mt-5 ">

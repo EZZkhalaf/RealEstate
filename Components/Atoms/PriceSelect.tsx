@@ -27,13 +27,7 @@ const PriceSelect: React.FC<PriceSelectedInterface> = ({
         <option value="">Select {title}</option>
         {list?.map((l) => (
           <option key={l} value={l}>
-            {HOA ? (
-              <p>
-                {"$"}${l}/month
-              </p>
-            ) : (
-              l.toLocaleString()
-            )}
+            {HOA ? `${l}/month` : l.toLocaleString()}
           </option>
         ))}
       </select>

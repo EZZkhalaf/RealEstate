@@ -5,6 +5,7 @@ import SingleCheckBox from "../../Atoms/SingleCheckBox";
 import SalaryRangeSelector from "./SalaryRangeSelector";
 import InputGray from "../../Atoms/InputGray";
 import SmallTitle from "../../Atoms/SmallTitle";
+import { FiltersInterface } from "@/Components/MainComponents/PropertiesPage/SearchFilterEstates";
 
 interface CheckboxGroupInterface {
   title: string;
@@ -54,28 +55,12 @@ const CheckboxGroup: React.FC<CheckboxGroupInterface> = ({
   );
 };
 
-const MoreFilters = () => {
-  const [selectedHOA, setSelectedHOA] = useState<string>("Any");
-  const [selectedListingType, setSelectedListingType] = useState<any>([]);
-  const [selectedStatus, setSelectedStatus] = useState<any>([]);
-  const [selectedTours, setSelectedTours] = useState([]);
-  const [selectedParkingSpot, setSelectedParkingSpot] = useState("any");
+interface MoreFiltersInterface {
+  value: FiltersInterface["otherFilters"];
+  onChange: (value: FiltersInterface["otherFilters"]) => void;
+}
 
-  const [selectedAminities, setSelectedAminities] = useState([]);
-  const [minSqrFeet, setMinSqrFeet] = useState("no Min");
-  const [maxSqrFeet, setMaxSqrFeet] = useState("no Max");
-  const [selectedOption, setSelectedOption] = useState("");
-  const lotSize = ["any", 50, 100, 150, 200, 300];
-
-  const sqrFeet = ["any", 500, 1000, 1500, 2000, 2500, 3000];
-  const [minLotSize, setMinLotSize] = useState("no Min");
-  const [maxLotSize, setMaxLotSize] = useState("no Max");
-
-  const [selectedView, setSelectedView] = useState([]);
-
-  const [minYearBuilt, setMinYearBuilt] = useState("any");
-  const [maxYearBuilt, setMaxYearBuilt] = useState("any");
-
+const MoreFilters: React.FC<MoreFiltersInterface> = ({ value, onChange }) => {
   const HOA: number[] = [0, 50, 100, 200, 300, 400, 500, 600];
 
   const parkingSpots: number[] = [1, 2, 3, 4, 5];
@@ -95,173 +80,113 @@ const MoreFilters = () => {
     "pending & under contract",
   ];
 
-  const tours: string[] = [
-    "Must have open house",
-    "Must have 3D tour",
-    "Must have Showcase",
-  ];
-
-  const otherAminities: string[] = [
-    "Must Have AC",
-    "Must Have Pool",
-    "Water Front",
-  ];
-
   const viewList: string[] = ["City", "Mountain", "Park", "Water"];
 
-  const toggleSelection = (setter: any) => (option: any) => {
-    setter((prev: any) =>
-      prev.includes(option)
-        ? prev.filter((o: any) => o !== option)
-        : [...prev, option]
-    );
-  };
-
   return (
-    <div className="flex flex-col gap-2 mt-3 fixed bg-white border border-gray-300 rounded-lg shadow-2xl w-[400px] max-h-[70vh] overflow-y-auto right-70">
+    <div className="flex flex-col gap-2 mt-3 fixed bg-white border border-gray-300 rounded-lg shadow-2xl w-[400px] max-h-[70vh] overflow-y-auto right-0 md:r lg:right-110">
       <GrayHeader header={"More Filter"} />
 
       <PriceSelect
         title={"Max HOA"}
-        onChange={(e: any) => setSelectedHOA(e.target.value)}
+        onChange={(e: any) => onChange({ ...value, maxHOA: +e.target.value })}
         list={HOA}
-        value={selectedHOA}
+        value={value?.maxHOA || "Any"}
         HOA={true}
       />
 
-      {/* Groups with show more/less */}
       <CheckboxGroup
         title="Listing Type"
         options={listingType}
-        selected={selectedListingType}
-        onToggle={toggleSelection(setSelectedListingType)}
+        selected={value?.listingType || []}
+        onToggle={(option: any) => {
+          const newSelection = value?.listingType?.includes(option)
+            ? value.listingType.filter((o: any) => o !== option)
+            : [...(value?.listingType || []), option];
+          onChange({ ...value, listingType: newSelection });
+        }}
       />
 
       <CheckboxGroup
         title="Property Status"
         options={propertStatus}
-        selected={selectedStatus}
-        onToggle={toggleSelection(setSelectedStatus)}
-      />
-
-      <CheckboxGroup
-        title="Tours"
-        options={tours}
-        selected={selectedTours}
-        onToggle={toggleSelection(setSelectedTours)}
+        selected={value?.propertyStatus || []}
+        onToggle={(option: any) => {
+          const newSelection = value?.propertyStatus?.includes(option)
+            ? value?.propertyStatus?.filter((o: any) => o !== option)
+            : [...(value?.propertyStatus || []), option];
+          onChange({ ...value, propertyStatus: newSelection });
+        }}
       />
 
       <PriceSelect
         title={"Parking Spots"}
-        onChange={(e: any) => setSelectedParkingSpot(e.target.value)}
         list={parkingSpots}
-        value={selectedParkingSpot}
+        value={value?.parkingSpots || "any"}
+        onChange={(e: any) =>
+          onChange({ ...value, parkingSpots: +e.target.value })
+        }
       />
 
-      <SingleCheckBox text={"Must have garage"} />
+      <SingleCheckBox
+        value={value?.mustHaveGarage || false}
+        onChange={(checked) =>
+          onChange({ ...value, mustHaveGarage: !value?.mustHaveGarage })
+        }
+        text={"Must have garage"}
+      />
 
-      <div className="px-4">
-        <SalaryRangeSelector
-          value1={minSqrFeet}
-          value2={maxSqrFeet}
-          serValue1={setMinSqrFeet}
-          setValue2={setMaxSqrFeet}
-          list1={sqrFeet}
-          list2={sqrFeet}
-          title1={"Square feet"}
-          default1={"no Min"}
-          default2={"no Max"}
-          noPrice={true}
-        />
-        <SalaryRangeSelector
-          value1={minLotSize}
-          value2={maxLotSize}
-          serValue1={setMinLotSize}
-          setValue2={setMaxLotSize}
-          list1={lotSize}
-          list2={lotSize}
-          title1={"Lot Size"}
-          default1={"no Min"}
-          default2={"no Max"}
-          noPrice={true}
-        />
-
-        <div className="flex  gap-4 items-center mb-3 ">
-          {/* Min Salary */}
-          <div className="flex flex-col ">
-            <SmallTitle title={"Year Built"} />
-            <InputGray type={"text"} placeholder={"no Min"} />
-          </div>
-          <span className="mt-5">-</span>
-          {/* Max Salary */}
-          <div className={`flex flex-col mt-6`}>
-            <InputGray type={"text"} placeholder={"no Max"} />
-          </div>
-        </div>
-      </div>
       <SmallTitle title={"Basement"} />
-      <SingleCheckBox text={"Has Basement"} />
-
-      <SmallTitle title={"Number of stories"} />
-      <SingleCheckBox text={"Single story only"} />
+      <SingleCheckBox
+        text={"Has Basement"}
+        checked={value?.hasBasement || false}
+        onChange={(checked) =>
+          onChange({ ...value, hasBasement: !value?.hasBasement })
+        }
+      />
 
       <SmallTitle title={"+55 communities"} />
       <div className="flex flex-col gap-2 px-4 text-gray-600">
-        <label className="flex items-center gap-2 cursor-pointer ">
-          <input
-            type="radio"
-            name="paymentOption"
-            value="include"
-            checked={selectedOption === "include"}
-            onChange={(e) => setSelectedOption(e.target.value)}
-            className="accent-blue-500"
-          />
-          <span>Include</span>
-        </label>
-
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="radio"
-            name="paymentOption"
-            value="dontShow"
-            checked={selectedOption === "dontShow"}
-            onChange={(e) => setSelectedOption(e.target.value)}
-            className="accent-blue-500"
-          />
-          <span>Don't Show</span>
-        </label>
-
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="radio"
-            name="paymentOption"
-            value="onlyShow"
-            checked={selectedOption === "onlyShow"}
-            onChange={(e) => setSelectedOption(e.target.value)}
-            className="accent-blue-500"
-          />
-          <span>Only Show</span>
-        </label>
+        {["include", "dontShow", "onlyShow"].map((opt) => (
+          <label key={opt} className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="radio"
+              name="comms55"
+              value={opt}
+              checked={value?.comms55 === opt}
+              onChange={() => onChange({ ...value, comms55: opt })}
+              className="accent-blue-500"
+            />
+            <span>
+              {opt === "include"
+                ? "Include"
+                : opt === "dontShow"
+                ? "Don't Show"
+                : "Only Show"}
+            </span>
+          </label>
+        ))}
       </div>
-
-      <CheckboxGroup
-        title="Other Aminities"
-        options={otherAminities}
-        selected={selectedAminities}
-        onToggle={toggleSelection(setSelectedAminities)}
-      />
 
       <CheckboxGroup
         title="View"
         options={viewList}
-        selected={selectedView}
-        onToggle={toggleSelection(setSelectedView)}
+        selected={value?.view || []}
+        onToggle={(option: string) => {
+          const newSelection = value?.view?.includes(option)
+            ? value.view.filter((o) => o !== option)
+            : [...(value?.view || []), option];
+          onChange({ ...value, view: newSelection });
+        }}
       />
 
       <SmallTitle title={"Commute Time"} />
       <div className="px-4">
         <InputGray
           type={"text"}
+          value={value?.certainLLocation || ""}
+          onChange={(e) =>
+            onChange({ ...value, certainLLocation: e.target.value })
+          }
           placeholder={"Enter Adress,City,State and ZIP code"}
         />
       </div>

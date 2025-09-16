@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import TitleAtom from "../../Atoms/TitleAtom";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import GrayLine from "../../Atoms/GrayLine";
@@ -8,21 +9,19 @@ import StrategyCard, {
 import MockInvestmentStrategies from "../../../MockData/MockInvestmentStrategies.json";
 import getStaticInvestmentStrategies from "@/API/InvestmentApi";
 
-const InvestmentStrategies = async () => {
-  // const [investmentStrategies, setInvestmentStrategies] = useState<
-  //   StrategyInterface[]
-  // >([]);
+const InvestmentStrategies = () => {
+  const [investmentStrategies, setInvestmentStrategies] = useState<
+    StrategyInterface[]
+  >([]);
 
-  // const fetchStrategies = async () => {
-  //   const response = await getStaticInvestmentStrategies();
-  //   setInvestmentStrategies(response);
-  // };
-  // useEffect(() => {
-  //   fetchStrategies();
-  // }, []);
+  const fetchStrategies = async () => {
+    const response = await getStaticInvestmentStrategies();
+    setInvestmentStrategies(response);
+  };
+  useEffect(() => {
+    fetchStrategies();
+  }, []);
 
-  const investmentStrategies: StrategyInterface[] =
-    await getStaticInvestmentStrategies();
   return (
     <div className="grid grid-cols-1  w-full mt-20  lg:px-20 md:px-10 px-2">
       <div className="flex flex-col items-center">

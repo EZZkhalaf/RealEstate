@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import ListSelect from "./Atoms/ListSelect";
 import TitleAtom from "./Atoms/TitleAtom";
@@ -11,32 +12,61 @@ import { getStaticEstates } from "@/API/EstatesApi";
 import { EstateInterface, GeneresInterface } from "@/Interface/EstateInterface";
 import { FilterButtonInterface } from "@/Interface/AgentInterface";
 
-const FilterButton: React.FC<FilterButtonInterface> = ({ text }) => {
+const FilterButton: React.FC<{
+  text: string;
+  selected: boolean;
+  onClick: () => void;
+}> = ({ text, selected, onClick }) => {
   return (
     <button
-      className={`bg-white text-sm hover:bg-gray-300 p-1 rounded-lg border-1 border-gray-300 px-3 `}
+      onClick={onClick}
+      className={`text-sm p-1 rounded-lg border px-3  ${
+        selected
+          ? "bg-gray-800 text-white"
+          : "bg-white hover:bg-gray-300 border-gray-300"
+      }`}
     >
       {text}
     </button>
   );
 };
 
-const FilteringOptions: React.FC<GeneresInterface> = ({
+const FilteringOptions: React.FC<{
+  generes: string[];
+  filterOptions: string[];
+  selectedGenre: string;
+  sortOption?: string;
+  setSortOption?: (sort: string) => void;
+  setSelectedGenre: (genre: string) => void;
+}> = ({
   generes,
   filterOptions,
+  selectedGenre,
+  setSelectedGenre,
+  sortOption,
+  setSortOption,
 }) => {
   return (
     <div className="flex flex-wrap items-center justify-between gap-4 mb-10 mt-8 px-3">
       <ScrollAnimation type="fade-left" delay={0.6} animationTime={0.4}>
         <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
           {generes.map((b, index: number) => (
-            <FilterButton text={b} key={index} />
+            <FilterButton
+              text={b}
+              key={index}
+              selected={selectedGenre === b}
+              onClick={() => setSelectedGenre(b)}
+            />
           ))}
         </div>
       </ScrollAnimation>
 
       <ScrollAnimation type="fade-right" delay={0.6} animationTime={0.4}>
-        <ListSelect list={filterOptions} />
+        <ListSelect
+          list={filterOptions}
+          value={sortOption}
+          onChange={setSortOption}
+        />
       </ScrollAnimation>
     </div>
   );
@@ -51,10 +81,12 @@ const FeaturedProp = () => {
     "Loft",
     "Compound",
   ];
-
+  const [selectedGenre, setSelectedGenre] = useState<string>("All Properties");
+  const [sortOption, setSortOption] = useState<string>("Low to High");
   const [estates, setEstates] = useState<any[]>([]);
+
   const fetchEstates = async () => {
-    const data: any = await getStaticEstates();
+    const data: any = await getStaticEstates(1, selectedGenre, sortOption);
 
     const parsed = data?.map((estate: any) => ({
       ...estate,
@@ -76,7 +108,7 @@ const FeaturedProp = () => {
   };
   useEffect(() => {
     fetchEstates();
-  }, []);
+  }, [selectedGenre]);
 
   const filterOptions: string[] = [
     "Low to High",
@@ -94,9 +126,15 @@ const FeaturedProp = () => {
         />
         <GrayLine />
       </div>
-
-      <div className="w-full px-0 max-w">
-        <FilteringOptions generes={generes} filterOptions={filterOptions} />
+      <FilteringOptions
+        generes={generes}
+        filterOptions={filterOptions}
+        selectedGenre={selectedGenre}
+        sortOption={sortOption}
+        serSortOption={setSortOption}
+        setSelectedGenre={setSelectedGenre}
+      />{" "}
+      <div className="w-full px-0">
         <EstateCards estates={estates} />
       </div>
     </div>

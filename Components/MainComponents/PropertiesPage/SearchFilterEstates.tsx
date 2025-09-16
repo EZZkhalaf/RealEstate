@@ -8,26 +8,52 @@ import BedsAndBaths from "../../Molecule/SearchFilterEstates/BedsAndBaths";
 import HomeType from "../../Molecule/SearchFilterEstates/HomeType";
 import MoreFilters from "../../Molecule/SearchFilterEstates/MoreFilters";
 import debounce from "lodash.debounce";
+import { FiltersInterface } from "@/app/properties/page";
 
 interface SearchFilterEstatesInterface {
   mapSearch?: string;
   setMapSearch: any;
+  filters: FiltersInterface;
+  setFilters: React.Dispatch<React.SetStateAction<FiltersInterface>>;
 }
+
+// export interface FiltersInterface {
+//   saleType: string; // "For Sale", "For Rent", etc.
+//   priceRange?: { min: number; max: number };
+//   // bedsAndBaths?: { beds: number; baths: number };
+//   beds?: number;
+//   baths?: number;
+//   homeType?: string;
+//   moreFilters?: Record<string, any>;
+//   otherFilters?: {
+//     maxHOA?: number;
+//     listingType?: string[];
+//     propertyStatus: string;
+//     Tours?: string[];
+//     parkingSpots?: number;
+//     mustHaveGarage?: boolean;
+//     LotSize?: { min: number; max: number };
+//     hasBasement?: boolean;
+//     singleStoryOnly?: boolean;
+//     comms55?: string;
+//     view?: string[];
+//     certainLLocation?: string;
+//   };
+// }
 
 const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   mapSearch,
   setMapSearch,
+  filters,
+  setFilters,
 }) => {
   const [dialogOpen, setDialogOpen] = useState<any>(null);
-  const options: string[] = ["For Sale", "For Rent", "Sold"];
-  const [selectedOption, setSelectedOption] = useState<string>("For Sale");
-
-  // create debounced handler
+  const options: string[] = ["All", "For Sale", "For Rent", "Sold"];
   const debouncedSearch = useMemo(
     () =>
       debounce((value: any) => {
         setMapSearch(value);
-      }, 500), // wait 500ms after user stops typing
+      }, 500),
     [setMapSearch]
   );
 
@@ -59,8 +85,10 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             <div className="mt-3 z-20 ">
               <ForSale
                 options={options}
-                selectedOption={selectedOption}
-                setSelectedOption={setSelectedOption}
+                selectedOption={filters?.saleType}
+                onChange={(value) =>
+                  setFilters((prev) => ({ ...prev, saleType: value }))
+                }
               />
             </div>
           )}
@@ -77,7 +105,12 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
           />
           {dialogOpen === "price" && (
             <div>
-              <Price />
+              <Price
+                value={filters?.priceRange}
+                onChange={(priceRange) =>
+                  setFilters((prev) => ({ ...prev, priceRange }))
+                }
+              />
             </div>
           )}
         </div>
@@ -95,7 +128,12 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
           />
           {dialogOpen === "bedsAndBaths" && (
             <div>
-              <BedsAndBaths />
+              <BedsAndBaths
+                value={filters?.bedsAndBaths}
+                onChange={(bedsAndBaths) =>
+                  setFilters((prev) => ({ ...prev, bedsAndBaths }))
+                }
+              />
             </div>
           )}
         </div>
@@ -111,7 +149,12 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
           />
           {dialogOpen === "homeType" && (
             <div>
-              <HomeType />
+              <HomeType
+                value={filters?.homeType || []}
+                onChange={(homeType) =>
+                  setFilters((prev) => ({ ...prev, homeType }))
+                }
+              />
             </div>
           )}
         </div>
@@ -123,15 +166,23 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             onClick={() => setDialogOpen(dialogOpen === "more" ? null : "more")}
           />
           {dialogOpen === "more" && (
-            <div className="">
-              <MoreFilters />
+            <div className="left-9">
+              <MoreFilters
+                value={filters.otherFilters || {}}
+                onChange={(updatedOtherFilters) =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    otherFilters: updatedOtherFilters,
+                  }))
+                }
+              />
             </div>
           )}
         </div>
         {/* Save Search button */}
-        <button className="py-1 px-2 bg-blue-400 hover:bg-blue-500 text-white font-semibold flex justify-center items-center rounded-sm border border-gray-400 whitespace-nowrap transition-colors duration-300">
+        {/* <button className="py-1 px-2 bg-blue-400 hover:bg-blue-500 text-white font-semibold flex justify-center items-center rounded-sm border border-gray-400 whitespace-nowrap transition-colors duration-300">
           <span className="mr-2">Save Search</span>
-        </button>
+        </button> */}
       </div>
     </div>
   );
