@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import CardImageArea from "../CardImageArea";
 import CardBodyArea from "../CardBodyArea";
-import { EstateInterface } from "../../FeaturedProp";
-
-interface SingleEstateEelementInterface {
-  estate: EstateInterface;
-}
+import { SingleEstateEelementInterface } from "@/Interface/EstateInterface";
 
 const SingleEstateEelement: React.FC<SingleEstateEelementInterface> = ({
   estate,
+  viewDetailsClick,
 }) => {
   const [imageHover, setImageHover] = useState<boolean>(false);
   return (
@@ -20,6 +17,7 @@ const SingleEstateEelement: React.FC<SingleEstateEelementInterface> = ({
       />
       <CardBodyArea
         estate={estate}
+        viewDetailsClick={viewDetailsClick}
         // imageHover={imageHover}
         // setImageHover={setImageHover}
       />

@@ -7,14 +7,14 @@ import ListSelect from "../../Atoms/ListSelect";
 import PriceSelect from "../../Atoms/PriceSelect";
 
 interface PriceProps {
-  value: {
+  value?: {
     min: any;
     max: any;
     paymentType?: string | null;
     downPayment?: number;
     creditScore?: number;
   };
-  onChange: (value: {
+  onChange?: (value: {
     min: any;
     max: any;
     paymentType?: string | null;

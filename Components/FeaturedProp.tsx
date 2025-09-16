@@ -131,7 +131,7 @@ const FeaturedProp = () => {
         filterOptions={filterOptions}
         selectedGenre={selectedGenre}
         sortOption={sortOption}
-        serSortOption={setSortOption}
+        setSortOption={setSortOption}
         setSelectedGenre={setSelectedGenre}
       />{" "}
       <div className="w-full px-0">

@@ -4,13 +4,16 @@ import FeatureElement from "../Atoms/FeatureElement";
 import CardTitle from "../Atoms/CardTitle";
 import CardLocation from "../Atoms/CardLocation";
 import ButtonCustomize from "../Atoms/ButtonCustomize";
-import { EstateInterface } from "../FeaturedProp";
+import { EstateInterface } from "@/Interface/EstateInterface";
 
 interface CardBodyInterface {
   estate: EstateInterface;
+  viewDetailsClick: (e: any) => void;
 }
 
-const FeatureElementListing: React.FC<CardBodyInterface> = ({ estate }) => {
+const FeatureElementListing: React.FC<{ estate: EstateInterface }> = ({
+  estate,
+}) => {
   return (
     <div className="flex flex-row gap-3 mt-3">
       {estate.features.slice(0, 3).map((e: string, index: number) => (
@@ -20,11 +23,14 @@ const FeatureElementListing: React.FC<CardBodyInterface> = ({ estate }) => {
   );
 };
 
-const CardBodyButtons = () => {
+const CardBodyButtons: React.FC<{ viewDetailsClick: (e: any) => void }> = ({
+  viewDetailsClick,
+}) => {
   return (
     <div className="flex text-2xl  gap-2 w-full pt-3">
       <ButtonCustomize
         text="View Details"
+        onClick={viewDetailsClick}
         color="#D1D5DB"
         hoverColor="#0B3557E6"
         textColor="#000000"
@@ -42,7 +48,10 @@ const CardBodyButtons = () => {
   );
 };
 
-const CardBodyArea: React.FC<CardBodyInterface> = ({ estate }) => {
+const CardBodyArea: React.FC<CardBodyInterface> = ({
+  estate,
+  viewDetailsClick,
+}) => {
   return (
     <div>
       <div className="flex flex-col  px-4 py-6 rounded-lg transform transition-transform duration-300 ">
@@ -56,7 +65,7 @@ const CardBodyArea: React.FC<CardBodyInterface> = ({ estate }) => {
 
         <FeatureElementListing estate={estate} />
 
-        <CardBodyButtons />
+        <CardBodyButtons viewDetailsClick={viewDetailsClick} />
       </div>
     </div>
   );

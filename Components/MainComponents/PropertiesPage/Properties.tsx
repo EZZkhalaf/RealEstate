@@ -36,7 +36,6 @@ const Properties: React.FC<{
         filters?.sort || "Low to High",
         filters
       );
-      console.log(response.data);
       setEstates(response.data);
       setTotalPages(response?.pagination?.totalPages as number);
     };
@@ -56,11 +55,14 @@ const Properties: React.FC<{
         {estates?.map((e, index) => (
           <div
             key={index}
-            onClick={() => setSelectedEstate(e)}
+            // onClick={() => setSelectedEstate(e)}
             className="rounded-2xl"
           >
             <ScrollAnimation>
-              <SingleEstateEelement estate={e} />
+              <SingleEstateEelement
+                estate={e}
+                viewDetailsClick={() => setSelectedEstate(e)}
+              />
             </ScrollAnimation>
           </div>
         ))}
@@ -82,7 +84,7 @@ const Properties: React.FC<{
       <p className="text-xs px-4 mt-2">Results Within 4 miles</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
-        {estates?.map((e, index) => (
+        {estates?.map((e, index: number) => (
           <div
             key={index}
             onClick={() => router.push(`/properties/${index}`)}

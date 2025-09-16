@@ -8,7 +8,8 @@ import { useEffect, useState } from "react";
 export interface FiltersInterface {
   saleType?: string; // "For Sale", "For Rent", etc.
   priceRange?: { min: number; max: number };
-  // bedsAndBaths?: { beds: number; baths: number };
+  bedsAndBaths?: { beds: number; baths: number };
+  sort?: any;
   beds?: number;
   baths?: number;
   homeType?: string;

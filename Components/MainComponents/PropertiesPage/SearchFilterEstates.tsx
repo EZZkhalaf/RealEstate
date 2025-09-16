@@ -17,30 +17,6 @@ interface SearchFilterEstatesInterface {
   setFilters: React.Dispatch<React.SetStateAction<FiltersInterface>>;
 }
 
-// export interface FiltersInterface {
-//   saleType: string; // "For Sale", "For Rent", etc.
-//   priceRange?: { min: number; max: number };
-//   // bedsAndBaths?: { beds: number; baths: number };
-//   beds?: number;
-//   baths?: number;
-//   homeType?: string;
-//   moreFilters?: Record<string, any>;
-//   otherFilters?: {
-//     maxHOA?: number;
-//     listingType?: string[];
-//     propertyStatus: string;
-//     Tours?: string[];
-//     parkingSpots?: number;
-//     mustHaveGarage?: boolean;
-//     LotSize?: { min: number; max: number };
-//     hasBasement?: boolean;
-//     singleStoryOnly?: boolean;
-//     comms55?: string;
-//     view?: string[];
-//     certainLLocation?: string;
-//   };
-// }
-
 const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   mapSearch,
   setMapSearch,
@@ -85,7 +61,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             <div className="mt-3 z-20 ">
               <ForSale
                 options={options}
-                selectedOption={filters?.saleType}
+                selectedOption={filters?.saleType || "All"}
                 onChange={(value) =>
                   setFilters((prev) => ({ ...prev, saleType: value }))
                 }
@@ -129,7 +105,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
           {dialogOpen === "bedsAndBaths" && (
             <div>
               <BedsAndBaths
-                value={filters?.bedsAndBaths}
+                value={filters?.bedsAndBaths || {}}
                 onChange={(bedsAndBaths) =>
                   setFilters((prev) => ({ ...prev, bedsAndBaths }))
                 }
@@ -150,7 +126,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
           {dialogOpen === "homeType" && (
             <div>
               <HomeType
-                value={filters?.homeType || []}
+                value={filters?.homeType || null}
                 onChange={(homeType) =>
                   setFilters((prev) => ({ ...prev, homeType }))
                 }
@@ -179,10 +155,6 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             </div>
           )}
         </div>
-        {/* Save Search button */}
-        {/* <button className="py-1 px-2 bg-blue-400 hover:bg-blue-500 text-white font-semibold flex justify-center items-center rounded-sm border border-gray-400 whitespace-nowrap transition-colors duration-300">
-          <span className="mr-2">Save Search</span>
-        </button> */}
       </div>
     </div>
   );

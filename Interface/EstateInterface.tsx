@@ -35,3 +35,17 @@ export interface EstateInterface {
   special_paragraph: string;
   market_status: string;
 }
+
+export interface ContactAgentButtonsInterface {
+  onlyContact?: boolean;
+}
+
+export interface EstatePopUpInfoInterface {
+  estate_id: any;
+  onClose: any;
+}
+
+export interface SingleEstateEelementInterface {
+  estate: EstateInterface;
+  viewDetailsClick?: any;
+}
