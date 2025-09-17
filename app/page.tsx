@@ -19,20 +19,6 @@ import { readItems } from "@directus/sdk";
 import { SummaryInterface } from "@/Interface/InvestInterface";
 
 export default async function Home() {
-  const summary: SummaryInterface[] = [
-    {
-      total: "2500+",
-      name: "Premium Properties",
-    },
-    {
-      total: "150+",
-      name: "Expert Agents",
-    },
-    {
-      total: "98%",
-      name: "Client Satisfaction",
-    },
-  ];
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -45,17 +31,10 @@ export default async function Home() {
   }, []);
   return (
     <div className="w-full bg-gray-100">
-      <Hero
-        image={HeroImage}
-        heroTitle1={"Your Gateway to"}
-        heroTitle2={"Real Estate Success"}
-        heroParagraph={
-          "Buy, sell, or invest in premium properties with expert guidance from Saudi Arabia's top real estate professionals"
-        }
-      >
+      <Hero image={HeroImage}>
         <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
           <PriceHero />
-          <HeroSummary summary={summary} />
+          {/* <HeroSummary /> */}
         </div>
       </Hero>
       <FeaturedProp />
@@ -75,7 +54,6 @@ export default async function Home() {
           <ScrollAnimation>
             <ViewButtonAtom
               title={"Get Investment Consultation "}
-              // navigateTo={"idk"}
               color={"#0B3557"}
               hoverColor={"#5A7792"}
               textColor={"#FFFFFF"}

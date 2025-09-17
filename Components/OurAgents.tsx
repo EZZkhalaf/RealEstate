@@ -5,20 +5,18 @@ import AgentsCards from "./MainComponents/OurAgents/AgentsCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 // import MockAgents from "../MockData/MockAgents.json";
 import GrayLine from "./Atoms/GrayLine";
-import getStaticAgents from "@/API/AgnetsApi";
+import { getStaticFeaturedAgents } from "@/API/AgnetsApi";
 // import { Agent } from "../Pages/Agents";
 const OurAgents = () => {
   const [agentsMock, setAgentsMock] = useState<any[]>([]);
 
   const fetchAgents = async () => {
-    const response = await getStaticAgents();
-    console.log(response);
+    const response = await getStaticFeaturedAgents();
     setAgentsMock(response);
   };
   useEffect(() => {
     fetchAgents();
   }, []);
-  const agents = agentsMock.slice(0, 4);
   return (
     <div className="grid grid-cols-1 mt-20">
       <div className="flex flex-col items-center">
@@ -35,7 +33,7 @@ const OurAgents = () => {
         </ScrollAnimation>
       </div>
       <ScrollAnimation>
-        <AgentsCards agents={agents} />
+        <AgentsCards agents={agentsMock} />
       </ScrollAnimation>
     </div>
   );

@@ -6,7 +6,12 @@ const NavigationButtons = () => {
   const router = useRouter();
   return (
     <div className="md:flex lg:flex hidden justify-around items-center gap-6">
-      <button className="text-gray-600 hover:text-[#0B3557]">Buy</button>
+      <button
+        onClick={() => router.push("/")}
+        className="text-gray-600 hover:text-[#0B3557]"
+      >
+        Home
+      </button>
       <button className="text-gray-600 hover:text-[#0B3557]">Sell</button>
       <button
         onClick={() => router.push("/invest")}

@@ -1,12 +1,30 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import HeroSummaryListing from "../../Molecule/HeroSummary/HeroSummaryListing";
-import { SummaryInterface } from "../../../Pages/Home";
+import { getStaticHomePageHero } from "@/API/HeroApi";
+import { SummaryInterface } from "../InvestmentTools/InvestmentSummary";
 
 export interface HeroSummaryInterface {
-  summary: SummaryInterface[];
+  summary?: SummaryInterface[];
 }
 
 const HeroSummary: React.FC<HeroSummaryInterface> = ({ summary }) => {
+  // const [summary, setSummary] = useState<any>([]);
+
+  // const fetchSummary = async () => {
+  //   try {
+  //     const response = await getStaticHomePageHero();
+  //     if (response && response.length > 0) {
+  //       setSummary(response[0].paragraph || "");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching hero summary:", error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchSummary();
+  // }, []);
+
   return (
     <div className="w-full flex flex-row gap-10 lg:gap-6 items-center justify-between">
       <HeroSummaryListing summary={summary} />

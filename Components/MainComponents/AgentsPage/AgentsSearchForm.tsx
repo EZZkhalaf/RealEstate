@@ -1,12 +1,34 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import InputGray from "../../Atoms/InputGray";
 import ListSelect from "../../Atoms/ListSelect";
+import { LocationInterface } from "@/app/agents/page";
 
-interface AgentsSearchFormInterface {
-  regions: string[];
-}
-
-const AgentsSearchForm: React.FC<AgentsSearchFormInterface> = ({ regions }) => {
+const AgentsSearchForm: React.FC<{
+  location?: LocationInterface[];
+  specialties?: string[];
+  selectedRegion?: string;
+  selectedCity?: string;
+  setSelectedRegion?: Dispatch<SetStateAction<string>>;
+  setSelectedCity?: Dispatch<SetStateAction<string>>;
+  agentName?: string;
+  setName?: Dispatch<SetStateAction<string>>;
+  selectedSpecialty?: string;
+  setSelectedSpecialty?: Dispatch<SetStateAction<string>>;
+}> = ({
+  location,
+  agentName,
+  setName,
+  specialties,
+  selectedCity,
+  selectedRegion,
+  setSelectedCity,
+  setSelectedRegion,
+  selectedSpecialty,
+  setSelectedSpecialty,
+}) => {
+  const regions = location?.map((l) => l.region);
+  const cities =
+    location?.find((loc) => loc.region === selectedRegion)?.cities || [];
   return (
     <form className="flex lg:flex-row flex-col w-full items-center gap-4 px-20">
       <InputGray
@@ -15,23 +37,43 @@ const AgentsSearchForm: React.FC<AgentsSearchFormInterface> = ({ regions }) => {
         placeholder={"Name"}
         additionalCss={"bg-gray-200"}
         additionalInputCss={"bg-gray-200 w-[200px]"}
+        onChange={(e) => setName(e.target.value)}
+        value={agentName}
       />
 
       <ListSelect
-        title={"Region"}
+        title="Region"
         list={regions}
-        width={"w-full"}
-        height={"h-full"}
+        value={selectedRegion}
+        onChange={(val) => {
+          setSelectedRegion(val);
+          setSelectedCity(""); // reset city when region changes
+        }}
+        width="w-full"
+        height="h-full"
       />
+
+      {/* City */}
       <ListSelect
-        title={"City  "}
-        list={regions}
+        title="City"
+        list={cities}
+        value={selectedCity}
+        onChange={(val) => setSelectedCity(val)}
+        width="w-full"
+        height="h-full"
+      />
+
+      {/* <ListSelect
+        title={"Specialties"}
+        list={specialties}
+        value={selectedSpecialty}
+        onChange={(e) => setSelectedSpecialty(e)}
         width={"w-full"}
         height={"h-full"}
-      />
-      <button className="bg-green-500 hover:bg-green-600 text-white font-bold p-2 rounded-lg mt-9 transform-color duration-300">
+      /> */}
+      {/* <button className="bg-green-500 hover:bg-green-600 text-white font-bold p-2 rounded-lg mt-9 transform-color duration-300">
         Search
-      </button>
+      </button> */}
     </form>
   );
 };

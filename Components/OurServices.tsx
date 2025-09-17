@@ -1,53 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import ServicesCards from "./MainComponents/OurServices/ServicesCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 import GrayLine from "./Atoms/GrayLine";
 import { ServiceInterface } from "@/Interface/ServicesInterface";
+import { getStaticOurServices } from "@/API/InvestmentApi";
 
 const OurServices = () => {
-  const services: ServiceInterface[] = [
-    {
-      icon: "home",
-      title: "Property Buying",
-      description:
-        "Find your dream home with expert guidance through every step of the buying process.",
-      features: [
-        "Property Search",
-        "Market Analysis",
-        "Negotiation Support",
-        "Legal Assistance",
-      ],
-      cta: "Start Buying",
-    },
-    {
-      icon: "currency-usd",
-      title: "Property Selling",
-      description:
-        "Maximize your property value with our comprehensive selling services and market expertise.",
-      features: [
-        "Property Valuation",
-        "Marketing Strategy",
-        "Professional Photography",
-        "Deal Closing",
-      ],
-      cta: "Get Valuation",
-    },
-    {
-      icon: "arrow-up-right",
-      title: "Real Estate Investment",
-      description:
-        "Build wealth through strategic real estate investments with professional portfolio management.",
-      features: [
-        "Investment Analysis",
-        "ROI Calculation",
-        "Market Research",
-        "Portfolio Management",
-      ],
-      cta: "null",
-    },
-  ];
+  const [services, setServices] = useState<ServiceInterface[]>([]);
+
+  const fetchServices = async () => {
+    const response = await getStaticOurServices();
+    setServices(response);
+  };
+  useEffect(() => {
+    fetchServices();
+  }, []);
 
   return (
     <div className="flex flex-col items-center mt-20 lg:px-25">

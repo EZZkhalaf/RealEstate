@@ -34,32 +34,7 @@ export default function Invest() {
       name: "SummaryInterface Investors",
     },
   ];
-  // const [estates, setEstates] = useState<any[]>([]);
-  // const fetchEstates = async () => {
-  //   const data: any = await getStaticEstates();
 
-  //   const parsed = data?.map((estate: any) => ({
-  //     ...estate,
-  //     // only parse strings if they are stored as raw JSON strings
-  //     features: Array.isArray(estate.features) ? estate.features : [],
-  //     special_props: Array.isArray(estate.special_props)
-  //       ? estate.special_props
-  //       : [],
-  //     actions: Array.isArray(estate.actions) ? estate.actions : [],
-  //     stats: estate.stats || {},
-  //     listing_info: estate.listing_info || {},
-  //     image: Array.isArray(estate.image)
-  //       ? estate.image
-  //       : estate.image
-  //       ? [estate.image]
-  //       : [],
-  //   }));
-
-  //   setEstates(parsed);
-  // };
-  // useEffect(() => {
-  //   fetchEstates();
-  // }, []);
   return (
     <div className="w-full">
       <Hero
@@ -99,20 +74,6 @@ export default function Invest() {
 
       <InvestmentOpportunities />
 
-      {/* <div className="flex flex-col items-center w-full mt-8 ">
-        <TitleAtom title={"Investment Properties"} />
-        <ParagraphDescription
-          description={
-            "Choose from various investment property and choose the risl  for it "
-          }
-        />
-        <GrayLine />
-      </div>
-
-      <EstateCards
-        estates={estates}
-        buttonTitle="View All Investment Properties"
-      /> */}
       <EstatesSection />
 
       <InvestmentTools
