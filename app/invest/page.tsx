@@ -12,40 +12,12 @@ import InvestmentStrategies from "@/Components/MainComponents/InvestPage/Investm
 import MarketAnalysis from "@/Components/MainComponents/InvestPage/MarketAnalysis";
 import StartInvestment from "@/Components/MainComponents/InvestPage/StartInvestment";
 import Footer from "@/Components/Footer";
-import { SummaryInterface } from "@/Interface/InvestInterface";
 import EstatesSection from "@/Components/MainComponents/InvestPage/EstatesSection";
 
 export default function Invest() {
-  const summary: SummaryInterface[] = [
-    {
-      total: "₹2.8B+",
-      name: "Total Investments",
-    },
-    {
-      total: "8.5%",
-      name: "Average ROI",
-    },
-    {
-      total: "500+",
-      name: "Investment Properties",
-    },
-    {
-      total: "1,200+",
-      name: "SummaryInterface Investors",
-    },
-  ];
-
   return (
     <div className="w-full">
-      <Hero
-        heroTitle1={"Build Wealth Through"}
-        heroTitle2={"Real Estate Investment"}
-        heroParagraph={
-          "Discover premium investment opportunities in Saudi Arabia's fastest-growing real estate markets"
-        }
-        // priceHeroExist={false}
-        minHeight="max-h-fit"
-      >
+      <Hero invest={true} minHeight="max-h-fit">
         <ScrollAnimation>
           <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
             <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">
@@ -67,7 +39,6 @@ export default function Invest() {
                 hoverTextColor="#FFFFFF"
               />
             </div>
-            <HeroSummary summary={summary} />
           </div>
         </ScrollAnimation>
       </Hero>

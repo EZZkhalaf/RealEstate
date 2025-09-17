@@ -1,11 +1,8 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { ContactInfoInterface } from "../../MainComponents/ContactUs/WebInfo";
+import { ContactInfoInterface } from "@/Interface/InvestInterface";
 
-interface WebInfoElementInterface {
-  info: ContactInfoInterface;
-}
-const WebInfoElement: React.FC<WebInfoElementInterface> = ({ info }) => {
+const WebInfoElement: React.FC<{ info: ContactInfoInterface }> = ({ info }) => {
   return (
     <div className="flex flex-col gap-3 text-white mt-2">
       <div className="flex  items-center gap-5">
@@ -20,7 +17,3 @@ const WebInfoElement: React.FC<WebInfoElementInterface> = ({ info }) => {
 };
 
 export default WebInfoElement;
-
-//   type: "Visit Us",
-//   value: "King Fahd Road, Riyadh",
-//   icon: "mdi:map-marker",

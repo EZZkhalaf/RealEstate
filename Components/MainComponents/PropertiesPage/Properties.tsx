@@ -36,7 +36,6 @@ const Properties: React.FC<{
         filters?.sort || "Low to High",
         filters
       );
-      console.log(response);
       setEstates(response.data);
       setTotalPages(response?.pagination?.totalPages as number);
     };

@@ -9,22 +9,6 @@ export interface HeroSummaryInterface {
 }
 
 const HeroSummary: React.FC<HeroSummaryInterface> = ({ summary }) => {
-  // const [summary, setSummary] = useState<any>([]);
-
-  // const fetchSummary = async () => {
-  //   try {
-  //     const response = await getStaticHomePageHero();
-  //     if (response && response.length > 0) {
-  //       setSummary(response[0].paragraph || "");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching hero summary:", error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchSummary();
-  // }, []);
-
   return (
     <div className="w-full flex flex-row gap-10 lg:gap-6 items-center justify-between">
       <HeroSummaryListing summary={summary} />

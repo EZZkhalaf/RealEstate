@@ -57,7 +57,17 @@ export async function getStaticAgents({
     );
 
     const result = await response.json();
-    return result.data;
+    return {
+      response: result.data,
+      pagination: result.meta?.filter_count
+        ? {
+            currentPage: page,
+            totalItems: result.meta.filter_count,
+            totalPages: Math.ceil(result.meta.filter_count / 6),
+            limit: 6,
+          }
+        : null,
+    };
   } catch (error) {
     console.error("Error fetching agents:", error);
     return [];

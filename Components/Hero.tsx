@@ -10,6 +10,7 @@ interface HeroInerface {
 
   minHeight?: string;
   children: React.ReactNode;
+  invest?: boolean;
 }
 
 const Hero: React.FC<HeroInerface> = ({
@@ -17,10 +18,13 @@ const Hero: React.FC<HeroInerface> = ({
 
   minHeight = "min-h-screen",
   children,
+  invest = false,
 }) => {
   const heroStyle = image
     ? {
-        backgroundImage: `url(${typeof image === "image" ? image : image.src})`,
+        backgroundImage: `url(${
+          typeof image === "string" ? image : image.src
+        })`,
       }
     : {};
 
@@ -30,7 +34,7 @@ const Hero: React.FC<HeroInerface> = ({
   const [summary, setSummary] = useState<any>(null);
   useEffect(() => {
     const fetchHeroInfo = async () => {
-      const response = await getStaticHomePageHero();
+      const response = await getStaticHomePageHero(invest);
       setTopTitle(response[0].topTitle || "");
       setBottomTitle(response[0].bottomTitle || "");
       setParagraph(response[0].paragraph || "");
@@ -38,7 +42,7 @@ const Hero: React.FC<HeroInerface> = ({
     };
     fetchHeroInfo();
   }, []);
-  console.log(summary);
+  console.log("the bottommmsfksdlkfjsdlkf is :", bottomTitle);
   return (
     <div
       style={heroStyle}
@@ -57,7 +61,8 @@ const Hero: React.FC<HeroInerface> = ({
           />
 
           {children}
-          <HeroSummary summary={summary} />
+
+          {!invest && <HeroSummary summary={summary} />}
         </div>
       </div>
     </div>

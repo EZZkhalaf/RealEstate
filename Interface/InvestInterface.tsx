@@ -20,3 +20,21 @@ export interface SummaryInterface {
   total: string;
   name: string;
 }
+
+export interface MessageFormInterface {
+  formTitle?: string;
+  properties?: string[];
+  buttonText?: string;
+  formPlaceholder: string[];
+}
+
+export interface ContactInfoInterface {
+  type: string;
+  value: string;
+  icon: string;
+}
+
+export interface WebInfoInterface {
+  title?: string;
+  contactInfo?: ContactInfoInterface[];
+}

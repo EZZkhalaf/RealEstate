@@ -9,3 +9,14 @@ export interface ServiceInterface {
 export interface ServicesInterface {
   services: ServiceInterface[];
 }
+
+export interface MenuData {
+  title: string;
+  items: any;
+}
+
+export interface UpperFooterInterface {
+  menuData: MenuData[];
+  locationAndIconsTitle?: string;
+  icons: string[];
+}

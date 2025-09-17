@@ -5,7 +5,6 @@ import { SummaryInterface } from "@/Interface/InvestInterface";
 const HeroSummaryListing: React.FC<HeroSummaryInterface> = ({
   summary = [],
 }) => {
-  console.log(summary);
   return (
     <>
       {summary?.map((element: any, index: number) => (

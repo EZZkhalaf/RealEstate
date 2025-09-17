@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import MockAgents from "../../MockData/MockAgents.json";
 import { Agent } from "@/Interface/AgentInterface";
 import { getStaticAgents } from "@/API/AgnetsApi";
+import PagingButtons from "@/Components/Molecule/PagingButtons";
 
 export interface LocationInterface {
   region: string;
@@ -21,8 +22,7 @@ export default function Agents() {
   const [name, setName] = useState("");
 
   const [currentPage, onPageChange] = useState<number>(1);
-  let totalPages = 10;
-
+  const [totalPages, setTotalPages] = useState<number>(0);
   const saudiLocations: LocationInterface[] = [
     { region: "All Regions", cities: [] },
     { region: "Riyadh", cities: ["Riyadh"] },
@@ -77,8 +77,8 @@ export default function Agents() {
       name,
       agentSpecialties: selectedSprecialty,
     });
-    console.log(response);
-    setAgentsMock(response);
+    setAgentsMock(response?.response);
+    setTotalPages(response?.pagination?.totalPages as number);
   };
   const scrollToTop = () => {
     window.scrollTo({
@@ -150,6 +150,7 @@ export default function Agents() {
           onPageChange={onPageChange}
         />
       </ScrollAnimation>
+
       <Footer />
     </div>
   );

@@ -1,7 +1,9 @@
-export async function getStaticHomePageHero() {
+export async function getStaticHomePageHero(invest: boolean = false) {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/homePageHero?fields=*`
+      invest
+        ? `http://localhost:8055/items/investPageHero?fields=*`
+        : `http://localhost:8055/items/homePageHero?fields=*`
     );
     const result = await response.json();
     return result.data; // usually an array of hero items
