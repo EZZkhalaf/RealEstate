@@ -19,7 +19,7 @@ export default function Invest() {
     <div className="w-full">
       <Hero invest={true} minHeight="max-h-fit">
         <ScrollAnimation>
-          <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
+          <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center pb-6">
             <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">
               <ButtonCustomize
                 text="Find Investment Property"

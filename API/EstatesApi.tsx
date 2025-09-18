@@ -1,4 +1,4 @@
-const TOKEN = "erEJU7IDSxghSVFDnwDh1ZyeELkKWnGR";
+// const TOKEN = "erEJU7IDSxghSVFDnwDh1ZyeELkKWnGR";
 export async function getStaticEstates(
   page: number = 1,
   genre: string = "All Properties",

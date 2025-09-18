@@ -16,7 +16,6 @@ const ContactUs = () => {
   const fetchInfo = async () => {
     const response = await getStaticContactUsInfo();
     const contact = response?.contact;
-    console.log(response);
     const form = response?.form;
     setTitle(form.title || "");
     const propertiesCleared: string[] = form.properties.blocks.map(

@@ -18,3 +18,9 @@ export interface Agent {
   experience: string;
   specialties: string[];
 }
+
+export interface LocationInterface {
+  id?: number;
+  region: string;
+  cities?: string[];
+}

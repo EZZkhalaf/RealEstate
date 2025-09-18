@@ -20,7 +20,7 @@ const ListSelect: React.FC<{
       <select
         value={value}
         onChange={(e) => onChange?.(e.target.value)}
-        className={`bg-gray-200 py-3 p-1 rounded relative ${width} overflow-auto`}
+        className={`bg-gray-200 py-3 p-1 rounded relative ${width} `}
       >
         {list?.map((e, index) => (
           <option key={index} className="bg-white hover:bg-gray-200 p-1 ">

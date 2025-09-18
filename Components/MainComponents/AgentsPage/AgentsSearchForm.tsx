@@ -62,18 +62,6 @@ const AgentsSearchForm: React.FC<{
         width="w-full"
         height="h-full"
       />
-
-      {/* <ListSelect
-        title={"Specialties"}
-        list={specialties}
-        value={selectedSpecialty}
-        onChange={(e) => setSelectedSpecialty(e)}
-        width={"w-full"}
-        height={"h-full"}
-      /> */}
-      {/* <button className="bg-green-500 hover:bg-green-600 text-white font-bold p-2 rounded-lg mt-9 transform-color duration-300">
-        Search
-      </button> */}
     </form>
   );
 };

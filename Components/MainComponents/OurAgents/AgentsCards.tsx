@@ -1,33 +1,14 @@
 "use client";
 
 import AgentCard from "../../Molecule/AgentCard";
-
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
-// import { useNavigate } from "react-router-dom";
 import PagingButtons from "../../Molecule/PagingButtons";
-import { useState } from "react";
-// import { Agent } from "../../../Pages/Agents";
 import { useRouter } from "next/navigation";
 import NotFound from "@/Components/Atoms/NotFound";
-
-// {
-//   "id": 6,
-//   "name": "Saleh Al-Mutairi",
-//   "rating": 4.5,
-//   "image": "/assets/person2.jpeg",
-//   "locations": ["Al Rawdah", "Al Nakheel"],
-//   "sales": "120+",
-//   "experience": "3 years",
-//   "specialties": ["Starter Homes", "Townhouses"]
-// },
-
-// interface AgentsCardInterface {
-//   agents: Agent[];
-//   isPage?: boolean;
-// }
+import { Agent } from "http";
 
 interface AgentsCardInterface {
-  agents: AgentsCardInterface[];
+  agents?: Agent[];
   isPage?: boolean;
   currentPage: number;
   onPageChange: any;

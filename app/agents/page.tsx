@@ -9,72 +9,55 @@ import AgentsSearchForm from "@/Components/MainComponents/AgentsPage/AgentsSearc
 import AgentsCards from "@/Components/MainComponents/OurAgents/AgentsCards";
 import { useEffect, useState } from "react";
 import MockAgents from "../../MockData/MockAgents.json";
-import { Agent } from "@/Interface/AgentInterface";
-import { getStaticAgents } from "@/API/AgnetsApi";
-import PagingButtons from "@/Components/Molecule/PagingButtons";
-
-export interface LocationInterface {
-  region: string;
-  cities?: string[];
-}
+import { Agent, LocationInterface } from "@/Interface/AgentInterface";
+import {
+  getStaticAgents,
+  getStaticLocationsAndSpecialties,
+} from "@/API/AgnetsApi";
 
 export default function Agents() {
   const [name, setName] = useState("");
 
   const [currentPage, onPageChange] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
-  const saudiLocations: LocationInterface[] = [
-    { region: "All Regions", cities: [] },
-    { region: "Riyadh", cities: ["Riyadh"] },
-    { region: "Makkah", cities: ["Jeddah", "Makkah", "Taif"] },
-    { region: "Madinah", cities: ["Madinah", "Yanbu"] },
-    { region: "Qassim", cities: ["Buraidah", "Unaizah"] },
-    {
-      region: "Eastern Province (Ash Sharqiyah)",
-      cities: ["Dammam", "Khobar", "Dhahran", "Al Ahsa"],
-    },
-    { region: "Asir", cities: ["Abha", "Khamis Mushait"] },
-    { region: "Tabuk", cities: ["Tabuk"] },
-    { region: "Hail", cities: ["Hail"] },
-    {
-      region: "Northern Borders (Al Hudud ash Shamaliyah)",
-      cities: ["Arar", "Rafha"],
-    },
-    { region: "Jizan", cities: ["Jizan"] },
-    { region: "Najran", cities: ["Najran"] },
-    { region: "Al Bahah", cities: ["Al Bahah"] },
-    { region: "Al Jawf", cities: ["Sakaka", "Domat Al Jandal"] },
-  ];
 
-  const agentSpecialties: string[] = [
-    "All Specialties",
-    "Luxury Villas",
-    "Family Homes",
-    "Penthouses",
-    "Townhouses",
-    "Commercial Properties",
-    "Investment Properties",
-    "Beachfront Estates",
-    "Smart Homes",
-    "Historic & Traditional Homes",
-  ];
-  const [selectedRegion, setSelectedRegion] = useState<string>(
-    saudiLocations[0].region
-  );
-  const [selectedSprecialty, setSelectedSpecialty] = useState<string>(
-    agentSpecialties[0]
-  );
+  const [saudiLocations, setSaudiLocations] = useState<LocationInterface[]>([]);
+
+  const [agentSpecialties, setAgentSpecialties] = useState<string[]>([]);
+  const [selectedRegion, setSelectedRegion] = useState<string>("");
+  const [selectedSprecialty, setSelectedSpecialty] = useState<string>("");
+
   const [selectedCity, setSelectedCity] = useState<string>("");
 
   const [agentsMock, setAgentsMock] = useState<Agent[]>([]);
   const limit: number = 8;
+
+  const fetchLocationsAndSpecialties = async () => {
+    const locationsAndSpecialties = await getStaticLocationsAndSpecialties();
+    const specialtiesStrings: string[] =
+      locationsAndSpecialties.specialties.blocks.map(
+        (block: any) => block.data.text as string
+      );
+    setAgentSpecialties(specialtiesStrings);
+    const locationsCleared1: LocationInterface[] =
+      locationsAndSpecialties.locations.map((location: any) => location.item);
+
+    const locationsCleared2 = locationsCleared1.map(
+      ({ id, region, cities }) => ({
+        id,
+        region,
+        cities: cities?.blocks?.map((block: any) => block.data.text) || [],
+      })
+    );
+    setSaudiLocations(locationsCleared2);
+  };
   const fetchAgents = async () => {
     const response = await getStaticAgents({
       page: currentPage,
       limit,
       region: selectedRegion,
       city: selectedCity,
-      name,
+      name: name,
       agentSpecialties: selectedSprecialty,
     });
     setAgentsMock(response?.response);
@@ -90,16 +73,6 @@ export default function Agents() {
   const [debouncedName, setDebouncedName] = useState(name);
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedName(name);
-    }, 500); // 500ms debounce (you can adjust)
-
-    return () => {
-      clearTimeout(handler); // cleanup on new keystroke
-    };
-  }, [name]);
-
-  useEffect(() => {
     scrollToTop();
     fetchAgents();
   }, [
@@ -109,6 +82,18 @@ export default function Agents() {
     debouncedName,
     selectedSprecialty,
   ]);
+  useEffect(() => {
+    fetchLocationsAndSpecialties();
+  }, []);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedName(name);
+    }, 500); // 500ms debounce (you can adjust)
+
+    return () => {
+      clearTimeout(handler); // cleanup on new keystroke
+    };
+  }, [name]);
 
   return (
     <div className="mt-25 ">

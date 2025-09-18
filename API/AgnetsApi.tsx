@@ -73,3 +73,17 @@ export async function getStaticAgents({
     return [];
   }
 }
+
+export async function getStaticLocationsAndSpecialties() {
+  try {
+    const response = await fetch(
+      `http://localhost:8055/items/agentSpecialties?fields=*,locations.item.*`
+    );
+
+    const result = await response.json();
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
