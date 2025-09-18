@@ -4,13 +4,15 @@ import React, { useState } from "react";
 interface InputNumberAtomInterface {
   title: string;
   value: number;
+  setValue: (value: number) => void;
 }
 
 const InputNumberAtom: React.FC<InputNumberAtomInterface> = ({
   title,
   value,
+  setValue,
 }) => {
-  const [initialValue, setValue] = useState<number>(value);
+  const initialValue = value;
   return (
     <div className="flex flex-col ">
       <p>{title}</p>

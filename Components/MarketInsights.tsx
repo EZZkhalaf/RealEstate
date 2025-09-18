@@ -1,3 +1,4 @@
+"use client";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import InsightsListing from "./MainComponents/MarketInsights.jsx/InsightsListing";

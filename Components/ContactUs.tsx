@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import WebInfo from "./MainComponents/ContactUs/WebInfo";
 import MessageForm from "./MainComponents/ContactUs/MessageForm";

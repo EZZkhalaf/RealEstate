@@ -25,10 +25,10 @@ const InvestmentTools: React.FC<InvestmentToolsInterface> = ({
         <ParagraphDescription description={description} />
         <GrayLine />
       </div>
-      <div className="grid grid-cols-1  lg:grid-cols-2 w-full p-8 px-3 lg:px-20 gap-10">
-        <ScrollAnimation>
+      <div>
+        {/* <ScrollAnimation>
           <ROICalculator />
-        </ScrollAnimation>
+        </ScrollAnimation> */}
 
         {children}
       </div>

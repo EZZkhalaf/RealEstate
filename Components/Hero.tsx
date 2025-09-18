@@ -4,6 +4,7 @@ import HeroTitle from "./MainComponents/Hero/HeroTitle";
 import { useEffect, useState } from "react";
 import { getStaticHomePageHero } from "@/API/HeroApi";
 import HeroSummary from "./MainComponents/Hero/HeroSummary";
+import Loading from "./Atoms/Loading";
 
 interface HeroInerface {
   image?: string | StaticImageData;
@@ -32,17 +33,20 @@ const Hero: React.FC<HeroInerface> = ({
   const [bottomTitle, setBottomTitle] = useState<string>("");
   const [paragraph, setParagraph] = useState<string>("");
   const [summary, setSummary] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     const fetchHeroInfo = async () => {
+      setLoading(true);
       const response = await getStaticHomePageHero(invest);
       setTopTitle(response[0].topTitle || "");
       setBottomTitle(response[0].bottomTitle || "");
       setParagraph(response[0].paragraph || "");
       setSummary(response[0].heroSummary || []);
+      setLoading(false);
     };
     fetchHeroInfo();
   }, []);
-  console.log("the bottommmsfksdlkfjsdlkf is :", bottomTitle);
+  if (loading) return <Loading />;
   return (
     <div
       style={heroStyle}

@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface InvestmentOptionInterface {
   title: string;
   desc: string;
@@ -37,4 +39,22 @@ export interface ContactInfoInterface {
 export interface WebInfoInterface {
   title?: string;
   contactInfo?: ContactInfoInterface[];
+}
+
+export interface ROICalculatorInterface {
+  propertyValue?: number;
+  setPropertyValue?: Dispatch<SetStateAction<number>>;
+  monthlyRent?: number;
+  setMonthlyRent?: Dispatch<SetStateAction<number>>;
+  loanAmount?: number;
+  setLoanAmount?: Dispatch<SetStateAction<number>>;
+  intrestRate?: number;
+  setIntrestRate?: Dispatch<SetStateAction<number>>;
+  loanTerms?: number;
+  setLoanTerms?: Dispatch<SetStateAction<number>>;
+}
+
+export interface SummaryROIInterface {
+  name: string;
+  sum: string;
 }

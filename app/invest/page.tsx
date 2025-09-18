@@ -13,6 +13,8 @@ import MarketAnalysis from "@/Components/MainComponents/InvestPage/MarketAnalysi
 import StartInvestment from "@/Components/MainComponents/InvestPage/StartInvestment";
 import Footer from "@/Components/Footer";
 import EstatesSection from "@/Components/MainComponents/InvestPage/EstatesSection";
+import ROICalculator from "@/Components/MainComponents/InvestmentTools/ROICalculator";
+import InvestToolsPageContainer from "@/Components/MainComponents/InvestPage/InvestToolsPageContainer";
 
 export default function Invest() {
   return (
@@ -51,26 +53,7 @@ export default function Invest() {
         title="Investment Calculator"
         description="Calculate detailed returns, cash flow, and investment metrics for any property"
       >
-        <div className="grid grid-cols-1 gap-2 ">
-          <InvestmentAnalysis />
-          <FinancialBreakDown />
-          <ButtonCustomize
-            text="Contact"
-            icon="email"
-            color="#0B3557"
-            hoverColor="#0B3557E6"
-            textColor="#FFFFFF"
-            hoverTextColor="#FFFFFF"
-          />
-          <ButtonCustomize
-            text="Call"
-            icon="phone"
-            color="#FFFFFF"
-            hoverColor="#9CA3AF"
-            textColor="#000000"
-            hoverTextColor="#FFFFFF"
-          />
-        </div>
+        <InvestToolsPageContainer />
       </InvestmentTools>
       <InvestmentStrategies />
       <MarketAnalysis />

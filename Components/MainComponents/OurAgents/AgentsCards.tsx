@@ -10,9 +10,9 @@ import { Agent } from "http";
 interface AgentsCardInterface {
   agents?: Agent[];
   isPage?: boolean;
-  currentPage: number;
-  onPageChange: any;
-  totalPages: number;
+  currentPage?: number;
+  onPageChange?: any;
+  totalPages?: number;
 }
 
 const AgentsCards: React.FC<AgentsCardInterface> = ({
@@ -46,11 +46,15 @@ const AgentsCards: React.FC<AgentsCardInterface> = ({
               />
             </div>
           ) : (
-            <PagingButtons
-              currentPage={currentPage}
-              onPageChange={onPageChange}
-              totalPages={totalPages}
-            />
+            <>
+              {currentPage && onPageChange && totalPages && (
+                <PagingButtons
+                  currentPage={currentPage}
+                  onPageChange={onPageChange}
+                  totalPages={totalPages}
+                />
+              )}
+            </>
           )}
         </div>
       ) : (

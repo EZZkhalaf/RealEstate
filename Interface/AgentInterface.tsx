@@ -24,3 +24,13 @@ export interface LocationInterface {
   region: string;
   cities?: string[];
 }
+
+export interface AgentCardInterface {
+  agent: any;
+}
+
+export interface ImageAndNameProfileProps {
+  image?: string;
+  name?: string;
+  locations?: string[];
+}

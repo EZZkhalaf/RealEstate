@@ -1,15 +1,9 @@
 import React from "react";
-import { SummaryInterface } from "../../MainComponents/InvestmentTools/InvestmentSummary";
 
-interface InvestmentSummaryListingInterface {
-  summary: SummaryInterface[];
-}
-const InvestmentSummaryListing: React.FC<InvestmentSummaryListingInterface> = ({
-  summary,
-}) => {
+const InvestmentSummaryListing: React.FC<{ summary: any }> = ({ summary }) => {
   return (
     <div>
-      {summary.map((element, index) => (
+      {summary.map((element: any, index: number) => (
         <div
           key={index}
           className={`

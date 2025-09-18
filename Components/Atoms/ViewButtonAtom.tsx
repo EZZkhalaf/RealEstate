@@ -32,13 +32,13 @@ const ViewButtonAtom: React.FC<ViewButtonAtomInterface> = ({
           color: textColor,
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = hoverColor;
-          e.currentTarget.style.color = hoverTextColor;
+          if (hoverColor) e.currentTarget.style.backgroundColor = hoverColor;
+          if (hoverTextColor) e.currentTarget.style.color = hoverTextColor;
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = color;
+          if (color) e.currentTarget.style.backgroundColor = color;
 
-          e.currentTarget.style.color = textColor;
+          if (textColor) e.currentTarget.style.color = textColor;
         }}
       >
         <button

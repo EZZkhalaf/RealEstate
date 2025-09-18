@@ -1,3 +1,5 @@
+"use client";
+
 import SummaryElementsInsight from "../../Molecule/SummaryElementsInsight";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import { useEffect, useState } from "react";

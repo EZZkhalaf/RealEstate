@@ -2,20 +2,16 @@ import React from "react";
 import FeatureElement from "../Atoms/FeatureElement";
 import { Icon } from "@iconify/react";
 import ButtonCustomize from "../Atoms/ButtonCustomize";
+import {
+  AgentCardInterface,
+  ImageAndNameProfileProps,
+} from "@/Interface/AgentInterface";
+import Image from "next/image";
 // import { Agent } from "../../Pages/Agents";
 
 // interface AgentCardInterface {
 //   agent: Agent;
 // }
-interface AgentCardInterface {
-  agent: any;
-}
-
-interface ImageAndNameProfileProps {
-  image?: string;
-  name?: string;
-  locations?: string[];
-}
 
 const ImageAndNameProfile: React.FC<ImageAndNameProfileProps> = ({
   image = "",
@@ -24,10 +20,12 @@ const ImageAndNameProfile: React.FC<ImageAndNameProfileProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center gap-2">
-      <img
+      <Image
         src={image}
-        alt="Profile image"
-        className="rounded-full h-24 w-24 mx-auto object-cover"
+        alt="Profile Image"
+        className="rounded-full mx-auto h-24 w-24 object-cover"
+        width={96}
+        height={96}
       />
       <h1 className="text-xl font-semibold text-black">{name}</h1>
       <p className="text-gray-400 text-sm">{locations.join(", ")}</p>
@@ -57,7 +55,7 @@ const AgentCard: React.FC<AgentCardInterface> = ({ agent }) => {
 
       <p className="text-xs text-gray-500 mt-2">Specialties</p>
       <div className="flex gap-1">
-        {agent.specialties.map((s, index) => (
+        {agent.specialties.map((s: string, index: number) => (
           <FeatureElement key={index} text={s} />
         ))}
       </div>

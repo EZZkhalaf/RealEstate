@@ -1,30 +1,21 @@
 // import { useNavigate } from "react-router-dom";
 
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 const NavigationButtons = () => {
   const router = useRouter();
   return (
     <div className="md:flex lg:flex hidden justify-around items-center gap-6">
-      <button
-        onClick={() => router.push("/")}
-        className="text-gray-600 hover:text-[#0B3557]"
-      >
-        Home
-      </button>
+      <Link href={"/"}>
+        <button className="text-gray-600 hover:text-[#0B3557]">Home</button>
+      </Link>
       <button className="text-gray-600 hover:text-[#0B3557]">Sell</button>
-      <button
-        onClick={() => router.push("/invest")}
-        className="text-gray-600 hover:text-[#0B3557]"
-      >
-        Invest
-      </button>
-      <button
-        onClick={() => router.push("/agents")}
-        className="text-gray-600 hover:text-[#0B3557]"
-      >
-        Agents
-      </button>
+      <Link href={"/invest"}>
+        <button className="text-gray-600 hover:text-[#0B3557]">Invest</button>
+      </Link>
+      <Link href={"agents"}>
+        <button className="text-gray-600 hover:text-[#0B3557]">Agents</button>
+      </Link>
       <button className="text-gray-600 hover:text-[#0B3557]">
         Market Insights
       </button>

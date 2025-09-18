@@ -72,3 +72,21 @@ export async function getStaticPropertyStats() {
     return error;
   }
 }
+
+export async function getStaticInvestmentSummary() {
+  try {
+    const response = await fetch(
+      "http://localhost:8055/items/investmentSummary",
+      {
+        //   headers: {
+        //     Authorization: `Bearer ${TOKEN}`,
+        //   },
+      }
+    );
+    const result = await response.json();
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}

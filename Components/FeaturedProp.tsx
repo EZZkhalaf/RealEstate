@@ -11,66 +11,49 @@ import { StaticImageData } from "next/image";
 import { getStaticEstates } from "@/API/EstatesApi";
 import { EstateInterface, GeneresInterface } from "@/Interface/EstateInterface";
 import { FilterButtonInterface } from "@/Interface/AgentInterface";
+import { FilteringOptions } from "./MainComponents/FeaturedProps/FilteringOptions";
+import Loading from "./Atoms/Loading";
 
-const FilterButton: React.FC<{
-  text: string;
-  selected: boolean;
-  onClick: () => void;
-}> = ({ text, selected, onClick }) => {
-  return (
-    <button
-      onClick={onClick}
-      className={`text-sm p-1 rounded-lg border px-3  ${
-        selected
-          ? "bg-gray-800 text-white"
-          : "bg-white hover:bg-gray-300 border-gray-300"
-      }`}
-    >
-      {text}
-    </button>
-  );
-};
+// const FilteringOptions: React.FC<{
+//   generes: string[];
+//   filterOptions: string[];
+//   selectedGenre: string;
+//   sortOption?: string;
+//   setSortOption?: (sort: string) => void;
+//   setSelectedGenre: (genre: string) => void;
+// }> = ({
+//   generes,
+//   filterOptions,
+//   selectedGenre,
+//   setSelectedGenre,
+//   sortOption,
+//   setSortOption,
+// }) => {
+//   return (
+//     <div className="flex flex-wrap items-center justify-between gap-4 mb-10 mt-8 px-3">
+//       <ScrollAnimation type="fade-left" delay={0.6} animationTime={0.4}>
+//         <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
+//           {generes.map((b, index: number) => (
+//             <FilterButton
+//               text={b}
+//               key={index}
+//               selected={selectedGenre === b}
+//               onClick={() => setSelectedGenre(b)}
+//             />
+//           ))}
+//         </div>
+//       </ScrollAnimation>
 
-const FilteringOptions: React.FC<{
-  generes: string[];
-  filterOptions: string[];
-  selectedGenre: string;
-  sortOption?: string;
-  setSortOption?: (sort: string) => void;
-  setSelectedGenre: (genre: string) => void;
-}> = ({
-  generes,
-  filterOptions,
-  selectedGenre,
-  setSelectedGenre,
-  sortOption,
-  setSortOption,
-}) => {
-  return (
-    <div className="flex flex-wrap items-center justify-between gap-4 mb-10 mt-8 px-3">
-      <ScrollAnimation type="fade-left" delay={0.6} animationTime={0.4}>
-        <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
-          {generes.map((b, index: number) => (
-            <FilterButton
-              text={b}
-              key={index}
-              selected={selectedGenre === b}
-              onClick={() => setSelectedGenre(b)}
-            />
-          ))}
-        </div>
-      </ScrollAnimation>
-
-      <ScrollAnimation type="fade-right" delay={0.6} animationTime={0.4}>
-        <ListSelect
-          list={filterOptions}
-          value={sortOption}
-          onChange={setSortOption}
-        />
-      </ScrollAnimation>
-    </div>
-  );
-};
+//       <ScrollAnimation type="fade-right" delay={0.6} animationTime={0.4}>
+//         <ListSelect
+//           list={filterOptions}
+//           value={sortOption}
+//           onChange={setSortOption}
+//         />
+//       </ScrollAnimation>
+//     </div>
+//   );
+// };
 
 const FeaturedProp = () => {
   const generes: string[] = [
@@ -84,8 +67,10 @@ const FeaturedProp = () => {
   const [selectedGenre, setSelectedGenre] = useState<string>("All Properties");
   const [sortOption, setSortOption] = useState<string>("Low to High");
   const [estates, setEstates] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchEstates = async () => {
+    setLoading(true);
     const data: any = await getStaticEstates(1, selectedGenre, sortOption);
 
     const parsed = data?.map((estate: any) => ({
@@ -105,6 +90,7 @@ const FeaturedProp = () => {
     }));
 
     setEstates(parsed);
+    setLoading(false);
   };
   useEffect(() => {
     fetchEstates();
@@ -115,6 +101,7 @@ const FeaturedProp = () => {
     "High to Low",
     "Square Footage",
   ];
+  if (loading) return <Loading />;
   return (
     <div className="w-full  flex flex-col  mt-20  lg:pr-25 lg:pl-25">
       <div className="flex flex-col items-center w-full">
