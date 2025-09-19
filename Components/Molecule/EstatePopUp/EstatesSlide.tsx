@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import MockEstates from "../../../MockData/MockEstates.json";
 import CardImageArea from "../CardImageArea";
 import Status from "../../Atoms/Status";
-import { EstateInterface } from "../../FeaturedProp";
+import { EstateInterface } from "@/Interface/EstateInterface";
 
 interface SuggestionCardInterface {
   estate: EstateInterface;
@@ -50,23 +49,24 @@ const SuggestionCard: React.FC<SuggestionCardInterface> = ({ estate }) => {
   );
 };
 
+//will be edit later
 const EstatesSlide = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const estatesPerSlide: number = 3;
 
-  const visibleEstates = MockEstates.slice(
-    currentIndex,
-    currentIndex + estatesPerSlide
-  );
+  // const visibleEstates = MockEstates.slice(
+  //   currentIndex,
+  //   currentIndex + estatesPerSlide
+  // );
 
   return (
     <div className="relative w-full flex flex-col items-center">
       {/* Cards */}
-      <div className="lg:flex  sm:grid-cols-1 sm:grid md:grid md:grid-cols-2 gap-2 overflow-hidden w-full justify-center">
+      {/* <div className="lg:flex  sm:grid-cols-1 sm:grid md:grid md:grid-cols-2 gap-2 overflow-hidden w-full justify-center">
         {visibleEstates.map((estate) => (
           <SuggestionCard estate={estate as EstateInterface} key={estate.id} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

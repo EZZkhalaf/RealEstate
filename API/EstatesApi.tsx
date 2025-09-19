@@ -15,9 +15,11 @@ export async function getStaticEstates(
   if (sort === "Square Footage") sortQuery = "&sort=area";
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard?page=${page}&limit=6${genreFilter}${sortQuery}`
+      `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
+      // `http://localhost:8055/items/estateCard?fields=*,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
     );
     const result = await response.json();
+    console.log(result);
     return result.data;
   } catch (error) {
     console.error(error);
@@ -97,7 +99,7 @@ export async function getStaticEstatesFiltered(
 
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard?fields=id,title,location,price,features,beds,baths,area,image&limit=6&offset=${offset}&meta=*&${queryString}`
+      `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*&limit=6&offset=${offset}&meta=*&${queryString}`
     );
     const result = await response.json();
 
@@ -121,7 +123,7 @@ export async function getStaticEstatesFiltered(
 export async function getStaticSingleEstate(id: string) {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard/${id}`
+      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*`
     );
 
     const result = await response.json();

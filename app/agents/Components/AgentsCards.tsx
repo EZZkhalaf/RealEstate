@@ -1,8 +1,8 @@
 "use client";
 
-import AgentCard from "../../Molecule/AgentCard";
-import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
-import PagingButtons from "../../Molecule/PagingButtons";
+import AgentCard from "../../../Components/Molecule/AgentCard";
+import ViewButtonAtom from "../../../Components/Atoms/ViewButtonAtom";
+import PagingButtons from "../../../Components/Molecule/PagingButtons";
 import { useRouter } from "next/navigation";
 import NotFound from "@/Components/Atoms/NotFound";
 import { Agent } from "http";

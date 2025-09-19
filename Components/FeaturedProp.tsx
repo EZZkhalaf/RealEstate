@@ -72,7 +72,6 @@ const FeaturedProp = () => {
   const fetchEstates = async () => {
     setLoading(true);
     const data: any = await getStaticEstates(1, selectedGenre, sortOption);
-
     const parsed = data?.map((estate: any) => ({
       ...estate,
       features: Array.isArray(estate.features) ? estate.features : [],
@@ -82,10 +81,10 @@ const FeaturedProp = () => {
       actions: Array.isArray(estate.actions) ? estate.actions : [],
       stats: estate.stats || {},
       listing_info: estate.listing_info || {},
-      image: Array.isArray(estate.image)
-        ? estate.image
-        : estate.image
-        ? [estate.image]
+      image: Array.isArray(estate.images)
+        ? estate.images
+        : estate.images
+        ? [estate.images]
         : [],
     }));
 

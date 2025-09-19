@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import TitleAtom from "../../Atoms/TitleAtom";
-import ParagraphDescription from "../../Atoms/ParagraphDescription";
-import GrayLine from "../../Atoms/GrayLine";
+import TitleAtom from "../../../Components/Atoms/TitleAtom";
+import ParagraphDescription from "../../../Components/Atoms/ParagraphDescription";
+import GrayLine from "../../../Components/Atoms/GrayLine";
 import StrategyCard, {
   StrategyInterface,
-} from "../../Molecule/InvestmentStrategies/StrategyCard";
+} from "../../../Components/Molecule/InvestmentStrategies/StrategyCard";
 import MockInvestmentStrategies from "../../../MockData/MockInvestmentStrategies.json";
 import getStaticInvestmentStrategies from "@/API/InvestmentApi";
 

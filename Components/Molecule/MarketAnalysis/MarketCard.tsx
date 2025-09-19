@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { MarketInterface } from "../../MainComponents/InvestPage/MarketAnalysis";
+import { MarketInterface } from "../../../app/invest/Components/MarketAnalysis";
 
 interface MarketCardInterface {
   market: MarketInterface;

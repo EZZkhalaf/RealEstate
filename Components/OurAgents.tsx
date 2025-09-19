@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
-import AgentsCards from "./MainComponents/OurAgents/AgentsCards";
+import AgentsCards from "../app/agents/Components/AgentsCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 // import MockAgents from "../MockData/MockAgents.json";
 import GrayLine from "./Atoms/GrayLine";

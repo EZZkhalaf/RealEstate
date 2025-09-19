@@ -135,8 +135,9 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
         />
       </div>
       <div className="grid grid-cols-3 gap-2 mt-5">
-        {estate?.features?.map((f, idx) => (
+        {estate?.features?.map((f: EstateInterface, idx: number) => (
           <IconWithText
+            key={idx}
             icon={icons[idx]}
             text={f}
             textColor="text-black  lg:text-lg text-md"

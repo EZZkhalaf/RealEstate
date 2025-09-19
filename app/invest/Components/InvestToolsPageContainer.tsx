@@ -1,8 +1,8 @@
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import React, { useMemo, useState } from "react";
-import ROICalculator from "../InvestmentTools/ROICalculator";
-import InvestmentAnalysis from "./InvestmentAnalysis";
-import FinancialBreakDown from "./FinancialBreakDown";
+import ROICalculator from "../../../Components/MainComponents/InvestmentTools/ROICalculator";
+import InvestmentAnalysis from "../../../Components/MainComponents/InvestPage/InvestmentAnalysis";
+import FinancialBreakDown from "../../../Components/MainComponents/InvestPage/FinancialBreakDown";
 import ButtonCustomize from "@/Components/Atoms/ButtonCustomize";
 
 const InvestToolsPageContainer = () => {

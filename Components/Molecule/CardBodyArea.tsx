@@ -8,7 +8,7 @@ import { EstateInterface } from "@/Interface/EstateInterface";
 
 interface CardBodyInterface {
   estate: EstateInterface;
-  viewDetailsClick: (e: any) => void;
+  viewDetailsClick?: (e: any) => void;
 }
 
 const FeatureElementListing: React.FC<{ estate: EstateInterface }> = ({

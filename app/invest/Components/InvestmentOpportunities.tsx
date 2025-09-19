@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import TitleAtom from "../../Atoms/TitleAtom";
-import ParagraphDescription from "../../Atoms/ParagraphDescription";
-import GrayLine from "../../Atoms/GrayLine";
-import IconAtom from "../../Atoms/IconAtom";
+import TitleAtom from "../../../Components/Atoms/TitleAtom";
+import ParagraphDescription from "../../../Components/Atoms/ParagraphDescription";
+import GrayLine from "../../../Components/Atoms/GrayLine";
+import IconAtom from "../../../Components/Atoms/IconAtom";
 import { Icon } from "@iconify/react";
-import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
+import ViewButtonAtom from "../../../Components/Atoms/ViewButtonAtom";
 
 import { getStaticEstates } from "@/API/EstatesApi";
 import { getStaticInvestmentOption } from "@/API/InvestmentOptionsApi";

@@ -1,12 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 
-// interface ListSelectInterface {
-//   title?: string;
-//   list?: string[];
-//   width?: string;
-//   height?: string;
-// }
 const ListSelect: React.FC<{
   title?: string;
   list?: string[] | number[];

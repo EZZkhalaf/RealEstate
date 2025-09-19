@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
-import InputGray from "../../Atoms/InputGray";
-import ListSelect from "../../Atoms/ListSelect";
+import InputGray from "../../../Components/Atoms/InputGray";
+import ListSelect from "../../../Components/Atoms/ListSelect";
 import { LocationInterface } from "@/app/agents/page";
 
 const AgentsSearchForm: React.FC<{

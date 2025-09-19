@@ -18,7 +18,7 @@ export const ContactAgentButtons: React.FC<ContactAgentButtonsInterface> = ({
     <div className="lg:sticky lg:top-20 lg:px-2 fixed bottom-0 bg-gray-200 mt-3 flex justify-center items-center md:border-t sm:border-t border-gray-200 h-fit w-full">
       <div className="lg:flex lg:flex-col flex flex-row  md:grid md:grid-cols-2 justify-center items-center gap-3 rounded-lg p-2 lg:border   border-gray-300 w-full">
         {!onlyContact && (
-          <button className="flex flex-col bg-blue-500 border border-blue-600 hover:bg-blue-600 transform duration-300 py-2 px-15 rounded-md">
+          <button className="flex flex-col bg-blue-500  hover:bg-blue-600 transform duration-300 py-2 px-15 rounded-md">
             <div>
               <p className="flex flex-col items-center text-white font-bold text-md lg:text-lg">
                 Request a tour
@@ -66,7 +66,7 @@ const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
         ) : (
           <div className="flex flex-col px-4">
             <EstateImages
-              images={estate?.image || []}
+              images={estate?.images || []}
               setImagesOpen={setImagesOpen}
             />
 

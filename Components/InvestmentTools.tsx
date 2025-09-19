@@ -1,11 +1,7 @@
 import React from "react";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
-import ViewButtonAtom from "./Atoms/ViewButtonAtom";
-import MarketInsightsSummary from "./MainComponents/InvestmentTools/MarketInsightsSummary";
-import ROICalculator from "./MainComponents/InvestmentTools/ROICalculator";
-import InvestmentSummary from "./MainComponents/InvestmentTools/InvestmentSummary";
-import ScrollAnimation from "../Animation/ScrollAnimation";
+
 import GrayLine from "./Atoms/GrayLine";
 
 interface InvestmentToolsInterface {
@@ -25,13 +21,7 @@ const InvestmentTools: React.FC<InvestmentToolsInterface> = ({
         <ParagraphDescription description={description} />
         <GrayLine />
       </div>
-      <div>
-        {/* <ScrollAnimation>
-          <ROICalculator />
-        </ScrollAnimation> */}
-
-        {children}
-      </div>
+      <div>{children}</div>
     </div>
   );
 };

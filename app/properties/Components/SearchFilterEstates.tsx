@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-import InputGray from "../../Atoms/InputGray";
+import InputGray from "../../../Components/Atoms/InputGray";
 import { Icon } from "@iconify/react";
-import TriggerButtons from "../../Atoms/TriggerButtons";
-import ForSale from "../../Molecule/SearchFilterEstates/ForSale";
-import Price from "../../Molecule/SearchFilterEstates/Price";
-import BedsAndBaths from "../../Molecule/SearchFilterEstates/BedsAndBaths";
-import HomeType from "../../Molecule/SearchFilterEstates/HomeType";
-import MoreFilters from "../../Molecule/SearchFilterEstates/MoreFilters";
+import TriggerButtons from "../../../Components/Atoms/TriggerButtons";
+import ForSale from "../../../Components/Molecule/SearchFilterEstates/ForSale";
+import Price from "../../../Components/Molecule/SearchFilterEstates/Price";
+import BedsAndBaths from "../../../Components/Molecule/SearchFilterEstates/BedsAndBaths";
+import HomeType from "../../../Components/Molecule/SearchFilterEstates/HomeType";
+import MoreFilters from "../../../Components/Molecule/SearchFilterEstates/MoreFilters";
 import debounce from "lodash.debounce";
 import { FiltersInterface } from "@/app/properties/page";
 

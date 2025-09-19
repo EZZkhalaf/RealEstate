@@ -1,7 +1,7 @@
 "use client";
 
-import Properties from "@/Components/MainComponents/PropertiesPage/Properties";
-import SearchFilterEstates from "@/Components/MainComponents/PropertiesPage/SearchFilterEstates";
+import Properties from "@/app/properties/Components/Properties";
+import SearchFilterEstates from "@/app/properties/Components/SearchFilterEstates";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ export interface FiltersInterface {
   };
 }
 const EstatesMap = dynamic(
-  () => import("@/Components/MainComponents/PropertiesPage/EstatesMap"),
+  () => import("@/app/properties/Components/EstatesMap"),
   { ssr: false }
 );
 

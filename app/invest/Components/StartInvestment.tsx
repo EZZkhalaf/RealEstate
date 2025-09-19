@@ -1,6 +1,6 @@
 import React from "react";
-import HeroTitle from "../Hero/HeroTitle";
-import ButtonCustomize from "../../Atoms/ButtonCustomize";
+import HeroTitle from "../../../Components/MainComponents/Hero/HeroTitle";
+import ButtonCustomize from "../../../Components/Atoms/ButtonCustomize";
 import { Icon } from "@iconify/react";
 
 const WebsiteAdvantages = () => {

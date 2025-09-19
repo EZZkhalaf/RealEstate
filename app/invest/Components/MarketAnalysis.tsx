@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import GrayLine from "../../Atoms/GrayLine";
-import ParagraphDescription from "../../Atoms/ParagraphDescription";
-import TitleAtom from "../../Atoms/TitleAtom";
-import MarketCard from "../../Molecule/MarketAnalysis/MarketCard";
-import KeyMarketInsight from "../../Molecule/MarketAnalysis/KeyMarketInsight";
+import GrayLine from "../../../Components/Atoms/GrayLine";
+import ParagraphDescription from "../../../Components/Atoms/ParagraphDescription";
+import TitleAtom from "../../../Components/Atoms/TitleAtom";
+import MarketCard from "../../../Components/Molecule/MarketAnalysis/MarketCard";
+import KeyMarketInsight from "../../../Components/Molecule/MarketAnalysis/KeyMarketInsight";
 import { getStaticMarketAnalysis } from "@/API/InvestmentApi";
 export interface MarketInterface {
   name: string;

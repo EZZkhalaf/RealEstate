@@ -5,7 +5,7 @@ import SingleCheckBox from "../../Atoms/SingleCheckBox";
 import SalaryRangeSelector from "./SalaryRangeSelector";
 import InputGray from "../../Atoms/InputGray";
 import SmallTitle from "../../Atoms/SmallTitle";
-import { FiltersInterface } from "@/Components/MainComponents/PropertiesPage/SearchFilterEstates";
+import { FiltersInterface } from "@/app/properties/Components/SearchFilterEstates";
 
 interface CheckboxGroupInterface {
   title: string;

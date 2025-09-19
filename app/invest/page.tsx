@@ -3,18 +3,18 @@ import Hero from "@/Components/Hero";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import ButtonCustomize from "@/Components/Atoms/ButtonCustomize";
 import HeroSummary from "@/Components/MainComponents/Hero/HeroSummary";
-import InvestmentOpportunities from "@/Components/MainComponents/InvestPage/InvestmentOpportunities";
+import InvestmentOpportunities from "@/app/invest/Components/InvestmentOpportunities";
 
 import InvestmentTools from "@/Components/InvestmentTools";
 import InvestmentAnalysis from "@/Components/MainComponents/InvestPage/InvestmentAnalysis";
 import FinancialBreakDown from "@/Components/MainComponents/InvestPage/FinancialBreakDown";
-import InvestmentStrategies from "@/Components/MainComponents/InvestPage/InvestmentStrategies";
-import MarketAnalysis from "@/Components/MainComponents/InvestPage/MarketAnalysis";
-import StartInvestment from "@/Components/MainComponents/InvestPage/StartInvestment";
+import InvestmentStrategies from "@/app/invest/Components/InvestmentStrategies";
+import MarketAnalysis from "@/app/invest/Components/MarketAnalysis";
+import StartInvestment from "@/app/invest/Components/StartInvestment";
 import Footer from "@/Components/Footer";
-import EstatesSection from "@/Components/MainComponents/InvestPage/EstatesSection";
+import EstatesSection from "@/app/invest/Components/EstatesSection";
 import ROICalculator from "@/Components/MainComponents/InvestmentTools/ROICalculator";
-import InvestToolsPageContainer from "@/Components/MainComponents/InvestPage/InvestToolsPageContainer";
+import InvestToolsPageContainer from "@/app/invest/Components/InvestToolsPageContainer";
 
 export default function Invest() {
   return (
