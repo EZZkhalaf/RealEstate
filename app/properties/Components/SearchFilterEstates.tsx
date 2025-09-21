@@ -8,8 +8,8 @@ import BedsAndBaths from "../../../Components/Molecule/SearchFilterEstates/BedsA
 import HomeType from "../../../Components/Molecule/SearchFilterEstates/HomeType";
 import MoreFilters from "../../../Components/Molecule/SearchFilterEstates/MoreFilters";
 import debounce from "lodash.debounce";
-import { FiltersInterface } from "@/app/properties/page";
 import { getStaticSearchEstateFields } from "@/API/EstatesApi";
+import { FiltersInterface } from "@/Interface/ServicesInterface";
 
 interface SearchFilterEstatesInterface {
   mapSearch?: string;

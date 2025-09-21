@@ -11,18 +11,19 @@ export interface PropertyStatusInterface {
   change: string;
 }
 
-const MarketInsightsSummaryListing = () => {
-  const [propertyStats, setPropertyStats] = useState<PropertyStatusInterface[]>(
-    []
-  );
+const MarketInsightsSummaryListing: React.FC<{
+  marketInsightSummaryListingData: PropertyStatusInterface[];
+}> = ({ marketInsightSummaryListingData }) => {
+  const propertyStats: PropertyStatusInterface[] =
+    marketInsightSummaryListingData;
 
-  const fetchStats = async () => {
-    const response = await getStaticPropertyStats();
-    setPropertyStats(response);
-  };
-  useEffect(() => {
-    fetchStats();
-  }, []);
+  // const fetchStats = async () => {
+  //   const response = await getStaticPropertyStats();
+  //   setPropertyStats(response);
+  // };
+  // useEffect(() => {
+  //   fetchStats();
+  // }, []);
 
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 w-full gap-6 ">

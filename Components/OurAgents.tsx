@@ -8,16 +8,16 @@ import ScrollAnimation from "../Animation/ScrollAnimation";
 import GrayLine from "./Atoms/GrayLine";
 import { getStaticFeaturedAgents } from "@/API/AgnetsApi";
 // import { Agent } from "../Pages/Agents";
-const OurAgents = () => {
-  const [agentsMock, setAgentsMock] = useState<any[]>([]);
+const OurAgents: React.FC<{ agentsData: any }> = ({ agentsData }) => {
+  const agents: any = agentsData;
 
-  const fetchAgents = async () => {
-    const response = await getStaticFeaturedAgents();
-    setAgentsMock(response);
-  };
-  useEffect(() => {
-    fetchAgents();
-  }, []);
+  // const fetchAgents = async () => {
+  //   const response = await getStaticFeaturedAgents();
+  //   setAgentsMock(response);
+  // };
+  // useEffect(() => {
+  //   fetchAgents();
+  // }, []);
   return (
     <div className="grid grid-cols-1 mt-20">
       <div className="flex flex-col items-center">
@@ -34,7 +34,7 @@ const OurAgents = () => {
         </ScrollAnimation>
       </div>
       <ScrollAnimation>
-        <AgentsCards agents={agentsMock} />
+        <AgentsCards agents={agents} />
       </ScrollAnimation>
     </div>
   );

@@ -5,7 +5,7 @@ export async function getStaticHomePageHero(invest: boolean = false) {
         ? `http://localhost:8055/items/investPageHero?fields=*`
         : `http://localhost:8055/items/homePageHero?fields=*`,
       {
-        cache: "force-cache",
+        next: { revalidate: 5 },
       }
     );
     const result = await response.json();

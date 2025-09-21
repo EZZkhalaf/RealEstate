@@ -123,10 +123,10 @@ export async function getStaticEstatesFiltered(
 export async function getStaticSingleEstate(id: string) {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*`,
-      {
-        cache: "force-cache",
-      }
+      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*`
+      // {
+      //   cache: "force-cache",
+      // }
     );
 
     const result = await response.json();
@@ -140,10 +140,10 @@ export async function getStaticSingleEstate(id: string) {
 export async function getStaticSearchEstateFields() {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/Estate_filtering_options?fields=*,sale_type.*`,
-      {
-        cache: "force-cache",
-      }
+      `http://localhost:8055/items/Estate_filtering_options?fields=*,sale_type.*`
+      // {
+      //   cache: "force-cache",
+      // }
     );
 
     const result = await response.json();

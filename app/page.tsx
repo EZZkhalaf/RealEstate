@@ -11,28 +11,45 @@ import ContactUs from "@/Components/ContactUs";
 import Footer from "@/Components/Footer";
 import InvestmentHomeContent from "@/Components/MainComponents/InvestmentTools/InvestmentHomeContent";
 import { getStaticContactUsInfo } from "@/API/InvestmentOptionsApi";
+import { getStaticHomePageHero } from "@/API/HeroApi";
+import { getStaticEstates } from "@/API/EstatesApi";
+import {
+  getStaticMarketReports,
+  getStaticOurServices,
+  getStaticPropertyStats,
+} from "@/API/InvestmentApi";
+import { getStaticFeaturedAgents } from "@/API/AgnetsApi";
+import { getStaticFooter } from "@/API/OtherApi";
 
 export default async function Home() {
-  const response = await getStaticContactUsInfo();
-  console.log(response);
+  const homePageHero = await getStaticHomePageHero(false);
+  const ourServicesData = await getStaticOurServices();
+  const agentsData = await getStaticFeaturedAgents();
+  const marketInsightData = await getStaticMarketReports();
+  const marketSummaryInsightListingData = await getStaticPropertyStats();
+  const contactUsData = await getStaticContactUsInfo();
+  const footerData = await getStaticFooter();
   return (
     <div className="w-full bg-gray-100">
-      <Hero image={HeroImage}>
+      <Hero heroData={homePageHero} image={HeroImage}>
         <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
           <PriceHero />
         </div>
       </Hero>
       <FeaturedProp />
 
-      <OurServices />
+      <OurServices ourServices={ourServicesData} />
 
       <InvestmentTools>
         <InvestmentHomeContent />
       </InvestmentTools>
-      <OurAgents />
-      <MarketInsights />
-      <ContactUs />
-      <Footer />
+      <OurAgents agentsData={agentsData} />
+      <MarketInsights
+        marketInsightsData={marketInsightData}
+        marketInsightSummaryListingData={marketSummaryInsightListingData}
+      />
+      <ContactUs contactUsData={contactUsData} />
+      <Footer footerData={footerData} />
     </div>
   );
 }

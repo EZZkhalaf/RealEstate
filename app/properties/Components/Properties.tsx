@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { getStaticEstates, getStaticEstatesFiltered } from "@/API/EstatesApi";
 import { EstateInterface } from "@/Interface/EstateInterface";
 import PagingButtons from "@/Components/Molecule/PagingButtons";
-import { FiltersInterface } from "@/app/properties/page";
+import { FiltersInterface } from "@/Interface/ServicesInterface";
 
 const Properties: React.FC<{
   filters?: FiltersInterface;

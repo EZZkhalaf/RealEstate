@@ -6,22 +6,11 @@ import GrayLine from "../../../Components/Atoms/GrayLine";
 import StrategyCard, {
   StrategyInterface,
 } from "../../../Components/Molecule/InvestmentStrategies/StrategyCard";
-import MockInvestmentStrategies from "../../../MockData/MockInvestmentStrategies.json";
 import getStaticInvestmentStrategies from "@/API/InvestmentApi";
 
-const InvestmentStrategies = () => {
-  const [investmentStrategies, setInvestmentStrategies] = useState<
-    StrategyInterface[]
-  >([]);
-
-  const fetchStrategies = async () => {
-    const response = await getStaticInvestmentStrategies();
-    setInvestmentStrategies(response);
-  };
-  useEffect(() => {
-    fetchStrategies();
-  }, []);
-
+const InvestmentStrategies: React.FC<{
+  investmentStrategies: StrategyInterface[];
+}> = ({ investmentStrategies }) => {
   return (
     <div className="grid grid-cols-1  w-full mt-20  lg:px-20 md:px-10 px-2">
       <div className="flex flex-col items-center">

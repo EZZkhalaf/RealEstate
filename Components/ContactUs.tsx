@@ -6,35 +6,40 @@ import ScrollAnimation from "../Animation/ScrollAnimation";
 import { getStaticContactUsInfo } from "@/API/InvestmentOptionsApi";
 import { ContactInfoInterface } from "@/Interface/InvestInterface";
 
-const ContactUs = () => {
-  const [contactInfo, setContactInfo] = useState<ContactInfoInterface[]>([]);
-  const [title, setTitle] = useState<string>("");
-  const [properties, setProperties] = useState<string[]>([]);
-  const [formTitle, setFormTitle] = useState<string>("");
-  const [formPlaceHolders, setFormPlaceholders] = useState<string[]>([]);
-  const [buttonText, setButtonText] = useState<string>("");
-
-  const fetchInfo = async () => {
-    const response = await getStaticContactUsInfo();
-    const contact = response?.contact;
-    const form = response?.form;
-    setTitle(form.title || "");
-    const propertiesCleared: string[] = form.properties.blocks.map(
+const ContactUs: React.FC<{ contactUsData: any }> = ({ contactUsData }) => {
+  const contactInfo: ContactInfoInterface[] = contactUsData?.contact;
+  const title: string = contactUsData?.form?.title || "";
+  const properties: string[] = contactUsData.form.properties.blocks.map(
+    (block: any) => block.data.text || "none"
+  );
+  const formTitle: string = title;
+  const formPlaceHolders: string[] =
+    contactUsData.form.formPlaceholder.blocks.map(
       (block: any) => block.data.text || "none"
     );
-    setProperties(propertiesCleared);
+  const buttonText: string = contactUsData.form.buttonText || "Click Here";
 
-    setFormTitle(form.formTitle);
-    const placeholdersCleared: string[] = form.formPlaceholder.blocks.map(
-      (block: any) => block.data.text || "none"
-    );
-    setFormPlaceholders(placeholdersCleared);
-    setContactInfo(contact);
-    setButtonText(form.buttonText);
-  };
-  useEffect(() => {
-    fetchInfo();
-  }, []);
+  // const fetchInfo = async () => {
+  //   const response = await getStaticContactUsInfo();
+  //   const contact = response?.contact;
+  //   const form = response?.form;
+  //   setTitle(form.title || "");
+  // const propertiesCleared: string[] = form.properties.blocks.map(
+  //   (block: any) => block.data.text || "none"
+  // );
+  //   setProperties(propertiesCleared);
+
+  //   setFormTitle(form.formTitle);
+  // const placeholdersCleared: string[] = form.formPlaceholder.blocks.map(
+  //   (block: any) => block.data.text || "none"
+  // );
+  //   setFormPlaceholders(placeholdersCleared);
+  //   setContactInfo(contact);
+  //   setButtonText(form.buttonText);
+  // };
+  // useEffect(() => {
+  //   fetchInfo();
+  // }, []);
 
   return (
     <div

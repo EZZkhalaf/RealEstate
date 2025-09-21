@@ -34,6 +34,7 @@ export default function Agents() {
 
   const fetchLocationsAndSpecialties = async () => {
     const locationsAndSpecialties = await getStaticLocationsAndSpecialties();
+    console.log(locationsAndSpecialties);
     const specialtiesStrings: string[] =
       locationsAndSpecialties.specialties.blocks.map(
         (block: any) => block.data.text as string
@@ -118,9 +119,6 @@ export default function Agents() {
           selectedRegion={selectedRegion}
           setSelectedCity={setSelectedCity}
           setSelectedRegion={setSelectedRegion}
-          // specialties={agentSpecialties}
-          // selectedSpecialty={selectedSprecialty}
-          // setSelectedSpecialty={setSelectedSpecialty}
           agentName={name}
           setName={setName}
         />
@@ -136,7 +134,7 @@ export default function Agents() {
         />
       </ScrollAnimation>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

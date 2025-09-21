@@ -8,7 +8,7 @@ import Loading from "./Atoms/Loading";
 
 interface HeroInerface {
   image?: string | StaticImageData;
-
+  heroData: any;
   minHeight?: string;
   children: React.ReactNode;
   invest?: boolean;
@@ -16,7 +16,7 @@ interface HeroInerface {
 
 const Hero: React.FC<HeroInerface> = ({
   image,
-
+  heroData,
   minHeight = "min-h-screen",
   children,
   invest = false,
@@ -29,24 +29,28 @@ const Hero: React.FC<HeroInerface> = ({
       }
     : {};
 
-  const [topTitle, setTopTitle] = useState<string>("");
-  const [bottomTitle, setBottomTitle] = useState<string>("");
-  const [paragraph, setParagraph] = useState<string>("");
-  const [summary, setSummary] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  useEffect(() => {
-    const fetchHeroInfo = async () => {
-      setLoading(true);
-      const response = await getStaticHomePageHero(invest);
-      setTopTitle(response[0].topTitle || "");
-      setBottomTitle(response[0].bottomTitle || "");
-      setParagraph(response[0].paragraph || "");
-      setSummary(response[0].heroSummary || []);
-      setLoading(false);
-    };
-    fetchHeroInfo();
-  }, []);
-  if (loading) return <Loading />;
+  const [topTitle, setTopTitle] = useState<string>(heroData[0].topTitle || "");
+  const [bottomTitle, setBottomTitle] = useState<string>(
+    heroData[0].bottomTitle || ""
+  );
+  const [paragraph, setParagraph] = useState<string>(
+    heroData[0].paragraph || ""
+  );
+  const [summary, setSummary] = useState<any>(heroData[0].heroSummary || []);
+  // const [loading, setLoading] = useState<boolean>(false);
+  // useEffect(() => {
+  //   const fetchHeroInfo = async () => {
+  //     setLoading(true);
+  //     const response = await getStaticHomePageHero(invest);
+  //     setTopTitle(response[0].topTitle || "");
+  //     setBottomTitle(response[0].bottomTitle || "");
+  //     setParagraph(response[0].paragraph || "");
+  //     setSummary(response[0].heroSummary || []);
+  //     setLoading(false);
+  //   };
+  //   fetchHeroInfo();
+  // }, []);
+  // if (loading) return <Loading />;
   return (
     <div
       style={heroStyle}

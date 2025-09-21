@@ -1,3 +1,4 @@
+"use client";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import React, { useMemo, useState } from "react";
 import ROICalculator from "../../../Components/MainComponents/InvestmentTools/ROICalculator";
