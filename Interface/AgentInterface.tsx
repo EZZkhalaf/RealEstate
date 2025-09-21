@@ -8,7 +8,7 @@ export interface FilterButtonInterface {
   text: string;
 }
 
-export interface Agent {
+export interface AgentInterface {
   id: number;
   name: string;
   rating: number;
@@ -17,6 +17,7 @@ export interface Agent {
   sales: string;
   experience: string;
   specialties: string[];
+  agentImage?: string;
 }
 
 export interface LocationInterface {

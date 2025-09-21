@@ -19,7 +19,7 @@ const ServiceCard: React.FC<{ service: ServiceInterface }> = ({ service }) => {
         {service.features.map((f, index: number) => (
           <div
             key={index}
-            className="flex items-center mt-4 gap-1 text-gray-400"
+            className="flex items-center mt-4 gap-1 text-gray-500"
           >
             <CiCircleCheck /> {f}
           </div>

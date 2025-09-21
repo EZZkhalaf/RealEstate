@@ -33,6 +33,7 @@ export async function getStaticEstatesFiltered(
   sort: string = "Low to High",
   filters: any = {}
 ) {
+  console.log(filters);
   const queryParts: string[] = [];
 
   // Genre (property type)

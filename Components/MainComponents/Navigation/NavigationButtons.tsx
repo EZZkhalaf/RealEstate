@@ -9,7 +9,11 @@ const NavigationButtons = () => {
       <Link href={"/"}>
         <button className="text-gray-600 hover:text-[#0B3557]">Home</button>
       </Link>
-      <button className="text-gray-600 hover:text-[#0B3557]">Sell</button>
+      <Link href={"/properties"}>
+        <button className="text-gray-600 hover:text-[#0B3557]">
+          Properties
+        </button>
+      </Link>
       <Link href={"/invest"}>
         <button className="text-gray-600 hover:text-[#0B3557]">Invest</button>
       </Link>

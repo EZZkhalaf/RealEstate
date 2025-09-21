@@ -14,7 +14,7 @@ const SixButtonsInputs: React.FC<SixButtonsInputsInterface> = ({
   setSelected,
 }) => {
   return (
-    <div className="flex flex-col items-start gap-2 px-4 w-full">
+    <div className="flex flex-col items-start gap-2 px-4 w-full mb-3">
       <p className="font-bold text-gray-500">{title}</p>
       <div className="flex flex-row border border-gray-300 w-full">
         {options.map((op: any, index: number) => (

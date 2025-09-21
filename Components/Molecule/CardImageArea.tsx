@@ -92,7 +92,7 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
         backgroundRepeat: "no-repeat",
         padding: "0",
       }}
-      className="rounded-lg transform transition-transform duration-300"
+      className=" transform transition-transform duration-300"
     >
       <div className="flex justify-between p-2">
         <div className="bg-[#0B3557] rounded-lg flex items-center">
@@ -107,10 +107,10 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
           </button>
         </div>
       </div>
-      <div className="p-2">
+      <div className="p-1">
         {!hidePrice && (
           <div
-            className="mb-3 bg-white p-2 rounded-lg"
+            className="mb-1 bg-white p-1 rounded-md"
             style={{ justifySelf: "flex-start" }}
           >
             <p className="text-blue-900 font-bold">{estate.price}</p>

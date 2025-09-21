@@ -5,7 +5,7 @@ import FeatureElement from "../../Atoms/FeatureElement";
 import ExpandableParagraph from "../../Atoms/ExpandableParagraph";
 import AgentContactForm from "./AgentContactForm";
 import EstatesSlide from "./EstatesSlide";
-import { EstateInterface } from "../../FeaturedProp";
+import { EstateInterface } from "@/Interface/EstateInterface";
 
 interface EstateRoomsAndBedsInterface {
   beds: number;
@@ -46,6 +46,7 @@ const EstateStats: React.FC<EstateStatsInterface> = ({
   saves,
   views,
 }) => {
+  console.log("days on market ? : ", days_on_market, views, saves);
   return (
     <div className="flex gap-3 mt-4">
       <div className="flex gap-1">
@@ -135,13 +136,13 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
         />
       </div>
       <div className="grid grid-cols-3 gap-2 mt-5">
-        {estate?.features?.map((f: EstateInterface, idx: number) => (
+        {estate?.features?.map((f: string, idx: number) => (
           <IconWithText
             key={idx}
             icon={icons[idx]}
             text={f}
             textColor="text-black  lg:text-lg text-md"
-            bgColor="bg-gray-100 p-1 rounded-lg"
+            bgColor="bg-gray-200 p-1 rounded-lg"
           />
         ))}
       </div>
@@ -150,7 +151,7 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
 
       <TitleAtom title={"What's special?"} />
       <div className="flex gap-2 mt-5">
-        {estate?.special_props?.map((p, indx) => (
+        {estate?.special_props?.map((p: string, indx: number) => (
           <FeatureElement key={indx} text={p} />
         ))}
       </div>
@@ -158,9 +159,9 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
       <ExpandableParagraph text={estate?.special_paragraph} />
 
       <EstateStats
-        days_on_market={estate?.stats?.days_on_market}
-        views={estate?.stats?.views}
-        saves={estate?.stats?.saves}
+        days_on_market={estate?.days_on_market || 0}
+        views={estate?.views || 0}
+        saves={estate?.saves || 0}
       />
 
       <AgentsActions
@@ -172,8 +173,8 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate }) => {
 
       <AgentContactForm />
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
-      <TitleAtom title={"Similar Estates Near This Area"} />
-      <EstatesSlide />
+      {/* <TitleAtom title={"Similar Estates Near This Area"} />
+      <EstatesSlide /> */}
     </div>
   );
 };

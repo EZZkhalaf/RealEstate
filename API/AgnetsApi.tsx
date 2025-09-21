@@ -53,7 +53,7 @@ export async function getStaticAgents({
 
   try {
     const response = await fetch(
-      `http://localhost:8055/items/agents?limit=${limit}&offset=${offset}&meta=*&${queryString}`
+      `http://localhost:8055/items/agents?fields=*,image,*&limit=${limit}&offset=${offset}&meta=*&${queryString}`
     );
 
     const result = await response.json();

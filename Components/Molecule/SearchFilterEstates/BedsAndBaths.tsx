@@ -50,9 +50,9 @@ const BedsAndBaths: React.FC<BedsAndBathsInterface> = ({ value, onChange }) => {
         selected={value?.baths || null}
         setSelected={(baths: any) => onChange({ ...value, baths })}
       />
-      <div className="w-full px-4 mb-2 mt-5">
+      {/* <div className="w-full px-4 mb-2 mt-5">
         <SubmitButton text={"Apply"} />
-      </div>
+      </div> */}
     </div>
   );
 };

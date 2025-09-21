@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SalaryRangeSelector from "./SalaryRangeSelector";
 import SubmitButton from "../../Atoms/SubmitButton";
 import GrayHeader from "../../Atoms/GrayHeader";

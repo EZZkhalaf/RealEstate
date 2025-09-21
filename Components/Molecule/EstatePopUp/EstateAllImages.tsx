@@ -1,5 +1,71 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
+// import { ContactAgentButtons } from "../Properties/EstatePopUpInfo";
+
+// interface EstateAllImagesInterface {
+//   images: string[];
+//   setImagesOpen: any;
+// }
+// const EstateAllImages: React.FC<EstateAllImagesInterface> = ({
+//   images = [],
+//   setImagesOpen,
+// }) => {
+//   const imagesPerChunck = 3;
+//   const chuncks: any = [];
+//   for (let i = 0; i < images.length; i += imagesPerChunck) {
+//     chuncks.push(images.slice(i, i + imagesPerChunck));
+//   }
+//   return (
+//     <div className="w-full">
+//       <div className="flex flex-col gap-2 w-full px-4">
+//         <button
+//           onClick={() => setImagesOpen(false)}
+//           className="flex text-xl p-5  text-gray-500 hover:underline order-1 lg:order-none"
+//         >
+//           X
+//         </button>
+
+//         <div className="grid lg:grid-cols-[3fr_1fr] md:grid-cols-[2fr_1fr] grid-cols-1 gap-2">
+//           <div className="flex flex-col w-full gap-2">
+//             {chuncks.map((c: string[], indx: number) => (
+//               <div key={indx} className="flex flex-col   gap-2 w-full">
+//                 <img
+//                   src={c[0] as string}
+//                   alt="no Image"
+//                   className="w-full h-90 object-cover rounded"
+//                 />
+
+//                 <div className="flex   gap-2 w-full">
+//                   {c[1] && (
+//                     <img
+//                       src={c[1]}
+//                       alt="no Image"
+//                       className="w-1/2 h-40 object-cover rounded"
+//                     />
+//                   )}
+//                   {c[2] && (
+//                     <img
+//                       src={c[2]}
+//                       alt="no Image"
+//                       className="w-1/2 h-40 object-cover rounded"
+//                     />
+//                   )}
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           <ContactAgentButtons onlyContact={true} />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default EstateAllImages;
+
+import React from "react";
 import { ContactAgentButtons } from "../Properties/EstatePopUpInfo";
+import Image from "next/image";
 
 interface EstateAllImagesInterface {
   images: string[];
@@ -14,40 +80,57 @@ const EstateAllImages: React.FC<EstateAllImagesInterface> = ({
   for (let i = 0; i < images.length; i += imagesPerChunck) {
     chuncks.push(images.slice(i, i + imagesPerChunck));
   }
+
   return (
     <div className="w-full">
       <div className="flex flex-col gap-2 w-full px-4">
         <button
           onClick={() => setImagesOpen(false)}
-          className="flex text-xl p-5  text-gray-500 hover:underline order-1 lg:order-none"
+          className="flex text-xl p-5 text-gray-500 hover:underline order-1 lg:order-none"
         >
           X
         </button>
 
         <div className="grid lg:grid-cols-[3fr_1fr] md:grid-cols-[2fr_1fr] grid-cols-1 gap-2">
           <div className="flex flex-col w-full gap-2">
-            {chuncks.map((c: string[], indx: number) => (
-              <div key={indx} className="flex flex-col   gap-2 w-full">
-                <img
-                  src={c[0] as string}
-                  alt="no Image"
-                  className="w-full h-90 object-cover rounded"
-                />
-
-                <div className="flex   gap-2 w-full">
-                  {c[1] && (
-                    <img
-                      src={c[1]}
-                      alt="no Image"
-                      className="w-1/2 h-40 object-cover rounded"
+            {chuncks.map((c: any, indx: number) => (
+              <div key={indx} className="flex flex-col gap-2 w-full">
+                {/* Main big image */}
+                {c[0] && (
+                  <div className="relative w-full h-[360px]">
+                    <Image
+                      src={`http://localhost:8055/assets/${c[0].directus_files_id}`}
+                      alt="estate"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 70vw"
+                      className="object-cover rounded hover:brightness-75 transition duration-300"
                     />
+                  </div>
+                )}
+
+                {/* Two smaller images side by side */}
+                <div className="flex gap-2 w-full">
+                  {c[1] && (
+                    <div className="relative w-1/2 h-[160px]">
+                      <Image
+                        src={`http://localhost:8055/assets/${c[1].directus_files_id}`}
+                        alt="estate"
+                        fill
+                        sizes="(max-width: 768px) 50vw, 35vw"
+                        className="object-cover rounded hover:brightness-75 transition duration-300"
+                      />
+                    </div>
                   )}
                   {c[2] && (
-                    <img
-                      src={c[2]}
-                      alt="no Image"
-                      className="w-1/2 h-40 object-cover rounded"
-                    />
+                    <div className="relative w-1/2 h-[160px]">
+                      <Image
+                        src={`http://localhost:8055/assets/${c[2].directus_files_id}`}
+                        alt="estate"
+                        fill
+                        sizes="(max-width: 768px) 50vw, 35vw"
+                        className="object-cover rounded hover:brightness-75 transition duration-300"
+                      />
+                    </div>
                   )}
                 </div>
               </div>

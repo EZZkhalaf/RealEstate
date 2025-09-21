@@ -2,16 +2,12 @@ import React from "react";
 import FeatureElement from "../Atoms/FeatureElement";
 import { Icon } from "@iconify/react";
 import ButtonCustomize from "../Atoms/ButtonCustomize";
+import defaultProfile from "../../public/assets/defaultProfile.jpg";
 import {
   AgentCardInterface,
   ImageAndNameProfileProps,
 } from "@/Interface/AgentInterface";
 import Image from "next/image";
-// import { Agent } from "../../Pages/Agents";
-
-// interface AgentCardInterface {
-//   agent: Agent;
-// }
 
 const ImageAndNameProfile: React.FC<ImageAndNameProfileProps> = ({
   image = "",
@@ -21,7 +17,7 @@ const ImageAndNameProfile: React.FC<ImageAndNameProfileProps> = ({
   return (
     <div className="flex flex-col items-center gap-2">
       <Image
-        src={image}
+        src={image ? `http://localhost:8055/assets/${image}` : defaultProfile}
         alt="Profile Image"
         className="rounded-full mx-auto h-24 w-24 object-cover"
         width={96}
@@ -37,7 +33,7 @@ const AgentCard: React.FC<AgentCardInterface> = ({ agent }) => {
   return (
     <div className="flex flex-col items-center gap-4 lg:p-4 p-2 shadow-2xl rounded-2xl">
       <ImageAndNameProfile
-        image={agent.image}
+        image={agent.agentImage}
         name={agent.name}
         locations={agent.locations}
       />

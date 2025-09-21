@@ -35,6 +35,9 @@ export interface EstateInterface {
   special_paragraph: string;
   market_status: string;
   images?: any;
+  days_on_market?: number;
+  saves?: number;
+  views?: number;
 }
 
 export interface ContactAgentButtonsInterface {

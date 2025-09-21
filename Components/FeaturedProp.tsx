@@ -1,59 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ListSelect from "./Atoms/ListSelect";
 import TitleAtom from "./Atoms/TitleAtom";
 import ParagraphDescription from "./Atoms/ParagraphDescription";
 import EstateCards from "./MainComponents/FeaturedProps/EstateCards";
-import ScrollAnimation from "../Animation/ScrollAnimation";
-import MockEstates from "../MockData/MockEstates.json";
 import GrayLine from "./Atoms/GrayLine";
-import { StaticImageData } from "next/image";
 import { getStaticEstates } from "@/API/EstatesApi";
-import { EstateInterface, GeneresInterface } from "@/Interface/EstateInterface";
-import { FilterButtonInterface } from "@/Interface/AgentInterface";
 import { FilteringOptions } from "./MainComponents/FeaturedProps/FilteringOptions";
 import Loading from "./Atoms/Loading";
-
-// const FilteringOptions: React.FC<{
-//   generes: string[];
-//   filterOptions: string[];
-//   selectedGenre: string;
-//   sortOption?: string;
-//   setSortOption?: (sort: string) => void;
-//   setSelectedGenre: (genre: string) => void;
-// }> = ({
-//   generes,
-//   filterOptions,
-//   selectedGenre,
-//   setSelectedGenre,
-//   sortOption,
-//   setSortOption,
-// }) => {
-//   return (
-//     <div className="flex flex-wrap items-center justify-between gap-4 mb-10 mt-8 px-3">
-//       <ScrollAnimation type="fade-left" delay={0.6} animationTime={0.4}>
-//         <div className="flex flex-wrap gap-2 sm:gap-1 md:gap-1  ">
-//           {generes.map((b, index: number) => (
-//             <FilterButton
-//               text={b}
-//               key={index}
-//               selected={selectedGenre === b}
-//               onClick={() => setSelectedGenre(b)}
-//             />
-//           ))}
-//         </div>
-//       </ScrollAnimation>
-
-//       <ScrollAnimation type="fade-right" delay={0.6} animationTime={0.4}>
-//         <ListSelect
-//           list={filterOptions}
-//           value={sortOption}
-//           onChange={setSortOption}
-//         />
-//       </ScrollAnimation>
-//     </div>
-//   );
-// };
 
 const FeaturedProp = () => {
   const generes: string[] = [
