@@ -16,7 +16,6 @@ export async function getStaticEstates(
   try {
     const response = await fetch(
       `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
-      // `http://localhost:8055/items/estateCard?fields=*,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
     );
     const result = await response.json();
     console.log(result);
@@ -124,7 +123,27 @@ export async function getStaticEstatesFiltered(
 export async function getStaticSingleEstate(id: string) {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*`
+      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*`,
+      {
+        cache: "force-cache",
+      }
+    );
+
+    const result = await response.json();
+    return result.data; // this will be the single estate object
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function getStaticSearchEstateFields() {
+  try {
+    const response = await fetch(
+      `http://localhost:8055/items/Estate_filtering_options?fields=*,sale_type.*`,
+      {
+        cache: "force-cache",
+      }
     );
 
     const result = await response.json();

@@ -5,17 +5,18 @@ import SubmitButton from "../../Atoms/SubmitButton";
 interface HomeTypeProps {
   value: string | null; // selected home types
   onChange: (value: string) => void;
+  options: string[];
 }
 
-const HomeType: React.FC<HomeTypeProps> = ({ value, onChange }) => {
-  const options: string[] = [
-    "All Properties",
-    "House",
-    "Apartment",
-    "Villa",
-    "Townhouse",
-    "Penthouse",
-  ];
+const HomeType: React.FC<HomeTypeProps> = ({ value, onChange, options }) => {
+  // const options: string[] = [
+  //   "All Properties",
+  //   "House",
+  //   "Apartment",
+  //   "Villa",
+  //   "Townhouse",
+  //   "Penthouse",
+  // ];
 
   return (
     <div className="flex flex-col mt-3 fixed bg-white border border-gray-300 rounded-lg shadow-2xl w-fit  ">
@@ -38,9 +39,9 @@ const HomeType: React.FC<HomeTypeProps> = ({ value, onChange }) => {
           </label>
         ))}
       </div>
-      <div className="w-full px-4 mb-2 mt-5">
+      {/* <div className="w-full px-4 mb-2 mt-5">
         <SubmitButton text={"Apply"} />
-      </div>
+      </div> */}
     </div>
   );
 };

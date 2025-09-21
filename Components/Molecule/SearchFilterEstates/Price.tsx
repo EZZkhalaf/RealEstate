@@ -14,13 +14,19 @@ interface PriceProps {
     downPayment?: number;
     creditScore?: number;
   };
-  onChange?: (value: {
+  onChange: (value: {
     min: any;
     max: any;
     paymentType?: string | null;
     downPayment?: number;
     creditScore?: number;
   }) => void;
+  options: {
+    min: number[];
+    max: number[];
+    monthlyPayment: number[];
+    creditScore: number[];
+  };
 }
 
 const PaymentButtons: React.FC<{
@@ -54,10 +60,10 @@ const PaymentButtons: React.FC<{
     </div>
   );
 };
-const Price: React.FC<PriceProps> = ({ value, onChange }) => {
-  const max = 16000000;
-  const step = 100000;
-  const options = Array.from({ length: max / step + 1 }, (_, i) => i * step);
+const Price: React.FC<PriceProps> = ({ value, onChange, options }) => {
+  // const max = 16000000;
+  // const step = 100000;
+  // const options = Array.from({ length: max / step + 1 }, (_, i) => i * step);
 
   const downPaymentOptions = [5000, 10000, 20000, 50000, 100000, 200000];
   const creditScoreOptions = [300, 400, 500, 600, 700, 800, 850];
@@ -66,6 +72,7 @@ const Price: React.FC<PriceProps> = ({ value, onChange }) => {
     onChange({ ...value, paymentType: type });
   };
 
+  console.log(options);
   return (
     <div className="flex flex-col gap-2 items-center mt-3 fixed bg-white border border-gray-300 rounded-lg w-[500px] shadow-2xl max-h-[60vh] overflow-y-auto">
       <GrayHeader header={"Price Range"} />
@@ -85,8 +92,8 @@ const Price: React.FC<PriceProps> = ({ value, onChange }) => {
         value2={value?.max}
         serValue1={(min) => onChange({ ...value, min })}
         setValue2={(max) => onChange({ ...value, max })}
-        list1={options}
-        list2={options}
+        list1={options?.min || []}
+        list2={options?.max || []}
         title1={"Minimum"}
         title2={"Maximum"}
         default1={"Any"}
@@ -105,7 +112,7 @@ const Price: React.FC<PriceProps> = ({ value, onChange }) => {
             onChange={(e) =>
               onChange({ ...value, downPayment: +e.target.value })
             }
-            list={downPaymentOptions}
+            list={options.monthlyPayment}
             value={value.downPayment || ""}
           />
 
@@ -114,15 +121,15 @@ const Price: React.FC<PriceProps> = ({ value, onChange }) => {
             onChange={(e) =>
               onChange({ ...value, creditScore: +e.target.value })
             }
-            list={creditScoreOptions}
+            list={options.creditScore}
             value={value.creditScore || ""}
           />
         </div>
       )}
 
-      <div className="w-full px-4 mb-2 mt-5">
+      {/* <div className="w-full px-4 mb-2 mt-5">
         <SubmitButton text={"Apply"} />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,30 +1,30 @@
 import React, { Dispatch, SetStateAction } from "react";
 import InputGray from "../../../Components/Atoms/InputGray";
 import ListSelect from "../../../Components/Atoms/ListSelect";
-import { LocationInterface } from "@/app/agents/page";
+import { LocationInterface } from "@/Interface/AgentInterface";
 
 const AgentsSearchForm: React.FC<{
-  location?: LocationInterface[];
-  specialties?: string[];
-  selectedRegion?: string;
-  selectedCity?: string;
-  setSelectedRegion?: Dispatch<SetStateAction<string>>;
-  setSelectedCity?: Dispatch<SetStateAction<string>>;
-  agentName?: string;
-  setName?: Dispatch<SetStateAction<string>>;
-  selectedSpecialty?: string;
-  setSelectedSpecialty?: Dispatch<SetStateAction<string>>;
+  location: LocationInterface[];
+  // specialties: string[];
+  selectedRegion: string;
+  selectedCity: string;
+  setSelectedRegion: Dispatch<SetStateAction<string>>;
+  setSelectedCity: Dispatch<SetStateAction<string>>;
+  agentName: string;
+  setName: Dispatch<SetStateAction<string>>;
+  // selectedSpecialty: string;
+  // setSelectedSpecialty: Dispatch<SetStateAction<string>>;
 }> = ({
   location,
   agentName,
   setName,
-  specialties,
+  // specialties,
   selectedCity,
   selectedRegion,
   setSelectedCity,
   setSelectedRegion,
-  selectedSpecialty,
-  setSelectedSpecialty,
+  // selectedSpecialty,
+  // setSelectedSpecialty,
 }) => {
   const regions = location?.map((l) => l.region);
   const cities =
@@ -45,7 +45,7 @@ const AgentsSearchForm: React.FC<{
         title="Region"
         list={regions}
         value={selectedRegion}
-        onChange={(val) => {
+        onChange={(val: any) => {
           setSelectedRegion(val);
           setSelectedCity(""); // reset city when region changes
         }}
@@ -58,7 +58,7 @@ const AgentsSearchForm: React.FC<{
         title="City"
         list={cities}
         value={selectedCity}
-        onChange={(val) => setSelectedCity(val)}
+        onChange={(val: any) => setSelectedCity(val)}
         width="w-full"
         height="h-full"
       />

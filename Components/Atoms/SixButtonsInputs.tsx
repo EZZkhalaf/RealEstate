@@ -16,7 +16,7 @@ const SixButtonsInputs: React.FC<SixButtonsInputsInterface> = ({
   return (
     <div className="flex flex-col items-start gap-2 px-4 w-full mb-3">
       <p className="font-bold text-gray-500">{title}</p>
-      <div className="flex flex-row border border-gray-300 w-full">
+      <div className="flex max-w-full w-full  border border-gray-300 overflow-x-auto">
         {options.map((op: any, index: number) => (
           <button
             key={index}

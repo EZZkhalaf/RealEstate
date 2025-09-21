@@ -8,12 +8,12 @@ import Footer from "@/Components/Footer";
 import AgentsSearchForm from "@/app/agents/Components/AgentsSearchForm";
 import AgentsCards from "@/app/agents/Components/AgentsCards";
 import { useEffect, useState } from "react";
-import MockAgents from "../../MockData/MockAgents.json";
-import { Agent, LocationInterface } from "@/Interface/AgentInterface";
+import { LocationInterface } from "@/Interface/AgentInterface";
 import {
   getStaticAgents,
   getStaticLocationsAndSpecialties,
 } from "@/API/AgnetsApi";
+import { AgentInterface } from "@/Interface/AgentInterface";
 
 export default function Agents() {
   const [name, setName] = useState("");
@@ -29,7 +29,7 @@ export default function Agents() {
 
   const [selectedCity, setSelectedCity] = useState<string>("");
 
-  const [agentsMock, setAgentsMock] = useState<Agent[]>([]);
+  const [agentsMock, setAgentsMock] = useState<AgentInterface[]>([]);
   const limit: number = 8;
 
   const fetchLocationsAndSpecialties = async () => {
@@ -118,9 +118,9 @@ export default function Agents() {
           selectedRegion={selectedRegion}
           setSelectedCity={setSelectedCity}
           setSelectedRegion={setSelectedRegion}
-          specialties={agentSpecialties}
-          selectedSpecialty={selectedSprecialty}
-          setSelectedSpecialty={setSelectedSpecialty}
+          // specialties={agentSpecialties}
+          // selectedSpecialty={selectedSprecialty}
+          // setSelectedSpecialty={setSelectedSpecialty}
           agentName={name}
           setName={setName}
         />

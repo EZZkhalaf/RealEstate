@@ -8,7 +8,7 @@ const ListSelect: React.FC<{
   height?: string;
   value?: string | number;
   onChange?: (value: string | number) => void;
-  years: boolean;
+  years?: boolean;
 }> = ({ title, list, width, height, value, onChange, years = false }) => {
   return (
     <div className={`${width} flex flex-col gap-3`}>

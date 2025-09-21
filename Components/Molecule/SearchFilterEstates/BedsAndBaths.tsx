@@ -15,19 +15,27 @@ interface BedsAndBathsInterface {
     baths?: number;
     exactMatch?: boolean;
   }) => void;
+  bedsAndBaths: {
+    beds: number[];
+    baths: number[];
+  };
 }
 
-const BedsAndBaths: React.FC<BedsAndBathsInterface> = ({ value, onChange }) => {
-  const bedrooms: number[] = [1, 2, 3, 4, 5];
+const BedsAndBaths: React.FC<BedsAndBathsInterface> = ({
+  value,
+  onChange,
+  bedsAndBaths,
+}) => {
+  // const bedrooms: number[] = [1, 2, 3, 4, 5];
 
-  const bathrooms: number[] = [1, 1.5, 2, 3, 4];
+  // const bathrooms: number[] = [1, 1.5, 2, 3, 4];
 
   return (
     <div className="flex flex-col gap-3  mt-3 fixed bg-white border border-gray-300 rounded-lg  shadow-2xl scroll-auto w-[400px] max-h-[70vh] overflow-y-auto">
       <GrayHeader header={"Number of Bedrooms"} />
       <SixButtonsInputs
         title={"Bedrooms"}
-        options={bedrooms}
+        options={bedsAndBaths.beds || []}
         selected={value?.beds || null}
         setSelected={(beds: any) => onChange({ ...value, beds })}
       />
@@ -46,7 +54,7 @@ const BedsAndBaths: React.FC<BedsAndBathsInterface> = ({ value, onChange }) => {
       <GrayHeader header={"Number of Bathrooms"} />
       <SixButtonsInputs
         title={"Bathrooms"}
-        options={bathrooms}
+        options={bedsAndBaths.baths || []}
         selected={value?.baths || null}
         setSelected={(baths: any) => onChange({ ...value, baths })}
       />

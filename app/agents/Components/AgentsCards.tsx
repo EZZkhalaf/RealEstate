@@ -5,7 +5,7 @@ import ViewButtonAtom from "../../../Components/Atoms/ViewButtonAtom";
 import PagingButtons from "../../../Components/Molecule/PagingButtons";
 import { useRouter } from "next/navigation";
 import NotFound from "@/Components/Atoms/NotFound";
-import { AgentCardInterface, AgentInterface } from "@/Interface/AgentInterface";
+import { AgentInterface } from "@/Interface/AgentInterface";
 
 interface AgentsCardInterface {
   agents?: AgentInterface[];

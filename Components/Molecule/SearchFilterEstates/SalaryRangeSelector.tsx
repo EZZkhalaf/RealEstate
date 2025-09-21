@@ -95,6 +95,7 @@ const SalaryRangeSelector: React.FC<SalaryRangeSelectorProps> = ({
   default2,
   noPrice = false,
 }) => {
+  console.log(list1);
   return (
     <div className="flex gap-4 items-center mb-3">
       {/* Min Salary */}
@@ -106,7 +107,7 @@ const SalaryRangeSelector: React.FC<SalaryRangeSelectorProps> = ({
           className="border bg-gray-200 border-gray-300 rounded-md px-3 py-2 text-lg text-gray-400 font-semibold w-40 h-10"
         >
           <option value="">{default1}</option>
-          {list1.map((op) => (
+          {list1?.map((op) => (
             <option key={op} value={op}>
               {!noPrice && "$"}
               {op.toLocaleString()}

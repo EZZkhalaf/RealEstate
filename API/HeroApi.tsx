@@ -3,7 +3,10 @@ export async function getStaticHomePageHero(invest: boolean = false) {
     const response = await fetch(
       invest
         ? `http://localhost:8055/items/investPageHero?fields=*`
-        : `http://localhost:8055/items/homePageHero?fields=*`
+        : `http://localhost:8055/items/homePageHero?fields=*`,
+      {
+        cache: "force-cache",
+      }
     );
     const result = await response.json();
     return result.data; // usually an array of hero items
