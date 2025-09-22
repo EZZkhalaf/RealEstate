@@ -20,6 +20,7 @@ const ListSelect: React.FC<{
         }
         className={`bg-gray-200 py-3 p-1 rounded relative ${width} `}
       >
+        <option className="bg-white hover:bg-gray-200 p-1 ">All Regions</option>
         {list?.map((e, index) => (
           <option key={index} className="bg-white hover:bg-gray-200 p-1 ">
             {e} {years && "years"}

@@ -34,24 +34,24 @@ export default function Agents() {
 
   const fetchLocationsAndSpecialties = async () => {
     const locationsAndSpecialties = await getStaticLocationsAndSpecialties();
-    console.log(locationsAndSpecialties);
-    const specialtiesStrings: string[] =
-      locationsAndSpecialties.specialties.blocks.map(
-        (block: any) => block.data.text as string
-      );
-    setAgentSpecialties(specialtiesStrings);
-    const locationsCleared1: LocationInterface[] =
-      locationsAndSpecialties.locations.map((location: any) => location.item);
+    // console.log(locationsAndSpecialties);
+    // const specialtiesStrings: string[] =
+    //   locationsAndSpecialties.specialties.blocks.map(
+    //     (block: any) => block.data.text as string
+    //   );
+    // setAgentSpecialties(specialtiesStrings);
 
-    const locationsCleared2 = locationsCleared1.map(
-      ({ id, region, cities }) => ({
+    const locationsCleared2 = locationsAndSpecialties?.map(
+      ({ id, name, cities }) => ({
         id,
-        region,
-        cities: cities?.blocks?.map((block: any) => block.data.text) || [],
+        name,
+        cities: cities?.map((city: any) => city.name) || [],
       })
     );
+    console.log(locationsCleared2);
     setSaudiLocations(locationsCleared2);
   };
+
   const fetchAgents = async () => {
     const response = await getStaticAgents({
       page: currentPage,

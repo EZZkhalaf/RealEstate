@@ -28,3 +28,27 @@ const WebsiteAdvantages: React.FC<{ websiteInfo: any }> = ({ websiteInfo }) => {
 };
 
 export default WebsiteAdvantages;
+
+// {
+//   "title": "Luxury Residential Complex",
+//   "type": "Apartment Complex",
+//   "grade": "Grade A",
+//   "price": "₹18,500,000",
+//   "roi": "9.8%",
+//   "location": {
+//     "name": "Luxury Residential Complex",
+//     "district": "Al Nakheel District",
+//     "city": "Riyadh"
+//   },
+//   "financials": {
+//     "annual_rent": "₹1,813,000",
+//     "occupancy": "92%",
+//     "total_units": 32,
+//     "risk_level": "Low"
+//   },
+//   "features": [
+//     "High-end finishes",
+//     "Pool & gym",
+//     "24/7 security"
+//   ]
+// }

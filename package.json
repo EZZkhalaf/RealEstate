@@ -11,6 +11,7 @@
   "dependencies": {
     "@directus/sdk": "^18.0.3",
     "@iconify/react": "^6.0.2",
+    "@material-tailwind/react": "^2.1.10",
     "leaflet": "^1.9.4",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",

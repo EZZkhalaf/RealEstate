@@ -25,15 +25,18 @@ export async function getStaticAgents({
   agentSpecialties?: string;
 }) {
   const queryParts: string[] = [];
+  console.log(city);
 
   // Region
-  if (region && region !== "All Regions") {
-    queryParts.push(`filter[region][_eq]=${encodeURIComponent(region)}`);
-  }
+  // if (region && region !== "All Regions") {
+  //   queryParts.push(`filter[region][_eq]=${encodeURIComponent(region)}`);
+  // }
 
   // City
   if (city && city !== "All Cities") {
-    queryParts.push(`filter[city][_eq]=${encodeURIComponent(city)}`);
+    queryParts.push(
+      `filter[agent_city][name][_eq]=${encodeURIComponent(city)}`
+    );
   }
 
   // Name (case-insensitive)
@@ -53,7 +56,7 @@ export async function getStaticAgents({
 
   try {
     const response = await fetch(
-      `http://localhost:8055/items/agents?fields=*,image,*&limit=${limit}&offset=${offset}&meta=*&${queryString}`
+      `http://localhost:8055/items/agents?fields=*,image,*,agent_city.*&limit=${limit}&offset=${offset}&meta=*&${queryString}`
     );
 
     const result = await response.json();
@@ -77,7 +80,7 @@ export async function getStaticAgents({
 export async function getStaticLocationsAndSpecialties() {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/agentSpecialties?fields=*,locations.item.*`
+      `http://localhost:8055/items/saudi_areas?fields=*,cities.*`
     );
 
     const result = await response.json();

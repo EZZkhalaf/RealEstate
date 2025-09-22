@@ -26,9 +26,9 @@ const AgentsSearchForm: React.FC<{
   // selectedSpecialty,
   // setSelectedSpecialty,
 }) => {
-  const regions = location?.map((l) => l.region);
+  const regions = location?.map((l) => l.name);
   const cities =
-    location?.find((loc) => loc.region === selectedRegion)?.cities || [];
+    location?.find((loc) => loc.name === selectedRegion)?.cities || [];
   return (
     <form className="flex lg:flex-row flex-col w-full items-center gap-4 px-20">
       <InputGray

@@ -22,7 +22,7 @@ export interface AgentInterface {
 
 export interface LocationInterface {
   id?: number;
-  region: string;
+  name: string;
   cities?: string[];
 }
 

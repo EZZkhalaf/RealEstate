@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import EstateCardsListing from "../../Molecule/EstateCards/EstateCardsListing";
-import { EstateInterface } from "@/Interface/EstateInterface";
+import {
+  EstateInterface,
+  InvestEstateInterface,
+} from "@/Interface/EstateInterface";
 
 export interface EstateCardsInterface {
-  estates: EstateInterface[];
+  estates: InvestEstateInterface[];
   buttonTitle?: string;
 }
 
