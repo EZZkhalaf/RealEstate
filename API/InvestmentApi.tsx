@@ -52,7 +52,7 @@ export async function getStaticMarketReports() {
       //   headers: {
       //     Authorization: `Bearer ${TOKEN}`,
       //   },
-      cache: "force-cache",
+      // cache: "force-cache",
     });
     const result = await response.json();
     return result.data;
@@ -68,7 +68,7 @@ export async function getStaticPropertyStats() {
       //   headers: {
       //     Authorization: `Bearer ${TOKEN}`,
       //   },
-      cache: "force-cache",
+      // cache: "force-cache",
     });
     const result = await response.json();
     return result.data;
@@ -86,10 +86,30 @@ export async function getStaticInvestmentSummary() {
         //   headers: {
         //     Authorization: `Bearer ${TOKEN}`,
         //   },
-        cache: "force-cache",
+        // cache: "force-cache",
       }
     );
     const result = await response.json();
+    return result.data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export async function getStaticStartYourJourny() {
+  try {
+    const response = await fetch(
+      "http://localhost:8055/items/start_you_journey?fields=*,website_advantages.item.*",
+      {
+        //   headers: {
+        //     Authorization: `Bearer ${TOKEN}`,
+        //   },
+        // cache: "force-cache",
+      }
+    );
+    const result = await response.json();
+
     return result.data;
   } catch (error) {
     console.log(error);

@@ -153,3 +153,20 @@ export async function getStaticSearchEstateFields() {
     return error;
   }
 }
+
+export async function getStaticInvestementEstates() {
+  try {
+    const response = await fetch(
+      `http://localhost:8055/items/invest_estates?fields=*,location.item.*,financials.item.*,images.*`
+      // {
+      //   cache: "force-cache",
+      // }
+    );
+
+    const result = await response.json();
+    return result.data; // this will be the single estate object
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}

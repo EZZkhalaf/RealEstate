@@ -7,6 +7,8 @@ import GrayLine from "./Atoms/GrayLine";
 import { getStaticEstates } from "@/API/EstatesApi";
 import { FilteringOptions } from "./MainComponents/FeaturedProps/FilteringOptions";
 import Loading from "./Atoms/Loading";
+import { EstateInterface } from "@/Interface/EstateInterface";
+import EstatePopUpInfo from "./Molecule/Properties/EstatePopUpInfo";
 
 const FeaturedProp = () => {
   const generes: string[] = [
@@ -21,6 +23,9 @@ const FeaturedProp = () => {
   const [sortOption, setSortOption] = useState<string>("Low to High");
   const [estates, setEstates] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
+    null
+  );
 
   const fetchEstates = async () => {
     setLoading(true);

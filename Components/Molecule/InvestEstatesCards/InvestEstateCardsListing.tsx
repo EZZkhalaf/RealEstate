@@ -5,10 +5,13 @@ import { useRouter } from "next/navigation";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import ViewButtonAtom from "../../Atoms/ViewButtonAtom";
 import { EstateCardsInterface } from "../../MainComponents/FeaturedProps/EstateCards";
-import { EstateInterface } from "@/Interface/EstateInterface";
-import SingleCard from "./SingleCard";
+import {
+  EstateInterface,
+  InvestEstateInterface,
+} from "@/Interface/EstateInterface";
+import SingleInvestEstateCard from "./SingleInvestEstateCard";
 
-const EstateCardsListing: React.FC<EstateCardsInterface> = ({
+const InvestEstateCardsListing: React.FC<EstateCardsInterface> = ({
   estates,
   buttonTitle = "View All Properties",
 }) => {
@@ -16,11 +19,11 @@ const EstateCardsListing: React.FC<EstateCardsInterface> = ({
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-8">
-        {estates.map((e: any, index: number) => (
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 w-full lg:px-50 md:px-20 px-3 gap-8">
+        {estates?.map((e: any, index: number) => (
           <div key={index} className="rounded-2xl">
             <ScrollAnimation>
-              <SingleCard estate={e} />
+              <SingleInvestEstateCard estate={e} />
             </ScrollAnimation>
           </div>
         ))}
@@ -41,4 +44,4 @@ const EstateCardsListing: React.FC<EstateCardsInterface> = ({
   );
 };
 
-export default EstateCardsListing;
+export default InvestEstateCardsListing;

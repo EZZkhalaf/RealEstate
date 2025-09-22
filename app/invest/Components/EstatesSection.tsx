@@ -6,15 +6,20 @@ import TitleAtom from "@/Components/Atoms/TitleAtom";
 import ParagraphDescription from "@/Components/Atoms/ParagraphDescription";
 import GrayLine from "@/Components/Atoms/GrayLine";
 import EstateCards from "@/Components/MainComponents/FeaturedProps/EstateCards";
-import { getStaticEstates } from "@/API/EstatesApi";
+import {
+  getStaticEstates,
+  getStaticInvestementEstates,
+} from "@/API/EstatesApi";
+import InvestEstateCardsListing from "@/Components/Molecule/InvestEstatesCards/InvestEstateCardsListing";
 
 const EstatesSection = () => {
   const [estates, setEstates] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchEstates = async () => {
-      const data: any = await getStaticEstates();
+      const data: any = await getStaticInvestementEstates();
 
+      console.log(data);
       const parsed = data?.map((estate: any) => ({
         ...estate,
         features: Array.isArray(estate.features) ? estate.features : [],
@@ -47,6 +52,7 @@ const EstatesSection = () => {
       <EstateCards
         estates={estates}
         buttonTitle="View All Investment Properties"
+        invest={true}
       />
     </>
   );

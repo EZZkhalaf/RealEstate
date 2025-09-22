@@ -98,7 +98,7 @@ const Properties: React.FC<{
         ))}
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

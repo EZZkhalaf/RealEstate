@@ -1,23 +1,26 @@
 import React from "react";
 import HeroTitle from "../../../Components/MainComponents/Hero/HeroTitle";
 import ButtonCustomize from "../../../Components/Atoms/ButtonCustomize";
-import { Icon } from "@iconify/react";
 import WebsiteAdvantages from "@/Components/MainComponents/StartInvest/WebsiteAdvantages";
 
-const StartInvestment = () => {
+const StartInvestment: React.FC<{ startInvestData: any }> = ({
+  startInvestData,
+}) => {
+  console.log(startInvestData);
   return (
     <div className=" flex flex-col items-center bg-gradient-to-br from-[#0B3557] to-[#2d5f7f]">
       <div className="max-w-5xl  text-center mb-8">
         <HeroTitle
-          title1={"Ready to Start Your Investment Journey?"}
+          title1={startInvestData?.title || "Ready To Start Investing ?"}
           paragraph={
-            "Get personalized investment recommendations and connect with our expert team to build your real estate portfolio."
+            startInvestData?.paragraph ||
+            "start your journy in the investment here !!"
           }
         />
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 lg:px-50 px-20 mt-10">
           <ButtonCustomize
-            text="Schedule Consultation"
+            text={startInvestData?.button_1_placeholder}
             icon="calendar-clock"
             color="#16A34A"
             hoverColor="#15803D"
@@ -26,7 +29,7 @@ const StartInvestment = () => {
           />
 
           <ButtonCustomize
-            text="Call Now: +962123123123"
+            text={startInvestData?.button_2_placeholder}
             icon="phone-in-talk"
             color="#FFFFFF"
             hoverColor="#9CA3AF"
@@ -34,7 +37,7 @@ const StartInvestment = () => {
             hoverTextColor="#FFFFFF"
           />
         </div>
-        <WebsiteAdvantages />
+        <WebsiteAdvantages websiteInfo={startInvestData?.website_advantages} />
       </div>
     </div>
   );

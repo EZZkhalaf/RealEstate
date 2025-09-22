@@ -19,6 +19,7 @@ import { getStaticHomePageHero } from "@/API/HeroApi";
 import { getStaticInvestmentOption } from "@/API/InvestmentOptionsApi";
 import getStaticInvestmentStrategies, {
   getStaticMarketAnalysis,
+  getStaticStartYourJourny,
 } from "@/API/InvestmentApi";
 
 export default async function Invest() {
@@ -27,6 +28,7 @@ export default async function Invest() {
   const investmentOpportunitiesData = await getStaticInvestmentOption();
   const investmentStrategiesData = await getStaticInvestmentStrategies();
   const marketAnalysisData = await getStaticMarketAnalysis();
+  const startYourJournyData = await getStaticStartYourJourny();
   return (
     <div className="w-full">
       <Hero heroData={homePageHero} invest={true} minHeight="max-h-fit">
@@ -65,7 +67,7 @@ export default async function Invest() {
       </InvestmentTools>
       <InvestmentStrategies investmentStrategies={investmentStrategiesData} />
       <MarketAnalysis markets={marketAnalysisData} />
-      <StartInvestment />
+      <StartInvestment startInvestData={startYourJournyData} />
       <Footer footerData={footerData} />
     </div>
   );

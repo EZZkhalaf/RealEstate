@@ -40,6 +40,68 @@ export interface EstateInterface {
   views?: number;
 }
 
+// Block inside features
+interface FeatureBlock {
+  id: string;
+  type: string; // e.g., "paragraph"
+  data: {
+    text: string;
+  };
+}
+
+// Features object
+interface Features {
+  time: number;
+  blocks: FeatureBlock[];
+  version: string;
+}
+
+// Location item
+interface LocationItem {
+  id: number;
+  name: string;
+  district: string;
+  city: string;
+}
+
+// Location relation wrapper
+interface LocationRelation {
+  item: LocationItem;
+}
+
+// Financials item
+interface FinancialItem {
+  id: number;
+  annual_rent: string;
+  occupancy: string;
+  total_units: string;
+  risk_level: string;
+}
+
+// Financials relation wrapper
+interface FinancialRelation {
+  item: FinancialItem;
+}
+
+// Main Invest Estate interface
+export interface InvestEstateInterface {
+  id: number;
+  title: string;
+  type: string;
+  grade: string;
+  price: string;
+  roi: string;
+  features: Features;
+  location: LocationRelation[];
+  financials: FinancialRelation[];
+  images: any;
+  fund_percentage: number;
+  fund_amount: number;
+  return_in_5_years: number;
+  yearly_investment: number;
+  net_yield: number;
+}
+
 export interface ContactAgentButtonsInterface {
   onlyContact?: boolean;
 }
