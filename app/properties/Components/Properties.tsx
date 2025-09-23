@@ -6,7 +6,7 @@ import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import SingleEstateEelement from "../../../Components/Molecule/Properties/SingleEstateEelement";
 import Footer from "../../../Components/Footer";
 import SmallTitle from "../../../Components/Atoms/SmallTitle";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import EstatePopUpInfo from "../../../Components/Molecule/Properties/EstatePopUpInfo";
 import { useRouter } from "next/navigation";
 import { getStaticEstates, getStaticEstatesFiltered } from "@/API/EstatesApi";
@@ -14,33 +14,52 @@ import { EstateInterface } from "@/Interface/EstateInterface";
 import PagingButtons from "@/Components/Molecule/PagingButtons";
 import { FiltersInterface } from "@/Interface/ServicesInterface";
 
-const Properties: React.FC<{
-  filters?: FiltersInterface;
-}> = ({ filters }) => {
-  const totalCount: number = 9002;
-  const router = useRouter();
+export interface PropertiesInterface {
+  // filters?: FiltersInterface;
+  totalCount: number;
+  router: any;
+  estates: EstateInterface[];
+  selectedEstate: EstateInterface | null;
+  setSelectedEstate: Dispatch<SetStateAction<EstateInterface | null>>;
+  currentPage: number;
+  onPageChange: Dispatch<SetStateAction<number>>;
+  totalPages: number;
+}
 
-  const [estates, setEstates] = useState<EstateInterface[]>([]);
-  const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
-    null
-  );
+const Properties: React.FC<PropertiesInterface> = ({
+  totalCount,
+  router,
+  estates,
+  selectedEstate,
+  setSelectedEstate,
+  currentPage,
+  onPageChange,
+  totalPages,
+}) => {
+  // const totalCount: number = 9002;
+  // const router = useRouter();
 
-  const [currentPage, onPageChange] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(0);
+  // const [estates, setEstates] = useState<EstateInterface[]>([]);
+  // const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
+  //   null
+  // );
 
-  const fetchEstates = async () => {
-    const response = await getStaticEstatesFiltered(
-      currentPage,
-      filters?.homeType || "All Properties",
-      filters?.sort || "Low to High",
-      filters
-    );
-    setEstates(response.data);
-    setTotalPages(response?.pagination?.totalPages as number);
-  };
-  useEffect(() => {
-    fetchEstates();
-  }, [filters, currentPage]);
+  // const [currentPage, onPageChange] = useState<number>(1);
+  // const [totalPages, setTotalPages] = useState<number>(0);
+
+  // const fetchEstates = async () => {
+  //   const response = await getStaticEstatesFiltered(
+  //     currentPage,
+  //     filters?.homeType || "All Properties",
+  //     filters?.sort || "Low to High",
+  //     filters
+  //   );
+  //   setEstates(response.data);
+  //   setTotalPages(response?.pagination?.totalPages as number);
+  // };
+  // useEffect(() => {
+  //   fetchEstates();
+  // }, [filters, currentPage]);
 
   // console.log(estates);
   return (

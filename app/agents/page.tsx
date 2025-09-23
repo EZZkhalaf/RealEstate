@@ -48,12 +48,11 @@ export default function Agents() {
         cities: cities?.map((city: any) => city.name) || [],
       })
     );
-    console.log(locationsCleared2);
     setSaudiLocations(locationsCleared2);
   };
 
   const fetchAgents = async () => {
-    const response = await getStaticAgents({
+    const response: any = await getStaticAgents({
       page: currentPage,
       limit,
       region: selectedRegion,
@@ -61,8 +60,8 @@ export default function Agents() {
       name: name,
       agentSpecialties: selectedSprecialty,
     });
-    setAgentsMock(response?.response);
-    setTotalPages(response?.pagination?.totalPages as number);
+    setAgentsMock(response?.response || []);
+    setTotalPages((response.pagination?.totalPages as number) || 1);
   };
   const scrollToTop = () => {
     window.scrollTo({

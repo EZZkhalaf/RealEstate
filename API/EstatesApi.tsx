@@ -99,7 +99,7 @@ export async function getStaticEstatesFiltered(
 
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*&limit=6&offset=${offset}&meta=*&${queryString}`
+      `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*,longitude,latitude&limit=6&offset=${offset}&meta=*&${queryString}`
     );
     const result = await response.json();
 

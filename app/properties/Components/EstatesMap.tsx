@@ -3,6 +3,17 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import iconUrl from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+const DefaultIcon = L.icon({
+  iconUrl,
+  shadowUrl: iconShadow,
+  iconAnchor: [12, 41], // adjust if needed
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 interface ChangeViewInterface {
   center: any;
@@ -10,15 +21,23 @@ interface ChangeViewInterface {
 
 interface EstatesMapInterface {
   mapSearch: any;
+  markersLocations: any;
 }
 const ChangeView: React.FC<ChangeViewInterface> = ({ center }) => {
   const map = useMap();
-  map.setView(center);
+  map.setView(center, map.getZoom());
   return null;
 };
 
-const EstatesMap: React.FC<EstatesMapInterface> = ({ mapSearch }) => {
-  const [center, setCenter] = useState<any>([31.963158, 35.930359]); // default Amman
+const EstatesMap: React.FC<EstatesMapInterface> = ({
+  mapSearch,
+  markersLocations,
+}) => {
+  const [center, setCenter] = useState<[number, number]>(
+    markersLocations?.length > 0
+      ? markersLocations[0].coords
+      : [24.7136, 46.6753]
+  ); // default Amman
 
   useEffect(() => {
     if (!mapSearch) return;
@@ -46,19 +65,26 @@ const EstatesMap: React.FC<EstatesMapInterface> = ({ mapSearch }) => {
 
   return (
     <MapContainer
-      center={center as any}
+      center={center}
       zoom={13}
       style={{ width: "100%" }}
-      className="h-[100%] max-h-[100%] lg:flex md:flex hidden relative z-10"
+      className="min-h-screen lg:flex md:flex hidden relative z-10"
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       />
 
-      <Marker position={center}>
-        <Popup>{mapSearch || "Amman, Jordan"}</Popup>
-      </Marker>
+      {/* <Marker position={center}>
+        <Popup>{mapSearch || "saudi"}</Popup>
+      </Marker> */}
+
+      {markersLocations?.length > 0 &&
+        markersLocations?.map((loc: any, index: number) => (
+          <Marker key={index} position={loc.coords}>
+            <Popup>{loc.name}</Popup>
+          </Marker>
+        ))}
 
       <ChangeView center={center} />
     </MapContainer>
