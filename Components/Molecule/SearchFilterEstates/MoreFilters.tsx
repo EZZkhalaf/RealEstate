@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import GrayHeader from "../../Atoms/GrayHeader";
 import PriceSelect from "../../Atoms/PriceSelect";
 import SingleCheckBox from "../../Atoms/SingleCheckBox";
-import SalaryRangeSelector from "./SalaryRangeSelector";
 import InputGray from "../../Atoms/InputGray";
 import SmallTitle from "../../Atoms/SmallTitle";
-import { FiltersInterface } from "@/app/properties/Components/SearchFilterEstates";
 
 interface CheckboxGroupInterface {
   title: string;
@@ -56,11 +54,13 @@ const CheckboxGroup: React.FC<CheckboxGroupInterface> = ({
 };
 
 interface MoreFiltersInterface {
-  value: FiltersInterface["otherFilters"];
-  onChange: (value: FiltersInterface["otherFilters"]) => void;
+  value: any;
+  // onChange: (value: FiltersInterface["otherFilters"]) => void;
+  onChange: any;
 }
 
 const MoreFilters: React.FC<MoreFiltersInterface> = ({ value, onChange }) => {
+  console.log(value);
   const HOA: number[] = [0, 50, 100, 200, 300, 400, 500, 600];
 
   const parkingSpots: number[] = [1, 2, 3, 4, 5];
@@ -174,7 +174,7 @@ const MoreFilters: React.FC<MoreFiltersInterface> = ({ value, onChange }) => {
         selected={value?.view || []}
         onToggle={(option: string) => {
           const newSelection = value?.view?.includes(option)
-            ? value.view.filter((o) => o !== option)
+            ? value.view.filter((o: any) => o !== option)
             : [...(value?.view || []), option];
           onChange({ ...value, view: newSelection });
         }}

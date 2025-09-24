@@ -1,8 +1,6 @@
-interface FundProgressProps {
-  fund_percentage: number; // 0 to 100
-}
-
-const PercentageBar: React.FC<FundProgressProps> = ({ fund_percentage }) => {
+const PercentageBar: React.FC<{ fund_percentage: number }> = ({
+  fund_percentage,
+}) => {
   return (
     <div className="w-full bg-gray-200 rounded-full h-3 relative">
       {/* Green filled bar */}

@@ -1,4 +1,3 @@
-"use client";
 export const FilterButton: React.FC<{
   text: string;
   selected: boolean;

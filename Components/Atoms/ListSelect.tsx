@@ -1,15 +1,15 @@
 "use client";
-import React, { useEffect } from "react";
+import { ListSelectInterface } from "@/Interface/ServicesInterface";
 
-const ListSelect: React.FC<{
-  title?: string;
-  list?: string[] | number[];
-  width?: string;
-  height?: string;
-  value?: string | number;
-  onChange?: (value: string | number) => void;
-  years?: boolean;
-}> = ({ title, list, width, height, value, onChange, years = false }) => {
+const ListSelect: React.FC<ListSelectInterface> = ({
+  title,
+  list,
+  width,
+  height,
+  value,
+  onChange,
+  years = false,
+}) => {
   return (
     <div className={`${width} flex flex-col gap-3`}>
       {title && <h1 className="font-bold">{title}</h1>}

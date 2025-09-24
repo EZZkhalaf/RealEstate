@@ -1,5 +1,3 @@
-import React from "react";
-
 interface paragraphDescriptionInterface {
   description: string;
   textAlignment?: string;

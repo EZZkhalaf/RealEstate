@@ -1,17 +1,6 @@
 "use client";
-
-import React from "react";
+import { ViewButtonAtomInterface } from "@/Interface/ServicesInterface";
 import { MdArrowOutward } from "react-icons/md";
-
-interface ViewButtonAtomInterface {
-  title: string;
-  color?: string;
-  hoverColor?: string;
-  textColor?: string;
-  hoverTextColor?: string;
-  onClick?: any;
-  padding?: string;
-}
 
 const ViewButtonAtom: React.FC<ViewButtonAtomInterface> = ({
   title,

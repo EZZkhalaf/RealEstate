@@ -1,12 +1,6 @@
+import { SubmitButtonInterface } from "@/Interface/EstateInterface";
 import React from "react";
 
-interface SubmitButtonInterface {
-  text?: string;
-  type?: any;
-  submitButtonCss?: string;
-  onClick?: any;
-  noPadding?: boolean;
-}
 const SubmitButton: React.FC<SubmitButtonInterface> = ({
   text,
   type,

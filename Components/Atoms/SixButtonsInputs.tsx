@@ -1,11 +1,4 @@
-import React from "react";
-
-interface SixButtonsInputsInterface {
-  title: string;
-  options: any;
-  selected: any;
-  setSelected: any;
-}
+import { SixButtonsInputsInterface } from "@/Interface/ServicesInterface";
 
 const SixButtonsInputs: React.FC<SixButtonsInputsInterface> = ({
   title,

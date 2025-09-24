@@ -1,13 +1,5 @@
-import React from "react";
 import SmallTitle from "./SmallTitle";
-
-interface PriceSelectedInterface {
-  title: string;
-  onChange?: any;
-  list: any[];
-  value?: any;
-  HOA?: boolean;
-}
+import { PriceSelectedInterface } from "@/Interface/ServicesInterface";
 
 const PriceSelect: React.FC<PriceSelectedInterface> = ({
   title,

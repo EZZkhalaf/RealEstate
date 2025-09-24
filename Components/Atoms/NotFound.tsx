@@ -1,4 +1,3 @@
-import React from "react";
 import { FailedMessageInterface } from "./FailedMessage";
 
 const NotFound: React.FC<FailedMessageInterface> = ({

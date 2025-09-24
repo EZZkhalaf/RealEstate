@@ -20,7 +20,7 @@ const FeaturedProp = () => {
     "Compound",
   ];
   const [selectedGenre, setSelectedGenre] = useState<string>("All Properties");
-  const [sortOption, setSortOption] = useState<string>("Low to High");
+  const [sortOption, setSortOption] = useState<string | number>("Low to High");
   const [estates, setEstates] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 

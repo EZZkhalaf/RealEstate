@@ -1,11 +1,6 @@
+import { InsightWithIconAtomInterface } from "@/Interface/ServicesInterface";
 import { Icon } from "@iconify/react";
 import React from "react";
-
-interface InsightWithIconAtomInterface {
-  name: string;
-  icon: string;
-  value: any;
-}
 
 const InsightWithIconAtom: React.FC<InsightWithIconAtomInterface> = ({
   name,

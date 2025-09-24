@@ -27,7 +27,7 @@ const MarketInsightsSummaryListing: React.FC<{
 
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 w-full gap-6 ">
-      {propertyStats.map((m, index) => (
+      {propertyStats?.map((m, index) => (
         <div key={index} className="shadow-xl rounded-lg bg-white">
           <ScrollAnimation key={index}>
             <SummaryElementsInsight key={index} insight={m} />

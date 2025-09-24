@@ -1,16 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { InputGrayInterface } from "@/Interface/ServicesInterface";
 
-interface InputGrayInterface {
-  type?: string;
-  placeholder?: string;
-  icon?: string;
-  additionalCss?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  header?: string;
-  additionalInputCss?: string;
-  value?: any;
-}
 const InputGray: React.FC<InputGrayInterface> = ({
   type,
   placeholder,

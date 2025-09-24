@@ -19,7 +19,7 @@ export interface OpCardInterface {
 }
 
 export interface SummaryInterface {
-  total: string;
+  value: string;
   name: string;
 }
 
@@ -57,4 +57,16 @@ export interface ROICalculatorInterface {
 export interface SummaryROIInterface {
   name: string;
   sum: string;
+}
+
+export interface SmallTitleInterface {
+  title: string;
+  padding?: boolean;
+  additionalCss?: string;
+}
+
+export interface TitleAtomProps {
+  title: string;
+  textSizeLarge?: "2xl" | "3xl" | "4xl";
+  textSizeDefault?: "xl" | "2xl" | "3xl";
 }

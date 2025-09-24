@@ -1,9 +1,5 @@
-import React from "react";
-interface SmallTitleInterface {
-  title: string;
-  padding?: boolean;
-  additionalCss?: string;
-}
+import { SmallTitleInterface } from "@/Interface/InvestInterface";
+
 const SmallTitle: React.FC<SmallTitleInterface> = ({
   title,
   padding = true,

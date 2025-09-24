@@ -181,17 +181,20 @@ import React, { useState } from "react";
 import CardImageArea from "../CardImageArea";
 import Status from "../../Atoms/Status";
 import { EstateInterface } from "@/Interface/EstateInterface";
+import SingleCard from "../EstateCards/SingleCard";
 
 interface SuggestionCardInterface {
   estate: EstateInterface;
 }
 
 const SuggestionCard: React.FC<SuggestionCardInterface> = ({ estate }) => {
+  console.log(estate);
   return (
     <div className="flex flex-col w-full  border border-gray-100 rounded-lg  shadow-2xl">
       <CardImageArea estate={estate} hidePrice={true} />
       {/* body */}
-      <div className="flex flex-col w-full bg-gray-200 px-2 gap-3 mt-3 pb-3">
+      <div className="flex flex-col w-full bg-gray-200 px-2 gap-1 mt-3 pb-3">
+        <h1>{estate.title}</h1>
         <p className="text-md font-bold mt-2">{estate.price}</p>
         <div className="flex flex-row lg:justify-between  gap-1">
           <div className="flex gap-1">
@@ -244,8 +247,9 @@ const EstatesSlide: React.FC<{ estates?: EstateInterface[] }> = ({
     <div className="relative w-full flex flex-col items-center">
       {/* Cards */}
       <div className="lg:flex  sm:grid-cols-1 sm:grid md:grid md:grid-cols-2 gap-2 overflow-hidden w-full justify-center">
-        {visibleEstates.map((estate) => (
-          <SuggestionCard estate={estate as EstateInterface} key={estate.id} />
+        {visibleEstates.map((estate: EstateInterface, index: number) => (
+          // <SuggestionCard estate={estate as EstateInterface} key={estate.id} />
+          <SingleCard estate={estate} key={index} />
         ))}
       </div>
     </div>

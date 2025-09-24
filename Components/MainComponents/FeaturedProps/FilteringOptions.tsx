@@ -1,4 +1,3 @@
-"use client";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import { FilterButton } from "@/Components/Atoms/FilterButton";
 import ListSelect from "@/Components/Atoms/ListSelect";
@@ -7,8 +6,8 @@ export const FilteringOptions: React.FC<{
   generes: string[];
   filterOptions: string[];
   selectedGenre: string;
-  sortOption?: string;
-  setSortOption?: (sort: string) => void;
+  sortOption?: string | number;
+  setSortOption?: (sort: string | number) => void;
   setSelectedGenre: (genre: string) => void;
 }> = ({
   generes,

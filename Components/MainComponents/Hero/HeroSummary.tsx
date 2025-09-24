@@ -1,8 +1,5 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import HeroSummaryListing from "../../Molecule/HeroSummary/HeroSummaryListing";
-import { getStaticHomePageHero } from "@/API/HeroApi";
-import { SummaryInterface } from "../InvestmentTools/InvestmentSummary";
+import { SummaryInterface } from "@/Interface/InvestInterface";
 
 export interface HeroSummaryInterface {
   summary?: SummaryInterface[];

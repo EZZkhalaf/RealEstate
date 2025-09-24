@@ -1,8 +1,4 @@
-interface FooterColumnsInterface {
-  title: string;
-  elements: any;
-}
-const FooterColumns: React.FC<FooterColumnsInterface> = ({
+const FooterColumns: React.FC<{ title: string; elements: any }> = ({
   title,
   elements,
 }) => {

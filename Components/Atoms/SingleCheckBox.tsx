@@ -1,12 +1,6 @@
+import { SingleCheckBoxInterface } from "@/Interface/ServicesInterface";
 import React from "react";
 
-interface SingleCheckBoxInterface {
-  text: string;
-  value?: any;
-  noPadding?: boolean;
-  checked?: boolean;
-  onChange?: (checked: any) => void;
-}
 const SingleCheckBox: React.FC<SingleCheckBoxInterface> = ({
   text,
   noPadding,

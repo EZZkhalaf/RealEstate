@@ -1,10 +1,7 @@
-"use client";
-import React, { useState } from "react";
-
 interface InputNumberAtomInterface {
   title: string;
   value: number;
-  setValue?: (value: number) => void;
+  setValue: (value: number) => void;
 }
 
 const InputNumberAtom: React.FC<InputNumberAtomInterface> = ({

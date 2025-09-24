@@ -1,27 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import InputGray from "../../Atoms/InputGray";
+
 import HeroButtonsListing from "../../Molecule/PriceHero/HeroButtonsListing";
 import PriceRangeHero from "../../Molecule/PriceHero/PriceRangeHero";
 import ButtonCustomize from "../../Atoms/ButtonCustomize";
-
-interface PriceHeroCustomInputInterface {
-  type: string;
-  placeholder: string;
-}
-
-const PriceHeroCustomInput: React.FC<PriceHeroCustomInputInterface> = ({
-  type,
-  placeholder,
-}) => {
-  return (
-    <div className="flex flex-row items-center bg-gray-200 p-3 gap-3 rounded-xl flex-grow ">
-      <FaSearch />
-      <InputGray type={type} placeholder={placeholder} />
-    </div>
-  );
-};
+import PriceHeroCustomInput from "@/Components/Molecule/PriceHero/PriceHeroCustomInput";
 
 const PriceHero = () => {
   const [selected, setSelected] = useState(null);

@@ -6,9 +6,10 @@ import { useRouter } from "next/navigation";
 
 interface SingleCardInterface {
   estate: EstateInterface;
+  suggestion?: boolean;
 }
 
-const SingleCard: React.FC<SingleCardInterface> = ({ estate }) => {
+const SingleCard: React.FC<SingleCardInterface> = ({ estate, suggestion }) => {
   const [imageHover, setImageHover] = useState<boolean>(false);
   const router = useRouter();
   return (

@@ -121,3 +121,17 @@ export interface SingleEstateEelementInterface {
   viewDetailsClick?: any;
   onClick?: any;
 }
+
+export interface StatusInterface {
+  isActive: boolean;
+  activeText?: string;
+  offlineText?: string;
+}
+
+export interface SubmitButtonInterface {
+  text?: string;
+  type?: any;
+  submitButtonCss?: string;
+  onClick?: any;
+  noPadding?: boolean;
+}

@@ -1,9 +1,13 @@
 import React from "react";
 
-const MulltipleCheckBoxes = ({ list = [], checked, toggleOption }) => {
+const MulltipleCheckBoxes: React.FC<{
+  list?: any;
+  checked: any;
+  toggleOption: any;
+}> = ({ list = [], checked, toggleOption }) => {
   return (
     <>
-      {list.map((option) => (
+      {list?.map((option: any) => (
         <label
           key={option}
           className="flex items-center gap-3 cursor-pointer select-none"

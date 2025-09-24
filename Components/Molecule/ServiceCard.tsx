@@ -3,7 +3,6 @@ import ParagraphDescription from "../Atoms/ParagraphDescription";
 import TitleAtom from "../Atoms/TitleAtom";
 import { CiCircleCheck } from "react-icons/ci";
 import ViewButtonAtom from "../Atoms/ViewButtonAtom";
-import { Icon } from "@iconify/react";
 import IconAtom from "../Atoms/IconAtom";
 import { ServiceInterface } from "@/Interface/ServicesInterface";
 

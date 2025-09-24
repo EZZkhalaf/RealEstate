@@ -1,11 +1,5 @@
+import { StatusInterface } from "@/Interface/EstateInterface";
 import { Icon } from "@iconify/react";
-import React from "react";
-
-interface StatusInterface {
-  isActive: boolean;
-  activeText?: string;
-  offlineText?: string;
-}
 
 const Status: React.FC<StatusInterface> = ({
   isActive,

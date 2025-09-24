@@ -1,11 +1,5 @@
-import React from "react";
+import { TriggerButtonsInterface } from "@/Interface/ServicesInterface";
 import { Icon } from "@iconify/react";
-
-interface TriggerButtonsInterface {
-  text: string;
-  icon: string;
-  onClick: any;
-}
 
 const TriggerButtons: React.FC<TriggerButtonsInterface> = ({
   text,

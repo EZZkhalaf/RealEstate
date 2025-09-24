@@ -2,7 +2,7 @@
 export async function getStaticEstates(
   page: number = 1,
   genre: string = "All Properties",
-  sort: string = "Low to High"
+  sort: string | number = "Low to High"
 ) {
   const genreFilter =
     genre !== "All Properties"
