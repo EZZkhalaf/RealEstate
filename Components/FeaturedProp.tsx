@@ -30,6 +30,7 @@ const FeaturedProp = () => {
   const fetchEstates = async () => {
     setLoading(true);
     const data: any = await getStaticEstates(1, selectedGenre, sortOption);
+    // console.log(data);
     const parsed = data?.map((estate: any) => ({
       ...estate,
       features: Array.isArray(estate.features) ? estate.features : [],
@@ -60,7 +61,7 @@ const FeaturedProp = () => {
   ];
   if (loading) return <Loading />;
   return (
-    <div className="w-full  flex flex-col  mt-20  lg:pr-25 lg:pl-25">
+    <div className="w-full  flex flex-col  mt-20  lg:pr-25 lg:pl-25 lg:px-20  px-5">
       <div className="flex flex-col items-center w-full">
         <TitleAtom title={"Featured Properties"} />
         <ParagraphDescription
@@ -78,9 +79,7 @@ const FeaturedProp = () => {
         setSortOption={setSortOption}
         setSelectedGenre={setSelectedGenre}
       />{" "}
-      <div className="w-full px-0">
-        <EstateCards estates={estates} />
-      </div>
+      <EstateCards estates={estates} />
     </div>
   );
 };

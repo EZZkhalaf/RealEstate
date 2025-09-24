@@ -24,6 +24,8 @@ export interface PropertiesInterface {
   currentPage: number;
   onPageChange: Dispatch<SetStateAction<number>>;
   totalPages: number;
+  pressedEstate: EstateInterface | null;
+  setPressedEstate: Dispatch<SetStateAction<EstateInterface | null>>;
 }
 
 const Properties: React.FC<PropertiesInterface> = ({
@@ -35,33 +37,9 @@ const Properties: React.FC<PropertiesInterface> = ({
   currentPage,
   onPageChange,
   totalPages,
+  pressedEstate,
+  setPressedEstate,
 }) => {
-  // const totalCount: number = 9002;
-  // const router = useRouter();
-
-  // const [estates, setEstates] = useState<EstateInterface[]>([]);
-  // const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
-  //   null
-  // );
-
-  // const [currentPage, onPageChange] = useState<number>(1);
-  // const [totalPages, setTotalPages] = useState<number>(0);
-
-  // const fetchEstates = async () => {
-  //   const response = await getStaticEstatesFiltered(
-  //     currentPage,
-  //     filters?.homeType || "All Properties",
-  //     filters?.sort || "Low to High",
-  //     filters
-  //   );
-  //   setEstates(response.data);
-  //   setTotalPages(response?.pagination?.totalPages as number);
-  // };
-  // useEffect(() => {
-  //   fetchEstates();
-  // }, [filters, currentPage]);
-
-  // console.log(estates);
   return (
     <div className="flex flex-col lg:mt-15 md:mt-15 mt-50 px-5 py-5 max-h-[100vh] overflow-auto">
       <div className="flex flex-col gap-1 items-start ">
@@ -81,6 +59,7 @@ const Properties: React.FC<PropertiesInterface> = ({
             <ScrollAnimation>
               <SingleEstateEelement
                 estate={e}
+                onClick={() => setPressedEstate(e)}
                 viewDetailsClick={() => setSelectedEstate(e)}
               />
             </ScrollAnimation>
@@ -97,6 +76,7 @@ const Properties: React.FC<PropertiesInterface> = ({
         <EstatePopUpInfo
           estate_id={selectedEstate.id}
           onClose={() => setSelectedEstate(null)}
+          estates={estates?.slice(0, 4)}
         />
       )}
 

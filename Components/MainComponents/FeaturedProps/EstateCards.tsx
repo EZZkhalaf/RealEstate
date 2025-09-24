@@ -19,14 +19,19 @@ const EstateCards: React.FC<EstateCardsInterface> = ({
   buttonTitle = "View All Properties",
   invest = false,
 }) => {
+  let slicedInvestEstates: EstateInterface[] | InvestEstateInterface[];
+  if (invest) {
+    slicedInvestEstates = estates?.slice(0, 4);
+  } else slicedInvestEstates = [];
+
   return (
-    <div className="min-w-full  lg:px-20  px-5">
+    <div className="min-w-full px-3">
       {estates && !invest ? (
         <EstateCardsListing estates={estates} buttonTitle={buttonTitle} />
       ) : (
         <div>
           {estates && invest ? (
-            <InvestEstateCardsListing estates={estates} />
+            <InvestEstateCardsListing estates={slicedInvestEstates} />
           ) : (
             <p className="text-gray-600 font-bold">
               not estates available at the moment

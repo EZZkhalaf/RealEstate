@@ -16,9 +16,7 @@ const EstatesMap = dynamic(
 
 export default function PropertiesPage() {
   const [mapSearch, setMapSearch] = useState<string>("");
-  const [filters, setFilters] = useState<FiltersInterface>({
-    saleType: "All",
-  });
+  const [filters, setFilters] = useState<FiltersInterface>({});
 
   const totalCount: number = 9002;
   const router = useRouter();
@@ -27,27 +25,12 @@ export default function PropertiesPage() {
   const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
     null
   );
+  const [pressedEstate, setPressedEstate] = useState<EstateInterface | null>(
+    null
+  );
 
   const [currentPage, onPageChange] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
-
-  // const saudiLocations = [
-  //   { name: "Riyadh", coords: [24.7136, 46.6753] },
-  //   { name: "Jeddah", coords: [21.4858, 21.4858] },
-  //   { name: "Mecca", coords: [21.3891, 39.8579] },
-  //   { name: "Medina", coords: [24.5247, 39.5692] },
-  //   { name: "Dammam", coords: [26.3927, 49.9777] },
-  //   { name: "Khobar", coords: [26.2172, 50.197] },
-  //   { name: "Tabuk", coords: [28.3906, 36.5656] },
-  //   { name: "Al-Khobar", coords: [26.295, 50.198] },
-  //   { name: "Abha", coords: [18.2163, 42.5053] },
-  //   { name: "Hail", coords: [27.5114, 41.7208] },
-  //   { name: "Al-Ahsa", coords: [25.3833, 49.5833] },
-  //   { name: "Najran", coords: [17.565, 44.2286] },
-  //   { name: "Yanbu", coords: [24.0893, 38.0498] },
-  //   { name: "Taif", coords: [21.2854, 40.4262] },
-  //   { name: "Al-Madinah", coords: [24.47, 39.6111] },
-  // ];
 
   const [saudiLocations, setLocations] = useState<
     { coords: [number, number] }[]
@@ -69,6 +52,7 @@ export default function PropertiesPage() {
       filters?.sort || "Low to High",
       filters
     );
+
     setEstates(response.data);
     const locations = response.data
       ?.filter((estate: any) => estate.latitude && estate.longitude)
@@ -85,8 +69,8 @@ export default function PropertiesPage() {
     fetchEstates();
     scrollToTop();
   }, [filters, currentPage]);
-  console.log(saudiLocations);
 
+  // console.log(estates);
   return (
     <div className="flex flex-col mt-20 w-full">
       <SearchFilterEstates
@@ -97,7 +81,18 @@ export default function PropertiesPage() {
       />
 
       <div className="lg:grid lg:grid-cols-[1.25fr_1fr] md:grid md:grid-cols-[1.5fr_1fr] flex">
-        <EstatesMap markersLocations={saudiLocations} mapSearch={mapSearch} />
+        <EstatesMap
+          markersLocations={saudiLocations}
+          mapSearch={mapSearch}
+          zoomCoords={
+            pressedEstate
+              ? [
+                  parseFloat(pressedEstate.latitude),
+                  parseFloat(pressedEstate.longitude),
+                ]
+              : null
+          }
+        />
 
         <Properties
           router={router}
@@ -108,6 +103,8 @@ export default function PropertiesPage() {
           totalPages={totalPages}
           totalCount={totalCount}
           onPageChange={onPageChange}
+          pressedEstate={pressedEstate}
+          setPressedEstate={setPressedEstate}
         />
       </div>
     </div>

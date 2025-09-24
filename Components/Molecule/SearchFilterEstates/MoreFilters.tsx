@@ -83,7 +83,8 @@ const MoreFilters: React.FC<MoreFiltersInterface> = ({ value, onChange }) => {
   const viewList: string[] = ["City", "Mountain", "Park", "Water"];
 
   return (
-    <div className="flex flex-col gap-2 mt-3 fixed bg-white border border-gray-300 rounded-lg shadow-2xl w-[400px] max-h-[70vh] overflow-y-auto right-0 md:r lg:right-110">
+    // <div className="flex flex-col gap-2 mt-3 fixed bg-white border border-gray-300 rounded-lg shadow-2xl w-[400px] max-h-[70vh] overflow-y-auto right-0 md:r lg:right-110">
+    <div className="flex flex-col gap-2 bg-white border border-gray-300 rounded-lg shadow-2xl w-full max-h-[70vh] overflow-y-auto">
       <GrayHeader header={"More Filter"} />
 
       <PriceSelect

@@ -15,8 +15,8 @@ const EstateCardsListing: React.FC<EstateCardsInterface> = ({
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-8">
+    <div className="flex flex-col items-center w-full ">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 w-full  gap-8">
         {estates.map((e: any, index: number) => (
           <div key={index} className="rounded-2xl">
             <ScrollAnimation>

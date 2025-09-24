@@ -16,22 +16,31 @@ const DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 interface ChangeViewInterface {
-  center: any;
+  center: [number, number];
 }
 
 interface EstatesMapInterface {
   mapSearch: any;
   markersLocations: any;
+  zoomCoords?: [number, number] | null;
 }
+
 const ChangeView: React.FC<ChangeViewInterface> = ({ center }) => {
   const map = useMap();
-  map.setView(center, map.getZoom());
+
+  useEffect(() => {
+    if (center) {
+      map.flyTo(center, 16, { animate: true } as any);
+    }
+  }, [center, map]);
+
   return null;
 };
 
 const EstatesMap: React.FC<EstatesMapInterface> = ({
   mapSearch,
   markersLocations,
+  zoomCoords,
 }) => {
   const [center, setCenter] = useState<[number, number]>(
     markersLocations?.length > 0
@@ -62,6 +71,11 @@ const EstatesMap: React.FC<EstatesMapInterface> = ({
 
     fetchCoords();
   }, [mapSearch]);
+  useEffect(() => {
+    if (zoomCoords) {
+      setCenter(zoomCoords); // update center when estate clicked
+    }
+  }, [zoomCoords]);
 
   return (
     <MapContainer

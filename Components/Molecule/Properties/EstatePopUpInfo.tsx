@@ -39,6 +39,7 @@ export const ContactAgentButtons: React.FC<ContactAgentButtonsInterface> = ({
 const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
   estate_id,
   onClose,
+  estates,
 }) => {
   if (!estate_id) return null;
   const [imagesOpen, setImagesOpen] = useState<boolean>(false);
@@ -71,7 +72,7 @@ const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
             />
 
             <div className="lg:grid lg:grid-cols-[2fr_1fr]  flex flex-col items-start justify-center gap-2 w-full">
-              <EstateProps estate={estate} />
+              <EstateProps estate={estate} estates={estates} />
               <ContactAgentButtons />
             </div>
           </div>

@@ -29,9 +29,10 @@ export default async function Home() {
   const marketSummaryInsightListingData = await getStaticPropertyStats();
   const contactUsData = await getStaticContactUsInfo();
   const footerData = await getStaticFooter();
+  // console.log(homePageHero);
   return (
     <div className="w-full bg-gray-100">
-      <Hero heroData={homePageHero} image={HeroImage}>
+      <Hero heroData={homePageHero} image={HeroImage} invest={false}>
         <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
           <PriceHero />
         </div>

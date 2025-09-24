@@ -19,7 +19,7 @@ interface StatsInterface {
 
 export interface EstateInterface {
   id: number;
-  price: string;
+  price: number;
   title: string;
   location: string;
   beds: number;
@@ -38,6 +38,9 @@ export interface EstateInterface {
   days_on_market?: number;
   saves?: number;
   views?: number;
+  longitude: string;
+  latitude: string;
+  estate_city: any;
 }
 
 // Block inside features
@@ -89,7 +92,7 @@ export interface InvestEstateInterface {
   title: string;
   type: string;
   grade: string;
-  price: string;
+  price: number;
   roi: string;
   features: Features;
   location: LocationRelation[];
@@ -109,9 +112,11 @@ export interface ContactAgentButtonsInterface {
 export interface EstatePopUpInfoInterface {
   estate_id: any;
   onClose: any;
+  estates?: EstateInterface[];
 }
 
 export interface SingleEstateEelementInterface {
   estate: EstateInterface;
   viewDetailsClick?: any;
+  onClick?: any;
 }

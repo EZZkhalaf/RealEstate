@@ -37,20 +37,6 @@ const Hero: React.FC<HeroInerface> = ({
     heroData[0].paragraph || ""
   );
   const [summary, setSummary] = useState<any>(heroData[0].heroSummary || []);
-  // const [loading, setLoading] = useState<boolean>(false);
-  // useEffect(() => {
-  //   const fetchHeroInfo = async () => {
-  //     setLoading(true);
-  //     const response = await getStaticHomePageHero(invest);
-  //     setTopTitle(response[0].topTitle || "");
-  //     setBottomTitle(response[0].bottomTitle || "");
-  //     setParagraph(response[0].paragraph || "");
-  //     setSummary(response[0].heroSummary || []);
-  //     setLoading(false);
-  //   };
-  //   fetchHeroInfo();
-  // }, []);
-  // if (loading) return <Loading />;
   return (
     <div
       style={heroStyle}
@@ -70,7 +56,7 @@ const Hero: React.FC<HeroInerface> = ({
 
           {children}
 
-          {!invest && <HeroSummary summary={summary} />}
+          <HeroSummary summary={summary} invest={invest} />
         </div>
       </div>
     </div>

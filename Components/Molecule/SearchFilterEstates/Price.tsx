@@ -72,7 +72,7 @@ const Price: React.FC<PriceProps> = ({ value, onChange, options }) => {
     onChange({ ...value, paymentType: type });
   };
 
-  console.log(options);
+  // console.log(options);
   return (
     <div className="flex flex-col gap-2 items-center mt-3 fixed bg-white border border-gray-300 rounded-lg w-[500px] shadow-2xl max-h-[60vh] overflow-y-auto">
       <GrayHeader header={"Price Range"} />

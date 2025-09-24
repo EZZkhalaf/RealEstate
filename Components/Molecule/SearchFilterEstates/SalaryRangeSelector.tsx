@@ -95,7 +95,6 @@ const SalaryRangeSelector: React.FC<SalaryRangeSelectorProps> = ({
   default2,
   noPrice = false,
 }) => {
-  console.log(list1);
   return (
     <div className="flex gap-4 items-center mb-3">
       {/* Min Salary */}

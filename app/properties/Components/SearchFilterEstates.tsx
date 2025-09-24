@@ -26,7 +26,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
 }) => {
   const [dialogOpen, setDialogOpen] = useState<any>(null);
   const options: string[] = ["All", "For Sale", "For Rent", "Sold"];
-  const [filtersContent, setFiltersContent] = useState<any>({});
+  // const [filtersContent, setFiltersContent] = useState<any>({});
   const [saleTypes, setSaleTypes] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<{
     min: number[];
@@ -104,7 +104,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   }, []);
 
   return (
-    <div className="fixed flex flex-col lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999   border-b border-b-gray-400 ">
+    <div className="fixed flex flex-col sm:top-1 lg:top-15 lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999   border-b border-b-gray-400 ">
       <InputGray
         type="text"
         placeholder="Address, neighborhood, city, Zip"
@@ -204,6 +204,26 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
           )}
         </div>
 
+        {/* <div className="flex flex-col items-start relative">
+          <TriggerButtons
+            text="More"
+            icon="arrow-down"
+            onClick={() => setDialogOpen(dialogOpen === "more" ? null : "more")}
+          />
+          {dialogOpen === "more" && (
+            <div className="lg:left-9">
+              <MoreFilters
+                value={filters.otherFilters || {}}
+                onChange={(updatedOtherFilters) =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    otherFilters: updatedOtherFilters,
+                  }))
+                }
+              />
+            </div>
+          )}
+        </div> */}
         <div className="flex flex-col items-start relative">
           <TriggerButtons
             text="More"
@@ -211,7 +231,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             onClick={() => setDialogOpen(dialogOpen === "more" ? null : "more")}
           />
           {dialogOpen === "more" && (
-            <div className="left-9">
+            <div className="absolute top-full mt-2 z-50 w-[400px]">
               <MoreFilters
                 value={filters.otherFilters || {}}
                 onChange={(updatedOtherFilters) =>

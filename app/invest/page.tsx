@@ -29,11 +29,12 @@ export default async function Invest() {
   const investmentStrategiesData = await getStaticInvestmentStrategies();
   const marketAnalysisData = await getStaticMarketAnalysis();
   const startYourJournyData = await getStaticStartYourJourny();
+  console.log(homePageHero);
   return (
     <div className="w-full">
-      <Hero heroData={homePageHero} invest={true} minHeight="max-h-fit">
+      <Hero heroData={homePageHero} invest={true} minHeight="min-h-screen">
         <ScrollAnimation>
-          <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center pb-6">
+          <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center mt-9">
             <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">
               <ButtonCustomize
                 text="Find Investment Property"
@@ -63,7 +64,9 @@ export default async function Invest() {
         title="Investment Calculator"
         description="Calculate detailed returns, cash flow, and investment metrics for any property"
       >
-        <InvestToolsPageContainer />
+        <ScrollAnimation>
+          <InvestToolsPageContainer />
+        </ScrollAnimation>
       </InvestmentTools>
       <InvestmentStrategies investmentStrategies={investmentStrategiesData} />
       <MarketAnalysis markets={marketAnalysisData} />

@@ -18,7 +18,6 @@ export async function getStaticEstates(
       `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
     );
     const result = await response.json();
-    console.log(result);
     return result.data;
   } catch (error) {
     console.error(error);
@@ -32,7 +31,7 @@ export async function getStaticEstatesFiltered(
   sort: string = "Low to High",
   filters: any = {}
 ) {
-  console.log(filters);
+  // console.log(filters);
   const queryParts: string[] = [];
 
   // Genre (property type)
@@ -53,6 +52,18 @@ export async function getStaticEstatesFiltered(
   // Baths
   if (filters?.bedsAndBaths?.baths) {
     queryParts.push(`filter[baths][_gte]=${filters.bedsAndBaths.baths}`);
+  }
+
+  if (
+    (filters?.priceRange?.min && filters?.priceRange?.min !== "0") ||
+    (filters?.priceRange?.max && filters?.priceRange?.max !== "0")
+  ) {
+    if (filters?.priceRange?.min) {
+      queryParts.push(`filter[price][_gte]=${filters?.priceRange?.min}`);
+    }
+    if (filters?.priceRange?.max) {
+      queryParts.push(`filter[price][_lte]=${filters?.priceRange?.max}`);
+    }
   }
 
   // Sale type (For Sale, Sold, For Rent)
@@ -123,7 +134,7 @@ export async function getStaticEstatesFiltered(
 export async function getStaticSingleEstate(id: string) {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*`
+      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*,estate_city.*,estate_city.area.*,estate_agent.*`
       // {
       //   cache: "force-cache",
       // }

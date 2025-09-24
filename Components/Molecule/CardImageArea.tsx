@@ -58,7 +58,7 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
             className="mb-1 bg-white p-1 rounded-md"
             style={{ justifySelf: "flex-start" }}
           >
-            <p className="text-blue-900 font-bold">{estate.price}</p>
+            <p className="text-blue-900 font-bold">${estate.price}</p>
           </div>
         )}
       </div>
