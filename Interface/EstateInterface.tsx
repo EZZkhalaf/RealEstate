@@ -25,8 +25,7 @@ export interface EstateInterface {
   beds: number;
   baths: number;
   area: string;
-  image: string[];
-  features: string[];
+  estate_features: any;
   special_props: string[];
   actions: string[];
   stats: StatsInterface;
@@ -42,6 +41,7 @@ export interface EstateInterface {
   latitude: string;
   estate_city: any;
   sale_type: any;
+  home_type: any;
 }
 
 // Block inside features

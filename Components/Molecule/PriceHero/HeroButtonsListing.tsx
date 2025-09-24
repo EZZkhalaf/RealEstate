@@ -12,12 +12,12 @@ const HeroButtonsListing: React.FC<HeroButtonsListingInterface> = ({
   setSelected,
 }) => {
   return (
-    <div className="flex flex-row rounded-lg p-1  bg-gray-300">
+    <div className="flex flex-row rounded-lg   bg-gray-300">
       {buttons.map((b, index) => (
         <button
           key={index}
           onClick={() => setSelected(b)}
-          className={`px-6 py-2 rounded-lg transition-colors duration-200 ${
+          className={`px-6 py-2 rounded-lg transition-colors duration-200 text-semibold ${
             selected === b
               ? "bg-[#0B3557] text-white"
               : "bg-gray-300 text-gray-700"

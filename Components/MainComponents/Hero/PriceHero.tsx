@@ -7,7 +7,6 @@ import ButtonCustomize from "../../Atoms/ButtonCustomize";
 import PriceHeroCustomInput from "@/Components/Molecule/PriceHero/PriceHeroCustomInput";
 
 const PriceHero = () => {
-  const [selected, setSelected] = useState(null);
   const min: number = 100000;
   const max: number = 10000000;
 
@@ -20,6 +19,7 @@ const PriceHero = () => {
   };
 
   const buttons: string[] = ["Buy", "Sell", "Invest"];
+  const [selected, setSelected] = useState(buttons[0] ?? null);
   return (
     <div className="flex flex-col items-center bg-white shadow-2xl py-5 gap-6 w-full   px-1 rounded-2xl  ">
       <HeroButtonsListing

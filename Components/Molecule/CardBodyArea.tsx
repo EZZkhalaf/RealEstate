@@ -8,7 +8,7 @@ import { EstateInterface } from "@/Interface/EstateInterface";
 
 interface CardBodyInterface {
   estate: EstateInterface;
-  viewDetailsClick?: (e: any) => void;
+  viewDetailsClick?: any;
 }
 
 const FeatureElementListing: React.FC<{ estate: EstateInterface }> = ({
@@ -16,9 +16,11 @@ const FeatureElementListing: React.FC<{ estate: EstateInterface }> = ({
 }) => {
   return (
     <div className="flex flex-row gap-3 mt-3">
-      {estate.features.slice(0, 3).map((e: string, index: number) => (
-        <FeatureElement key={index} text={e} />
-      ))}
+      {estate?.estate_features?.blocks
+        ?.slice(0, 4)
+        .map((e: any, index: number) => (
+          <FeatureElement key={index} text={e.data.text} />
+        ))}
     </div>
   );
 };

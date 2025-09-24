@@ -19,12 +19,7 @@ const SingleEstateEelement: React.FC<SingleEstateEelementInterface> = ({
         imageHover={imageHover}
         setImageHover={setImageHover}
       />
-      <CardBodyArea
-        estate={estate}
-        viewDetailsClick={viewDetailsClick}
-        // imageHover={imageHover}
-        // setImageHover={setImageHover}
-      />
+      <CardBodyArea estate={estate} viewDetailsClick={viewDetailsClick} />
     </div>
   );
 };
