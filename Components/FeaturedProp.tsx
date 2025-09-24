@@ -23,14 +23,10 @@ const FeaturedProp = () => {
   const [sortOption, setSortOption] = useState<string>("Low to High");
   const [estates, setEstates] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
-    null
-  );
 
   const fetchEstates = async () => {
     setLoading(true);
     const data: any = await getStaticEstates(1, selectedGenre, sortOption);
-    // console.log(data);
     const parsed = data?.map((estate: any) => ({
       ...estate,
       features: Array.isArray(estate.features) ? estate.features : [],

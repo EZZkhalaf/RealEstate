@@ -34,9 +34,7 @@ export default function PropertiesPage() {
 
   const [saudiLocations, setLocations] = useState<
     { coords: [number, number] }[]
-  >([
-    { coords: [24.7136, 46.6753] }, // Jeddah
-  ]);
+  >([{ coords: [24.7136, 46.6753] }]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -70,7 +68,6 @@ export default function PropertiesPage() {
     scrollToTop();
   }, [filters, currentPage]);
 
-  // console.log(estates);
   return (
     <div className="flex flex-col mt-20 w-full">
       <SearchFilterEstates

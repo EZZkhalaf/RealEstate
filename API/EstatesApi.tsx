@@ -68,7 +68,7 @@ export async function getStaticEstatesFiltered(
 
   // Sale type (For Sale, Sold, For Rent)
   if (filters.saleType && filters.saleType !== "All") {
-    queryParts.push(`filter[saleType][_eq]=${filters.saleType}`);
+    queryParts.push(`filter[sale_type][_eq]=${filters.saleType.toLowerCase()}`);
   }
 
   // View (array – match any)
@@ -110,7 +110,7 @@ export async function getStaticEstatesFiltered(
 
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*,longitude,latitude&limit=6&offset=${offset}&meta=*&${queryString}`
+      `http://localhost:8055/items/estateCard?fields=id,title,location,type,price,features,beds,baths,area,images.*,longitude,latitude,sale_type&limit=6&offset=${offset}&meta=*&${queryString}`
     );
     const result = await response.json();
 

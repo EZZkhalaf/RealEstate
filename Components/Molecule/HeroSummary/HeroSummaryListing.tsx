@@ -28,7 +28,6 @@ const HeroSummaryListing: React.FC<HeroSummaryInterface> = ({
   summary = [],
   invest = false,
 }) => {
-  console.log("sum : ", invest);
   const normalized = summary.map((element: any) => ({
     value: invest === true ? element?.total : element?.sum,
     name: element?.name,

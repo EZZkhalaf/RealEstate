@@ -1,9 +1,5 @@
-import React from "react";
 import WebInfoElement from "../../Molecule/WebInfo/WebInfoElement";
-import {
-  ContactInfoInterface,
-  WebInfoInterface,
-} from "@/Interface/InvestInterface";
+import { WebInfoInterface } from "@/Interface/InvestInterface";
 
 const WebInfo: React.FC<WebInfoInterface> = ({ title, contactInfo }) => {
   return (

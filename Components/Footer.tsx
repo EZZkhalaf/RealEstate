@@ -1,11 +1,7 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import TermsAndPolicies from "./MainComponents/Footer/TermsAndPolicies";
 import FooterIconsAndLocation from "./MainComponents/Footer/FooterIconsAndLocation";
 import FooterColumns from "./MainComponents/Footer/FooterColumns";
 import { MenuData, UpperFooterInterface } from "@/Interface/ServicesInterface";
-import { getStaticFooter } from "@/API/OtherApi";
-import { menu } from "@material-tailwind/react";
 
 const UpperFooterPart: React.FC<UpperFooterInterface> = ({
   menuData = [],

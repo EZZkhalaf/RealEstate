@@ -12,7 +12,6 @@ import Footer from "@/Components/Footer";
 import InvestmentHomeContent from "@/Components/MainComponents/InvestmentTools/InvestmentHomeContent";
 import { getStaticContactUsInfo } from "@/API/InvestmentOptionsApi";
 import { getStaticHomePageHero } from "@/API/HeroApi";
-import { getStaticEstates } from "@/API/EstatesApi";
 import {
   getStaticMarketReports,
   getStaticOurServices,
@@ -29,7 +28,6 @@ export default async function Home() {
   const marketSummaryInsightListingData = await getStaticPropertyStats();
   const contactUsData = await getStaticContactUsInfo();
   const footerData = await getStaticFooter();
-  // console.log(homePageHero);
   return (
     <div className="w-full bg-gray-100">
       <Hero heroData={homePageHero} image={HeroImage} invest={false}>

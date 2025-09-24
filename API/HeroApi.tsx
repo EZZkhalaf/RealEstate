@@ -4,6 +4,7 @@ export async function getStaticHomePageHero(invest: boolean = false) {
       invest
         ? `http://localhost:8055/items/investPageHero?fields=*`
         : `http://localhost:8055/items/homePageHero?fields=*`,
+
       {
         next: { revalidate: 5 },
       }

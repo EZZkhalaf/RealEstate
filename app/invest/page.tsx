@@ -29,7 +29,6 @@ export default async function Invest() {
   const investmentStrategiesData = await getStaticInvestmentStrategies();
   const marketAnalysisData = await getStaticMarketAnalysis();
   const startYourJournyData = await getStaticStartYourJourny();
-  console.log(homePageHero);
   return (
     <div className="w-full">
       <Hero heroData={homePageHero} invest={true} minHeight="min-h-screen">

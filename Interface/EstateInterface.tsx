@@ -41,6 +41,7 @@ export interface EstateInterface {
   longitude: string;
   latitude: string;
   estate_city: any;
+  sale_type: any;
 }
 
 // Block inside features

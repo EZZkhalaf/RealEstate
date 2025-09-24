@@ -56,7 +56,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
 
   const fetchSearchField = async () => {
     const response = await getStaticSearchEstateFields();
-    console.log(response);
+    console.log("the response : ", response);
     setFilters(response);
     const saleTypesCleared: string[] =
       response?.sale_type?.blocks?.map(
@@ -102,6 +102,10 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   useEffect(() => {
     fetchSearchField();
   }, []);
+
+  useEffect(() => {
+    console.log(filters);
+  }, [filters]);
 
   return (
     <div className="fixed flex flex-col sm:top-1 lg:top-15 lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999   border-b border-b-gray-400 ">
