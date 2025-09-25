@@ -43,7 +43,7 @@ const EstatesSection = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center w-full mt-8 ">
+      <div className="flex flex-col items-center w-full max-w-7xl mt-8 ">
         <TitleAtom title="Investment Properties" />
         <ParagraphDescription description="Choose from various investment property and choose the risk for it" />
         <GrayLine />

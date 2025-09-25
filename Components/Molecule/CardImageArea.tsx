@@ -37,7 +37,7 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
         backgroundRepeat: "no-repeat",
         padding: "0",
       }}
-      className=" transform transition-transform duration-300"
+      className=" transform transition-transform duration-300 rounded-lg"
     >
       <div className="flex justify-between p-2">
         <div className="bg-[#0B3557] rounded-lg flex items-center">

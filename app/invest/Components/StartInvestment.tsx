@@ -8,8 +8,8 @@ const StartInvestment: React.FC<{ startInvestData: any }> = ({
 }) => {
   console.log(startInvestData);
   return (
-    <div className=" flex flex-col items-center bg-gradient-to-br from-[#0B3557] to-[#2d5f7f]">
-      <div className="max-w-5xl  text-center mb-8">
+    <div className="w-full flex flex-col items-center bg-gradient-to-br from-[#0B3557] to-[#2d5f7f]">
+      <div className="max-w-7xl  text-center mb-8">
         <HeroTitle
           title1={startInvestData?.title || "Ready To Start Investing ?"}
           paragraph={

@@ -11,7 +11,7 @@ const PriceHeroCustomInput: React.FC<PriceHeroCustomInputInterface> = ({
   placeholder,
 }) => {
   return (
-    <div className="flex flex-row items-center bg-gray-200 p-3 gap-3 rounded-xl flex-grow ">
+    <div className="flex flex-row items-center bg-gray-200 px-3 gap-3 rounded-xl flex-grow ">
       <FaSearch />
       <InputGray type={type} placeholder={placeholder} />
     </div>

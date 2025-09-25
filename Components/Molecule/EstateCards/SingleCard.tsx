@@ -13,7 +13,7 @@ const SingleCard: React.FC<SingleCardInterface> = ({ estate, suggestion }) => {
   const [imageHover, setImageHover] = useState<boolean>(false);
   const router = useRouter();
   return (
-    <div className="flex flex-col w-full rounded-lg shadow-2xl group transform transition-transform duration-300 hover:scale-102">
+    <div className="flex flex-col w-full  shadow-2xl group transform transition-transform duration-300 hover:scale-102 rounded-md">
       <CardImageArea
         estate={estate}
         imageHover={imageHover}

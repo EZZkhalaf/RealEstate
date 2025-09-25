@@ -11,27 +11,28 @@ interface InsightCardInterface {
 
 const InsightCard: React.FC<InsightCardInterface> = ({ insight }) => {
   return (
-    <div className="flex flex-col gap-2 items-center shadow-2xl rounded-lg">
-      <div className="flex justify-between w-full px-5 ">
+    <div className="flex flex-col gap-2 items-start shadow-2xl bg-white rounded-lg p-6">
+      <div className="flex justify-between items-center w-full  ">
         <FeatureElement text={insight.type} />
-        <p className="text-green-600 font-semibold">{insight.growth}</p>
+        <p className="text-green-600 font-md">{insight.growth}</p>
       </div>
       <div>
-        <h1 className="text-xl font-semibold px-2 ">{insight.title}</h1>
+        <h1 className="text-lg font-semibold  ">{insight.title}</h1>
       </div>
 
-      <div className="text-xs px-4">
+      <div className="text-xs ">
         <ParagraphDescription description={insight.description} />
       </div>
 
-      <div className="flex items-center justify-between w-full py-3  text-xs px-5">
+      <div className="flex items-center justify-between w-full py-3  text-xs ">
         <p className="text-xs text-gray-500 ">{insight.date}</p>
         <ViewButtonAtom
-          title={"View All Agents"}
+          title={"Read More"}
           color={"#FFFFFF"}
           hoverColor={"#0B3557"}
           textColor={"#0B3557"}
           hoverTextColor={"#FFFFFF"}
+          border="border-none"
         />
       </div>
     </div>

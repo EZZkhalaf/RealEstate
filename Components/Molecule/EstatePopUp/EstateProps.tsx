@@ -111,7 +111,7 @@ interface EstatePropsInterface {
   estates?: EstateInterface[];
 }
 const EstateProps: React.FC<EstatePropsInterface> = ({ estate, estates }) => {
-  // console.log(estate);
+  console.log(estate);
   const icons: string[] = [
     "home-outline",
     "calendar-outline",
@@ -147,23 +147,25 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate, estates }) => {
         />
       </div>
       <div className="grid grid-cols-3 gap-2 mt-5">
-        {estate?.features?.map((f: string, idx: number) => (
-          <IconWithText
-            key={idx}
-            icon={icons[idx]}
-            text={f}
-            textColor="text-black  lg:text-lg text-md"
-            bgColor="bg-gray-200 p-1 rounded-lg"
-          />
-        ))}
+        {estate?.estate_features?.blocks
+          ?.slice(0, 4)
+          .map((f: any, idx: number) => (
+            <IconWithText
+              key={idx}
+              icon={icons[idx]}
+              text={f.data.text}
+              textColor="text-black  lg:text-lg text-md"
+              bgColor="bg-gray-200 p-1 rounded-lg"
+            />
+          ))}
       </div>
 
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
 
       <TitleAtom title={"What's special?"} />
       <div className="flex gap-2 mt-5">
-        {estate?.special_props?.map((p: string, indx: number) => (
-          <FeatureElement key={indx} text={p} />
+        {estate?.special_properties?.blocks.map((p: any, indx: number) => (
+          <FeatureElement key={indx} text={p.data.text} />
         ))}
       </div>
 

@@ -50,7 +50,7 @@ const StrategyCard: React.FC<StrategyCardInterface> = ({ strategy }) => {
 
         <div className="flex flex-col items-start">
           <p className="text-xs font-semibold text-gray-800 mb-1">Risk Level</p>
-          <p className="text-xs font-semibold text-gray-800 bg-gray-200 py-1 px-2 rounded-lg  ">
+          <p className="text-xs font-md text-gray-800 bg-gray-200 py-1 px-2 rounded-lg  ">
             {strategy.riskLevel}
           </p>
         </div>

@@ -11,11 +11,12 @@ const ViewButtonAtom: React.FC<ViewButtonAtomInterface> = ({
   hoverTextColor,
   onClick,
   padding = "p-3",
+  border = "border  border-[#0B3557]",
 }) => {
   return (
     <div>
       <div
-        className={`flex flex-row justify-around items-center ${padding} border  border-[#0B3557] font-semibold rounded-lg  trnasform-colors duration-300 hover:opacity-90`}
+        className={`flex flex-row justify-around items-center ${padding} ${border} font-semibold rounded-lg  trnasform-colors duration-300 hover:opacity-90`}
         style={{
           backgroundColor: color,
           color: textColor,

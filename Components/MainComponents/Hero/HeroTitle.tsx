@@ -13,10 +13,10 @@ const HeroTitle: React.FC<HeroTitleInterface> = ({
   return (
     <div className="flex flex-col items-center justify-center h-full mt-25 gap-2">
       <ScrollAnimation type="fade-right">
-        <h1 className="text-white text-3xl lg:text-6xl font-bold">{title1}</h1>
+        <h1 className="text-white text-3xl lg:text-7xl font-bold">{title1}</h1>
       </ScrollAnimation>
       <ScrollAnimation type="fade-left">
-        <h1 className="block text-[#bb9a74] text-3xl lg:text-6xl font-bold">
+        <h1 className="block text-[#bb9a74] text-3xl lg:text-7xl font-bold">
           {title2}
         </h1>
       </ScrollAnimation>

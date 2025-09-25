@@ -30,7 +30,7 @@ export default async function Invest() {
   const marketAnalysisData = await getStaticMarketAnalysis();
   const startYourJournyData = await getStaticStartYourJourny();
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col items-center">
       <Hero heroData={homePageHero} invest={true} minHeight="min-h-screen">
         <ScrollAnimation>
           <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center mt-9">

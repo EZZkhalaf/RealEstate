@@ -28,7 +28,7 @@ const InvestmentOpportunities: React.FC<{ investmentOpData: any }> = ({
   // }, []);
 
   return (
-    <div className="flex flex-col w-full  lg:px-50 md:px-13 px-5">
+    <div className="flex flex-col w-full max-w-7xl ">
       <div className="flex flex-col items-center w-full mt-5 ">
         <TitleAtom title={"Investment Opportunities"} />
         <ParagraphDescription

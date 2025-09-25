@@ -110,4 +110,5 @@ export interface ViewButtonAtomInterface {
   hoverTextColor?: string;
   onClick?: any;
   padding?: string;
+  border?: string;
 }

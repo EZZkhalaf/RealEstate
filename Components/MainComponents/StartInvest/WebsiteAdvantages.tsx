@@ -17,7 +17,7 @@ const WebsiteAdvantages: React.FC<{ websiteInfo: any }> = ({ websiteInfo }) => {
             <h3 className="font-semibold text-lg">
               {info?.item?.advantageSmalltitle || "Title"}
             </h3>
-            <p className="text-xs">
+            <p className="text-xs text-white/80 font-md">
               {info?.item?.advantageSmallParagraph || "Paragraph"}
             </p>
           </div>

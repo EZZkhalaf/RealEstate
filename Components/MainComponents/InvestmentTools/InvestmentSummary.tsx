@@ -29,7 +29,7 @@ const InvestmentSummary: React.FC<InvestmentSummaryProps> = ({
   ];
 
   return (
-    <div className="flex flex-col w-full shadow-2xl p-2 lg:p-8">
+    <div className="flex flex-col w-full shadow-2xl p-2 lg:p-3">
       <TitleAtom title={"Investment Summary"} />
       <InvestmentSummaryListing summary={summary} />
     </div>

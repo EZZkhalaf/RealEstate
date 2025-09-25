@@ -29,7 +29,7 @@ const CardBodyButtons: React.FC<{ viewDetailsClick: (e: any) => void }> = ({
   viewDetailsClick,
 }) => {
   return (
-    <div className="flex text-2xl  gap-2 w-full pt-3">
+    <div className="flex text-2xl  gap-1 w-full pt-3">
       <ButtonCustomize
         text="View Details"
         onClick={viewDetailsClick}
@@ -56,13 +56,23 @@ const CardBodyArea: React.FC<CardBodyInterface> = ({
 }) => {
   return (
     <div>
-      <div className="flex flex-col  px-4 py-6 rounded-lg transform transition-transform duration-300 ">
+      <div className="flex flex-col  px-4 py-6 rounded-lg transform transition-transform gap-2 duration-300 ">
         <CardTitle title={estate.title} />
-        <CardLocation location={estate.location} />
+        <CardLocation
+          location={
+            estate?.estate_city?.area.name + ", " + estate?.estate_city?.name
+          }
+        />
         <div className="flex items-center gap-4 text-gray-600 mt-2 text-sm">
-          <p>{estate.beds} beds</p>
-          <p>{estate.baths} baths</p>
-          <p>{estate.area}</p>
+          <div className="flex flex-row gap-1 ">
+            <p className="font-bold text-md">{estate.beds}</p>
+            beds
+          </div>
+          <div className="flex flex-row gap-1 ">
+            <p className="font-bold text-md">{estate.baths}</p>
+            baths
+          </div>
+          <p className="font-bold text-md">{estate.area}</p>
         </div>
 
         <FeatureElementListing estate={estate} />

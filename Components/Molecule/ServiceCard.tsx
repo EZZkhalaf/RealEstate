@@ -8,7 +8,7 @@ import { ServiceInterface } from "@/Interface/ServicesInterface";
 
 const ServiceCard: React.FC<{ service: ServiceInterface }> = ({ service }) => {
   return (
-    <div className="flex flex-col bg-gray-200 p-8 gap-4 hover:shadow-lg duration-300">
+    <div className="flex flex-col bg-gray-100 p-8 gap-4 hover:shadow-lg duration-300 rounded-lg">
       <IconAtom icon={service.icon} />
 
       <TitleAtom title={service.title} />

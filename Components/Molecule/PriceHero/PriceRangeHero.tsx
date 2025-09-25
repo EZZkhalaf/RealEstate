@@ -17,11 +17,11 @@ const PriceRangeHero: React.FC<PriceRangeHeroInterface> = ({
 }) => {
   return (
     <div className="w-full flex items-center max-w-xl  bg-white rounded-xl ">
-      <p className="text-sm font-medium text-gray-700 whitespace-nowrap">
+      <p className="text-sm font-semibold text-gray-700 whitespace-nowrap">
         Price Range :{" "}
       </p>
 
-      <div className="w-full flex flex-col items-center max-w-xl p-6 bg-gray-100 rounded-xl flex-1">
+      <div className="w-full flex flex-col items-center max-w-xl p-6  rounded-xl flex-1">
         <div className="relative w-full h-6">
           <div className="absolute top-1/2 w-full h-2 bg-gray-300 rounded -translate-y-1/2"></div>
 

@@ -29,7 +29,7 @@ export default async function Home() {
   const contactUsData = await getStaticContactUsInfo();
   const footerData = await getStaticFooter();
   return (
-    <div className="w-full bg-gray-100">
+    <div className="w-full bg-gray-100 flex flex-col items-center">
       <Hero heroData={homePageHero} image={HeroImage} invest={false}>
         <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center">
           <PriceHero />

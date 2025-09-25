@@ -9,7 +9,9 @@ const TitleAtom: React.FC<TitleAtomProps> = ({
   const defaultClass = `text-${textSizeDefault}`;
 
   return (
-    <h1 className={`${lgClass} ${defaultClass} font-bold text-black`}>
+    <h1
+      className={`${lgClass} ${defaultClass} font-bold text-black whitespace-nowrap`}
+    >
       {title}
     </h1>
   );

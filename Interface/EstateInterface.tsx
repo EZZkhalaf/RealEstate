@@ -26,7 +26,7 @@ export interface EstateInterface {
   baths: number;
   area: string;
   estate_features: any;
-  special_props: string[];
+  special_properties: any;
   actions: string[];
   stats: StatsInterface;
   listing_info: ListingInfoInterface;

@@ -21,7 +21,7 @@ const PriceHero = () => {
   const buttons: string[] = ["Buy", "Sell", "Invest"];
   const [selected, setSelected] = useState(buttons[0] ?? null);
   return (
-    <div className="flex flex-col items-center bg-white shadow-2xl py-5 gap-6 w-full   px-1 rounded-2xl  ">
+    <div className="flex flex-col items-center bg-white shadow-2xl p-8 gap-6 w-full   px-1 rounded-2xl  ">
       <HeroButtonsListing
         buttons={buttons}
         setSelected={setSelected}
@@ -41,7 +41,7 @@ const PriceHero = () => {
             textColor="#FFFFFF"
             hoverTextColor="#FFFFFF"
             rounded="xl"
-            padding="1"
+            padding="0"
           />
         </div>
       </div>

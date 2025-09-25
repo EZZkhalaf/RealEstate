@@ -116,7 +116,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
     debouncedSearch(e.target.value);
   };
   return (
-    <div className="fixed flex flex-col sm:top-1 lg:top-15 lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999   border-b border-b-gray-400 ">
+    <div className="fixed flex flex-col sm:top-1 lg:top-15 lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999    border-b border-b-gray-400 ">
       <InputGray
         type="text"
         placeholder="Address, neighborhood, city, Zip"

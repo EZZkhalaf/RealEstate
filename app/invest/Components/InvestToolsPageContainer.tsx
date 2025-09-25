@@ -40,7 +40,7 @@ const InvestToolsPageContainer = () => {
   const netCashFlow = grossAnnualRent - totalExpenses;
 
   return (
-    <div className="grid grid-cols-1  lg:grid-cols-2 w-full p-8 px-3 lg:px-20 gap-10">
+    <div className="grid grid-cols-1  lg:grid-cols-2 w-full max-w-7xl gap-10">
       <ScrollAnimation>
         <ROICalculator
           loanTerms={loanTerms}

@@ -25,16 +25,8 @@ const MarketInsights: React.FC<{
 }> = ({ marketInsightsData, marketInsightSummaryListingData }) => {
   const marketReports: MarketReportInterface[] = marketInsightsData;
 
-  // const fetchMarkets = async () => {
-  //   const response = await getStaticMarketReports();
-  //   setMarketReports(response);
-  // };
-  // useEffect(() => {
-  //   fetchMarkets();
-  // }, []);
-
   return (
-    <div className="flex flex-col items-center w-full mt-20 px-2 lg:px-25">
+    <div className="flex flex-col items-center w-full mt-20 max-w-7xl">
       <ScrollAnimation>
         <TitleAtom title={"Market Insights"} />
       </ScrollAnimation>

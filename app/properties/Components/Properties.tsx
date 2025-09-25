@@ -13,6 +13,7 @@ import { getStaticEstates, getStaticEstatesFiltered } from "@/API/EstatesApi";
 import { EstateInterface } from "@/Interface/EstateInterface";
 import PagingButtons from "@/Components/Molecule/PagingButtons";
 import { FiltersInterface } from "@/Interface/ServicesInterface";
+import FailedMessage from "@/Components/Atoms/FailedMessage";
 
 export interface PropertiesInterface {
   // filters?: FiltersInterface;
@@ -49,23 +50,29 @@ const Properties: React.FC<PropertiesInterface> = ({
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
-        {estates?.map((e: EstateInterface, index: number) => (
-          <div
-            key={index}
-            // onClick={() => setSelectedEstate(e)}
-            className="rounded-2xl"
-          >
-            <ScrollAnimation>
-              <SingleEstateEelement
-                estate={e}
-                onClick={() => setPressedEstate(e)}
-                viewDetailsClick={() => setSelectedEstate(e)}
-              />
-            </ScrollAnimation>
-          </div>
-        ))}
-      </div>
+      {estates && estates.length > 0 ? (
+        <div
+          className={`grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 `}
+        >
+          {estates?.map((e: EstateInterface, index: number) => (
+            <div
+              key={index}
+              // onClick={() => setSelectedEstate(e)}
+              className="rounded-2xl"
+            >
+              <ScrollAnimation>
+                <SingleEstateEelement
+                  estate={e}
+                  onClick={() => setPressedEstate(e)}
+                  viewDetailsClick={() => setSelectedEstate(e)}
+                />
+              </ScrollAnimation>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <FailedMessage title="No Estates Found" />
+      )}
       <PagingButtons
         currentPage={currentPage}
         onPageChange={onPageChange}
@@ -80,7 +87,7 @@ const Properties: React.FC<PropertiesInterface> = ({
         />
       )}
 
-      <SmallTitle title="Similar Results Nearby" additionalCss="text-3xl p-0" />
+      {/* <SmallTitle title="Similar Results Nearby" additionalCss="text-3xl p-0" />
       <p className="text-xs px-4 mt-2">Results Within 4 miles</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
@@ -95,7 +102,7 @@ const Properties: React.FC<PropertiesInterface> = ({
             </ScrollAnimation>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* <Footer /> */}
     </div>

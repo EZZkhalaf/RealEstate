@@ -26,7 +26,7 @@ const MarketAnalysis: React.FC<{ markets: MarketInterface[] }> = ({
   //   fetchMarkets();
   // }, []);
   return (
-    <div className="grid grid-cols-1  w-full mt-20  lg:px-30 md:px-10 px-5 mb-10">
+    <div className="grid grid-cols-1  w-full mt-20  max-w-7xl mb-10">
       <div className="flex flex-col items-center">
         <TitleAtom title={"Market Analysis"} />
         <ParagraphDescription

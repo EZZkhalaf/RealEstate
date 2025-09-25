@@ -19,7 +19,7 @@ const OurAgents: React.FC<{ agentsData: any }> = ({ agentsData }) => {
   //   fetchAgents();
   // }, []);
   return (
-    <div className="grid grid-cols-1 mt-20">
+    <div className="grid grid-cols-1 mt-20 w-full max-w-7xl">
       <div className="flex flex-col items-center">
         <ScrollAnimation>
           <TitleAtom title={"Meet Our Agents"} />

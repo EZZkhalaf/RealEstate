@@ -12,7 +12,7 @@ const InvestmentSummaryListing: React.FC<{ summary: any }> = ({ summary }) => {
                 ? "bg-[#0B3557] text-white font-bold"
                 : "bg-gray-200"
             }
-            p-2 flex justify-between mt-3 rounded-lg`}
+            p-4 flex justify-between mt-3 rounded-lg`}
         >
           <h1 className="">{element.name}</h1>
           <p className=" font-bold">{element.sum}</p>

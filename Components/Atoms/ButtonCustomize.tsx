@@ -13,6 +13,7 @@ interface ButtonCutomizeInterface {
   rounded?: string;
   padding?: string;
   onClick?: any;
+  width?: string;
 }
 const ButtonCustomize: React.FC<ButtonCutomizeInterface> = ({
   icon,
@@ -24,6 +25,7 @@ const ButtonCustomize: React.FC<ButtonCutomizeInterface> = ({
   rounded = "lg",
   padding = "2",
   onClick,
+  width = " w-full",
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   return (
@@ -31,7 +33,7 @@ const ButtonCustomize: React.FC<ButtonCutomizeInterface> = ({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-row w-fit h-full items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-${padding} w-full justify-center rounded-${rounded} whitespace-nowrap border border-gray-300 font-bold text-sm duration-300`}
+      className={`flex flex-row w-fit h-full items-center bg-[#${color}] hover:bg-${hoverColor} text-[#${textColor}] hover:text-${hoverTextColor} gap-2 p-${padding} w-full justify-center rounded-${rounded} whitespace-nowrap border border-gray-300 font-semibold  duration-300`}
       style={{
         backgroundColor: isHovered ? hoverColor : color,
         color: isHovered ? hoverTextColor : textColor,
@@ -45,7 +47,7 @@ const ButtonCustomize: React.FC<ButtonCutomizeInterface> = ({
           className="font-bold"
         />
       )}
-      <p className="font-medium  text-xs">{text}</p>
+      <p className="font-semibold  text-sm">{text}</p>
     </button>
   );
 };

@@ -31,21 +31,21 @@ const KeyMarketInsight = () => {
     <div className=" rounded-lg shadow-2xl py-7 gap-7  lg:px-7 md:px-5 px-2 flex flex-col mt-10">
       <IconWithText
         icon={"trending-up"}
-        text={"Market Key Insight"}
-        textColor="gap-3     text-xl font-bold"
+        text={"Key Market Insights"}
+        textColor="gap-3     text-xl font-semibold"
       />
       <div className="grid grid-cols-1 md:grid-col-3 lg:grid-cols-3 gap-2 ">
         {marketHighlights.map((market, index: number) => (
           <div
             key={index}
-            className="flex flex-col items-center bg-gray-200 px-7 py-2 rounded-lg"
+            className="flex flex-col items-center bg-gray-200 p-6 rounded-lg"
           >
             <p
               className={`${
                 market.title === "Average Market Growth"
                   ? "text-green-700"
                   : "text-blue-600"
-              } font-bold text-lg`}
+              } font-bold text-3xl`}
             >
               {market.value}
             </p>

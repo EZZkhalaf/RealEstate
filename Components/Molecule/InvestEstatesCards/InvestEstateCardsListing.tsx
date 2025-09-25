@@ -19,7 +19,7 @@ const InvestEstateCardsListing: React.FC<EstateCardsInterface> = ({
 
   return (
     <div className="flex flex-col items-center w-full lg:px-50 md:px-13 px-5 ">
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 min-w-full  px-3 gap-8 ">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 min-w-full  px-3 gap-8 ">
         {estates?.map((e: any, index: number) => (
           <div key={index} className="rounded-2xl">
             <ScrollAnimation>
