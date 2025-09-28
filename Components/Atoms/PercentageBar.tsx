@@ -7,7 +7,13 @@ const PercentageBar: React.FC<{ fund_percentage: number }> = ({
       <div
         className="bg-green-500 h-3 rounded-full"
         style={{
-          width: `${fund_percentage >= 100 ? "100" : fund_percentage}%`,
+          width: `${
+            fund_percentage >= 100
+              ? "100"
+              : fund_percentage < 0
+              ? "0"
+              : fund_percentage
+          }%`,
         }}
       ></div>
     </div>

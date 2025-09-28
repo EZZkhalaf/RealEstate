@@ -6,7 +6,6 @@ import GrayLine from "./Atoms/GrayLine";
 import { ServiceInterface } from "@/Interface/ServicesInterface";
 
 const OurServices: React.FC<{ ourServices: any }> = ({ ourServices }) => {
-  // const [services, setServices] = useState<ServiceInterface[]>(ourServices);
   const services: ServiceInterface[] = ourServices;
 
   return (

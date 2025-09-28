@@ -1,7 +1,6 @@
 import PriceHero from "@/Components/MainComponents/Hero/PriceHero";
 import Hero from "../Components/Hero";
 import HeroImage from "../public/assets/HeroImage.jpg";
-
 import FeaturedProp from "@/Components/FeaturedProp";
 import OurServices from "@/Components/OurServices";
 import InvestmentTools from "@/Components/InvestmentTools";

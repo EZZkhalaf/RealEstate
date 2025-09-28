@@ -50,7 +50,13 @@ const FundProgress: React.FC<{
           <p className="text-green-500 ">{fund_amount.toLocaleString()}</p>
         </div>
         <div className="text-gray-500    text-sm">
-          {fund_percentage.toLocaleString()}% funded
+          {(fund_percentage > 100
+            ? 100
+            : fund_percentage < 0
+            ? 0
+            : fund_percentage
+          ).toLocaleString()}
+          % funded
         </div>
       </div>
       <PercentageBar fund_percentage={fund_percentage || 0} />

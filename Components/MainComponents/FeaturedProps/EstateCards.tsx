@@ -18,7 +18,7 @@ const EstateCards: React.FC<EstateCardsInterface> = ({
 }) => {
   let slicedInvestEstates: EstateInterface[] | InvestEstateInterface[];
   if (invest) {
-    slicedInvestEstates = estates?.slice(0, 4);
+    slicedInvestEstates = estates?.slice(0, 6);
   } else slicedInvestEstates = [];
 
   return (
