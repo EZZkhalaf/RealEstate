@@ -1,36 +1,65 @@
-import React from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import TitleAtom from "../../Atoms/TitleAtom";
 import ParagraphDescription from "../../Atoms/ParagraphDescription";
 import InputGray from "../../Atoms/InputGray";
 import SubmitButton from "../../Atoms/SubmitButton";
 import SingleCheckBox from "../../Atoms/SingleCheckBox";
+import { contactAgent } from "@/API/AgnetsApi";
 
-const AgentContactForm = () => {
+const AgentContactForm: React.FC<{ estate_id: number }> = ({ estate_id }) => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+
+  const submitAgentForm = async () => {
+    console.log(estate_id);
+    try {
+      const response = await contactAgent(
+        name,
+        phone,
+        email,
+        message,
+        estate_id
+      );
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="flex flex-col gap-4 ">
       <TitleAtom title={"Contact a Buyer Agent"} />
       <p className="text-gray-500 text-md ">
         Connect with a local buyer’s agent who advertises with Zillow.
       </p>
-      <form className="flex flex-col gap-2">
+      <form onSubmit={() => submitAgentForm()} className="flex flex-col gap-2">
         <InputGray
           type={"text"}
           header={"Name"}
-          placeholder={" "}
+          placeholder={""}
           additionalCss={"border border-gray-400 hover:border-blue-500"}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <div className="grid grid-cols-2 gap-2">
           <InputGray
-            placeholder={""}
-            header={"Phone"}
-            type={"number"}
-            additionalCss={"border border-gray-400 hover:border-blue-500"}
+            placeholder=""
+            header="Phone"
+            type="text"
+            additionalCss="border border-gray-400 hover:border-blue-500"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
+
           <InputGray
             placeholder={" "}
             header={"Email"}
             type={"email"}
             additionalCss={"border border-gray-400 hover:border-blue-500"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -40,12 +69,15 @@ const AgentContactForm = () => {
             className={`flex justify-around items-center bg-gray-200 rounded-lg p-2 w-full font-semibold border border-gray-400 hover:border-blue-500`}
           >
             <textarea
+              rows={5}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className={`bg-gray-200 rounded-lg py-1 w-full border-none `}
             />
           </div>
         </div>
 
-        <SubmitButton text={"Contact an Agent"} />
+        <SubmitButton type={"submit"} text={"Contact an Agent"} />
       </form>
       <SingleCheckBox text={"I want financing information"} noPadding={true} />
       <p className="text-[10px]">

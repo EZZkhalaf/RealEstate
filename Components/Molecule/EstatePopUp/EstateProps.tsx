@@ -48,7 +48,6 @@ const EstateStats: React.FC<EstateStatsInterface> = ({
   saves,
   views,
 }) => {
-  console.log("days on market ? : ", days_on_market, views, saves);
   return (
     <div className="flex gap-3 mt-4">
       <div className="flex gap-1">
@@ -67,51 +66,11 @@ const EstateStats: React.FC<EstateStatsInterface> = ({
   );
 };
 
-// interface ListingByInterface {
-//   name: string;
-//   id: number;
-//   contact: string | null;
-// }
-// interface AgentsActionsInterface {
-//   last_checked: string;
-//   listing_updated: string;
-//   list: ListingByInterface[];
-// }
-// const AgentsActions: React.FC<AgentsActionsInterface> = ({
-//   last_checked,
-//   listing_updated,
-//   list,
-// }) => {
-//   return (
-//     <div>
-//       <div className="text-sm flex gap-1">
-//         <p className="font-bold ">Last Checked : </p>
-//         {last_checked}
-//       </div>
-//       <div className="text-sm flex gap-1">
-//         <p className="font-bold">Listing Updated : </p>
-//         {listing_updated}
-//       </div>
-//       <br></br>
-//       <p className="text-gray-800 font-bold text-sm">Listing By:</p>
-//       <div className="grid lg:grid-cols-2 grid-cols-1">
-//         {list?.map((l, indx: number) => (
-//           <div key={indx} className="flex gap-1 text-sm">
-//             <p>{l.name}</p>
-//             <p className="font-bold">{l.contact || "no contact"}</p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
 interface EstatePropsInterface {
   estate: EstateInterface;
   estates?: EstateInterface[];
 }
 const EstateProps: React.FC<EstatePropsInterface> = ({ estate, estates }) => {
-  console.log(estate);
   const icons: string[] = [
     "home-outline",
     "calendar-outline",
@@ -119,6 +78,11 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate, estates }) => {
     "crop-square",
     "account-group-outline",
   ];
+  // const [name, setName] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
+  // const [phone, setPhone] = useState<string>("");
+  // const [message, setMessage] = useState<string>("");
+
   return (
     <div className="flex flex-col gap-1">
       <button className="flex underline text-blue-700 hover:text-blue-800 font-bold transform duration-300">
@@ -176,12 +140,7 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate, estates }) => {
         views={estate?.views || 0}
         saves={estate?.saves || 0}
       />
-      {/* 
-      <AgentsActions
-        last_checked={estate?.listing_info?.last_checked}
-        listing_updated={estate?.listing_info?.listing_updated}
-        list={estate?.listing_info?.listing_by}
-      /> */}
+
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
 
       <div className="max-w-full">
@@ -192,7 +151,7 @@ const EstateProps: React.FC<EstatePropsInterface> = ({ estate, estates }) => {
 
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
 
-      <AgentContactForm />
+      <AgentContactForm estate_id={estate?.id} />
       <div className="bg-gray-300 w-full h-0.5 mt-5 mb-5"></div>
     </div>
   );

@@ -1,117 +1,154 @@
+import { buildUrl, ENDPOINTS } from "./api.config";
+
 // const TOKEN = "erEJU7IDSxghSVFDnwDh1ZyeELkKWnGR";
+// export async function getStaticEstates(
+//   page: number = 1,
+//   genre: string = "All Properties",
+//   sort: string | number = "Low to High"
+// ) {
+//   const genreFilter =
+//     genre !== "All Properties"
+//       ? `&filter[type][_eq]=${genre.toLowerCase()}`
+//       : "";
+
+//   let sortQuery = "";
+//   if (sort === "Low to High") sortQuery = "&sort=price";
+//   if (sort === "High to Low") sortQuery = "&sort=-price";
+//   if (sort === "Square Footage") sortQuery = "&sort=area";
+//   try {
+//     const response = await fetch(
+//       // `http://localhost:8055/items/estateCard?fields=id,title,estate_city.*,estate_city.area.*,type,price,estate_features,beds,baths,area,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
+//       buildUrl(ENDPOINTS.ESTATES.estate_card, {fields :"id,title,estate_city.*,estate_city.area.*,type,price,estate_features,beds,baths,area,images.*" , page , limit : 6 , filter : genreFilter , sort  :sortQuery })
+//     );
+//     const result = await response.json();
+//     // console.log(result);
+//     return result.data;
+//   } catch (error) {
+//     console.error(error);
+//     return [];
+//   }
+// }
+
 export async function getStaticEstates(
   page: number = 1,
   genre: string = "All Properties",
   sort: string | number = "Low to High"
 ) {
-  const genreFilter =
-    genre !== "All Properties"
-      ? `&filter[type][_eq]=${genre.toLowerCase()}`
-      : "";
+  const filters: Record<string, string> = {};
 
-  let sortQuery = "";
-  if (sort === "Low to High") sortQuery = "&sort=price";
-  if (sort === "High to Low") sortQuery = "&sort=-price";
-  if (sort === "Square Footage") sortQuery = "&sort=area";
+  if (genre !== "All Properties") {
+    filters["filter[type][_eq]"] = genre.toLowerCase();
+  }
+
+  let sortValue = "";
+  if (sort === "Low to High") sortValue = "price";
+  if (sort === "High to Low") sortValue = "-price";
+  if (sort === "Square Footage") sortValue = "area";
+
   try {
-    const response = await fetch(
-      `http://localhost:8055/items/estateCard?fields=id,title,estate_city.*,estate_city.area.*,type,price,estate_features,beds,baths,area,images.*&page=${page}&limit=6${genreFilter}${sortQuery}`
-    );
+    const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
+      fields:
+        "id,title,estate_city.*,estate_city.area.*,type,price,estate_features,beds,baths,area,images.*",
+      page,
+      limit: 6,
+      ...(sortValue ? { sort: sortValue } : {}),
+      ...filters,
+    });
+
+    const response = await fetch(url);
     const result = await response.json();
     return result.data;
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching estates:", error);
     return [];
   }
 }
-
 export async function getStaticEstatesFiltered(
   page: number = 1,
   genre: string = "All Properties",
   sort: string = "Low to High",
   filters: any = {}
 ) {
-  // console.log(filters);
-  const queryParts: string[] = [];
+  const queryParts: Record<string, string> = {};
 
   // Genre (property type)
   if (genre !== "All Properties") {
-    queryParts.push(`filter[home_type][_eq]=${genre.toLowerCase()}`);
+    queryParts[`filter[home_type][_eq]`] = genre.toLowerCase();
   }
 
   // Sorting
-  if (sort === "Low to High") queryParts.push("sort=price");
-  if (sort === "High to Low") queryParts.push("sort=-price");
-  if (sort === "Square Footage") queryParts.push("sort=area");
+  if (sort === "Low to High") queryParts["sort"] = "price";
+  if (sort === "High to Low") queryParts["sort"] = "-price";
+  if (sort === "Square Footage") queryParts["sort"] = "area";
 
   // Beds
   if (filters?.bedsAndBaths?.beds) {
-    queryParts.push(`filter[beds][_gte]=${filters.bedsAndBaths.beds}`);
+    queryParts[`filter[beds][_gte]`] = filters.bedsAndBaths.beds;
   }
 
   // Baths
   if (filters?.bedsAndBaths?.baths) {
-    queryParts.push(`filter[baths][_gte]=${filters.bedsAndBaths.baths}`);
+    queryParts[`filter[baths][_gte]`] = filters.bedsAndBaths.baths;
   }
 
-  if (
-    (filters?.priceRange?.min && filters?.priceRange?.min !== "0") ||
-    (filters?.priceRange?.max && filters?.priceRange?.max !== "0")
-  ) {
-    if (filters?.priceRange?.min) {
-      queryParts.push(`filter[price][_gte]=${filters?.priceRange?.min}`);
-    }
-    if (filters?.priceRange?.max) {
-      queryParts.push(`filter[price][_lte]=${filters?.priceRange?.max}`);
-    }
+  // Price range
+  if (filters?.priceRange?.min && filters.priceRange.min !== "0") {
+    queryParts[`filter[price][_gte]`] = filters.priceRange.min;
+  }
+  if (filters?.priceRange?.max && filters.priceRange.max !== "0") {
+    queryParts[`filter[price][_lte]`] = filters.priceRange.max;
   }
 
   // Sale type (For Sale, Sold, For Rent)
   if (filters.saleType && filters.saleType !== "All") {
-    queryParts.push(`filter[sale_type][_eq]=${filters.saleType.toLowerCase()}`);
+    queryParts[`filter[sale_type][_eq]`] = filters.saleType.toLowerCase();
   }
 
   // View (array – match any)
   if (filters.view?.length) {
-    filters.view.forEach((v: string) =>
-      queryParts.push(`filter[otherFilters][view][_contains]=${v}`)
-    );
+    filters.view.forEach((v: string, i: number) => {
+      queryParts[`filter[otherFilters][view][_contains][${i}]`] = v;
+    });
   }
 
   // Listing type (array – Owner posted, Agent listed, etc.)
   if (filters.listingType?.length) {
-    filters.listingType.forEach((lt: string) =>
-      queryParts.push(`filter[otherFilters][listingType][_contains]=${lt}`)
-    );
+    filters.listingType.forEach((lt: string, i: number) => {
+      queryParts[`filter[otherFilters][listingType][_contains][${i}]`] = lt;
+    });
   }
 
   // Must have garage
   if (filters.mustHaveGarage === true) {
-    queryParts.push(`filter[otherFilters][mustHaveGarage][_eq]=true`);
+    queryParts[`filter[otherFilters][mustHaveGarage][_eq]`] = "true";
   }
 
   // Parking spots
   if (filters.parkingSpots) {
-    queryParts.push(
-      `filter[otherFilters][parkingSpots][_gte]=${filters.parkingSpots}`
-    );
+    queryParts[`filter[otherFilters][parkingSpots][_gte]`] =
+      filters.parkingSpots;
   }
 
   // Location (contains text match)
   if (filters.certainLLocation) {
-    queryParts.push(
-      `filter[otherFilters][certainLLocation][_contains]=${filters.certainLLocation}`
-    );
+    queryParts[`filter[otherFilters][certainLLocation][_contains]`] =
+      filters.certainLLocation;
   }
 
-  // 👇 use offset instead of page
+  // Offset for pagination
   const offset = (page - 1) * 6;
-  const queryString = queryParts.length ? `&${queryParts.join("&")}` : "";
 
   try {
-    const response = await fetch(
-      `http://localhost:8055/items/estateCard?fields=id,title,location,special_properties,type,price,estate_features,beds,baths,area,images.*,longitude,latitude,sale_type,estate_city.*,estate_city.area.*&limit=6&offset=${offset}&meta=*&${queryString}`
-    );
+    const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
+      fields:
+        "id,title,location,special_properties,type,price,estate_features,beds,baths,area,images.*,longitude,latitude,sale_type,estate_city.*,estate_city.area.*",
+      limit: 6,
+      offset,
+      meta: "*",
+      ...queryParts,
+    });
+
+    const response = await fetch(url);
     const result = await response.json();
 
     return {
@@ -126,7 +163,7 @@ export async function getStaticEstatesFiltered(
         : null,
     };
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching filtered estates:", error);
     return { data: [], pagination: null };
   }
 }
@@ -134,10 +171,10 @@ export async function getStaticEstatesFiltered(
 export async function getStaticSingleEstate(id: string) {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/estateCard/${id}?fields=*,images.*,estate_city.*,estate_city.area.*,estate_agent.*`
-      // {
-      //   cache: "force-cache",
-      // }
+      // `http://localhost:8055/items/estateCard/${id}?fields=*,images.*,estate_city.*,estate_city.area.*,estate_agent.*`
+      buildUrl(ENDPOINTS.ESTATES.estate_info(id), {
+        fields: "*,images.*,estate_city.*,estate_city.area.*,estate_agent.*",
+      })
     );
 
     const result = await response.json();
@@ -151,14 +188,14 @@ export async function getStaticSingleEstate(id: string) {
 export async function getStaticSearchEstateFields() {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/Estate_filtering_options?fields=*,sale_type.*`
-      // {
-      //   cache: "force-cache",
-      // }
+      // `http://localhost:8055/items/Estate_filtering_options?fields=*,sale_type.*`
+      buildUrl(ENDPOINTS.ESTATES.estate_filtering_options, {
+        fields: "*,sale_type.*",
+      })
     );
 
     const result = await response.json();
-    return result.data; // this will be the single estate object
+    return result.data;
   } catch (error) {
     console.log(error);
     return error;
@@ -168,14 +205,14 @@ export async function getStaticSearchEstateFields() {
 export async function getStaticInvestementEstates() {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/invest_estates?fields=*,location.item.*,financials.item.*,images.*`
-      // {
-      //   cache: "force-cache",
-      // }
+      // `http://localhost:8055/items/invest_estates?fields=*,location.item.*,financials.item.*,images.*`
+      buildUrl(ENDPOINTS.INVEST.invest_estates, {
+        fields: "*,location.item.*,financials.item.*,images.*",
+      })
     );
 
     const result = await response.json();
-    return result.data; // this will be the single estate object
+    return result.data;
   } catch (error) {
     console.log(error);
     return error;

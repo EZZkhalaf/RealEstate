@@ -5,7 +5,10 @@ export const FilterButton: React.FC<{
 }> = ({ text, selected, onClick }) => {
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick();
+      }}
       className={`text-sm p-1 rounded-lg border px-3  ${
         selected
           ? "bg-gray-800 text-white"

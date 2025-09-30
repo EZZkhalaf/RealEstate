@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import Image from "next/image";
 import IconWithText from "../../Atoms/IconWithText";
@@ -18,7 +16,10 @@ const EstateImages: React.FC<EstateImagesInterface> = ({
   if (!images.length) return null;
 
   return (
-    <div className="flex w-full lg:gap-1 h-[50vh] mb-5">
+    <div
+      className="flex w-full lg:gap-1 h-[50vh] mb-5"
+      onClick={() => setImagesOpen(true)}
+    >
       {/* Main image */}
       {images[0] && (
         <div className="relative flex-[2] h-full">

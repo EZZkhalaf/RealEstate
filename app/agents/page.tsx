@@ -16,7 +16,7 @@ import {
 import { AgentInterface } from "@/Interface/AgentInterface";
 
 export default function Agents() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState<string>("");
 
   const [currentPage, onPageChange] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
@@ -41,7 +41,7 @@ export default function Agents() {
     //   );
     // setAgentSpecialties(specialtiesStrings);
 
-    const locationsCleared2 = locationsAndSpecialties?.map(
+    const locationsCleared2: any = locationsAndSpecialties?.map(
       ({ id, name, cities }) => ({
         id,
         name,
@@ -132,8 +132,6 @@ export default function Agents() {
           onPageChange={onPageChange}
         />
       </ScrollAnimation>
-
-      {/* <Footer /> */}
     </div>
   );
 }

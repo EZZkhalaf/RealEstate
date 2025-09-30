@@ -16,7 +16,7 @@ const FeatureElement: React.FC<FeatureElementInterface> = ({
 }) => {
   return (
     <span
-      className={`bg-${bg} text-${textColor} font-bold text-xs py-${paddingY} px-${paddingX} rounded-lg  w-fit`}
+      className={`bg-${bg} text-${textColor} font-bold text-xs py-${paddingY} px-${paddingX} rounded-lg  w-fit `}
     >
       {text}
     </span>

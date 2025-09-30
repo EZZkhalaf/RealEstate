@@ -1,6 +1,10 @@
+import { buildUrl, ENDPOINTS } from "./api.config";
+
 export async function getStaticFeaturedAgents() {
   try {
-    const response = await fetch(`http://localhost:8055/items/agents?limit=4`);
+    const response = await fetch(
+      buildUrl(ENDPOINTS.AGENTS.agents, { limit: 4 })
+    );
 
     const result = await response.json();
     return result.data;
@@ -24,39 +28,30 @@ export async function getStaticAgents({
   name?: string;
   agentSpecialties?: string;
 }) {
-  const queryParts: string[] = [];
-  console.log(city);
+  const queryParts: Record<string, string> = {}; //as an obj
 
-  // Region
-  // if (region && region !== "All Regions") {
-  //   queryParts.push(`filter[region][_eq]=${encodeURIComponent(region)}`);
-  // }
-
-  // City
   if (city && city !== "All Cities") {
-    queryParts.push(
-      `filter[agent_city][name][_eq]=${encodeURIComponent(city)}`
-    );
+    queryParts["filter[agent_city][name][_eq]"] = city;
   }
 
-  // Name (case-insensitive)
   if (name && name.trim() !== "") {
-    queryParts.push(`filter[name][_icontains]=${encodeURIComponent(name)}`);
+    queryParts["filter[name][_icontains]"] = name;
   }
 
-  // Specialties (array of strings, _contains for each selected specialty)
   if (agentSpecialties && agentSpecialties !== "All Specialties") {
-    queryParts.push(
-      `filter[specialties][_contains]=${encodeURIComponent(agentSpecialties)}`
-    );
+    queryParts[`filter[specialties][_contains]`] = agentSpecialties;
   }
 
   const offset = (page - 1) * limit;
-  const queryString = queryParts.length ? `&${queryParts.join("&")}` : "";
 
   try {
     const response = await fetch(
-      `http://localhost:8055/items/agents?fields=*,image,*,agent_city.*&limit=${limit}&offset=${offset}&meta=*&${queryString}`
+      buildUrl(ENDPOINTS.AGENTS.agents, {
+        limit,
+        offset,
+        meta: "*",
+        ...queryParts,
+      })
     );
 
     const result = await response.json();
@@ -80,7 +75,7 @@ export async function getStaticAgents({
 export async function getStaticLocationsAndSpecialties() {
   try {
     const response = await fetch(
-      `http://localhost:8055/items/saudi_areas?fields=*,cities.*`
+      buildUrl(ENDPOINTS.ESTATES.saudi_areas, { fields: "*,cities.*" })
     );
 
     const result = await response.json();
@@ -88,5 +83,34 @@ export async function getStaticLocationsAndSpecialties() {
   } catch (error) {
     console.log(error);
     return error;
+  }
+}
+
+export async function contactAgent(
+  name: string,
+  phone: string,
+  email: string,
+  message: string,
+  estate_id: number
+) {
+  try {
+    const response = await fetch(buildUrl(ENDPOINTS.AGENTS.contact_agent), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        customer_name: name,
+        phone,
+        customer_email: email,
+        message,
+        contact_estate: estate_id,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
   }
 }

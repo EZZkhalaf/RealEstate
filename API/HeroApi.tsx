@@ -1,9 +1,11 @@
+import { buildUrl, ENDPOINTS } from "./api.config";
+
 export async function getStaticHomePageHero(invest: boolean = false) {
   try {
     const response = await fetch(
       invest
-        ? `http://localhost:8055/items/investPageHero?fields=*`
-        : `http://localhost:8055/items/homePageHero?fields=*`,
+        ? buildUrl(ENDPOINTS.HERO.invest_page_hero, { fields: "*" })
+        : buildUrl(ENDPOINTS.HERO.home_page_hero, { fields: "*" }),
 
       {
         next: { revalidate: 5 },

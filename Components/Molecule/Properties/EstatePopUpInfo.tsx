@@ -57,7 +57,11 @@ const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
   return (
     <div className="fixed inset-0 bg-none bg-opacity-50 flex justify-center items-center z-1000 ">
       <div className="bg-white  px-0 rounded-lg shadow-lg relative lg:w-[80vw] lg:max-w-[80vw] w-[100vw] max-w-[100vw] h-[100vh] max-h-[100vh]  overflow-auto">
-        <EstateHeader onClose={onClose} />
+        <EstateHeader
+          onClose={onClose}
+          imagesOpen={imagesOpen}
+          setImagesOpen={setImagesOpen}
+        />
 
         {imagesOpen ? (
           <EstateAllImages

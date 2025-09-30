@@ -1,6 +1,4 @@
-// Components/MainComponents/InvestPage/EstatesSection.tsx
 "use client";
-
 import { useEffect, useState } from "react";
 import TitleAtom from "@/Components/Atoms/TitleAtom";
 import ParagraphDescription from "@/Components/Atoms/ParagraphDescription";
@@ -10,7 +8,6 @@ import {
   getStaticEstates,
   getStaticInvestementEstates,
 } from "@/API/EstatesApi";
-import InvestEstateCardsListing from "@/Components/Molecule/InvestEstatesCards/InvestEstateCardsListing";
 
 const EstatesSection = () => {
   const [estates, setEstates] = useState<any[]>([]);
