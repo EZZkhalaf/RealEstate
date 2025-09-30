@@ -41,7 +41,9 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
     >
       <div className="flex justify-between p-2">
         <div className="bg-[#0B3557] rounded-lg flex items-center">
-          <p className="text-white text-sm font-semibold px-2">{estate.type}</p>
+          <p className="text-white text-sm font-semibold px-2">
+            {estate?.home_type}
+          </p>
         </div>
         <div className="flex flex-row gap-1 px-2">
           <button className="bg-gray-300 rounded-full p-1 hover:bg-white">
@@ -58,7 +60,9 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
             className="mb-1 bg-white p-1 rounded-md"
             style={{ justifySelf: "flex-start" }}
           >
-            <p className="text-blue-900 font-bold">${estate.price}</p>
+            <p className="text-blue-900 font-bold">
+              ${Number(estate?.price).toLocaleString()}
+            </p>
           </div>
         )}
       </div>

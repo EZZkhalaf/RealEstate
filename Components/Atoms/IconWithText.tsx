@@ -5,6 +5,7 @@ interface IconWithTextInterface {
   text: string;
   textColor?: string;
   bgColor?: string;
+  iconCss?: string;
 }
 
 const IconWithText: React.FC<IconWithTextInterface> = ({
@@ -12,11 +13,12 @@ const IconWithText: React.FC<IconWithTextInterface> = ({
   text,
   textColor = "text-gray-500 text-xs",
   bgColor = "",
+  iconCss = "",
 }) => {
   return (
-    <div className={`flex gap-1 items-center ${bgColor}`}>
-      <Icon icon={`mdi:${icon}`} width={20} />
-      <p className={`${textColor} hover:underline  `}>{text}</p>
+    <div className={`flex gap-1 items-center  ${bgColor}`}>
+      <Icon icon={`mdi:${icon}`} width={15} className={`${iconCss}`} />
+      <p className={`${textColor} hover:underline  leading-none `}>{text}</p>
     </div>
   );
 };

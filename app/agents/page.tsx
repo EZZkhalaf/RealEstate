@@ -34,12 +34,6 @@ export default function Agents() {
 
   const fetchLocationsAndSpecialties = async () => {
     const locationsAndSpecialties = await getStaticLocationsAndSpecialties();
-    // console.log(locationsAndSpecialties);
-    // const specialtiesStrings: string[] =
-    //   locationsAndSpecialties.specialties.blocks.map(
-    //     (block: any) => block.data.text as string
-    //   );
-    // setAgentSpecialties(specialtiesStrings);
 
     const locationsCleared2: any = locationsAndSpecialties?.map(
       ({ id, name, cities }) => ({
@@ -57,7 +51,7 @@ export default function Agents() {
       limit,
       region: selectedRegion,
       city: selectedCity,
-      name: name,
+      name,
       agentSpecialties: selectedSprecialty,
     });
     setAgentsMock(response?.response || []);
@@ -83,6 +77,10 @@ export default function Agents() {
     selectedSprecialty,
   ]);
   useEffect(() => {
+    onPageChange(1);
+  }, [debouncedName, selectedCity, selectedRegion, selectedSprecialty]);
+
+  useEffect(() => {
     fetchLocationsAndSpecialties();
   }, []);
   useEffect(() => {
@@ -96,42 +94,44 @@ export default function Agents() {
   }, [name]);
 
   return (
-    <div className="mt-25 ">
-      <div className="flex flex-col  items-start mb-5 px-20">
-        <ScrollAnimation type="fade-left">
-          <TitleAtom title={"Estate Agents"} />
+    <div className="flex flex-col items-center mt-25 w-full ">
+      <div className="w-full max-w-7xl flex flex-col">
+        <div className="flex flex-col items-center w-full max-w-7xl mb-5">
+          <ScrollAnimation type="fade-left">
+            <TitleAtom title={"Estate Agents"} />
+          </ScrollAnimation>
+          <ScrollAnimation type="fade-left" delay={0.5}>
+            <ParagraphDescription
+              description={`search for the agent by name or region or state.`}
+            />
+          </ScrollAnimation>
+        </div>
+        <ScrollAnimation>
+          <GrayLine width={"w-full"} />
         </ScrollAnimation>
-        <ScrollAnimation type="fade-left" delay={0.5}>
-          <ParagraphDescription
-            description={`search for the agent by name or region or state.`}
+
+        <ScrollAnimation delay={0.5}>
+          <AgentsSearchForm
+            location={saudiLocations}
+            selectedCity={selectedCity}
+            selectedRegion={selectedRegion}
+            setSelectedCity={setSelectedCity}
+            setSelectedRegion={setSelectedRegion}
+            agentName={name}
+            setName={setName}
+          />
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={1}>
+          <AgentsCards
+            agents={agentsMock}
+            isPage={true}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={onPageChange}
           />
         </ScrollAnimation>
       </div>
-      <ScrollAnimation>
-        <GrayLine width={"w-full"} />
-      </ScrollAnimation>
-
-      <ScrollAnimation delay={0.5}>
-        <AgentsSearchForm
-          location={saudiLocations}
-          selectedCity={selectedCity}
-          selectedRegion={selectedRegion}
-          setSelectedCity={setSelectedCity}
-          setSelectedRegion={setSelectedRegion}
-          agentName={name}
-          setName={setName}
-        />
-      </ScrollAnimation>
-
-      <ScrollAnimation delay={1}>
-        <AgentsCards
-          agents={agentsMock}
-          isPage={true}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={onPageChange}
-        />
-      </ScrollAnimation>
     </div>
   );
 }

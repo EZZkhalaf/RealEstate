@@ -22,7 +22,7 @@ const OurServices: React.FC<{ ourServices: any }> = ({ ourServices }) => {
         <GrayLine width={"w-full"} />
       </ScrollAnimation>
 
-      <div className="flex items-center p-5">
+      <div className="flex items-center ">
         <ServicesCards services={services} />
       </div>
     </div>

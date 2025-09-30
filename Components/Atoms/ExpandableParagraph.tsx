@@ -15,7 +15,7 @@ const ExpandableParagraph: React.FC<ExpandableParagraphInterface> = ({
     ? text
     : text?.slice(0, limit) + (isLong ? "..." : "");
   return (
-    <div className="mt-5">
+    <div className="">
       <p className="text-md text-gray-700">{displayText}</p>
       {isLong && (
         <button

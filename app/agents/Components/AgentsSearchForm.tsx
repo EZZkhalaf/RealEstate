@@ -30,7 +30,7 @@ const AgentsSearchForm: React.FC<{
   const cities =
     location?.find((loc) => loc.name === selectedRegion)?.cities || [];
   return (
-    <form className="flex lg:flex-row flex-col w-full items-center gap-4 px-20">
+    <form className="flex lg:flex-row flex-col w-full items-center gap-4 px-1">
       <InputGray
         header={"Name"}
         type={"text"}

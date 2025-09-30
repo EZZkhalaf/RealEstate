@@ -22,7 +22,7 @@ const EstateCards: React.FC<EstateCardsInterface> = ({
   } else slicedInvestEstates = [];
 
   return (
-    <div className=" px-6 ">
+    <div className="w-full max-w-7xl">
       {estates && !invest ? (
         <EstateCardsListing estates={estates} buttonTitle={buttonTitle} />
       ) : (

@@ -72,7 +72,10 @@ const CardBodyArea: React.FC<CardBodyInterface> = ({
             <p className="font-bold text-md">{estate.baths}</p>
             baths
           </div>
-          <p className="font-bold text-md">{estate.area}</p>
+          <div className="flex flex-row gap-1 ">
+            <p className="font-bold text-md">{estate.area}</p>
+            sqft
+          </div>
         </div>
 
         <FeatureElementListing estate={estate} />

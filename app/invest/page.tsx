@@ -5,8 +5,6 @@ import HeroSummary from "@/Components/MainComponents/Hero/HeroSummary";
 import InvestmentOpportunities from "@/app/invest/Components/InvestmentOpportunities";
 
 import InvestmentTools from "@/Components/InvestmentTools";
-import InvestmentAnalysis from "@/Components/MainComponents/InvestPage/InvestmentAnalysis";
-import FinancialBreakDown from "@/Components/MainComponents/InvestPage/FinancialBreakDown";
 import InvestmentStrategies from "@/app/invest/Components/InvestmentStrategies";
 import MarketAnalysis from "@/app/invest/Components/MarketAnalysis";
 import StartInvestment from "@/app/invest/Components/StartInvestment";

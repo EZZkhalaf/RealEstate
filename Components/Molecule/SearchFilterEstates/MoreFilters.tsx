@@ -60,7 +60,6 @@ interface MoreFiltersInterface {
 }
 
 const MoreFilters: React.FC<MoreFiltersInterface> = ({ value, onChange }) => {
-  console.log(value);
   const HOA: number[] = [0, 50, 100, 200, 300, 400, 500, 600];
 
   const parkingSpots: number[] = [1, 2, 3, 4, 5];

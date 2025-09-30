@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import CardBodyArea from "../CardBodyArea";
 import { EstateInterface } from "@/Interface/EstateInterface";
 import CardImageArea from "../CardImageArea";
@@ -7,9 +7,14 @@ import { useRouter } from "next/navigation";
 interface SingleCardInterface {
   estate: EstateInterface;
   suggestion?: boolean;
+  setSelectedEstate?: Dispatch<SetStateAction<any>>;
 }
 
-const SingleCard: React.FC<SingleCardInterface> = ({ estate, suggestion }) => {
+const SingleCard: React.FC<SingleCardInterface> = ({
+  estate,
+  suggestion,
+  setSelectedEstate,
+}) => {
   const [imageHover, setImageHover] = useState<boolean>(false);
   const router = useRouter();
   return (
@@ -21,7 +26,11 @@ const SingleCard: React.FC<SingleCardInterface> = ({ estate, suggestion }) => {
       />
       <CardBodyArea
         estate={estate}
-        viewDetailsClick={() => router.push("/properties")}
+        viewDetailsClick={
+          setSelectedEstate
+            ? (e: any) => setSelectedEstate(estate)
+            : (e: any) => router.push("/properties")
+        }
         // imageHover={imageHover}
         // setImageHover={setImageHover}
       />

@@ -51,10 +51,8 @@ const FeaturedProp = () => {
   }, [selectedGenre, sortOption]);
 
   const filterOptions: string[] = ["Low to High", "High to Low"];
-  // if (loading) return <Loading />;
   return (
-    // <div className="w-full  flex flex-col  mt-20  lg:pr-25 lg:pl-25 lg:px-20  px-5">
-    <div className="w-full  flex flex-col  mt-20  max-w-7xl  px-5">
+    <div className="w-full  flex flex-col  mt-20  max-w-7xl  ">
       <div className="flex flex-col items-center w-full">
         <TitleAtom title={"Featured Properties"} />
         <ParagraphDescription

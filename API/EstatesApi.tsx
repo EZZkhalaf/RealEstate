@@ -48,11 +48,32 @@ export async function getStaticEstates(
   try {
     const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
       fields:
-        "id,title,estate_city.*,estate_city.area.*,type,price,estate_features,beds,baths,area,images.*",
+        "id,title,estate_city.*,estate_city.area.*,home_type,price,estate_features,beds,baths,area,images.*",
       page,
       limit: 6,
       ...(sortValue ? { sort: sortValue } : {}),
       ...filters,
+    });
+
+    const response = await fetch(url);
+    const result = await response.json();
+    console.log(response);
+    return result.data;
+  } catch (error) {
+    console.error("Error fetching estates:", error);
+    return [];
+  }
+}
+
+export async function getSimilarEstates(city: string, estate_id: number) {
+  try {
+    console.log("working");
+    const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
+      fields:
+        "id,title,estate_city.*,estate_city.area.*,home_type,price,estate_features,beds,baths,area,images.*",
+      limit: 3,
+      [`filter[estate_city][name][_eq]`]: city,
+      [`filter[id][_neq]`]: estate_id,
     });
 
     const response = await fetch(url);
@@ -141,7 +162,7 @@ export async function getStaticEstatesFiltered(
   try {
     const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
       fields:
-        "id,title,location,special_properties,type,price,estate_features,beds,baths,area,images.*,longitude,latitude,sale_type,estate_city.*,estate_city.area.*",
+        "id,title,special_properties,home_type,price,estate_features,beds,baths,area,images.*,longitude,latitude,sale_type,estate_city.*,estate_city.area.*",
       limit: 6,
       offset,
       meta: "*",

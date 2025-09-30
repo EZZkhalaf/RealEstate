@@ -55,11 +55,7 @@ const Properties: React.FC<PropertiesInterface> = ({
           className={`grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 `}
         >
           {estates?.map((e: EstateInterface, index: number) => (
-            <div
-              key={index}
-              // onClick={() => setSelectedEstate(e)}
-              className="rounded-2xl"
-            >
+            <div key={index} className="rounded-2xl">
               <ScrollAnimation>
                 <SingleEstateEelement
                   estate={e}
@@ -83,28 +79,10 @@ const Properties: React.FC<PropertiesInterface> = ({
         <EstatePopUpInfo
           estate_id={selectedEstate.id}
           onClose={() => setSelectedEstate(null)}
-          estates={estates?.slice(0, 4)}
+          setSelectedEstate={setSelectedEstate}
+          // estates={estates?.slice(0, 4)}
         />
       )}
-
-      {/* <SmallTitle title="Similar Results Nearby" additionalCss="text-3xl p-0" />
-      <p className="text-xs px-4 mt-2">Results Within 4 miles</p>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 ">
-        {estates?.map((e, index: number) => (
-          <div
-            key={index}
-            onClick={() => router.push(`/properties/${index}`)}
-            className="rounded-2xl"
-          >
-            <ScrollAnimation>
-              <SingleEstateEelement estate={e} />
-            </ScrollAnimation>
-          </div>
-        ))}
-      </div> */}
-
-      {/* <Footer /> */}
     </div>
   );
 };

@@ -8,11 +8,14 @@ import { ServiceInterface } from "@/Interface/ServicesInterface";
 
 const ServiceCard: React.FC<{ service: ServiceInterface }> = ({ service }) => {
   return (
-    <div className="flex flex-col bg-gray-100 p-8 gap-4 hover:shadow-lg duration-300 rounded-lg">
+    <div className="flex flex-col bg-gray-100 p-6 gap-2 hover:shadow-lg duration-300 rounded-lg min-h-fit">
       <IconAtom icon={service.icon} />
 
       <TitleAtom title={service.title} />
-      <ParagraphDescription description={service.description} />
+      <ParagraphDescription
+        description={service.description}
+        textAlignment="text-start"
+      />
 
       <div className="mt-7 gap-4 mb-6">
         {service.features.map((f, index: number) => (

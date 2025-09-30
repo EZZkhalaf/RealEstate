@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { ListingByAgentInterface } from "./AgentInterface";
 
 export interface GeneresInterface {
@@ -113,7 +114,8 @@ export interface ContactAgentButtonsInterface {
 export interface EstatePopUpInfoInterface {
   estate_id: any;
   onClose: any;
-  estates?: EstateInterface[];
+  // estates?: EstateInterface[];
+  setSelectedEstate?: Dispatch<SetStateAction<any>>;
 }
 
 export interface SingleEstateEelementInterface {

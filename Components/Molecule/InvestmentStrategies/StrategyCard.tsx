@@ -33,7 +33,7 @@ const StrategyCard: React.FC<StrategyCardInterface> = ({ strategy }) => {
   //   link: "Learn More",
   // },
   return (
-    <div className="flex flex-col gap-2 rounded-lg   hover:shadow-lg py-2 px-5 transform-content duration-400">
+    <div className="flex flex-col gap-2 rounded-lg   hover:shadow-lg py-2  transform-content duration-400">
       <div className="flex gap-2 mb-2 items-center">
         <IconAtom icon={strategy.icon} />
         <div className="flex flex-col gap-1 ">
