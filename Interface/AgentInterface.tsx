@@ -16,8 +16,9 @@ export interface AgentInterface {
   image: string;
   sales: string;
   experience: string;
-  specialties: string[];
   agentImage?: string;
+  agent_city?: any;
+  agent_specialties?: any;
 }
 
 export interface LocationInterface {
@@ -33,5 +34,5 @@ export interface AgentCardInterface {
 export interface ImageAndNameProfileProps {
   image?: string;
   name?: string;
-  locations?: string[];
+  locations?: any;
 }

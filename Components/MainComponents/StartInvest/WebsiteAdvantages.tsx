@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 const WebsiteAdvantages: React.FC<{ websiteInfo: any }> = ({ websiteInfo }) => {
   return (
     <div className="w-full flex justify-around px-10 text-white mb-6">
-      {websiteInfo?.map((info: any, index: number) => (
+      {websiteInfo?.slice(0, 3).map((info: any, index: number) => (
         <div className="flex flex-col items-center" key={index}>
           <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
             <Icon

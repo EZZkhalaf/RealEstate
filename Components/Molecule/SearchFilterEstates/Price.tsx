@@ -14,13 +14,14 @@ interface PriceProps {
     downPayment?: number;
     creditScore?: number;
   };
-  onChange: (value: {
-    min: any;
-    max: any;
-    paymentType?: string | null;
-    downPayment?: number;
-    creditScore?: number;
-  }) => void;
+  // onChange: (value: {
+  //   min: any;
+  //   max: any;
+  //   paymentType?: string | null;
+  //   downPayment?: number;
+  //   creditScore?: number;
+  // }) => void;
+  onChange: any;
   options: {
     min: number[];
     max: number[];
@@ -61,14 +62,7 @@ const PaymentButtons: React.FC<{
   );
 };
 const Price: React.FC<PriceProps> = ({ value, onChange, options }) => {
-  // const max = 16000000;
-  // const step = 100000;
-  // const options = Array.from({ length: max / step + 1 }, (_, i) => i * step);
-
-  const downPaymentOptions = [5000, 10000, 20000, 50000, 100000, 200000];
-  const creditScoreOptions = [300, 400, 500, 600, 700, 800, 850];
-
-  const handlePaymentTypeChange = (type: string | null) => {
+  const handlePaymentTypeChange = (type: any | null) => {
     onChange({ ...value, paymentType: type });
   };
 
@@ -101,7 +95,7 @@ const Price: React.FC<PriceProps> = ({ value, onChange, options }) => {
       />
 
       {value?.paymentType === "monthlyPayment" && (
-        <div className="flex flex-col gap-4 px-4 w-full">
+        <div className="flex flex-col gap-4 px-4 w-full mb-4">
           <p className="text-xs text-gray-500">
             Includes estimated principal and interest, mortgage insurance,
             property taxes, home insurance and HOA fees.

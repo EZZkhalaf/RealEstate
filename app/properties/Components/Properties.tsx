@@ -43,8 +43,8 @@ const Properties: React.FC<PropertiesInterface> = ({
 }) => {
   return (
     <div className="flex flex-col lg:mt-15 md:mt-15 mt-50 px-5 py-5 max-h-[100vh] overflow-auto">
-      <div className="flex flex-col gap-1 items-start ">
-        <TitleAtom title="Real Estates & Homes For Sale" />
+      <div className="flex flex-col items-center gap-1  px-1">
+        <TitleAtom title="Real Estates & Homes For Sale" textSizeDefault="xl" />
         <ParagraphDescription
           description={`${totalCount} Properties for Sale in Saudi , explore hundreds of available and good structure estates.`}
         />

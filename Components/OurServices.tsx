@@ -7,7 +7,6 @@ import { ServiceInterface } from "@/Interface/ServicesInterface";
 
 const OurServices: React.FC<{ ourServices: any }> = ({ ourServices }) => {
   const services: ServiceInterface[] = ourServices;
-
   return (
     <div className="flex flex-col items-center mt-20  max-w-7xl">
       <ScrollAnimation>

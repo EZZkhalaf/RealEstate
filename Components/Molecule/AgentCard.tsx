@@ -24,7 +24,17 @@ const ImageAndNameProfile: React.FC<ImageAndNameProfileProps> = ({
         height={96}
       />
       <h1 className="text-xl font-semibold text-black">{name}</h1>
-      <p className="text-gray-400 text-sm">{locations.join(", ")}</p>
+      <p className="text-gray-400 text-sm">
+        {locations ? (
+          <>
+            {locations?.area?.name}
+            {","}
+            {locations?.name}
+          </>
+        ) : (
+          "no current location at the moment"
+        )}
+      </p>
     </div>
   );
 };
@@ -35,7 +45,7 @@ const AgentCard: React.FC<AgentCardInterface> = ({ agent }) => {
       <ImageAndNameProfile
         image={agent.agentImage}
         name={agent.name}
-        locations={agent.locations}
+        locations={agent.agent_city}
       />
 
       <div className="flex flex-col gap-2 w-full  px-4 text-sm">
@@ -51,9 +61,11 @@ const AgentCard: React.FC<AgentCardInterface> = ({ agent }) => {
 
       <p className="text-xs text-gray-500 mt-2">Specialties</p>
       <div className="flex gap-1">
-        {agent.specialties.map((s: string, index: number) => (
-          <FeatureElement key={index} text={s} />
-        ))}
+        {agent.agent_specialties
+          .slice(0, 2)
+          .map((s: { specialty: string }, index: number) => (
+            <FeatureElement key={index} text={s.specialty} />
+          ))}
       </div>
 
       <div className="flex text-xl flex-col justify-around items-center w-full gap-1 lg:gap-6 lg:flex-row">

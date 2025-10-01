@@ -29,7 +29,12 @@ export default async function Invest() {
   const startYourJournyData = await getStaticStartYourJourny();
   return (
     <div className="w-full flex flex-col items-center">
-      <Hero heroData={homePageHero} invest={true} minHeight="min-h-screen">
+      <Hero
+        heroData={homePageHero}
+        invest={true}
+        minHeight="min-h-screen"
+        image={homePageHero.background_image}
+      >
         <ScrollAnimation>
           <div className="flex flex-col items-center justify-center h-full w-full gap-10 text-center mt-9">
             <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">

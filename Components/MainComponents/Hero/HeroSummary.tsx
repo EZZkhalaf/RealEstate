@@ -11,7 +11,7 @@ const HeroSummary: React.FC<HeroSummaryInterface> = ({
   invest = false,
 }) => {
   return (
-    <div className="w-full flex flex-row gap-10 lg:gap-6 items-center justify-between">
+    <div className="w-full flex flex-col md:flex-row flex-wrap lg:gap-6 gap-2 items-center justify-between">
       <HeroSummaryListing summary={summary} invest={invest} />
     </div>
   );

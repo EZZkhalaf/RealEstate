@@ -1,10 +1,7 @@
-"use client";
 import { StaticImageData } from "next/image";
 import HeroTitle from "./MainComponents/Hero/HeroTitle";
-import { useEffect, useState } from "react";
-import { getStaticHomePageHero } from "@/API/HeroApi";
+
 import HeroSummary from "./MainComponents/Hero/HeroSummary";
-import Loading from "./Atoms/Loading";
 
 interface HeroInerface {
   image?: string | StaticImageData;
@@ -21,22 +18,18 @@ const Hero: React.FC<HeroInerface> = ({
   children,
   invest = false,
 }) => {
+  console.log(image);
   const heroStyle = image
     ? {
-        backgroundImage: `url(${
-          typeof image === "string" ? image : image.src
-        })`,
+        backgroundImage: `url('http://localhost:8055/assets/${image}')`,
       }
     : {};
 
-  const [topTitle, setTopTitle] = useState<string>(heroData[0].topTitle || "");
-  const [bottomTitle, setBottomTitle] = useState<string>(
-    heroData[0].bottomTitle || ""
-  );
-  const [paragraph, setParagraph] = useState<string>(
-    heroData[0].paragraph || ""
-  );
-  const [summary, setSummary] = useState<any>(heroData[0].heroSummary || []);
+  const topTitle = heroData.topTitle || "";
+  const bottomTitle = heroData.bottomTitle || "";
+
+  const paragraph = heroData.paragraph || "";
+  const summary = heroData.heroSummary || [];
   return (
     <div
       style={heroStyle}

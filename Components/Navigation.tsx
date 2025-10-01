@@ -10,47 +10,24 @@ const Navigation: React.FC<{
   setAuthOpen: any;
 }> = ({ setAuthOpen, authOpen = false }) => {
   return (
-    // <div
-    //   className="fixed top-0 left-0 right-0 flex justify-around items-center sm:h-10 md:h-15 lg:h-20   bg-gray-100 p-4 shadow-lg z-999 w-screen  overflow-auto max-w-7xl"
-    //   style={{ fontFamily: "Newsreader" }}
-    // >
-    //   <div className="hidden lg:flex">{"                        "}</div>
-    //   {/* <div className="hidden lg:flex"></div> */}
-
-    //   <NavigationButtons />
-
-    //   <div className="grid grid-cols-2 gap-6">
-    //     <ButtonCustomize
-    //       onClick={setAuthOpen}
-    //       text="Sign In"
-    //       color="#FFFFFF"
-    //       hoverColor="#0B355780"
-    //       textColor="#0B3557"
-    //       hoverTextColor="#FFFFFF"
-    //     />
-
-    //     <ButtonCustomize
-    //       text="Get Started"
-    //       color="#0b3557e6"
-    //       hoverColor="#144b7d"
-    //       textColor="#FFFFFF"
-    //       hoverTextColor="#FFFFFF"
-    //     />
-    //   </div>
-    // </div>
     <div
-      className="fixed top-0 left-0 right-0 bg-gray-100 shadow-lg z-50"
+      className="fixed top-0 right-0 left-0  bg-gray-100 shadow-lg z-10000 min-w-screen max-w-screen"
       style={{ fontFamily: "Newsreader" }}
     >
       {/* Centered inner container with max width */}
-      <div className="flex justify-between items-center max-w-7xl mx-auto sm:h-10 md:h-15 lg:h-20  py-3 px-1">
-        <div className=" lg:flex">
-          <Image src="/assets/Group.png" width={100} height={100} alt={"iii"} />
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center max-w-7xl mx-auto py-3 px-2 ">
+        {/* Logo (show on all screens, but size down) */}
+        <div className="flex justify-center sm:justify-start">
+          <Image src="/assets/Group.png" width={80} height={80} alt="Logo" />
         </div>
 
-        <NavigationButtons />
+        {/* Navigation buttons (hide on mobile if you plan to use hamburger) */}
+        <div className="hidden md:block">
+          <NavigationButtons />
+        </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        {/* Action buttons */}
+        <div className="flex gap-3 justify-center sm:justify-end">
           <ButtonCustomize
             onClick={setAuthOpen}
             text="Sign In"
@@ -59,7 +36,6 @@ const Navigation: React.FC<{
             textColor="#0B3557"
             hoverTextColor="#FFFFFF"
           />
-
           <ButtonCustomize
             text="Get Started"
             color="#0b3557e6"

@@ -3,7 +3,11 @@ import { buildUrl, ENDPOINTS } from "./api.config";
 export async function getStaticFeaturedAgents() {
   try {
     const response = await fetch(
-      buildUrl(ENDPOINTS.AGENTS.agents, { limit: 4 })
+      buildUrl(ENDPOINTS.AGENTS.agents, {
+        fields:
+          "*,agent_city.name,agent_city.area.name,agent_specialties.specialty",
+        limit: 4,
+      })
     );
 
     const result = await response.json();
@@ -47,6 +51,8 @@ export async function getStaticAgents({
   try {
     const response = await fetch(
       buildUrl(ENDPOINTS.AGENTS.agents, {
+        fields:
+          "*,agent_city.name,agent_city.area.name,agent_specialties.specialty",
         limit,
         offset,
         meta: "*",

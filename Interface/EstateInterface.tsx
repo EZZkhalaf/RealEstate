@@ -105,6 +105,7 @@ export interface InvestEstateInterface {
   return_in_5_years: number;
   yearly_investment: number;
   net_yield: number;
+  estate_city?: any;
 }
 
 export interface ContactAgentButtonsInterface {

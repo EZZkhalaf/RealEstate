@@ -7,7 +7,6 @@ import InvestEstateBody from "./InvestEstateBody";
 const SingleInvestEstateCard: React.FC<{ estate: InvestEstateInterface }> = ({
   estate,
 }) => {
-  console.log(estate);
   const [imageHover, setImageHover] = useState<boolean>(false);
   return (
     <div className="flex flex-col w-full rounded-lg shadow-2xl group transform transition-transform duration-300 hover:scale-102">

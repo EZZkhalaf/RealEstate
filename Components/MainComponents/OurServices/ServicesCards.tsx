@@ -10,6 +10,7 @@ interface ServicesCardInterface {
 const ServicesCards: React.FC<{
   services: ServiceInterface[];
 }> = ({ services }) => {
+  console.log(services[1]);
   return (
     <div className=" w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.slice(0, 3).map((s: ServiceInterface, index: number) => (

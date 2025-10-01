@@ -75,11 +75,8 @@ const InvestEstateBody: React.FC<CardBodyInterface> = ({
         <CardLocation
           isSmall="text-sm"
           location={
-            estate?.location[0]?.item?.name +
-              ", " +
-              estate?.location[0]?.item?.district +
-              ", " +
-              estate?.location[0]?.item?.city || "location"
+            estate?.estate_city?.name + ", " + estate?.location?.area?.name ||
+            "location"
           }
         />
 

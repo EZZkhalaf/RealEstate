@@ -2,8 +2,8 @@ export interface ServiceInterface {
   icon: string;
   title: string;
   description: string;
-  features: string[];
   cta?: string;
+  our_service_features: any;
 }
 
 export interface ServicesInterface {

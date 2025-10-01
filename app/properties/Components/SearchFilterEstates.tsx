@@ -25,7 +25,6 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   setFilters,
 }) => {
   const [dialogOpen, setDialogOpen] = useState<any>(null);
-  const options: string[] = ["All", "For Sale", "For Rent", "Sold"];
   const [saleTypes, setSaleTypes] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<{
     min: number[];
@@ -62,7 +61,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
 
     const response = await getStaticSearchEstateFields();
     setFilters(response);
-    localStorage.setItem("filters", JSON.stringify(response)); // cache it
+    localStorage.setItem("filters", JSON.stringify(response));
     parseFilters(response);
   };
 
@@ -116,7 +115,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
     debouncedSearch(e.target.value);
   };
   return (
-    <div className="fixed flex flex-col sm:top-1 lg:top-15 lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999    border-b border-b-gray-400 ">
+    <div className="fixed flex flex-col items-center sm:top-1 lg:top-15 lg:grid lg:grid-cols-[1fr_2fr] md:grid md:grid-cols-[1fr_2fr] bg-white w-full gap-2 px-6 py-2 z-999    border-b border-b-gray-400 ">
       <InputGray
         type="text"
         placeholder="Address, neighborhood, city, Zip"
@@ -127,7 +126,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
 
       <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 items-center">
         {/* For Sale */}
-        <div className="flex flex-col items-start relative">
+        <div className="flex flex-col justify-center items-start relative">
           <TriggerButtons
             text="Status"
             icon="arrow-down"
@@ -162,7 +161,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
               <Price
                 options={priceRange}
                 value={filters?.priceRange}
-                onChange={(priceRange) =>
+                onChange={(priceRange: any) =>
                   setFilters((prev) => ({ ...prev, priceRange }))
                 }
               />

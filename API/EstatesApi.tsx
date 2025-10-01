@@ -228,7 +228,8 @@ export async function getStaticInvestementEstates() {
     const response = await fetch(
       // `http://localhost:8055/items/invest_estates?fields=*,location.item.*,financials.item.*,images.*`
       buildUrl(ENDPOINTS.INVEST.invest_estates, {
-        fields: "*,location.item.*,financials.item.*,images.*",
+        fields:
+          "*,location.item.*,financials.item.*,images.*,estate_city.name,estate_city.area.name",
       })
     );
 

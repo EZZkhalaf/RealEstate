@@ -33,7 +33,8 @@ export default function Agents() {
   const limit: number = 8;
 
   const fetchLocationsAndSpecialties = async () => {
-    const locationsAndSpecialties = await getStaticLocationsAndSpecialties();
+    const locationsAndSpecialties: [any] =
+      await getStaticLocationsAndSpecialties();
 
     const locationsCleared2: any = locationsAndSpecialties?.map(
       ({ id, name, cities }) => ({
@@ -86,10 +87,10 @@ export default function Agents() {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedName(name);
-    }, 500); // 500ms debounce (you can adjust)
+    }, 500); // 500ms debounce
 
     return () => {
-      clearTimeout(handler); // cleanup on new keystroke
+      clearTimeout(handler);
     };
   }, [name]);
 

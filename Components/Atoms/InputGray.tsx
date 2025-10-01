@@ -13,7 +13,7 @@ const InputGray: React.FC<InputGrayInterface> = ({
   value,
 }) => {
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className=" flex-col lg:flex md:flex hidden gap-3 w-full">
       {header && <h1 className="font-bold">{header}</h1>}
       <div
         className={`flex justify-around items-center bg-gray-200 rounded-lg p-2  ${additionalCss} font-sm`}

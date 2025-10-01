@@ -18,14 +18,16 @@ const ServiceCard: React.FC<{ service: ServiceInterface }> = ({ service }) => {
       />
 
       <div className="mt-7 gap-4 mb-6">
-        {service.features.map((f, index: number) => (
-          <div
-            key={index}
-            className="flex items-center mt-4 gap-1 text-gray-500"
-          >
-            <CiCircleCheck /> {f}
-          </div>
-        ))}
+        {service?.our_service_features
+          ?.slice(0, 4)
+          .map((f: any, index: number) => (
+            <div
+              key={index}
+              className="flex items-center mt-4 gap-1 text-gray-500"
+            >
+              <CiCircleCheck /> {f.feature}
+            </div>
+          ))}
       </div>
 
       <ViewButtonAtom

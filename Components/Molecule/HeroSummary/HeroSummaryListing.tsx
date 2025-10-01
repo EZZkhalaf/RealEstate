@@ -17,10 +17,10 @@ const HeroSummaryListing: React.FC<HeroSummaryInterface> = ({
           key={index}
           className="flex flex-col items-center justify-center mb-5"
         >
-          <p className="text-white md:text-3xl text-xl lg:text-3xl text-center font-bold mb-2">
+          <p className="text-white md:text-3xl text-md lg:text-3xl text-center font-bold mb-2">
             {element.value}
           </p>
-          <p className="text-white/80 sm:text-sm">{element.name}</p>
+          <p className="text-white/80 sm:text-xs">{element.name}</p>
         </div>
       ))}
     </>
