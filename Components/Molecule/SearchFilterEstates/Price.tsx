@@ -1,9 +1,6 @@
 import { Icon } from "@iconify/react";
-import React, { useEffect, useState } from "react";
 import SalaryRangeSelector from "./SalaryRangeSelector";
-import SubmitButton from "../../Atoms/SubmitButton";
 import GrayHeader from "../../Atoms/GrayHeader";
-import ListSelect from "../../Atoms/ListSelect";
 import PriceSelect from "../../Atoms/PriceSelect";
 
 interface PriceProps {
@@ -103,7 +100,7 @@ const Price: React.FC<PriceProps> = ({ value, onChange, options }) => {
 
           <PriceSelect
             title={"Down Payment"}
-            onChange={(e) =>
+            onChange={(e: any) =>
               onChange({ ...value, downPayment: +e.target.value })
             }
             list={options.monthlyPayment}
@@ -112,7 +109,7 @@ const Price: React.FC<PriceProps> = ({ value, onChange, options }) => {
 
           <PriceSelect
             title={"Credit Score"}
-            onChange={(e) =>
+            onChange={(e: any) =>
               onChange({ ...value, creditScore: +e.target.value })
             }
             list={options.creditScore}

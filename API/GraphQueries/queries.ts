@@ -93,3 +93,40 @@ export const getStaticStartYourJournyQuery = gql`
     }
   }
 `;
+
+export const getStaticEstatesFilteredQuery = gql`
+  query getEstatesFilteres(
+    $filter: estates_filter
+    $limit: Int
+    $offset: Int
+    $sort: [String]
+  ) {
+    estateCard(filter: $filter, limit: $limit, offset: $offset, sort: $sort) {
+      id
+      title
+      home_type
+      price
+      beds
+      baths
+      area
+      sale_type
+      special_properties
+      estate_features
+      longitude
+      latitude
+
+      images {
+        directus_files_id {
+          filename_download
+        }
+      }
+
+      estate_city {
+        name
+        area {
+          name
+        }
+      }
+    }
+  }
+`;

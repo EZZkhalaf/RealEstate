@@ -2,7 +2,7 @@ import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 
 interface CardLocationInterface {
-  location: string;
+  location: any;
   isSmall?: string;
 }
 const CardLocation: React.FC<CardLocationInterface> = ({

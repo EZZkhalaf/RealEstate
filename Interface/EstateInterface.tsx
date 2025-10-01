@@ -97,7 +97,7 @@ export interface InvestEstateInterface {
   price: number;
   roi: string;
   features: Features;
-  location: LocationRelation[];
+  location: any;
   financials: FinancialRelation[];
   images: any;
   fund_percentage: number;
