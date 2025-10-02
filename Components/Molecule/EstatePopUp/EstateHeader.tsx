@@ -8,7 +8,7 @@ const EstateHeader: React.FC<{
   setImagesOpen: Dispatch<SetStateAction<boolean>>;
 }> = ({ onClose, imagesOpen = false, setImagesOpen }) => {
   return (
-    <div className="w-full p-4 bg-white sticky top-0 z-10 border-b border-gray-200 mb-3">
+    <div className="w-full p-4 bg-white sticky top-0 z-10 border-b border-gray-200 mb-3 mt-15 ">
       <div className="flex items-center justify-between">
         {/* Left side */}
         <div className="flex items-center">

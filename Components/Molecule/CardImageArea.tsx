@@ -20,7 +20,7 @@ const CardImageArea: React.FC<CardImageAreaInterface> = ({
 }) => {
   const imageUrl =
     estate.images && estate.images.length > 0
-      ? `http://localhost:8055/assets/${estate.images[0].directus_files_id}`
+      ? `http://localhost:8055/assets/${estate.images[0].directus_files_id.id}`
       : "";
 
   return (

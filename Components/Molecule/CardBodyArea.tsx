@@ -15,7 +15,7 @@ const FeatureElementListing: React.FC<{ estate: EstateInterface }> = ({
   estate,
 }) => {
   return (
-    <div className="flex flex-row gap-3 mt-3">
+    <div className="grid grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-3 mt-3">
       {estate?.estate_features?.blocks
         ?.slice(0, 4)
         .map((e: any, index: number) => (
@@ -29,7 +29,7 @@ const CardBodyButtons: React.FC<{ viewDetailsClick: (e: any) => void }> = ({
   viewDetailsClick,
 }) => {
   return (
-    <div className="flex text-2xl  gap-1 w-full pt-3">
+    <div className="flex flex-col lg:flex-row text-2xl  gap-1 w-full pt-3">
       <ButtonCustomize
         text="View Details"
         onClick={viewDetailsClick}

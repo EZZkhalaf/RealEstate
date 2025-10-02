@@ -1,6 +1,9 @@
 import { buildUrl, ENDPOINTS } from "./api.config";
 import { client } from "./GraphQueries/graphql";
-import { getStaticEstatesFilteredQuery } from "./GraphQueries/queries";
+import {
+  getSimilarEstatesQuery,
+  getStaticEstatesFilteredQuery,
+} from "./GraphQueries/queries";
 
 export async function getStaticEstates(
   page: number = 1,
@@ -40,18 +43,18 @@ export async function getStaticEstates(
 
 export async function getSimilarEstates(city: string, estate_id: number) {
   try {
-    console.log("working");
-    const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
-      fields:
-        "id,title,estate_city.*,estate_city.area.*,home_type,price,estate_features,beds,baths,area,images.*",
-      limit: 3,
-      [`filter[estate_city][name][_eq]`]: city,
-      [`filter[id][_neq]`]: estate_id,
-    });
+    const filter = {
+      estate_city: { name: { _eq: city } },
+      id: { _neq: estate_id },
+    };
 
-    const response = await fetch(url);
-    const result = await response.json();
-    return result.data;
+    const response: any = await client.request(getSimilarEstatesQuery, {
+      filter,
+      limit: 3,
+    });
+    console.log(response);
+
+    return response.estateCard;
   } catch (error) {
     console.error("Error fetching estates:", error);
     return [];

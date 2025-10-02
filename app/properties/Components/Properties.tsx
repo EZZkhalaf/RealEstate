@@ -42,7 +42,7 @@ const Properties: React.FC<PropertiesInterface> = ({
   setPressedEstate,
 }) => {
   return (
-    <div className="flex flex-col lg:mt-15 md:mt-15 mt-50 px-5 py-5 max-h-[100vh] overflow-auto">
+    <div className="flex flex-col lg:mt-20 md:mt-15 mt-20 px-5 py-5 max-h-[100vh] overflow-auto">
       <div className="flex flex-col items-center gap-1  px-1">
         <TitleAtom title="Real Estates & Homes For Sale" textSizeDefault="xl" />
         <ParagraphDescription
@@ -52,7 +52,7 @@ const Properties: React.FC<PropertiesInterface> = ({
 
       {estates && estates.length > 0 ? (
         <div
-          className={`grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-10 py-6 `}
+          className={`grid grid-cols-1 xl:grid-cols-2  gap-4 w-full mb-10 py-6 `}
         >
           {estates?.map((e: EstateInterface, index: number) => (
             <div key={index} className="rounded-2xl">

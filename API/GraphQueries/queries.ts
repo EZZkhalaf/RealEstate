@@ -96,7 +96,7 @@ export const getStaticStartYourJournyQuery = gql`
 
 export const getStaticEstatesFilteredQuery = gql`
   query getEstatesFilteres(
-    $filter: estates_filter
+    $filter: estateCard_filter
     $limit: Int
     $offset: Int
     $sort: [String]
@@ -117,7 +117,7 @@ export const getStaticEstatesFilteredQuery = gql`
 
       images {
         directus_files_id {
-          filename_download
+          id
         }
       }
 
@@ -125,6 +125,38 @@ export const getStaticEstatesFilteredQuery = gql`
         name
         area {
           name
+        }
+      }
+    }
+  }
+`;
+
+//   fields:
+//     "id,title,estate_city.*,estate_city.area.*,home_type,price,estate_features,beds,baths,area,images.*",
+//   limit: 3,
+//   [`filter[estate_city][name][_eq]`]: city,
+//   [`filter[id][_neq]`]: estate_id,
+
+export const getSimilarEstatesQuery = gql`
+  query getSimilarEstates($filter: estateCard_filter, $limit: Int) {
+    estateCard(filter: $filter, limit: $limit) {
+      id
+      title
+      estate_city {
+        name
+        area {
+          name
+        }
+      }
+      home_type
+      price
+      estate_features
+      beds
+      baths
+      area
+      images {
+        directus_files_id {
+          id
         }
       }
     }

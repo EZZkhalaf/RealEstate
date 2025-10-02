@@ -69,7 +69,7 @@ export default function PropertiesPage() {
   }, [filters, currentPage]);
 
   return (
-    <div className="flex flex-col mt-20 w-full">
+    <div className="flex flex-col mt-22 sm:mt-15 w-full">
       <SearchFilterEstates
         mapSearch={mapSearch}
         setMapSearch={setMapSearch}
