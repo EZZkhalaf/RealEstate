@@ -4,15 +4,10 @@ import TitleAtom from "../../../Components/Atoms/TitleAtom";
 import ParagraphDescription from "../../../Components/Atoms/ParagraphDescription";
 import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import SingleEstateEelement from "../../../Components/Molecule/Properties/SingleEstateEelement";
-import Footer from "../../../Components/Footer";
-import SmallTitle from "../../../Components/Atoms/SmallTitle";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import EstatePopUpInfo from "../../../Components/Molecule/Properties/EstatePopUpInfo";
-import { useRouter } from "next/navigation";
-import { getStaticEstates, getStaticEstatesFiltered } from "@/API/EstatesApi";
 import { EstateInterface } from "@/Interface/EstateInterface";
 import PagingButtons from "@/Components/Molecule/PagingButtons";
-import { FiltersInterface } from "@/Interface/ServicesInterface";
 import FailedMessage from "@/Components/Atoms/FailedMessage";
 
 export interface PropertiesInterface {
@@ -80,7 +75,6 @@ const Properties: React.FC<PropertiesInterface> = ({
           estate_id={selectedEstate.id}
           onClose={() => setSelectedEstate(null)}
           setSelectedEstate={setSelectedEstate}
-          // estates={estates?.slice(0, 4)}
         />
       )}
     </div>

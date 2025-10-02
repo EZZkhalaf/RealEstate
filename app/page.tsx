@@ -27,7 +27,6 @@ export default async function Home() {
   const marketSummaryInsightListingData = await getStaticPropertyStats();
   const contactUsData = await getStaticContactUsInfo();
   const footerData = await getStaticFooter();
-  console.log(homePageHero);
   return (
     <div className="w-full bg-gray-100 flex flex-col items-center">
       <Hero

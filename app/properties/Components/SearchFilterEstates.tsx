@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import InputGray from "../../../Components/Atoms/InputGray";
-import { Icon } from "@iconify/react";
 import TriggerButtons from "../../../Components/Atoms/TriggerButtons";
 import ForSale from "../../../Components/Molecule/SearchFilterEstates/ForSale";
 import Price from "../../../Components/Molecule/SearchFilterEstates/Price";
@@ -130,7 +129,30 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 items-center w-full md:w-2/3">
+        <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 items-center w-full md:w-2/3 ">
+          <div className="relative">
+            <TriggerButtons
+              text="Beds & Baths"
+              icon="arrow-down"
+              onClick={() =>
+                setDialogOpen(
+                  dialogOpen === "bedsAndBaths" ? null : "bedsAndBaths"
+                )
+              }
+            />
+            {dialogOpen === "bedsAndBaths" && (
+              <div className="absolute top-full mt-2 z-[50] w-[200px]   md:w-[250px] lg:w-[300px] left-0 -translate-x-5">
+                <BedsAndBaths
+                  bedsAndBaths={bedsAndBaths}
+                  value={filters?.bedsAndBaths || {}}
+                  onChange={(bedsAndBaths) =>
+                    setFilters((prev: any) => ({ ...prev, bedsAndBaths }))
+                  }
+                />
+              </div>
+            )}
+          </div>
+
           {/* Status / For Sale */}
           <div className="relative">
             <TriggerButtons
@@ -153,52 +175,6 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             )}
           </div>
 
-          {/* Price */}
-          <div className="relative">
-            <TriggerButtons
-              text="Price"
-              icon="arrow-down"
-              onClick={() =>
-                setDialogOpen(dialogOpen === "price" ? null : "price")
-              }
-            />
-            {dialogOpen === "price" && (
-              <div className="absolute top-full mt-2 z-[50] w-[200px] md:w-[250px] lg:w-[300px]">
-                <Price
-                  options={priceRange}
-                  value={filters?.priceRange}
-                  onChange={(priceRange: any) =>
-                    setFilters((prev) => ({ ...prev, priceRange }))
-                  }
-                />
-              </div>
-            )}
-          </div>
-
-          {/* Beds & Baths */}
-          <div className="relative">
-            <TriggerButtons
-              text="Beds & Baths"
-              icon="arrow-down"
-              onClick={() =>
-                setDialogOpen(
-                  dialogOpen === "bedsAndBaths" ? null : "bedsAndBaths"
-                )
-              }
-            />
-            {dialogOpen === "bedsAndBaths" && (
-              <div className="absolute top-full mt-2 z-[50] w-[200px] md:w-[250px] lg:w-[300px]">
-                <BedsAndBaths
-                  bedsAndBaths={bedsAndBaths}
-                  value={filters?.bedsAndBaths || {}}
-                  onChange={(bedsAndBaths) =>
-                    setFilters((prev: any) => ({ ...prev, bedsAndBaths }))
-                  }
-                />
-              </div>
-            )}
-          </div>
-
           {/* Home Type */}
           <div className="relative">
             <TriggerButtons
@@ -215,6 +191,27 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
                   value={filters?.homeType || null}
                   onChange={(homeType) =>
                     setFilters((prev) => ({ ...prev, homeType }))
+                  }
+                />
+              </div>
+            )}
+          </div>
+          {/* Price */}
+          <div className="relative hidden lg:flex md:flex">
+            <TriggerButtons
+              text="Price"
+              icon="arrow-down"
+              onClick={() =>
+                setDialogOpen(dialogOpen === "price" ? null : "price")
+              }
+            />
+            {dialogOpen === "price" && (
+              <div className="absolute top-full mt-2 z-[50] w-[200px] md:w-[250px] lg:w-[300px]">
+                <Price
+                  options={priceRange}
+                  value={filters?.priceRange}
+                  onChange={(priceRange: any) =>
+                    setFilters((prev) => ({ ...prev, priceRange }))
                   }
                 />
               </div>

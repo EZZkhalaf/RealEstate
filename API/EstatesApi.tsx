@@ -5,36 +5,66 @@ import {
   getStaticEstatesFilteredQuery,
 } from "./GraphQueries/queries";
 
+// export async function getStaticEstates(
+//   page: number = 1,
+//   genre: string = "All Properties",
+//   sort: string | number = "Low to High"
+// ) {
+//   const filters: Record<string, string> = {};
+
+//   if (genre !== "All Properties") {
+//     filters["filter[type][_eq]"] = genre.toLowerCase();
+//   }
+
+//   let sortValue = "";
+//   if (sort === "Low to High") sortValue = "price";
+//   if (sort === "High to Low") sortValue = "-price";
+//   if (sort === "Square Footage") sortValue = "area";
+
+//   try {
+//     const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
+//       fields:
+//         "id,title,estate_city.*,estate_city.area.*,home_type,price,estate_features,beds,baths,area,images.*",
+//       page,
+//       limit: 6,
+//       ...(sortValue ? { sort: sortValue } : {}),
+//       ...filters,
+//     });
+
+//     const response = await fetch(url);
+//     const result = await response.json();
+//     console.log(response);
+//     return result.data;
+//   } catch (error) {
+//     console.error("Error fetching estates:", error);
+//     return [];
+//   }
+// }
+
 export async function getStaticEstates(
   page: number = 1,
   genre: string = "All Properties",
   sort: string | number = "Low to High"
 ) {
-  const filters: Record<string, string> = {};
+  const filter: any = {};
 
   if (genre !== "All Properties") {
-    filters["filter[type][_eq]"] = genre.toLowerCase();
+    filter.home_type = { _eq: genre.toLowerCase() };
   }
 
-  let sortValue = "";
+  let sortValue: string | undefined;
   if (sort === "Low to High") sortValue = "price";
   if (sort === "High to Low") sortValue = "-price";
   if (sort === "Square Footage") sortValue = "area";
 
   try {
-    const url = buildUrl(ENDPOINTS.ESTATES.estate_card, {
-      fields:
-        "id,title,estate_city.*,estate_city.area.*,home_type,price,estate_features,beds,baths,area,images.*",
-      page,
+    const response: any = await client.request(getStaticEstatesFilteredQuery, {
+      filter,
       limit: 6,
-      ...(sortValue ? { sort: sortValue } : {}),
-      ...filters,
+      page,
+      sort: sortValue,
     });
-
-    const response = await fetch(url);
-    const result = await response.json();
-    console.log(response);
-    return result.data;
+    return response.estateCard;
   } catch (error) {
     console.error("Error fetching estates:", error);
     return [];

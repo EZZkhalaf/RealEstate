@@ -10,7 +10,7 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 const DefaultIcon = L.icon({
   iconUrl,
   shadowUrl: iconShadow,
-  iconAnchor: [12, 41], // adjust if needed
+  iconAnchor: [12, 41],
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
@@ -96,7 +96,7 @@ const EstatesMap: React.FC<EstatesMapInterface> = ({
       {markersLocations?.length > 0 &&
         markersLocations?.map((loc: any, index: number) => (
           <Marker key={index} position={loc.coords}>
-            <Popup>{loc.name}</Popup>
+            {/* <Popup /> */}
           </Marker>
         ))}
 

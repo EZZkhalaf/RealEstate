@@ -4,11 +4,11 @@ import ScrollAnimation from "../../../Animation/ScrollAnimation";
 import { ServiceInterface } from "@/Interface/ServicesInterface";
 
 interface ServicesCardInterface {
-  services?: ServiceInterface[];
+  services?: any;
 }
 
 const ServicesCards: React.FC<{
-  services: ServiceInterface[];
+  services: any;
 }> = ({ services }) => {
   console.log(services[1]);
   return (

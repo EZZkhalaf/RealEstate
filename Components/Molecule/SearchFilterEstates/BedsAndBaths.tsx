@@ -27,7 +27,7 @@ const BedsAndBaths: React.FC<BedsAndBathsInterface> = ({
   bedsAndBaths,
 }) => {
   return (
-    <div className="flex flex-col gap-3  mt-3 fixed bg-white border border-gray-300 rounded-lg  shadow-2xl scroll-auto w-[400px] max-h-[70vh] overflow-y-auto">
+    <div className="flex flex-col gap-3  mt-3 fixed bg-white border border-gray-300 rounded-lg  shadow-2xl scroll-auto w-[350px] max-h-[70vh] overflow-y-auto ">
       <GrayHeader header={"Number of Bedrooms"} />
       <SixButtonsInputs
         title={"Bedrooms"}

@@ -14,7 +14,7 @@ const TriggerButtons: React.FC<TriggerButtonsInterface> = ({
          font-semibold flex items-center justify-center w-full rounded-sm border border-gray-300 
          whitespace-nowrap transition-colors duration-300"
       >
-        <span className="mr-2 lg:text-md text-sm font-semibold  ">{text}</span>
+        <span className="mr-2 lg:text-md text-xs font-semibold  ">{text}</span>
         <Icon
           icon={`mdi-light:${icon}`}
           height="20"
