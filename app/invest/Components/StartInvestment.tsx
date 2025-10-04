@@ -6,7 +6,6 @@ import WebsiteAdvantages from "@/Components/MainComponents/StartInvest/WebsiteAd
 const StartInvestment: React.FC<{ startInvestData: any }> = ({
   startInvestData,
 }) => {
-  console.log(startInvestData);
   return (
     <div className="w-full flex flex-col items-center bg-gradient-to-br from-[#0B3557] to-[#2d5f7f]">
       <div className="max-w-7xl  text-center mb-8">

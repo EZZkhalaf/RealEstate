@@ -57,7 +57,7 @@ const OpCard: React.FC<OpCardInterface> = ({ op }) => {
       </div>
 
       <div className="flex flex-col gap-2 mt-2 text-xs text-gray-700">
-        {op?.highlights?.map((point, idx) => (
+        {op?.highlights?.slice(0, 4).map((point, idx) => (
           <div key={idx} className="flex items-center gap-2">
             <Icon
               icon="mdi-light:check"

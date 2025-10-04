@@ -16,24 +16,11 @@ export interface StrategyInterface {
   icon: string;
 }
 
-interface StrategyCardInterface {
-  strategy: StrategyInterface;
-}
-
-const StrategyCard: React.FC<StrategyCardInterface> = ({ strategy }) => {
-  //  {
-  //   title: "Fix & Flip",
-  //   description:
-  //     "Short-term profits through property renovation and quick resale",
-  //   timeframe: "6-18 months",
-  //   riskLevel: "High",
-  //   pros: ["Quick profits", "Active involvement", "Market timing"],
-  //   cons: ["High risk", "Capital intensive", "Market dependent"],
-  //   bestFor: "Experienced investors with renovation skills",
-  //   link: "Learn More",
-  // },
+const StrategyCard: React.FC<{ strategy: StrategyInterface }> = ({
+  strategy,
+}) => {
   return (
-    <div className="flex flex-col gap-2 rounded-lg   hover:shadow-lg py-2  transform-content duration-400">
+    <div className="flex flex-col gap-2 rounded-lg   hover:shadow-lg py-2 px-2 transform-content duration-400">
       <div className="flex gap-2 mb-2 items-center">
         <IconAtom icon={strategy.icon} />
         <div className="flex flex-col gap-1 ">
@@ -60,7 +47,7 @@ const StrategyCard: React.FC<StrategyCardInterface> = ({ strategy }) => {
         <div className="">
           <p className="text-sm text-gray-700">Pros</p>
           <div className="flex flex-col gap-1">
-            {strategy.pros?.map((pro: string, index: number) => (
+            {strategy.pros?.slice(0, 4).map((pro: string, index: number) => (
               <div key={index} className="flex flex-row gap-1">
                 <Icon
                   icon="mdi:check-circle"
@@ -77,7 +64,7 @@ const StrategyCard: React.FC<StrategyCardInterface> = ({ strategy }) => {
         <div className="">
           <p className="text-sm text-gray-700">Cons</p>
           <div className="flex flex-col gap-1">
-            {strategy.cons?.map((con: string, index: number) => (
+            {strategy.cons?.slice(0, 4).map((con: string, index: number) => (
               <div key={index} className="flex flex-row gap-1">
                 <Icon
                   icon="mdi:close-circle"
