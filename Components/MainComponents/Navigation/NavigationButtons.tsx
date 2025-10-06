@@ -23,6 +23,11 @@ const NavigationButtons = () => {
           Agents
         </button>
       </Link>
+      <Link href={"live-transactions"}>
+        <button className="text-gray-600 hover:text-[#0B3557] cursor-pointer">
+          Live Transactions
+        </button>
+      </Link>
     </div>
   );
 };
