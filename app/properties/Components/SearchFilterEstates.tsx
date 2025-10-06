@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import InputGray from "../../../Components/Atoms/InputGray";
 import TriggerButtons from "../../../Components/Atoms/TriggerButtons";
 import ForSale from "../../../Components/Molecule/SearchFilterEstates/ForSale";
@@ -11,19 +17,19 @@ import { getStaticSearchEstateFields } from "@/API/EstatesApi";
 import { FiltersInterface } from "@/Interface/ServicesInterface";
 
 interface SearchFilterEstatesInterface {
-  mapSearch?: string;
-  setMapSearch: any;
+  // mapSearch?: string;
+  setMapSearch: Dispatch<SetStateAction<string>>;
   filters: FiltersInterface;
   setFilters: React.Dispatch<React.SetStateAction<FiltersInterface>>;
 }
 
 const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
-  mapSearch,
+  // mapSearch,
   setMapSearch,
   filters,
   setFilters,
 }) => {
-  const [dialogOpen, setDialogOpen] = useState<any>(null);
+  const [dialogOpen, setDialogOpen] = useState<string | null>("");
   const [saleTypes, setSaleTypes] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<{
     min: number[];
@@ -41,7 +47,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
 
   const debouncedSearch = useMemo(
     () =>
-      debounce((value: any) => {
+      debounce((value: string) => {
         setMapSearch(value);
       }, 500),
     [setMapSearch]
@@ -54,7 +60,6 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
       const parsed = JSON.parse(cached);
       setFilters(parsed);
       parseFilters(parsed);
-      // localStorage.removeItem("filters");
       return;
     }
 
@@ -67,28 +72,28 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   const parseFilters = (response: any) => {
     const saleTypesCleared: string[] =
       response?.sale_type?.blocks?.map(
-        (block: any) => (block?.data?.text as string) || ""
+        (block: { data: { text: string } }) => block?.data?.text || ""
       ) || [];
 
     const minCleared: number[] = response?.min?.blocks?.map(
-      (block: any) => Number(block.data.text) as number
+      (block: { data: { text: string } }) => Number(block?.data?.text) as number
     );
     const maxCleared: number[] = response?.max?.blocks?.map(
-      (block: any) => Number(block.data.text) as number
+      (block: { data: { text: string } }) => Number(block?.data?.text) as number
     );
 
     const downPaymentCleared: number[] = response?.down_payment?.blocks?.map(
-      (block: any) => Number(block.data.text) as number
+      (block: { data: { text: string } }) => Number(block?.data?.text) as number
     );
     const creditScoreCleared: number[] = response?.credit_score?.blocks?.map(
-      (block: any) => Number(block.data.text) as number
+      (block: { data: { text: string } }) => Number(block?.data?.text) as number
     );
 
     const bedsCleared: number[] = response?.bedrooms?.blocks?.map(
-      (block: any) => Number(block.data.text) as number
+      (block: { data: { text: string } }) => Number(block?.data?.text) as number
     );
     const bathsCleared: number[] = response?.bathrooms?.blocks?.map(
-      (block: any) => Number(block.data.text) as number
+      (block: { data: { text: string } }) => Number(block?.data?.text) as number
     );
 
     const homeTypesCleared: string[] =

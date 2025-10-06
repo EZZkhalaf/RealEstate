@@ -1,14 +1,14 @@
-import { buildUrl, ENDPOINTS } from "./api.config";
 import { client } from "./GraphQueries/graphql";
+import { gql } from "graphql-request";
+
 import {
   getStaticInvestmentStrategiesQuery,
   getStaticMarketAnalysisQuery,
   getStaticMarketReportsQuery,
-  getStaticOurServicesQuery,
   getStaticPropertyStatsQuery,
   getStaticStartYourJournyQuery,
 } from "./GraphQueries/queries";
-
+export const revalidate = 60;
 // export default async function getStaticInvestmentStrategies() {
 //   try {
 //     const response = await fetch(
@@ -82,10 +82,32 @@ export async function getStaticMarketAnalysis() {
 //   }
 // }
 
+// export async function getStaticOurServices() {
+//   try {
+//     const response: any = await client.request(getStaticOurServicesQuery);
+//     return response.ourServices;
+//   } catch (error) {
+//     console.log(error);
+//     return error
+//   }
+// }
+
 export async function getStaticOurServices() {
   try {
-    const response: any = await client.request(getStaticOurServicesQuery);
-    console.log(response);
+    const response: any = await client.request(gql`
+      query {
+        ourServices {
+          id
+          icon
+          title
+          description
+          cta
+          our_service_features {
+            feature
+          }
+        }
+      }
+    `);
     return response.ourServices;
   } catch (error) {
     console.log(error);

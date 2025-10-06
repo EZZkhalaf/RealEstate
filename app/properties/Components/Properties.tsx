@@ -13,27 +13,27 @@ import FailedMessage from "@/Components/Atoms/FailedMessage";
 export interface PropertiesInterface {
   // filters?: FiltersInterface;
   totalCount: number;
-  router: any;
+  // router: any;
   estates: EstateInterface[];
   selectedEstate: EstateInterface | null;
   setSelectedEstate: Dispatch<SetStateAction<EstateInterface | null>>;
   currentPage: number;
   onPageChange: Dispatch<SetStateAction<number>>;
   totalPages: number;
-  pressedEstate: EstateInterface | null;
+  // pressedEstate: EstateInterface | null;
   setPressedEstate: Dispatch<SetStateAction<EstateInterface | null>>;
 }
 
 const Properties: React.FC<PropertiesInterface> = ({
   totalCount,
-  router,
+  // router,
   estates,
   selectedEstate,
   setSelectedEstate,
   currentPage,
   onPageChange,
   totalPages,
-  pressedEstate,
+  // pressedEstate,
   setPressedEstate,
 }) => {
   return (

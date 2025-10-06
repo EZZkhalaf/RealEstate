@@ -21,8 +21,7 @@ const InvestToolsPageContainer = () => {
   }, [loanAmount, intrestRate, loanTerms]);
 
   const annualRent = monthlyRent * 12;
-  const roiPercentage =
-    ((annualRent - monthlyPayment * 12) / propertyValue) * 100;
+
   const operatingExpenses = propertyValue * 0.01; // example assumption
   const NOI = annualRent - operatingExpenses;
 

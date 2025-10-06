@@ -6,7 +6,6 @@ import SearchFilterEstates from "@/app/properties/Components/SearchFilterEstates
 import { EstateInterface } from "@/Interface/EstateInterface";
 import { FiltersInterface } from "@/Interface/ServicesInterface";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const EstatesMap = dynamic(
@@ -19,7 +18,6 @@ export default function PropertiesPage() {
   const [filters, setFilters] = useState<FiltersInterface>({});
 
   const totalCount: number = 9002;
-  const router = useRouter();
 
   const [estates, setEstates] = useState<EstateInterface[]>([]);
   const [selectedEstate, setSelectedEstate] = useState<EstateInterface | null>(
@@ -71,7 +69,7 @@ export default function PropertiesPage() {
   return (
     <div className="flex flex-col mt-22 sm:mt-15 w-full">
       <SearchFilterEstates
-        mapSearch={mapSearch}
+        // mapSearch={mapSearch}
         setMapSearch={setMapSearch}
         filters={filters}
         setFilters={setFilters}
@@ -92,7 +90,7 @@ export default function PropertiesPage() {
         />
 
         <Properties
-          router={router}
+          // router={router}
           estates={estates}
           selectedEstate={selectedEstate}
           setSelectedEstate={setSelectedEstate}
@@ -100,7 +98,7 @@ export default function PropertiesPage() {
           totalPages={totalPages}
           totalCount={totalCount}
           onPageChange={onPageChange}
-          pressedEstate={pressedEstate}
+          // pressedEstate={pressedEstate}
           setPressedEstate={setPressedEstate}
         />
       </div>

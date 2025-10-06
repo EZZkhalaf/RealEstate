@@ -8,7 +8,7 @@ const LoginDialog: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-[1000]">
-      <div className="bg-white rounded-lg shadow-xl p-8 w-[400px] max-w-[90%]">
+      <div className="bg-white rounded-lg shadow-xl p-8 w-[400px] max-w-[90%] h-[600px] max-h-[80%] ">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           Welcome Back
         </h2>

@@ -20,7 +20,6 @@ export async function getStaticFeaturedAgents() {
 export async function getStaticAgents({
   page = 1,
   limit = 8,
-  region = "All Regions",
   city = "All Cities",
   name = "",
   agentSpecialties = "",
@@ -81,7 +80,11 @@ export async function getStaticAgents({
 export async function getStaticLocationsAndSpecialties() {
   try {
     const response = await fetch(
-      buildUrl(ENDPOINTS.ESTATES.saudi_areas, { fields: "*,cities.*" })
+      buildUrl(ENDPOINTS.ESTATES.saudi_areas, { fields: "*,cities.*" }),
+      {
+        next: { revalidate: 60 },
+        cache: "force-cache",
+      }
     );
 
     const result = await response.json();
@@ -115,7 +118,6 @@ export async function contactAgent(
     });
 
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

@@ -6,12 +6,13 @@ import PagingButtons from "../../../Components/Molecule/PagingButtons";
 import { useRouter } from "next/navigation";
 import NotFound from "@/Components/Atoms/NotFound";
 import { AgentInterface } from "@/Interface/AgentInterface";
+import { Dispatch, SetStateAction } from "react";
 
 interface AgentsCardInterface {
   agents?: AgentInterface[];
   isPage?: boolean;
   currentPage?: number;
-  onPageChange?: any;
+  onPageChange?: Dispatch<SetStateAction<number>>;
   totalPages?: number;
 }
 

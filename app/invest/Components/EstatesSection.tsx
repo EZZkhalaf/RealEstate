@@ -4,13 +4,11 @@ import TitleAtom from "@/Components/Atoms/TitleAtom";
 import ParagraphDescription from "@/Components/Atoms/ParagraphDescription";
 import GrayLine from "@/Components/Atoms/GrayLine";
 import EstateCards from "@/Components/MainComponents/FeaturedProps/EstateCards";
-import {
-  getStaticEstates,
-  getStaticInvestementEstates,
-} from "@/API/EstatesApi";
+import { getStaticInvestementEstates } from "@/API/EstatesApi";
+import { EstateInterface } from "@/Interface/EstateInterface";
 
 const EstatesSection = () => {
-  const [estates, setEstates] = useState<any[]>([]);
+  const [estates, setEstates] = useState<EstateInterface[]>([]);
 
   useEffect(() => {
     const fetchEstates = async () => {

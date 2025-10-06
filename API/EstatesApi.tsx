@@ -4,6 +4,7 @@ import {
   getSimilarEstatesQuery,
   getStaticEstatesFilteredQuery,
 } from "./GraphQueries/queries";
+import { revalidate } from "./InvestmentApi";
 
 // export async function getStaticEstates(
 //   page: number = 1,
@@ -174,7 +175,11 @@ export async function getStaticSearchEstateFields() {
       // `http://localhost:8055/items/Estate_filtering_options?fields=*,sale_type.*`
       buildUrl(ENDPOINTS.ESTATES.estate_filtering_options, {
         fields: "*,sale_type.*",
-      })
+      }),
+      {
+        next: { revalidate: 60 },
+        cache: "force-cache",
+      }
     );
 
     const result = await response.json();

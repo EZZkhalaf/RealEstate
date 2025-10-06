@@ -1,15 +1,15 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import iconUrl from "leaflet/dist/images/marker-icon.png";
-import iconShadow from "leaflet/dist/images/marker-shadow.png";
+// import iconUrl from "leaflet/dist/images/marker-icon.png";
+// import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 const DefaultIcon = L.icon({
-  iconUrl,
-  shadowUrl: iconShadow,
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
   iconAnchor: [12, 41],
 });
 
@@ -51,7 +51,7 @@ const EstatesMap: React.FC<EstatesMapInterface> = ({
   useEffect(() => {
     if (!mapSearch) return;
 
-    const fetchCoords: any = async () => {
+    const fetchCoords = async () => {
       try {
         const res = await fetch(
           `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
@@ -89,15 +89,9 @@ const EstatesMap: React.FC<EstatesMapInterface> = ({
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       />
 
-      {/* <Marker position={center}>
-        <Popup>{mapSearch || "saudi"}</Popup>
-      </Marker> */}
-
       {markersLocations?.length > 0 &&
         markersLocations?.map((loc: any, index: number) => (
-          <Marker key={index} position={loc.coords}>
-            {/* <Popup /> */}
-          </Marker>
+          <Marker key={index} position={loc.coords}></Marker>
         ))}
 
       <ChangeView center={center} />

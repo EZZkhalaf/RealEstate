@@ -5,29 +5,23 @@ import { LocationInterface } from "@/Interface/AgentInterface";
 
 const AgentsSearchForm: React.FC<{
   location: LocationInterface[];
-  // specialties: string[];
   selectedRegion: string;
   selectedCity: string;
   setSelectedRegion: Dispatch<SetStateAction<string>>;
   setSelectedCity: Dispatch<SetStateAction<string>>;
   agentName: string;
   setName: Dispatch<SetStateAction<string>>;
-  // selectedSpecialty: string;
-  // setSelectedSpecialty: Dispatch<SetStateAction<string>>;
 }> = ({
   location,
   agentName,
   setName,
-  // specialties,
   selectedCity,
   selectedRegion,
   setSelectedCity,
   setSelectedRegion,
-  // selectedSpecialty,
-  // setSelectedSpecialty,
 }) => {
-  const regions = location?.map((l) => l.name);
-  const cities =
+  const regions: string[] = location?.map((l) => l.name);
+  const cities: string[] =
     location?.find((loc) => loc.name === selectedRegion)?.cities || [];
   return (
     <form className="flex lg:flex-row flex-col w-full items-center gap-4 px-1">

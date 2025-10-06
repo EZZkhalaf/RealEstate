@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GrayLine from "../../../Components/Atoms/GrayLine";
 import ParagraphDescription from "../../../Components/Atoms/ParagraphDescription";
 import TitleAtom from "../../../Components/Atoms/TitleAtom";
 import MarketCard from "../../../Components/Molecule/MarketAnalysis/MarketCard";
 import KeyMarketInsight from "../../../Components/Molecule/MarketAnalysis/KeyMarketInsight";
-import { getStaticMarketAnalysis } from "@/API/InvestmentApi";
 export interface MarketInterface {
   name: string;
   description: string;
@@ -16,15 +15,6 @@ export interface MarketInterface {
 const MarketAnalysis: React.FC<{ markets: MarketInterface[] }> = ({
   markets,
 }) => {
-  // const markets: MarketInterface[] = await getStaticMarketAnalysis();
-  // const [markets, setMarkets] = useState<MarketInterface[]>([]);
-  // const fetchMarkets = async () => {
-  //   const response = await getStaticMarketAnalysis();
-  //   setMarkets(response);
-  // };
-  // useEffect(() => {
-  //   fetchMarkets();
-  // }, []);
   return (
     <div className="grid grid-cols-1  w-full mt-20  max-w-7xl mb-10">
       <div className="flex flex-col items-center">

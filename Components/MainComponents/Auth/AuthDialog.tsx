@@ -1,7 +1,9 @@
 "use client";
 
 import InputGray from "@/Components/Atoms/InputGray";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { signIn, signOut } from "next-auth/react";
 
 interface AuthDialogProps {
   onClose: () => void;
@@ -14,9 +16,29 @@ const AuthDialog: React.FC<AuthDialogProps> = ({ onClose }) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-[1000]">
+        <div className="bg-white rounded-lg shadow-xl p-8 w-[400px] max-w-[90%] gap-4 text-center">
+          <h2 className="text-2xl font-bold mb-6 text-gray-800">
+            Welcome {session.user?.name}
+          </h2>
+          <p className="text-gray-600">{session.user?.email}</p>
+          <button
+            onClick={() => signOut()}
+            className="mt-4 px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-[1000]">
-      <div className="bg-white rounded-lg shadow-xl p-8 w-[400px] max-w-[90%]">
+      <div className="bg-white rounded-lg shadow-xl p-8 w-[400px] max-w-[90%] gap-4">
         {/* Title */}
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           {mode === "login" ? "Welcome Back" : "Create an Account"}
@@ -41,10 +63,10 @@ const AuthDialog: React.FC<AuthDialogProps> = ({ onClose }) => {
 
         {/* Password input */}
         <InputGray
-          type={"text"}
-          placeholder="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         {/* Action buttons */}
@@ -56,12 +78,20 @@ const AuthDialog: React.FC<AuthDialogProps> = ({ onClose }) => {
             Cancel
           </button>
           {mode === "login" ? (
-            <button
-              onClick={() => alert(`Login with ${email}:${password}`)}
-              className="flex-1 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-            >
-              Login
-            </button>
+            <div>
+              <button
+                onClick={() => signIn("google", { callbackUrl: "/" })}
+                className="flex-1 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+              >
+                Login with Google
+              </button>
+              <button
+                onClick={() => alert(`Login with ${email}:${password}`)}
+                className="flex-1 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+              >
+                Login
+              </button>
+            </div>
           ) : (
             <button
               onClick={() => alert(`Register ${name}, ${email}, ${password}`)}

@@ -1,12 +1,10 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TitleAtom from "../../../Components/Atoms/TitleAtom";
 import ParagraphDescription from "../../../Components/Atoms/ParagraphDescription";
 import GrayLine from "../../../Components/Atoms/GrayLine";
 import StrategyCard, {
   StrategyInterface,
 } from "../../../Components/Molecule/InvestmentStrategies/StrategyCard";
-import getStaticInvestmentStrategies from "@/API/InvestmentApi";
 
 const InvestmentStrategies: React.FC<{
   investmentStrategies: StrategyInterface[];

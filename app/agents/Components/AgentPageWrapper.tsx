@@ -1,5 +1,4 @@
 "use client";
-
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import GrayLine from "@/Components/Atoms/GrayLine";
 import ParagraphDescription from "@/Components/Atoms/ParagraphDescription";
@@ -8,34 +7,19 @@ import AgentsSearchForm from "@/app/agents/Components/AgentsSearchForm";
 import AgentsCards from "@/app/agents/Components/AgentsCards";
 import { useEffect, useState } from "react";
 import { LocationInterface } from "@/Interface/AgentInterface";
-import {
-  getStaticAgents,
-  getStaticLocationsAndSpecialties,
-} from "@/API/AgnetsApi";
+import { getStaticAgents } from "@/API/AgnetsApi";
 import { AgentInterface } from "@/Interface/AgentInterface";
 
-export default function AgentPageWrapper() {
-  const [name, setName] = useState<string>("");
-
-  const [currentPage, onPageChange] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(0);
-
+interface AgentPageWrapperProps {
+  locationsAndAreas: LocationInterface[];
+}
+export default function AgentPageWrapper({
+  locationsAndAreas,
+}: AgentPageWrapperProps) {
   const [saudiLocations, setSaudiLocations] = useState<LocationInterface[]>([]);
 
-  const [agentSpecialties, setAgentSpecialties] = useState<string[]>([]);
-  const [selectedRegion, setSelectedRegion] = useState<string>("");
-  const [selectedSprecialty, setSelectedSpecialty] = useState<string>("");
-
-  const [selectedCity, setSelectedCity] = useState<string>("");
-
-  const [agentsMock, setAgentsMock] = useState<AgentInterface[]>([]);
-  const limit: number = 8;
-
-  const fetchLocationsAndSpecialties = async () => {
-    const locationsAndSpecialties: [any] =
-      await getStaticLocationsAndSpecialties();
-
-    const locationsCleared2: any = locationsAndSpecialties?.map(
+  useEffect(() => {
+    const locationsCleared2: LocationInterface[] = locationsAndAreas?.map(
       ({ id, name, cities }) => ({
         id,
         name,
@@ -43,16 +27,28 @@ export default function AgentPageWrapper() {
       })
     );
     setSaudiLocations(locationsCleared2);
-  };
+  }, []);
+
+  const [name, setName] = useState<string>("");
+
+  const [currentPage, onPageChange] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
+
+  const [selectedRegion, setSelectedRegion] = useState<string>("");
+  // const [selectedSprecialty, setSelectedSpecialty] = useState<string>("");
+
+  const [selectedCity, setSelectedCity] = useState<string>("");
+
+  const [agentsMock, setAgentsMock] = useState<AgentInterface[]>([]);
+  const limit: number = 8;
 
   const fetchAgents = async () => {
     const response: any = await getStaticAgents({
       page: currentPage,
       limit,
-      region: selectedRegion,
+      // region: selectedRegion,
       city: selectedCity,
       name,
-      agentSpecialties: selectedSprecialty,
     });
     setAgentsMock(response?.response || []);
     setTotalPages((response.pagination?.totalPages as number) || 1);
@@ -69,20 +65,11 @@ export default function AgentPageWrapper() {
   useEffect(() => {
     scrollToTop();
     fetchAgents();
-  }, [
-    selectedCity,
-    selectedRegion,
-    currentPage,
-    debouncedName,
-    selectedSprecialty,
-  ]);
+  }, [selectedCity, selectedRegion, currentPage, debouncedName]);
   useEffect(() => {
     onPageChange(1);
-  }, [debouncedName, selectedCity, selectedRegion, selectedSprecialty]);
+  }, [debouncedName, selectedCity, selectedRegion]);
 
-  useEffect(() => {
-    fetchLocationsAndSpecialties();
-  }, []);
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedName(name);

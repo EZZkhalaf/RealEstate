@@ -23,20 +23,15 @@ export async function getStaticInvestmentOption() {
 export async function getStaticContactUsInfo() {
   try {
     const [contactRes, addressRes] = await Promise.all([
-      fetch(
-        // "http://localhost:8055/items/contactUsInfo"
-        buildUrl(ENDPOINTS.OWNER.contact_us_info),
-        {
-          cache: "force-cache",
-        }
-      ),
-      fetch(
-        // "http://localhost:8055/items/conactUsForm"
-        buildUrl(ENDPOINTS.OWNER.contact_us_form),
-        {
-          cache: "force-cache",
-        }
-      ),
+      fetch(buildUrl(ENDPOINTS.OWNER.contact_us_info), {
+        next: { revalidate: 60 },
+        cache: "force-cache",
+      }),
+      fetch(buildUrl(ENDPOINTS.OWNER.contact_us_form), {
+        next: { revalidate: 60 },
+
+        cache: "force-cache",
+      }),
     ]);
 
     const contactData = await contactRes.json();

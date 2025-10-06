@@ -6,9 +6,7 @@ import EstateCards from "./MainComponents/FeaturedProps/EstateCards";
 import GrayLine from "./Atoms/GrayLine";
 import { getStaticEstates } from "@/API/EstatesApi";
 import { FilteringOptions } from "./MainComponents/FeaturedProps/FilteringOptions";
-import Loading from "./Atoms/Loading";
 import { EstateInterface } from "@/Interface/EstateInterface";
-import EstatePopUpInfo from "./Molecule/Properties/EstatePopUpInfo";
 
 const FeaturedProp = () => {
   const generes: string[] = [

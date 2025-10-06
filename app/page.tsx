@@ -1,6 +1,6 @@
+export const revalidate = 60;
 import PriceHero from "@/Components/MainComponents/Hero/PriceHero";
 import Hero from "../Components/Hero";
-import HeroImage from "../public/assets/HeroImage.jpg";
 import FeaturedProp from "@/Components/FeaturedProp";
 import OurServices from "@/Components/OurServices";
 import InvestmentTools from "@/Components/InvestmentTools";
@@ -21,7 +21,9 @@ import { getStaticFooter } from "@/API/OtherApi";
 
 export default async function Home() {
   const homePageHero = await getStaticHomePageHero(false);
+
   const ourServicesData = await getStaticOurServices();
+
   const agentsData = await getStaticFeaturedAgents();
   const marketInsightData = await getStaticMarketReports();
   const marketSummaryInsightListingData = await getStaticPropertyStats();

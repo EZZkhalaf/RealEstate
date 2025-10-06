@@ -4,7 +4,6 @@ import ServicesCards from "./MainComponents/OurServices/ServicesCards";
 import ScrollAnimation from "../Animation/ScrollAnimation";
 import GrayLine from "./Atoms/GrayLine";
 import { ServiceInterface } from "@/Interface/ServicesInterface";
-
 const OurServices: React.FC<{ ourServices: any }> = ({ ourServices }) => {
   const services: ServiceInterface[] = ourServices;
   return (

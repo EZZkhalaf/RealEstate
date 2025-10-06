@@ -39,6 +39,7 @@ const EstateAllImages: React.FC<EstateAllImagesInterface> = ({
                       fill
                       sizes="(max-width: 768px) 100vw, 70vw"
                       className="object-cover rounded hover:brightness-75 transition duration-300"
+                      priority
                     />
                   </div>
                 )}
@@ -53,6 +54,7 @@ const EstateAllImages: React.FC<EstateAllImagesInterface> = ({
                         fill
                         sizes="(max-width: 768px) 50vw, 35vw"
                         className="object-cover rounded hover:brightness-75 transition duration-300"
+                        priority
                       />
                     </div>
                   )}
@@ -64,6 +66,7 @@ const EstateAllImages: React.FC<EstateAllImagesInterface> = ({
                         fill
                         sizes="(max-width: 768px) 50vw, 35vw"
                         className="object-cover rounded hover:brightness-75 transition duration-300"
+                        priority
                       />
                     </div>
                   )}

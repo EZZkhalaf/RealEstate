@@ -8,7 +8,8 @@ export async function getStaticHomePageHero(invest: boolean = false) {
         : buildUrl(ENDPOINTS.HERO.home_page_hero, { fields: "*" }),
 
       {
-        next: { revalidate: 5 },
+        next: { revalidate: 60 },
+        cache: "force-cache",
       }
     );
     const result = await response.json();

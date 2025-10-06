@@ -3,9 +3,16 @@ import HeroTitle from "../../../Components/MainComponents/Hero/HeroTitle";
 import ButtonCustomize from "../../../Components/Atoms/ButtonCustomize";
 import WebsiteAdvantages from "@/Components/MainComponents/StartInvest/WebsiteAdvantages";
 
-const StartInvestment: React.FC<{ startInvestData: any }> = ({
-  startInvestData,
-}) => {
+interface StartInvestmentInterface {
+  title: string;
+  paragraph: string;
+  button_1_placeholder: string;
+  button_2_placeholder: string;
+  website_advantages: any;
+}
+const StartInvestment: React.FC<{
+  startInvestData: StartInvestmentInterface;
+}> = ({ startInvestData }) => {
   return (
     <div className="w-full flex flex-col items-center bg-gradient-to-br from-[#0B3557] to-[#2d5f7f]">
       <div className="max-w-7xl  text-center mb-8">

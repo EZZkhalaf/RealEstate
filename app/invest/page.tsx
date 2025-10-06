@@ -1,7 +1,6 @@
 import Hero from "@/Components/Hero";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import ButtonCustomize from "@/Components/Atoms/ButtonCustomize";
-import HeroSummary from "@/Components/MainComponents/Hero/HeroSummary";
 import InvestmentOpportunities from "@/app/invest/Components/InvestmentOpportunities";
 
 import InvestmentTools from "@/Components/InvestmentTools";
@@ -10,7 +9,6 @@ import MarketAnalysis from "@/app/invest/Components/MarketAnalysis";
 import StartInvestment from "@/app/invest/Components/StartInvestment";
 import Footer from "@/Components/Footer";
 import EstatesSection from "@/app/invest/Components/EstatesSection";
-import ROICalculator from "@/Components/MainComponents/InvestmentTools/ROICalculator";
 import InvestToolsPageContainer from "@/app/invest/Components/InvestToolsPageContainer";
 import { getStaticFooter } from "@/API/OtherApi";
 import { getStaticHomePageHero } from "@/API/HeroApi";
