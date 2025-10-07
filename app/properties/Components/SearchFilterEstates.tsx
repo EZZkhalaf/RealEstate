@@ -110,12 +110,12 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
     <div className="fixed lg:top-15 top-20 left-0 w-full bg-white border-b border-gray-400 z-[50]">
       <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col items-center gap-1 border border-gray-200 rounded-lg">
         {/* Search Input */}
-        <div className="min-w-[50vw] hidden lg:flex ">
+        <div className="min-w-[50vw] max-w-7xl hidden lg:flex ">
           <InputGray
             type="text"
             placeholder="Address, neighborhood, city, Zip"
             icon="search"
-            additionalCss="border border-gray-400 w-full h-8 text-sm"
+            additionalCss="border border-gray-400 max-w-7xl h-8 text-sm"
             onChange={handleChange}
           />
         </div>
@@ -219,7 +219,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
               }
             />
             {dialogOpen === "more" && (
-              <div className="fixed  mt-2 s z-[50] w-[90vw] max-w-[350px]  ">
+              <div className="fixed  mt-2  z-[50] w-[90vw] max-w-[350px]  ">
                 <MoreFilters
                   value={filters.otherFilters || {}}
                   onChange={(updatedOtherFilters: any) =>
