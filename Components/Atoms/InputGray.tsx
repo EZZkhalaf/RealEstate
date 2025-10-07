@@ -14,15 +14,15 @@ const InputGray: React.FC<InputGrayInterface> = ({
 }) => {
   return (
     <div className=" flex-col lg:flex md:flex hidden gap-3 w-full">
-      {header && <h1 className="font-bold">{header}</h1>}
+      {header && <h1 className={`font-bold `}>{header}</h1>}
       <div
-        className={`flex justify-around items-center bg-gray-200 rounded-lg p-2  ${additionalCss} font-sm`}
+        className={`flex justify-around items-center bg-gray-100 rounded-lg p-2  ${additionalCss} font-sm`}
       >
         <input
           type={`${type}`}
           value={value}
           placeholder={`${placeholder}`}
-          className={`bg-gray-200 rounded-lg py-1 w-full border-none focus:outline-none focus:ring-0 ${additionalInputCss}`}
+          className={`bg-gray-100 rounded-lg py-1 w-full border-none focus:outline-none focus:ring-0 ${additionalInputCss}`}
           onChange={onChange}
         />
         {icon && <Icon icon={`mdi:${icon}`} height="25" width="25" />}

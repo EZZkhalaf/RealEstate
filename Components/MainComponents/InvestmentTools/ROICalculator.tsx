@@ -1,6 +1,6 @@
 //this willl be client side in the future because there will be interacting with the browser etc..
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import InputNumberAtom from "../../Atoms/InputNumberAtom";
 import TitleAtom from "../../Atoms/TitleAtom";
 import IconAtom from "../../Atoms/IconAtom";

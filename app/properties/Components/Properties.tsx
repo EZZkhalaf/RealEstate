@@ -20,7 +20,6 @@ export interface PropertiesInterface {
   currentPage: number;
   onPageChange: Dispatch<SetStateAction<number>>;
   totalPages: number;
-  // pressedEstate: EstateInterface | null;
   setPressedEstate: Dispatch<SetStateAction<EstateInterface | null>>;
 }
 
@@ -33,7 +32,6 @@ const Properties: React.FC<PropertiesInterface> = ({
   currentPage,
   onPageChange,
   totalPages,
-  // pressedEstate,
   setPressedEstate,
 }) => {
   return (

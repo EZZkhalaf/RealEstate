@@ -69,7 +69,7 @@ export interface ListSelectInterface {
   width?: string;
   height?: string;
   value?: string | number;
-  onChange?: (value: string | number) => void;
+  onChange?: any;
   years?: boolean;
 }
 

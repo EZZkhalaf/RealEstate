@@ -29,8 +29,6 @@ const InvestmentHomeContent = () => {
   const operatingExpenses = propertyValue * 0.01; // e.g. 1% of property value per year
   const totalExpenses = monthlyPayment * 12 + operatingExpenses;
 
-  const netCashFlow = grossAnnualRent - totalExpenses;
-
   return (
     <div className="grid grid-cols-1  lg:grid-cols-2 w-full  gap-10">
       <ScrollAnimation>

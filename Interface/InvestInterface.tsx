@@ -42,16 +42,16 @@ export interface WebInfoInterface {
 }
 
 export interface ROICalculatorInterface {
-  propertyValue?: number;
-  setPropertyValue?: Dispatch<SetStateAction<number>>;
-  monthlyRent?: number;
-  setMonthlyRent?: Dispatch<SetStateAction<number>>;
-  loanAmount?: number;
-  setLoanAmount?: Dispatch<SetStateAction<number>>;
-  intrestRate?: number;
-  setIntrestRate?: Dispatch<SetStateAction<number>>;
-  loanTerms?: number;
-  setLoanTerms?: Dispatch<SetStateAction<number>>;
+  propertyValue: number;
+  setPropertyValue: Dispatch<SetStateAction<number>>;
+  monthlyRent: number;
+  setMonthlyRent: Dispatch<SetStateAction<number>>;
+  loanAmount: number;
+  setLoanAmount: Dispatch<SetStateAction<number>>;
+  intrestRate: number;
+  setIntrestRate: Dispatch<SetStateAction<number>>;
+  loanTerms: number;
+  setLoanTerms: Dispatch<SetStateAction<number>>;
 }
 
 export interface SummaryROIInterface {

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 import SessionProviderWrapper from "./SessionProviderWrapper";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ReactQueryProvider from "./ReactQueryProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SessionProviderWrapper>
-          <ClientLayout>{children}</ClientLayout>
-        </SessionProviderWrapper>
+        <ReactQueryProvider>
+          <SessionProviderWrapper>
+            <ClientLayout>{children}</ClientLayout>
+          </SessionProviderWrapper>
+        </ReactQueryProvider>
+        <Toaster position="top-right" reverseOrder={false} />
       </body>
     </html>
   );

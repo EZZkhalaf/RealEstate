@@ -12,7 +12,7 @@ const SingleEstateEelement: React.FC<SingleEstateEelementInterface> = ({
   return (
     <div
       onClick={onClick}
-      className="flex flex-col w-full rounded-lg shadow-2xl group transform transition-transform h-[50vh]  duration-300 hover:scale-102"
+      className="flex flex-col w-full rounded-lg shadow-2xl group transform transition-transform h-fit  duration-300 hover:scale-102"
     >
       <CardImageArea
         estate={estate}

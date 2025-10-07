@@ -25,10 +25,10 @@ const Hero: React.FC<HeroInerface> = ({
       }
     : {};
 
-  const topTitle = heroData.topTitle || "";
-  const bottomTitle = heroData.bottomTitle || "";
+  const topTitle = heroData.topTitle || "Welcome to Real";
+  const bottomTitle = heroData.bottomTitle || "Estate Site";
 
-  const paragraph = heroData.paragraph || "";
+  const paragraph = heroData.paragraph || "Invest and buy or sell in estates";
   const summary = heroData.heroSummary || [];
   return (
     <div

@@ -1,7 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
+
 interface InputNumberAtomInterface {
   title: string;
   value: number;
-  setValue: (value: number) => void;
+  setValue: Dispatch<SetStateAction<number>>;
 }
 
 const InputNumberAtom: React.FC<InputNumberAtomInterface> = ({

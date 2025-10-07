@@ -6,36 +6,19 @@ import GrayLine from "@/Components/Atoms/GrayLine";
 import EstateCards from "@/Components/MainComponents/FeaturedProps/EstateCards";
 import { getStaticInvestementEstates } from "@/API/EstatesApi";
 import { EstateInterface } from "@/Interface/EstateInterface";
+import { useQuery } from "@tanstack/react-query";
 
 const EstatesSection = () => {
-  const [estates, setEstates] = useState<EstateInterface[]>([]);
-
-  useEffect(() => {
-    const fetchEstates = async () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["estates"],
+    queryFn: async () => {
       const data: any = await getStaticInvestementEstates();
 
-      const parsed = data?.map((estate: any) => ({
-        ...estate,
-        features: Array.isArray(estate.features) ? estate.features : [],
-        special_props: Array.isArray(estate.special_props)
-          ? estate.special_props
-          : [],
-        actions: Array.isArray(estate.actions) ? estate.actions : [],
-        stats: estate.stats || {},
-        listing_info: estate.listing_info || {},
-        image: Array.isArray(estate.image)
-          ? estate.image
-          : estate.image
-          ? [estate.image]
-          : [],
-      }));
+      return data;
+    },
+  });
 
-      setEstates(parsed);
-    };
-
-    fetchEstates();
-  }, []);
-
+  const estates: EstateInterface[] = data ?? [];
   return (
     <>
       <div className="flex flex-col items-center w-full max-w-7xl mt-8 ">

@@ -1,10 +1,4 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import InputGray from "../../../Components/Atoms/InputGray";
 import TriggerButtons from "../../../Components/Atoms/TriggerButtons";
 import ForSale from "../../../Components/Molecule/SearchFilterEstates/ForSale";
@@ -14,7 +8,6 @@ import HomeType from "../../../Components/Molecule/SearchFilterEstates/HomeType"
 import MoreFilters from "../../../Components/Molecule/SearchFilterEstates/MoreFilters";
 import debounce from "lodash.debounce";
 import { getStaticSearchEstateFields } from "@/API/EstatesApi";
-import { FiltersInterface } from "@/Interface/ServicesInterface";
 import { SearchFilterEstatesInterface } from "@/Interface/EstateInterface";
 
 const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
@@ -115,20 +108,20 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
 
   return (
     <div className="fixed lg:top-15 top-20 left-0 w-full bg-white border-b border-gray-400 z-[50]">
-      <div className="max-w-7xl mx-auto px-4 py-4 grid lg:grid-cols-2 md:grid-cols-2 gric-cols-1 gap-4">
+      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col items-center gap-1 border border-gray-200 rounded-lg">
         {/* Search Input */}
-        <div className="w-full hidden lg:flex ">
+        <div className="min-w-[50vw] hidden lg:flex ">
           <InputGray
             type="text"
             placeholder="Address, neighborhood, city, Zip"
             icon="search"
-            additionalCss="border border-gray-400 w-full"
+            additionalCss="border border-gray-400 w-full h-8 text-sm"
             onChange={handleChange}
           />
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap md:flex-nowrap gap-2 md:gap-4 items-center w-full md:w-2/3 ">
+        <div className="flex lg:justify-between md:justify-between mx-auto flex-wrap  *:gap-2 md:gap-4 items-center  ">
           <div className="relative">
             <TriggerButtons
               text="Beds & Baths"
@@ -196,7 +189,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
             )}
           </div>
           {/* Price */}
-          <div className="relative hidden lg:flex md:flex">
+          <div className="relative  lg:flex md:flex">
             <TriggerButtons
               text="Price"
               icon="arrow-down"
@@ -204,19 +197,18 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
                 setDialogOpen(dialogOpen === "price" ? null : "price")
               }
             />
+            {dialogOpen === "price" && (
+              <div className="absolute top-full mt-2 z-[50] w-fit max-w-[350px] l">
+                <Price
+                  options={priceRange}
+                  value={filters?.priceRange}
+                  onChange={(priceRange: any) =>
+                    setFilters((prev) => ({ ...prev, priceRange }))
+                  }
+                />
+              </div>
+            )}
           </div>
-          {dialogOpen === "price" && (
-            <div className="absolute top-full mt-2 z-[50] w-fit max-w-[350px] left-1/4 -translate-x-1/2  md:left-auto md:translate-x-0">
-              <Price
-                options={priceRange}
-                value={filters?.priceRange}
-                onChange={(priceRange: any) =>
-                  setFilters((prev) => ({ ...prev, priceRange }))
-                }
-              />
-            </div>
-          )}
-
           {/* More Filters */}
           <div className="relative">
             <TriggerButtons
@@ -226,20 +218,20 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
                 setDialogOpen(dialogOpen === "more" ? null : "more")
               }
             />
+            {dialogOpen === "more" && (
+              <div className="fixed  mt-2 s z-[50] w-[90vw] max-w-[350px]  ">
+                <MoreFilters
+                  value={filters.otherFilters || {}}
+                  onChange={(updatedOtherFilters: any) =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      otherFilters: updatedOtherFilters,
+                    }))
+                  }
+                />
+              </div>
+            )}
           </div>
-          {dialogOpen === "more" && (
-            <div className="absolute top-full mt-2 z-[50] w-[90vw] max-w-[350px] left-1/2 -translate-x-1/2 md:right-0 md:left-auto md:translate-x-0">
-              <MoreFilters
-                value={filters.otherFilters || {}}
-                onChange={(updatedOtherFilters: any) =>
-                  setFilters((prev) => ({
-                    ...prev,
-                    otherFilters: updatedOtherFilters,
-                  }))
-                }
-              />
-            </div>
-          )}
         </div>
       </div>
     </div>
