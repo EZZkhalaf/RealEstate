@@ -216,22 +216,23 @@ const EstatePopUpInfo: React.FC<EstatePopUpInfoInterface> = ({
             />
           ) : (
             <div className="flex flex-col px-4 pb-20 lg:pb-4">
-              <div className="flex flex-col items-start mb-3">
-                <TitleAtom
-                  textSizeLarge="2xl"
-                  title={estate?.title || "Buy Sell Property In Saudi"}
-                />
+              {/* <div className="flex flex-col items-start mb-3"> */}
+              <TitleAtom
+                textSizeLarge="2xl"
+                title={estate?.title || "Buy Sell Property In Saudi"}
+              />
 
-                <ParagraphDescription
-                  margin={false}
-                  description={`View the full range of property features, including room details, unique amenities, and highlights that make this estate stand out from others.`}
-                />
+              <p className="text-sm sm:text-md text-gray-500 ">
+                {estate?.estate_city?.name}.{estate?.estate_city?.area?.name}.
+                Saudi Arabia
+              </p>
+              <ParagraphDescription
+                margin={false}
+                description={`View the full range of property features, including room details, unique amenities, and highlights that make this estate stand out from others.`}
+                textAlignment="text-start mt-5"
+              />
 
-                <p className="text-sm sm:text-md text-gray-500">
-                  {estate?.estate_city?.name}.{estate?.estate_city?.area?.name}.
-                  Saudi Arabia
-                </p>
-              </div>
+              {/* </div> */}
 
               <EstateImages
                 images={estate?.images || []}

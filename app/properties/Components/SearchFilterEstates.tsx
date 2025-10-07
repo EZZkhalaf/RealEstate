@@ -15,13 +15,7 @@ import MoreFilters from "../../../Components/Molecule/SearchFilterEstates/MoreFi
 import debounce from "lodash.debounce";
 import { getStaticSearchEstateFields } from "@/API/EstatesApi";
 import { FiltersInterface } from "@/Interface/ServicesInterface";
-
-interface SearchFilterEstatesInterface {
-  // mapSearch?: string;
-  setMapSearch: Dispatch<SetStateAction<string>>;
-  filters: FiltersInterface;
-  setFilters: React.Dispatch<React.SetStateAction<FiltersInterface>>;
-}
+import { SearchFilterEstatesInterface } from "@/Interface/EstateInterface";
 
 const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   // mapSearch,
@@ -120,10 +114,10 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
   };
 
   return (
-    <div className="fixed top-15 left-0 w-full bg-white border-b border-gray-400 z-[50]">
+    <div className="fixed lg:top-15 top-20 left-0 w-full bg-white border-b border-gray-400 z-[50]">
       <div className="max-w-7xl mx-auto px-4 py-4 grid lg:grid-cols-2 md:grid-cols-2 gric-cols-1 gap-4">
         {/* Search Input */}
-        <div className="w-full ">
+        <div className="w-full hidden lg:flex ">
           <InputGray
             type="text"
             placeholder="Address, neighborhood, city, Zip"
@@ -190,7 +184,7 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
               }
             />
             {dialogOpen === "homeType" && (
-              <div className="absolute top-full mt-2 z-[50] w-[200px] md:w-[250px] lg:w-[300px]">
+              <div className="absolute mt-2 z-[50] w-[300px] md:w-[250px] lg:w-[300px]">
                 <HomeType
                   options={homeTypes}
                   value={filters?.homeType || null}
@@ -210,18 +204,18 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
                 setDialogOpen(dialogOpen === "price" ? null : "price")
               }
             />
-            {dialogOpen === "price" && (
-              <div className="absolute top-full mt-2 z-[50] w-[200px] md:w-[250px] lg:w-[300px]">
-                <Price
-                  options={priceRange}
-                  value={filters?.priceRange}
-                  onChange={(priceRange: any) =>
-                    setFilters((prev) => ({ ...prev, priceRange }))
-                  }
-                />
-              </div>
-            )}
           </div>
+          {dialogOpen === "price" && (
+            <div className="absolute top-full mt-2 z-[50] w-fit max-w-[350px] left-1/4 -translate-x-1/2  md:left-auto md:translate-x-0">
+              <Price
+                options={priceRange}
+                value={filters?.priceRange}
+                onChange={(priceRange: any) =>
+                  setFilters((prev) => ({ ...prev, priceRange }))
+                }
+              />
+            </div>
+          )}
 
           {/* More Filters */}
           <div className="relative">
@@ -232,20 +226,20 @@ const SearchFilterEstates: React.FC<SearchFilterEstatesInterface> = ({
                 setDialogOpen(dialogOpen === "more" ? null : "more")
               }
             />
-            {dialogOpen === "more" && (
-              <div className="absolute top-full mt-2 z-[50] w-[250px] md:w-[300px] lg:w-[350px]">
-                <MoreFilters
-                  value={filters.otherFilters || {}}
-                  onChange={(updatedOtherFilters: any) =>
-                    setFilters((prev) => ({
-                      ...prev,
-                      otherFilters: updatedOtherFilters,
-                    }))
-                  }
-                />
-              </div>
-            )}
           </div>
+          {dialogOpen === "more" && (
+            <div className="absolute top-full mt-2 z-[50] w-[90vw] max-w-[350px] left-1/2 -translate-x-1/2 md:right-0 md:left-auto md:translate-x-0">
+              <MoreFilters
+                value={filters.otherFilters || {}}
+                onChange={(updatedOtherFilters: any) =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    otherFilters: updatedOtherFilters,
+                  }))
+                }
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

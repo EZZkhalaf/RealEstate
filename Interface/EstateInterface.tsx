@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { ListingByAgentInterface } from "./AgentInterface";
+import { FiltersInterface } from "./ServicesInterface";
 
 export interface GeneresInterface {
   generes: string[];
@@ -137,4 +138,11 @@ export interface SubmitButtonInterface {
   submitButtonCss?: string;
   onClick?: any;
   noPadding?: boolean;
+}
+
+export interface SearchFilterEstatesInterface {
+  // mapSearch?: string;
+  setMapSearch: Dispatch<SetStateAction<string>>;
+  filters: FiltersInterface;
+  setFilters: React.Dispatch<React.SetStateAction<FiltersInterface>>;
 }

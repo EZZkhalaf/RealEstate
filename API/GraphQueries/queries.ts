@@ -128,6 +128,11 @@ export const getStaticEstatesFilteredQuery = gql`
         }
       }
     }
+    estateCard_aggregated(filter: $filter) {
+      count {
+        id
+      }
+    }
   }
 `;
 

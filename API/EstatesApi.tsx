@@ -141,13 +141,14 @@ export async function getStaticEstatesFiltered(
     offset,
     sort: sortOption,
   });
-
+  console.log(data);
+  const totalItems = data.estateCard_aggregated?.[0]?.count?.id || 0;
   return {
     data: data.estateCard,
     pagination: {
       currentPage: page,
-      totalItems: data.estateCard.length,
-      totalPages: Math.ceil(data.estateCard.length / limit),
+      totalItems,
+      totalPages: Math.ceil(totalItems / limit),
       limit,
     },
   };

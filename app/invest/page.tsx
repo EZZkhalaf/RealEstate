@@ -2,7 +2,6 @@ import Hero from "@/Components/Hero";
 import ScrollAnimation from "@/Animation/ScrollAnimation";
 import ButtonCustomize from "@/Components/Atoms/ButtonCustomize";
 import InvestmentOpportunities from "@/app/invest/Components/InvestmentOpportunities";
-
 import InvestmentTools from "@/Components/InvestmentTools";
 import InvestmentStrategies from "@/app/invest/Components/InvestmentStrategies";
 import MarketAnalysis from "@/app/invest/Components/MarketAnalysis";
@@ -38,8 +37,8 @@ export default async function Invest() {
             <div className="flex md:flex-row flex-col lg:flex-row gap-3 w-full px-4">
               <ButtonCustomize
                 text="Find Investment Property"
-                color="#22C55E" // green-500
-                hoverColor="#16A34A" // green-600
+                color="#22C55E" //green
+                hoverColor="#16A34A"
                 textColor="#FFFFFF"
                 hoverTextColor="#FFFFFF"
               />

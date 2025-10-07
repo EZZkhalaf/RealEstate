@@ -17,7 +17,7 @@ const FeatureElementListing: React.FC<{ estate: EstateInterface }> = ({
   return (
     <div className="grid grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-3 mt-3">
       {estate?.estate_features?.blocks
-        ?.slice(0, 4)
+        ?.slice(0, 3)
         .map((e: any, index: number) => (
           <FeatureElement key={index} text={e.data.text} />
         ))}
@@ -50,13 +50,49 @@ const CardBodyButtons: React.FC<{ viewDetailsClick: (e: any) => void }> = ({
   );
 };
 
+// const CardBodyArea: React.FC<CardBodyInterface> = ({
+//   estate,
+//   viewDetailsClick,
+// }) => {
+//   return (
+//     <div>
+//       <div className="flex flex-col h-full px-4 py-6 rounded-lg transform transition-transform gap-2 duration-300 ">
+//         <CardTitle title={estate.title} />
+//         <CardLocation
+//           location={
+//             estate?.estate_city?.area.name + ", " + estate?.estate_city?.name
+//           }
+//         />
+//         <div className="flex items-center gap-4 text-gray-600 mt-2 text-sm">
+//           <div className="flex flex-row gap-1 ">
+//             <p className="font-bold text-md">{estate.beds}</p>
+//             beds
+//           </div>
+//           <div className="flex flex-row gap-1 ">
+//             <p className="font-bold text-md">{estate.baths}</p>
+//             baths
+//           </div>
+//           <div className="flex flex-row gap-1 ">
+//             <p className="font-bold text-md">{estate.area}</p>
+//             sqft
+//           </div>
+//         </div>
+
+//         <FeatureElementListing estate={estate} />
+
+//         <CardBodyButtons viewDetailsClick={viewDetailsClick} />
+//       </div>
+//     </div>
+//   );
+// };
+
 const CardBodyArea: React.FC<CardBodyInterface> = ({
   estate,
   viewDetailsClick,
 }) => {
   return (
-    <div>
-      <div className="flex flex-col  px-4 py-6 rounded-lg transform transition-transform gap-2 duration-300 ">
+    <div className="h-full flex flex-col">
+      <div className="flex flex-col flex-grow px-4 py-6 rounded-lg transform transition-transform gap-2 duration-300">
         <CardTitle title={estate.title} />
         <CardLocation
           location={
@@ -64,15 +100,15 @@ const CardBodyArea: React.FC<CardBodyInterface> = ({
           }
         />
         <div className="flex items-center gap-4 text-gray-600 mt-2 text-sm">
-          <div className="flex flex-row gap-1 ">
+          <div className="flex flex-row gap-1">
             <p className="font-bold text-md">{estate.beds}</p>
             beds
           </div>
-          <div className="flex flex-row gap-1 ">
+          <div className="flex flex-row gap-1">
             <p className="font-bold text-md">{estate.baths}</p>
             baths
           </div>
-          <div className="flex flex-row gap-1 ">
+          <div className="flex flex-row gap-1">
             <p className="font-bold text-md">{estate.area}</p>
             sqft
           </div>
@@ -80,6 +116,10 @@ const CardBodyArea: React.FC<CardBodyInterface> = ({
 
         <FeatureElementListing estate={estate} />
 
+        {/* Spacer pushes the buttons down */}
+        <div className="flex-grow" />
+
+        {/* Buttons stay at bottom */}
         <CardBodyButtons viewDetailsClick={viewDetailsClick} />
       </div>
     </div>

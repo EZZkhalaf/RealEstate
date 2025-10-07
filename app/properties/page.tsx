@@ -41,31 +41,64 @@ export default function PropertiesPage() {
     });
   };
 
-  const fetchEstates = async () => {
-    const response = await getStaticEstatesFiltered(
-      currentPage,
-      filters?.homeType || "All Properties",
-      filters?.sort || "Low to High",
-      filters
-    );
+  // const fetchEstates = async () => {
+  //   const response = await getStaticEstatesFiltered(
+  //     currentPage,
+  //     filters?.homeType || "All Properties",
+  //     filters?.sort || "Low to High",
+  //     filters
+  //   );
 
-    setEstates(response.data);
-    const locations = response.data
-      ?.filter((estate: any) => estate.latitude && estate.longitude)
-      .map((estate: any) => ({
-        coords: [parseFloat(estate.latitude), parseFloat(estate.longitude)] as [
-          number,
-          number
-        ],
-      }));
-    setLocations(locations);
-    setTotalPages(response?.pagination?.totalPages as number);
-  };
+  //   setEstates(response.data);
+  //   const locations = response.data
+  //     ?.filter((estate: any) => estate.latitude && estate.longitude)
+  //     .map((estate: any) => ({
+  //       coords: [parseFloat(estate.latitude), parseFloat(estate.longitude)] as [
+  //         number,
+  //         number
+  //       ],
+  //     }));
+  //   setLocations(locations);
+  //   setTotalPages(response?.pagination?.totalPages as number);
+  // };
+
+  // useEffect(() => {
+  //   fetchEstates();
+  //   scrollToTop();
+  // }, [filters, currentPage]);
+
   useEffect(() => {
+    // If filters change, always reset to page 1
+    onPageChange(1);
+  }, [filters]);
+
+  useEffect(() => {
+    // Fetch estates whenever page or filters change
+    const fetchEstates = async () => {
+      const response = await getStaticEstatesFiltered(
+        currentPage,
+        filters?.homeType || "All Properties",
+        filters?.sort || "Low to High",
+        filters
+      );
+
+      setEstates(response.data);
+      const locations = response.data
+        ?.filter((estate: any) => estate.latitude && estate.longitude)
+        .map((estate: any) => ({
+          coords: [
+            parseFloat(estate.latitude),
+            parseFloat(estate.longitude),
+          ] as [number, number],
+        }));
+
+      setLocations(locations);
+      setTotalPages(response?.pagination?.totalPages as number);
+    };
+
     fetchEstates();
     scrollToTop();
-  }, [filters, currentPage]);
-
+  }, [currentPage, filters]);
   return (
     <div className="flex flex-col mt-22 sm:mt-15 w-full">
       <SearchFilterEstates
