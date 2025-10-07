@@ -22,12 +22,12 @@ import {
   XCircle,
   AlertTriangle,
 } from "lucide-react";
-import ViewButtonAtom from "@/Components/Atoms/ViewButtonAtom";
 import { formatDistanceToNow } from "date-fns";
 import { IconComponent } from "./Transaction_Card/IconComponent";
 import { TransactionFeatures } from "./Transaction_Card/TransactionFeatures";
 import { IconWithText } from "./Transaction_Card/IconWithText";
 import { TransactionInterface } from "./Interface/transactionInterface";
+import ViewButtonAtom from "./Transaction_Card/ViewButtonAtom";
 
 const Transaction_Card: React.FC<{ transaction: TransactionInterface }> = ({
   transaction,

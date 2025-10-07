@@ -4,6 +4,7 @@ export async function getStaticFooter() {
   try {
     const [top, bottom] = await Promise.all([
       fetch(buildUrl(ENDPOINTS.FOOTER.footer_up_data), {
+        next: { revalidate: 100 },
         cache: "force-cache",
       }),
       fetch(buildUrl(ENDPOINTS.FOOTER.footer_terms_and_policies), {

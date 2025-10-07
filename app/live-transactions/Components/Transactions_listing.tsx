@@ -16,10 +16,6 @@ const Transactions_listing = () => {
   const [transactions, setTransactions] = useState<TransactionInterface[]>();
 
   useEffect(() => {
-    socket.on("connect", () => {
-      console.log("✅ Connected to WS server");
-    });
-
     socket.on("allTransactions", (data: any[]) => {
       console.log("Received previous transactions:", data);
       setTransactions(data);
@@ -35,7 +31,7 @@ const Transactions_listing = () => {
   }, []);
 
   return (
-    <div className="mt-20 flex flex-col w-full  max-w-7xl mb-5">
+    <div className="mt-23 flex flex-col w-full  max-w-7xl mb-5">
       <TitleAtom title="Latest Transactions" />
       <ParagraphDescription
         description={`The transaction cards section is designed to display key details about each real estate deal in a clear and structured way. Each card highlights the property type, title, and location, along with important information such as price, size, and payment options. Visual icons are used to represent different property types and statuses, making the data easy to scan at a glance. The layout is responsive, ensuring the content looks clean and organized on both small and large screens. This section helps users quickly understand the status and value of each transaction without having to read through long details.`}

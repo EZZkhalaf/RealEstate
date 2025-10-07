@@ -46,7 +46,6 @@ export default function AgentPageWrapper({
     const response: any = await getStaticAgents({
       page: currentPage,
       limit,
-      // region: selectedRegion,
       city: selectedCity,
       name,
     });
